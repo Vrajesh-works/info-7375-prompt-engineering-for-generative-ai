@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "error": "[art] command failed:\n/Users/salonimathure/brutalist.art/.venv/bin/python3 /Users/salonimathure/brutalist.art/runtime/qc/final_frame_check.py /Users/salonimathure/Desktop/week-01-video/reel --mp4 /Users/salonimathure/brutalist.art/renders/.seeded-not-settled-candidate-i3dwzgo7/candidate.mp4 --sheet /Users/salonimathure/Desktop/week-01-video/reel/clips/_work/resolved-sheet.json\n",
+  "at": "2026-09-27T14:52:52.964878-04:00"
+}

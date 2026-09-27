@@ -1,0 +1,26 @@
+{
+  "scene": "scenes",
+  "snapshots": 19,
+  "errors": 0,
+  "warnings": 1,
+  "safe_area": [
+    6.3,
+    3.4
+  ],
+  "min_overlap": 0.12,
+  "findings": [
+    {
+      "type": "OFF_SAFE_AREA",
+      "severity": "WARN",
+      "text": "allthree,seed7",
+      "t": 0.53,
+      "snap": 0,
+      "box": [
+        -1.88,
+        2.95,
+        1.88,
+        3.45
+      ]
+    }
+  ]
+}

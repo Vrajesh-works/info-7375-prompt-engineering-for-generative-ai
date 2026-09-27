@@ -1,0 +1,304 @@
+{
+  "metadata": {
+    "title": "Seeded, Not Settled",
+    "slug": "seeded-not-settled",
+    "topic": "INFO 7375 - CHAPTER 1",
+    "register": "Teardown",
+    "audience": "INFO 7375 students",
+    "brand": "claude",
+    "engine": "kokoro",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "greeting": "Hola, Liam",
+    "source": "Chapter 1 - Randomness and first prompts; lessons/01-randomness-and-first-prompts/code/main.py",
+    "student": "Saloni Satish Mathure",
+    "note": "Every figure is real output of the unmodified main.py (logits [1,2,3], count 1000), captured 2026-09-27 in run-A/B/C.txt and re-checked by evidence/verify_claims.py (7/7). B01's generator diagram is the only constructed element and carries a CONSTRUCTED ILLUSTRATION label on screen. No Claude transcript appears in the video.",
+    "tags": [
+      "seed",
+      "reproducibility",
+      "sampling",
+      "INFO 7375",
+      "Chapter 1"
+    ],
+    "build": {
+      "at": "2026-09-27T14:49:22",
+      "cut": "review",
+      "filled": 9,
+      "of": 9,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "narration_text": "Hola, this is Liam, in for Bear. A seed makes a run repeatable. It does not make the answer true. Chapter One's own code prints the numbers that show the difference.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hola, Liam",
+            "topic": "INFO 7375 - CHAPTER 1",
+            "segment": "Seeded, Not Settled",
+            "command": "I'm on Chapter 1 and I keep seeing people treat a seeded run as if it settled something. Can you help me (1) show what the seed actually sets in this code, (2) use the real printed counts to find a case where the seeded run is reproducibly off the expected value, and (3) say plainly what reproducibility does and does not establish?",
+            "runningText": "reading main.py...",
+            "folderLabel": "@NikBearBrown",
+            "output": [
+              "the seed sets one generator, locally",
+              "expected 665.24, observed 630",
+              "the same miss, every run"
+            ]
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-27T18:23:31.406252+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 16,
+      "actual_duration_s": 9.19,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 9.208333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T14:49:22"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "MECHANISM",
+      "narration_text": "Line nineteen of main dot py. The seed is a default argument, seven, not a constant at the top of the file. Line twenty-two is the part that matters: random dot Random, capital R, builds its own generator object. It does not seed Python's global random state. So the reproducibility is local to this one function. Same starting state, same sequence of draws, same choices in the same order. The diagram of the generator is constructed, and it is labelled that way on screen. The two lines of source are not.",
+      "visual_intent": "source lines 19 and 22, then a labelled constructed diagram: seed 7 feeds a generator box which emits a fixed draw sequence",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "fade",
+        "manim": {
+          "scene_class": "B01_SeedMechanism",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 26,
+      "actual_duration_s": 30.27,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 30.291666666666668,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim:B01_SeedMechanism",
+        "at": "2026-09-27T14:49:22"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "EVIDENCE - SAME SEED",
+      "narration_text": "Run it twice, unchanged, piping each run to a file. Counts of one hundred and two, two hundred and sixty-eight, six hundred and thirty. Both times. Diff returns nothing at all. Not similar. Byte for byte identical.",
+      "visual_intent": "run-A.txt and run-B.txt side by side, then the diff returning empty",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "fade",
+        "manim": {
+          "scene_class": "B02_SameSeed",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 20,
+      "actual_duration_s": 12.1,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 12.125,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim:B02_SameSeed",
+        "at": "2026-09-27T14:49:22"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "EVIDENCE - DIFFERENT SEED",
+      "narration_text": "Change seven to ten and the counts move. Six hundred and thirty becomes six hundred and ninety. So the seed is doing what we said, and nothing else in the run is quietly fixed. Worth noticing what did not change: the probabilities are identical to the last digit, because the function that computes them never touches the generator.",
+      "visual_intent": "seed 7 transforms to seed 10; the three counts move; probabilities unchanged",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "fade",
+        "manim": {
+          "scene_class": "B03_DifferentSeed",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 22,
+      "actual_duration_s": 17.09,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 17.125,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim:B03_DifferentSeed",
+        "at": "2026-09-27T14:49:22"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "THE TURN",
+      "narration_text": "Now the part that matters. The probability for token two is zero point six six five two. Times a thousand draws, that predicts six hundred sixty-five point two four occurrences. It occurred six hundred and thirty times. Short by thirty-five. And with seed seven it is short by exactly thirty-five point two four every single time you run it. The seed reproduced the discrepancy perfectly. It did not detect it, flag it, or fix it.",
+      "visual_intent": "p times 1000 resolves to 665.24; a number line; observed 630 lands; the gap bar draws in at -35.24",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "fade",
+        "manim": {
+          "scene_class": "B04_ExpectedVsObserved",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 30,
+      "actual_duration_s": 21.8,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 21.833333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim:B04_ExpectedVsObserved",
+        "at": "2026-09-27T14:49:22"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "CONSTRAINT",
+      "narration_text": "One more thing, because it limits what the gap can tell you. All three deviations — plus twelve, plus twenty-three, minus thirty-five — sum to zero. They have to. The counts total a thousand and the probabilities total one. So these are not three independent pieces of evidence about the sampler. They are one observation wearing three hats.",
+      "visual_intent": "table of expected, observed, gap for all three tokens; rule; the sum resolving to 0.00",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "fade",
+        "manim": {
+          "scene_class": "B05_GapsSumToZero",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 24,
+      "actual_duration_s": 17.41,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 17.416666666666668,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim:B05_GapsSumToZero",
+        "at": "2026-09-27T14:49:22"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "VERDICT",
+      "narration_text": "Let's recap with Claude. The seed sets one generator object, locally, and fixes the draw sequence. Two runs at seed seven are byte identical; seed ten moves the counts and leaves the probabilities alone. Token two was predicted at six hundred sixty-five point two four and observed at six hundred and thirty, a shortfall reproduced exactly on every seeded run. Here is what this does not establish: it does not establish that the answer is right. A gap that size is ordinary sampling noise at a thousand draws, and two seeds cannot tell you otherwise. Repeatability is a property of the process. Truth is a property of the claim.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "fade",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "title": "Seeded, Not Settled",
+            "artifactLines": [
+              "The seed fixes one generator's draw sequence, locally",
+              "Seed 7 twice: byte identical. Seed 10: counts move, probabilities do not",
+              "Expected 665.24, observed 630, short by 35.24 on every seeded run",
+              "Does not establish that the answer is correct"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-09-27T18:26:36.115982+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 34,
+      "lead_silence_s": 0.5,
+      "actual_duration_s": 34.72,
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "render_duration_s": 34.75,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-09-27T14:49:22"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "HANDOFF",
+      "narration_text": "I've just seen a seeded run miss its expected count by 35 and reproduce that miss exactly. I understand the seed fixes the draw sequence. Can you walk me through (1) how to work out the standard deviation of a count like this from the binomial, (2) how many seeds I'd need before the spread told me anything about the sampler, and (3) what a real test of a sampler looks like versus what I did here?",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "INFO 7375 - CHAPTER 1",
+            "segment": "Seeded, Not Settled",
+            "command": "I've just seen a seeded run miss its expected count by 35 and reproduce that miss exactly. I understand the seed fixes the draw sequence. Can you walk me through (1) how to work out the standard deviation of a count like this from the binomial, (2) how many seeds I'd need before the spread told me anything about the sampler, and (3) what a real test of a sampler looks like versus what I did here?",
+            "runningText": "paste this into Claude...",
+            "folderLabel": "@NikBearBrown"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-09-27T18:29:10.186701+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 24,
+      "actual_duration_s": 20.31,
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "render_duration_s": 20.333333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T14:49:22"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "OUTRO",
+      "narration_text": "Seeded, Not Settled. At Nik Bear Brown.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "fade",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Seeded, Not Settled",
+            "slug": "seeded-not-settled"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": "2026-09-27T18:29:46.715945+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 7,
+      "actual_duration_s": 3.03,
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "render_duration_s": 3.0416666666666665,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-09-27T14:49:22"
+      }
+    }
+  ]
+}

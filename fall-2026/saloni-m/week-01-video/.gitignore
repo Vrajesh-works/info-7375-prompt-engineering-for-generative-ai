@@ -1,0 +1,10 @@
+# local tool settings and OS junk
+.claude/
+.DS_Store
+__pycache__/
+# regenerable build caches (rebuilt by ./art run)
+reel/media/
+reel/clips/
+reel/manim/
+reel/mp4/
+reel/seeded-not-settled-slate.mp4
