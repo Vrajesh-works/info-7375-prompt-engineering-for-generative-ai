@@ -19,6 +19,10 @@ a fluent answer is evidence about the corpus, not about the world.
 `captions.srt` ships alongside as a toggle-able sidecar. (`week-01-pretraining-target-slate.mp4` is the
 same cut without captions.)
 
+> **The video is submitted on Canvas, not in this GitHub folder.** The course repository's
+> `.gitignore` excludes all `.mp4` files ("Keep generated audio/video out of Git"), so the
+> mp4 travels only in `Verma_Akshit_INFO7375_Week01_Video.zip`.
+
 ---
 
 **Disclosures shown on screen:** the narration is a **synthetic voice** (Kokoro `am_onyx`), not
