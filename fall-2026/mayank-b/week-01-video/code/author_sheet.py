@@ -30,7 +30,7 @@ beats = [
        "Does that make them more correct? We ran the chapter's own code to find out.",
        "ClaudeComposerAsk",
        {"greeting": "Hola, Liam", "topic": "CHAPTER 1 · TEMPERATURE", "segment": TITLE.rstrip('.'),
-        "command": "Does turning temperature down make an answer more accurate?",
+        "command": "Does turning the temperature down of the model make an answer more accurate?",
         "runningText": "running the chapter's code offline, no model call…",
         "output": ["$ python3 run_temperature.py",
                    "T = 0.5   top outcome  0.8668",
@@ -67,17 +67,28 @@ beats = [
         {"at": "Scores aren't", "event": "a 'chance?' column appears beside the bars with a question mark"},
         {"at": "softmax", "event": "label 'softmax: scores → chances that add up to 100%' draws in under the bars"},
         {"at": "draws", "event": "'Paris' lifts out of the list into the blank (terracotta)"}]),
-  beat("B02", "framework — softmax in three moves",
-       "Three options, with constructed toy scores: one, two, three. Softmax turns scores into chances in three moves. "
-       "One: raise e to each score. Two point seven, seven point four, twenty point one. Bigger scores get much bigger. "
+  beat("B02", "framework — softmax, the formula, and e",
+       "Let's take three sample values as scores: one, two, three. These are constructed toy scores, not from a real model. "
+       "Softmax is the formula that turns scores into chances: each option's weight, e to its score, divided by the total weight. "
+       "Here, e is a fixed number, about two point seven one eight. Raising e to any score gives a positive number, "
+       "and bigger scores grow much faster. Any base above one would keep the order; e is the standard choice because it keeps the math simple.",
+       "TcSoftmaxIntro", {"sparkLine": "Softmax: scores into chances."},
+       [{"at": "three sample values", "event": "three score chips z = 1, 2, 3; CONSTRUCTED TOY SCORES stamp"},
+        {"at": "Softmax is the formula", "event": "the softmax equation, typeset, large"},
+        {"at": "divided by the total", "event": "labels: top = your weight · bottom = everyone's total"},
+        {"at": "Here, e", "event": "card: e ≈ 2.71828"},
+        {"at": "positive number", "event": "row e^-1 … e^3 = 0.37, 1, 2.72, 7.39, 20.09 with bars: always positive, grows fast"},
+        {"at": "Any base", "event": "note: any base above 1 keeps the order; e is the standard choice"}]),
+  beat("B02B", "worked example — softmax in three moves",
+       "Now the example. One: raise e to each score. Two point seven, seven point four, twenty point one. "
        "Two: add them up. Thirty point two. Three: divide each weight by the total. "
        "Nine, twenty-four point five, and sixty-six point five percent.",
        "TcScoresToOdds", {"sparkLine": "Softmax in three moves."},
-       [{"at": "one, two, three", "event": "table: option 0/1/2 with score z = 1, 2, 3; CONSTRUCTED TOY SCORES stamp"},
-        {"at": "raise e", "event": "MOVE 1: weight column fills, e^z counters run to 2.72 / 7.39 / 20.09"},
+       [{"at": "Now the example", "event": "table: option 0/1/2 with score z = 1, 2, 3"},
+        {"at": "raise e", "event": "MOVE 1: weight column fills, 2.72 / 7.39 / 20.09"},
         {"at": "add them up", "event": "MOVE 2: total row 2.72 + 7.39 + 20.09 = 30.19"},
-        {"at": "divide each", "event": "MOVE 3: chance column 'weight ÷ 30.19' fills; bars grow to 9.0% / 24.5% / 66.5% (top bar terracotta)"},
-        {"at": "Nine", "event": "formula row labels numerator 'your weight' and denominator 'everyone's total'"}]),
+        {"at": "divide each", "event": "MOVE 3: chance column 'weight ÷ 30.19' fills; bars grow to 9.0% / 24.5% / 66.5%"},
+        {"at": "Nine", "event": "formula labels: top = your weight · bottom = everyone's total"}]),
   beat("B03", "worked example — temperature divides first",
        "Temperature adds one step first: divide every score by T. At T point five, the scores double to two, four, six. "
        "The gaps grow, and the top option takes eighty-six point seven percent. At T two, they halve. "
@@ -134,17 +145,19 @@ beats = [
         {"at": "three-outcome toy", "event": "SHOWN column: three constructed scores, offline, Python 3.11"},
         {"at": "scores themselves", "event": "'Whether the scores were any good' joins NOT SHOWN"}]),
   beat("BVDT", "verdict page",
-       "The recap. Lower temperature concentrates the choices; higher temperature flattens them. "
-       "The ranking never moves, and nothing in the calculation checks the truth. "
-       "Confidence is a setting. Correctness takes evidence.",
+       "Nothing broke; the recipe did exactly its job. Lowering temperature just made the model more confidently wrong. "
+       "So \"turn the temperature down to get more accurate answers\" is a misunderstanding. "
+       "Low temperature gives you more consistent answers, not more correct ones. "
+       "Being correct depends on the scores, meaning what the model actually learned and the evidence it has.",
        "ClaudeVerdictArtifact",
-       {"artifactTitle": TITLE, "artifactHeading": "What the numbers showed",
+       {"artifactTitle": TITLE, "artifactHeading": "The verdict",
         "brandLabel": "Recap written by the author, not a Claude response",
-        "artifactLines": ["Lower T concentrates: top outcome 66.5% → 86.7%",
-                          "Higher T flattens: top outcome 66.5% → 50.6%",
-                          "The ranking never changes for any T > 0",
-                          "No step in the formula checks what is true"]},
-       [{"at": "The recap", "event": "artifact page; four findings reveal in narration order"}],
+        "artifactLines": ["Nothing broke: the recipe did exactly its job",
+                          "Lower T made the model more confidently wrong (constructed case: 9.0% → 1.6%)",
+                          "Myth: \"turn the temperature down for more accurate answers\"",
+                          "Low T gives more consistent answers, not more correct ones",
+                          "Correctness depends on the scores: what the model learned, and its evidence"]},
+       [{"at": "Nothing broke", "event": "verdict artifact page; five lines reveal in narration order"}],
        lane="BOOKEND"),
   beat("BOUT", "outro — title restate",
        "Temperature Is Not a Fact Checker. At Muh-yunk.",  # spelled for Kokoro; on screen: @Mayank

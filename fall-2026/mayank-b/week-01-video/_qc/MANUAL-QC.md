@@ -33,3 +33,8 @@ All numbers on screen checked against `code/build_props.py` output. BVDT → BOU
 ## v7 (2026-09-27)
 `sheet-v7.png`: B00 chip, outro card, and the lower-right corner of every beat. @Mayank everywhere a
 handle appears; no @NikBearBrown on screen. Gate V: 0 BLOCKER / 0 MAJOR.
+
+## v8 (2026-09-27)
+`sheet-v8.png`: B00 new question; B02 at 30/60/95%; B02B end; B07 end (✕ centred on the line, formula in card);
+B08 end (SHOWN green, NOT SHOWN red); BVDT end; BOUT. One fix before render: B07 card header wrapped → shortened.
+Gate V: 0 BLOCKER / 0 MAJOR.

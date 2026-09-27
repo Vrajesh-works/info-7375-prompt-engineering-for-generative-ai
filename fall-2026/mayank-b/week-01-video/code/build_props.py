@@ -49,14 +49,21 @@ p.update(cues={"sentence": cue("B01A", "writes"), "scores": cue("B01A", "scores 
                "draw": cue("B01A", "Then the model draws")})
 
 p = props("B02")
+p.update(scores=S, formula=svg("softmax", r"p_i = \frac{\exp(z_i/T)}{\sum_j \exp(z_j/T)}"),
+         expRow=[{"x": x, "value": round(math.exp(x), 2), "label": svg(f"ex_{x}", rf"e^{{{x}}}")} for x in (-1, 0, 1, 2, 3)],
+         cues={"chips": cue("B02", "three sample values"), "formula": cue("B02", "Softmax is the formula"),
+               "labels": cue("B02", "divided by the total"), "e": cue("B02", "Here, e"),
+               "positive": cue("B02", "positive number"), "base": cue("B02", "Any base")})
+
+p = props("B02B")
 W1 = [math.exp(z) for z in S]
 assert all(abs(w / sum(W1) - q) < 1e-12 for w, q in zip(W1, P[1.0]))
 p.update(scores=S, probsT1=P[1.0], weights=[round(w, 4) for w in W1], total=round(sum(W1), 4),
          formula=svg("softmax", r"p_i = \frac{\exp(z_i/T)}{\sum_j \exp(z_j/T)}"),
          weightHead=svg("ez", r"e^{z}"),
-         cues={"table": cue("B02", "one, two, three"), "move1": cue("B02", "One: raise e"),
-               "move2": cue("B02", "Two: add them up"), "move3": cue("B02", "Three: divide"),
-               "labels": cue("B02", "Nine")})
+         cues={"table": cue("B02B", "Now the example"), "move1": cue("B02B", "One: raise e"),
+               "move2": cue("B02B", "Two: add them up"), "move3": cue("B02B", "Three: divide"),
+               "labels": cue("B02B", "Nine")})
 
 p = props("B03")
 p.update(scores=S, probsT1=P[1.0], weightHead=svg("ezT", r"e^{z/T}"),
@@ -93,7 +100,7 @@ p.update(panels=panels, caption=f"random.Random(7).choices(…, k=1000) · Pytho
                "right": cue("B06", "four hundred"), "sort": cue("B06", "Same scores")})
 
 p = props("B07")
-p.update(scores=S, correct=0, cues={"key": cue("B07", "answer key"), "lower": cue("B07", "Lower the temperature"),
+p.update(scores=S, correct=0, formula=svg("softmax", r"p_i = \frac{\exp(z_i/T)}{\sum_j \exp(z_j/T)}"), cues={"key": cue("B07", "answer key"), "lower": cue("B07", "Lower the temperature"),
                                     "never": cue("B07", "It never saw")})
 
 p = props("B08")

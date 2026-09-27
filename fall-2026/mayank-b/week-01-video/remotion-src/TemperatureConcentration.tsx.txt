@@ -31,6 +31,9 @@ const CARD = '#FFFFFF';
 const BORDER = '#E5E2D9';
 const ACC = '#D97757';
 const ACC_TEXT = '#AF4B2D';
+/** v8: green for established claims (B08 SHOWN). Text shade clears 4.5:1 on white. */
+const GOOD = '#2F7D4A';
+const GOOD_TEXT = '#256B3D';
 
 const SERIF = '"EB Garamond", Georgia, "Times New Roman", serif';
 const SANS = '-apple-system, "SF Pro Text", "Segoe UI", sans-serif';
@@ -505,9 +508,10 @@ export const tcWrongAnswerSchema = z.object({
   scores: z.array(z.number()).default([1, 2, 3]),
   correct: z.number().default(0),
   stampText: z.string().default('CONSTRUCTED HYPOTHETICAL · NOT AN OBSERVED CLAUDE ERROR'),
+  formula: mathRow.default({ src: 'temperature-concentration/softmax.svg', aspect: 3, expression: 'softmax' }),
   cues: z.object({ key: z.number(), lower: z.number(), never: z.number() }).default({ key: 3, lower: 7, never: 13 }),
 });
-export const TcWrongAnswer: React.FC<z.infer<typeof tcWrongAnswerSchema>> = ({ sparkLine, scores, correct, stampText, cues }) => {
+export const TcWrongAnswer: React.FC<z.infer<typeof tcWrongAnswerSchema>> = ({ sparkLine, scores, correct, stampText, formula, cues }) => {
   const t = useT();
   const T = tempAt(t, [{ t: cues.lower, T: 1 }, { t: cues.lower + 2, T: 0.5 }]);
   const probs = softmax(scores, T);
@@ -528,15 +532,20 @@ export const TcWrongAnswer: React.FC<z.infer<typeof tcWrongAnswerSchema>> = ({ s
           <div style={{ fontFamily: SANS, fontSize: 28, color: SOFT }}>ANSWER KEY (stipulated)</div>
           <div style={{ fontFamily: SERIF, fontSize: 56, marginTop: 6 }}>A is correct</div>
         </div>
-        <div style={{ height: 150, position: 'relative' }}>
-          <div style={{ position: 'absolute', left: '50%', top: 12, bottom: 12, borderLeft: `4px dashed ${GHOST}` }} />
-          <div style={{ position: 'absolute', left: 'calc(50% - 44px)', top: 36, fontFamily: SANS, fontWeight: 800, fontSize: 72,
-            color: ACC_TEXT, opacity: neverO }}>✕</div>
-          <div style={{ position: 'absolute', left: 'calc(50% + 48px)', top: 52, fontFamily: SANS, fontSize: 32, color: SOFT, opacity: neverO }}>not an input</div>
+        <div style={{ height: 130, position: 'relative' }}>
+          {/* v8: the line and the cross share one centre (left 50%, translate -50%) */}
+          <div style={{ position: 'absolute', left: '50%', top: 10, bottom: 10, width: 0, borderLeft: `4px dashed ${GHOST}`, transform: 'translateX(-50%)' }} />
+          <svg style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', opacity: neverO }} width={64} height={64} viewBox="0 0 64 64">
+            <line x1={10} y1={10} x2={54} y2={54} stroke={ACC_TEXT} strokeWidth={9} strokeLinecap="round" />
+            <line x1={54} y1={10} x2={10} y2={54} stroke={ACC_TEXT} strokeWidth={9} strokeLinecap="round" />
+          </svg>
+          <div style={{ position: 'absolute', left: 'calc(50% + 52px)', top: '50%', transform: 'translateY(-50%)', fontFamily: SANS, fontSize: 32, color: SOFT, opacity: neverO }}>not an input</div>
         </div>
-        <div style={{ border: `3px solid ${INK}`, background: CARD, padding: '22px 28px' }}>
-          <div style={{ fontFamily: SANS, fontSize: 28, color: SOFT }}>THE FORMULA SEES ONLY</div>
-          <div style={{ fontFamily: MONO, fontSize: 44, marginTop: 8 }}>scores, T</div>
+        <div style={{ border: `3px solid ${INK}`, background: CARD, padding: '18px 24px' }}>
+          <div style={{ fontFamily: SANS, fontSize: 28, color: SOFT }}>THE FORMULA ONLY SEES z AND T</div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+            <MathImg row={formula} height={104} />
+          </div>
         </div>
       </div>
       <div style={{ position: 'absolute', left: SX, bottom: 1080 - SB + 8, fontFamily: SANS, fontSize: 30, color: SOFT }}>
@@ -572,9 +581,9 @@ export const TcBoundary: React.FC<z.infer<typeof tcBoundarySchema>> = ({ sparkLi
         const y = interpolate(p, [0, 1], [760, top + slot * 215]);
         return <div key={i} style={{ position: 'absolute', left: x, top: y, width: colW, minHeight: 180, boxSizing: 'border-box',
           opacity: ramp(t, it.at, 0.3), padding: '18px 26px', background: CARD,
-          border: it.accent ? `4px solid ${ACC}` : `3px solid ${it.shown ? INK : GHOST}`,
-          fontFamily: SERIF, fontSize: 54, lineHeight: 1.15, color: it.accent ? ACC_TEXT : INK, display: 'flex', alignItems: 'center', gap: 20 }}>
-          <span style={{ fontFamily: SANS, fontWeight: 800, fontSize: 44, color: it.shown ? INK : (it.accent ? ACC_TEXT : SOFT) }}>{it.shown ? '✓' : '✕'}</span>
+          border: it.accent ? `4px solid ${ACC}` : it.shown ? `4px solid ${GOOD}` : `3px solid ${GHOST}`,
+          fontFamily: SERIF, fontSize: 54, lineHeight: 1.15, color: it.accent ? ACC_TEXT : it.shown ? GOOD_TEXT : INK, display: 'flex', alignItems: 'center', gap: 20 }}>
+          <span style={{ fontFamily: SANS, fontWeight: 800, fontSize: 44, color: it.shown ? GOOD_TEXT : (it.accent ? ACC_TEXT : SOFT) }}>{it.shown ? '✓' : '✕'}</span>
           <span>{it.text}</span>
         </div>;
       })}
@@ -697,5 +706,76 @@ export const TcTitleOutro: React.FC<z.infer<typeof tcTitleOutroSchema>> = ({ tit
         <MascotSVG s={mascotState} scale={1} />
       </div>
     </AbsoluteFill>
+  );
+};
+
+// =============================================================================
+// B02 TcSoftmaxIntro (v8) — three sample scores → the softmax formula → what e is.
+// The e^x row values come from math.exp in build_props.py.
+// =============================================================================
+export const tcSoftmaxIntroSchema = z.object({
+  ...base,
+  scores: z.array(z.number()).default([1, 2, 3]),
+  formula: mathRow.default({ src: 'temperature-concentration/softmax.svg', aspect: 3, expression: 'softmax' }),
+  expRow: z.array(z.object({ x: z.number(), value: z.number(), label: mathRow })).default([]),
+  stampText: z.string().default('CONSTRUCTED TOY SCORES · CHAPTER 1'),
+  cues: z.object({ chips: z.number(), formula: z.number(), labels: z.number(), e: z.number(), positive: z.number(), base: z.number() })
+    .default({ chips: 1, formula: 6, labels: 10, e: 13, positive: 17, base: 21 }),
+});
+export const TcSoftmaxIntro: React.FC<z.infer<typeof tcSoftmaxIntroSchema>> = ({ sparkLine, scores, formula, expRow, stampText, cues }) => {
+  const t = useT();
+  const maxV = Math.max(...expRow.map((r) => r.value), 1);
+  const barMaxH = 150;
+  return (
+    <Stage>
+      <SparkLine line={sparkLine} o={ramp(t, 0, 0.5)} />
+      <Stamp text={stampText} o={ramp(t, cues.chips, 0.4)} />
+      {/* the three sample scores */}
+      <div style={{ position: 'absolute', left: SX, top: 150, display: 'flex', alignItems: 'center', gap: 26 }}>
+        <div style={{ fontFamily: SANS, fontSize: 30, color: SOFT, marginRight: 8, opacity: ramp(t, cues.chips, 0.4) }}>SAMPLE SCORES z</div>
+        {scores.map((zv, i) => (
+          <div key={i} style={{ width: 110, height: 90, border: `3px solid ${INK}`, background: CARD, display: 'flex', alignItems: 'center',
+            justifyContent: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 54, opacity: ramp(t, cues.chips + i * 0.3, 0.4) }}>{zv}</div>
+        ))}
+      </div>
+      {/* the formula, large, with plain-language labels */}
+      <div style={{ position: 'absolute', left: SX, width: SR - SX, top: 280, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 70 }}>
+        <MathImg row={formula} height={200} o={ramp(t, cues.formula, 0.6)} />
+        <div style={{ fontFamily: SERIF, fontSize: 48, lineHeight: 1.4, opacity: ramp(t, cues.labels, 0.6) }}>
+          <div>top = <b>your weight</b></div>
+          <div>bottom = <b>everyone's total</b></div>
+          <div style={{ fontSize: 36, color: SOFT }}>(p = chance, z = score, T = temperature)</div>
+        </div>
+      </div>
+      {/* what e is */}
+      <div style={{ position: 'absolute', left: SX, top: 560, width: 440, border: `3px solid ${INK}`, background: CARD, padding: '20px 26px',
+        opacity: ramp(t, cues.e, 0.5) }}>
+        <div style={{ fontFamily: SANS, fontSize: 28, color: SOFT }}>WHAT IS e?</div>
+        <div style={{ fontFamily: SERIF, fontSize: 76, marginTop: 4 }}>e ≈ 2.71828</div>
+        <div style={{ fontFamily: SERIF, fontSize: 36, color: SOFT, marginTop: 6 }}>a fixed math constant</div>
+      </div>
+      {/* e^x is always positive and grows fast */}
+      <div style={{ position: 'absolute', left: SX + 540, top: 560, width: SR - SX - 540, height: 300 }}>
+        {expRow.map((r, i) => {
+          const o = ramp(t, cues.positive + i * 0.25, 0.4);
+          const slot = (SR - SX - 540) / expRow.length;
+          const h = barMaxH * (r.value / maxV) * o;
+          return (
+            <div key={i} style={{ position: 'absolute', left: slot * i, width: slot, top: 0, height: 300, opacity: o }}>
+              <div style={{ position: 'absolute', left: slot * 0.3, width: slot * 0.4, bottom: 110, height: Math.max(3, h), background: i === expRow.length - 1 ? ACC : INK, opacity: 0.85 }} />
+              <div style={{ position: 'absolute', width: slot, bottom: 110 + Math.max(3, h) + 8, textAlign: 'center', fontFamily: SANS, fontWeight: 700, fontSize: 38 }}>{fmt(r.value)}</div>
+              <div style={{ position: 'absolute', width: slot, bottom: 40, display: 'flex', justifyContent: 'center' }}><MathImg row={r.label} height={60} /></div>
+            </div>
+          );
+        })}
+        <div style={{ position: 'absolute', left: 0, right: 0, bottom: 104, height: 3, background: INK, opacity: ramp(t, cues.positive, 0.4) }} />
+      </div>
+      <div style={{ position: 'absolute', left: SX + 540, top: 880, fontFamily: SERIF, fontSize: 40, opacity: ramp(t, cues.positive + 1.2, 0.5) }}>
+        always <b>positive</b> · bigger scores grow <b>much faster</b>
+      </div>
+      <div style={{ position: 'absolute', left: SX, bottom: 1080 - SB + 8, fontFamily: SANS, fontSize: 28, color: SOFT, whiteSpace: 'nowrap', opacity: ramp(t, cues.base, 0.5) }}>
+        any base above 1 keeps the order · e is the standard choice because it keeps the math simple
+      </div>
+    </Stage>
   );
 };

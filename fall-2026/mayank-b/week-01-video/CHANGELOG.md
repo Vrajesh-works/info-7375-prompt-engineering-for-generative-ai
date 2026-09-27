@@ -177,7 +177,7 @@ the video should sign as @Mayank, and the intro should say "Hola, this is Liam".
 - Review cut + clean master: **164.4 s (2:44)**, 12 beats, Gate V 0 BLOCKER / 0 MAJOR. Frame check
   (`_qc/sheet-v7.png`): @Mayank on the B00 chip, all 8 body-beat corners and the outro; no @NikBearBrown left.
 - SOURCES (logo row, outro credit), CHECKS-REPORT (IN-FOR-BEAR / OUTRO-LOCK deviations), FRICTIONAL updated.
-  **← current version**
+
 - Pushed as commit `10a1a6d` (v7). CI red only from the instructor's `nik-bear-brown/SYNC.md` broken link, as before; no error from this folder. `_name-test/` confirmed not in the repo.
 
 ## 2026-09-27 — toolkit changes published (no video change)
@@ -187,3 +187,44 @@ the video should sign as @Mayank, and the intro should say "Hola, this is Liam".
 - Patch checked with `git apply --check` against upstream brutalist.art `cd4bf20`: applies cleanly.
 - Deleted the now-unused `public/temperature-concentration/nbb-logo.svg` from the local toolkit (unused since v7).
 - The video is unchanged; the current version is still v7.
+
+## 2026-09-27 — v8: B00 wording, B02 split (formula first + what e is), B07 formula + centred ✕, B08 green, new ending
+
+Why (Mayank's review, item by item):
+1. **B00:** composer question "Does turning temperature down make an answer more accurate?" →
+   "Does turning the temperature down of the model make an answer more accurate?" (Mayank's wording). Narration unchanged.
+2. **B02 → two beats.** Mayank asked for B02 to start with "let's take 3 sample values", give the
+   softmax formula as soon as softmax is introduced, then the example, and to say what e is, its value,
+   and why it is used. One beat would have run ~37 s, so it became:
+   - **B02 "Softmax, the formula, and e"** (new component `TcSoftmaxIntro`, 87 words, 27.43 s):
+     "Let's take three sample values as scores: one, two, three. These are constructed toy scores, not
+     from a real model. Softmax is the formula that turns scores into chances: each option's weight, e to
+     its score, divided by the total weight. Here, e is a fixed number, about two point seven one eight.
+     Raising e to any score gives a positive number, and bigger scores grow much faster. Any base above
+     one would keep the order; e is the standard choice because it keeps the math simple."
+     Visual: score chips 1, 2, 3 → large softmax equation labelled (top = your weight, bottom = everyone's
+     total; p = chance, z = score, T = temperature) → "What is e? e ≈ 2.71828" card → bars for
+     e^-1 … e^3 = 0.37, 1, 2.72, 7.39, 20.09 → "any base above 1 keeps the order" note.
+   - **B02B "Softmax in three moves"** (the v6 table, now its own beat; 41 words, 13.61 s):
+     "Now the example. One: raise e to each score. Two point seven, seven point four, twenty point one.
+     Two: add them up. Thirty point two. Three: divide each weight by the total. Nine, twenty-four point
+     five, and sixty-six point five percent."
+   - Claim about e kept modest on purpose (FACTCHECK): any base > 1 preserves order; e is the convention.
+3. **B08:** all three SHOWN items now green (border #2F7D4A, text #256B3D); NOT SHOWN stays red.
+4. **B07 ✕ at ~2:15 (v7 timing):** the cross sat left of the dashed line. The line and the cross now
+   share one centre (`left: 50%` + `translate(-50%)`), and the ✕ is drawn as an SVG so the glyph's own
+   spacing can't shift it.
+5. **B07:** the formula card shows the typeset softmax equation (header "THE FORMULA ONLY SEES z AND T").
+6. **Ending (BVDT):** narration replaced with Mayank's text verbatim (58 words, 11.88 s → 18.71 s):
+   "Nothing broke; the recipe did exactly its job. Lowering temperature just made the model more
+   confidently wrong. So "turn the temperature down to get more accurate answers" is a misunderstanding.
+   Low temperature gives you more consistent answers, not more correct ones. Being correct depends on the
+   scores, meaning what the model actually learned and the evidence it has."
+   Verdict card: heading "The verdict", five lines matching the narration; "confidently wrong" line is
+   marked "(constructed case: 9.0% → 1.6%)".
+- Test stills → one fix before render (B07 card header wrapped).
+- Re-rendered B00, B02, B02B, B07, B08, BVDT. Review cut + clean master: **193.1 s (3:13)**, 13 beats,
+  Gate V 0 BLOCKER / 0 MAJOR. Frame check: `_qc/sheet-v8.png`.
+- Runtime is now past the original 120–180 s target, still inside the assignment's 2–4 minutes.
+- FACTCHECK (e claims, B07 formula, ending), SHOTLIST, CHECKS-REPORT (B02 over the narration budget;
+  green as a second accent), README updated. **← current version**

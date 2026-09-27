@@ -1,6 +1,6 @@
 # CHECKS-REPORT (written before the first render)
 
-8 SHOW / 0 justified-HOLD / 0 PUNT-flagged (body B01A–B08; B01A added in v5); 5 bookends.
+9 SHOW / 0 justified-HOLD / 0 PUNT-flagged (body B01A–B08; B01A added in v5, B02B split out in v8); 4 bookends.
 
 Teaching arc: FRAMEWORK ✓ (B02 softmax) | WORKED EXAMPLE ✓ (B03–B04 real numbers)
 | FALSIFIABILITY ✓ (B07 constructed wrong-answer case) | SCAFFOLDED TASK ✗ (BHTF "Your turn" removed in v6 at the author's request: judged unnecessary)
@@ -19,3 +19,7 @@ Deliberate deviations (logged, not silent):
   and the reel signs off "At Mayank". The channel handle is @Mayank everywhere, at the author's request.
 - (v7) OUTRO-LOCK: the toolkit's ClaudeTitleOutro hardcodes @NikBearBrown with no override. It was
   left untouched; this reel uses a reel-local copy (TcTitleOutro) that is identical except for a handle prop.
+- (v8) Narration budget: B02 is 87 words (~27 s), over the skill's ~45–70 for a body beat, because it
+  carries the formula and the explanation of e the author asked for; the worked example was split into
+  B02B so no single beat does both.
+- (v8) Colour: B08's SHOWN column is green at the author's request (a second accent colour).

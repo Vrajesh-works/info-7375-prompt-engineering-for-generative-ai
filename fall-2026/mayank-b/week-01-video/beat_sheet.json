@@ -32,10 +32,10 @@
     "derived_from": "beat_sheet.json",
     "evidence": "code/run_temperature.py -> code/temperature_results.json (every on-screen number)",
     "build": {
-      "at": "2026-09-27T09:52:05",
+      "at": "2026-09-27T17:59:55",
       "cut": "master",
-      "filled": 12,
-      "of": 12,
+      "filled": 13,
+      "of": 13,
       "slates": [],
       "skin_warnings": [
         "BOUT: palette=claude but the outro is 'TcTitleOutro' — OUTRO LAW wants ClaudeTitleOutro"
@@ -70,7 +70,7 @@
             "greeting": "Hola, Liam",
             "topic": "CHAPTER 1 · TEMPERATURE",
             "segment": "Temperature Is Not a Fact Checker",
-            "command": "Does turning temperature down make an answer more accurate?",
+            "command": "Does turning the temperature down of the model make an answer more accurate?",
             "runningText": "running the chapter's code offline, no model call…",
             "output": [
               "$ python3 run_temperature.py",
@@ -84,7 +84,7 @@
           },
           "rendered": {
             "out": "media/B00.mp4",
-            "at": "2026-09-27T13:42:14.607412+00:00"
+            "at": "2026-09-27T21:52:01.691276+00:00"
           }
         }
       },
@@ -94,7 +94,7 @@
         "status": "VIDEO",
         "src": "media/B00.mp4",
         "filled_by": "remotion:ClaudeComposerAsk",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       },
       "actual_duration_s": 9.02
     },
@@ -153,7 +153,7 @@
         "status": "VIDEO",
         "src": "media/B01.mp4",
         "filled_by": "remotion:BrutalistHesitantWriter",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       },
       "qc": {
         "sparse_by_design": true,
@@ -233,14 +233,14 @@
         "status": "VIDEO",
         "src": "media/B01A.mp4",
         "filled_by": "remotion:TcNextWord",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       }
     },
     {
       "beat_id": "B02",
-      "act": "framework — softmax in three moves",
+      "act": "framework — softmax, the formula, and e",
       "lane": "BODY",
-      "narration_text": "Three options, with constructed toy scores: one, two, three. Softmax turns scores into chances in three moves. One: raise e to each score. Two point seven, seven point four, twenty point one. Bigger scores get much bigger. Two: add them up. Thirty point two. Three: divide each weight by the total. Nine, twenty-four point five, and sixty-six point five percent.",
+      "narration_text": "Let's take three sample values as scores: one, two, three. These are constructed toy scores, not from a real model. Softmax is the formula that turns scores into chances: each option's weight, e to its score, divided by the total weight. Here, e is a fixed number, about two point seven one eight. Raising e to any score gives a positive number, and bigger scores grow much faster. Any base above one would keep the order; e is the standard choice because it keeps the math simple.",
       "voice": "am_onyx",
       "engine": "kokoro",
       "shot": {
@@ -249,12 +249,136 @@
         "motion": "illustrate",
         "show": [
           {
-            "at": "one, two, three",
-            "event": "table: option 0/1/2 with score z = 1, 2, 3; CONSTRUCTED TOY SCORES stamp"
+            "at": "three sample values",
+            "event": "three score chips z = 1, 2, 3; CONSTRUCTED TOY SCORES stamp"
+          },
+          {
+            "at": "Softmax is the formula",
+            "event": "the softmax equation, typeset, large"
+          },
+          {
+            "at": "divided by the total",
+            "event": "labels: top = your weight · bottom = everyone's total"
+          },
+          {
+            "at": "Here, e",
+            "event": "card: e ≈ 2.71828"
+          },
+          {
+            "at": "positive number",
+            "event": "row e^-1 … e^3 = 0.37, 1, 2.72, 7.39, 20.09 with bars: always positive, grows fast"
+          },
+          {
+            "at": "Any base",
+            "event": "note: any base above 1 keeps the order; e is the standard choice"
+          }
+        ],
+        "remotion": {
+          "pattern": "TcSoftmaxIntro",
+          "props": {
+            "sparkLine": "Softmax: scores into chances.",
+            "durationSeconds": 27.43,
+            "scores": [
+              1,
+              2,
+              3
+            ],
+            "formula": {
+              "src": "temperature-concentration/softmax.svg",
+              "aspect": 2.3861,
+              "expression": "p_i = \\frac{\\exp(z_i/T)}{\\sum_j \\exp(z_j/T)}"
+            },
+            "expRow": [
+              {
+                "x": -1,
+                "value": 0.37,
+                "label": {
+                  "src": "temperature-concentration/ex_-1.svg",
+                  "aspect": 1.5227,
+                  "expression": "e^{-1}"
+                }
+              },
+              {
+                "x": 0,
+                "value": 1.0,
+                "label": {
+                  "src": "temperature-concentration/ex_0.svg",
+                  "aspect": 1.0,
+                  "expression": "e^{0}"
+                }
+              },
+              {
+                "x": 1,
+                "value": 2.72,
+                "label": {
+                  "src": "temperature-concentration/ex_1.svg",
+                  "aspect": 1.0,
+                  "expression": "e^{1}"
+                }
+              },
+              {
+                "x": 2,
+                "value": 7.39,
+                "label": {
+                  "src": "temperature-concentration/ex_2.svg",
+                  "aspect": 1.0,
+                  "expression": "e^{2}"
+                }
+              },
+              {
+                "x": 3,
+                "value": 20.09,
+                "label": {
+                  "src": "temperature-concentration/ex_3.svg",
+                  "aspect": 1.0,
+                  "expression": "e^{3}"
+                }
+              }
+            ],
+            "cues": {
+              "chips": 0.33,
+              "formula": 6.46,
+              "labels": 11.54,
+              "e": 13.75,
+              "positive": 18.67,
+              "base": 22.0
+            }
+          },
+          "rendered": {
+            "out": "media/B02.mp4",
+            "at": "2026-09-27T21:53:55.807548+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 27.458333333333332,
+      "actual_duration_s": 27.43,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "remotion:TcSoftmaxIntro",
+        "at": "2026-09-27T17:59:55"
+      }
+    },
+    {
+      "beat_id": "B02B",
+      "act": "worked example — softmax in three moves",
+      "lane": "BODY",
+      "narration_text": "Now the example. One: raise e to each score. Two point seven, seven point four, twenty point one. Two: add them up. Thirty point two. Three: divide each weight by the total. Nine, twenty-four point five, and sixty-six point five percent.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "Now the example",
+            "event": "table: option 0/1/2 with score z = 1, 2, 3"
           },
           {
             "at": "raise e",
-            "event": "MOVE 1: weight column fills, e^z counters run to 2.72 / 7.39 / 20.09"
+            "event": "MOVE 1: weight column fills, 2.72 / 7.39 / 20.09"
           },
           {
             "at": "add them up",
@@ -262,18 +386,18 @@
           },
           {
             "at": "divide each",
-            "event": "MOVE 3: chance column 'weight ÷ 30.19' fills; bars grow to 9.0% / 24.5% / 66.5% (top bar terracotta)"
+            "event": "MOVE 3: chance column 'weight ÷ 30.19' fills; bars grow to 9.0% / 24.5% / 66.5%"
           },
           {
             "at": "Nine",
-            "event": "formula row labels numerator 'your weight' and denominator 'everyone's total'"
+            "event": "formula labels: top = your weight · bottom = everyone's total"
           }
         ],
         "remotion": {
           "pattern": "TcScoresToOdds",
           "props": {
             "sparkLine": "Softmax in three moves.",
-            "durationSeconds": 19.2,
+            "durationSeconds": 13.61,
             "scores": [
               1,
               2,
@@ -301,27 +425,27 @@
               "expression": "e^{z}"
             },
             "cues": {
-              "table": 2.25,
-              "move1": 5.88,
-              "move2": 11.5,
-              "move3": 13.42,
-              "labels": 15.29
+              "table": 0.0,
+              "move1": 0.83,
+              "move2": 5.08,
+              "move3": 7.08,
+              "labels": 9.46
             }
           },
           "rendered": {
-            "out": "media/B02.mp4",
-            "at": "2026-09-27T13:44:25.833721+00:00"
+            "out": "media/B02B.mp4",
+            "at": "2026-09-27T21:54:52.626042+00:00"
           }
         }
       },
-      "audio_file": "mp3/beat-B02.mp3",
-      "render_duration_s": 19.208333333333332,
-      "actual_duration_s": 19.2,
+      "audio_file": "mp3/beat-B02B.mp3",
+      "actual_duration_s": 13.61,
+      "render_duration_s": 13.625,
       "build": {
         "status": "VIDEO",
-        "src": "media/B02.mp4",
+        "src": "media/B02B.mp4",
         "filled_by": "remotion:TcScoresToOdds",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       }
     },
     {
@@ -398,7 +522,7 @@
         "status": "VIDEO",
         "src": "media/B03.mp4",
         "filled_by": "remotion:TcTemperatureDial",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       }
     },
     {
@@ -494,7 +618,7 @@
         "status": "VIDEO",
         "src": "media/B04.mp4",
         "filled_by": "remotion:TcRatio",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       }
     },
     {
@@ -552,7 +676,7 @@
         "status": "VIDEO",
         "src": "media/B05.mp4",
         "filled_by": "remotion:TcCode",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       }
     },
     {
@@ -632,7 +756,7 @@
         "status": "VIDEO",
         "src": "media/B06.mp4",
         "filled_by": "remotion:TcSampleCounts",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       }
     },
     {
@@ -679,11 +803,16 @@
               "key": 3.62,
               "lower": 6.17,
               "never": 15.54
+            },
+            "formula": {
+              "src": "temperature-concentration/softmax.svg",
+              "aspect": 2.3861,
+              "expression": "p_i = \\frac{\\exp(z_i/T)}{\\sum_j \\exp(z_j/T)}"
             }
           },
           "rendered": {
             "out": "media/B07.mp4",
-            "at": "2026-09-27T13:49:42.905186+00:00"
+            "at": "2026-09-27T21:56:03.230870+00:00"
           }
         }
       },
@@ -694,7 +823,7 @@
         "status": "VIDEO",
         "src": "media/B07.mp4",
         "filled_by": "remotion:TcWrongAnswer",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       }
     },
     {
@@ -763,7 +892,7 @@
           },
           "rendered": {
             "out": "media/B08.mp4",
-            "at": "2026-09-27T13:50:35.410959+00:00"
+            "at": "2026-09-27T21:56:58.057399+00:00"
           }
         }
       },
@@ -774,14 +903,14 @@
         "status": "VIDEO",
         "src": "media/B08.mp4",
         "filled_by": "remotion:TcBoundary",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       }
     },
     {
       "beat_id": "BVDT",
       "act": "verdict page",
       "lane": "BOOKEND",
-      "narration_text": "The recap. Lower temperature concentrates the choices; higher temperature flattens them. The ranking never moves, and nothing in the calculation checks the truth. Confidence is a setting. Correctness takes evidence.",
+      "narration_text": "Nothing broke; the recipe did exactly its job. Lowering temperature just made the model more confidently wrong. So \"turn the temperature down to get more accurate answers\" is a misunderstanding. Low temperature gives you more consistent answers, not more correct ones. Being correct depends on the scores, meaning what the model actually learned and the evidence it has.",
       "voice": "am_onyx",
       "engine": "kokoro",
       "shot": {
@@ -790,38 +919,39 @@
         "motion": "illustrate",
         "show": [
           {
-            "at": "The recap",
-            "event": "artifact page; four findings reveal in narration order"
+            "at": "Nothing broke",
+            "event": "verdict artifact page; five lines reveal in narration order"
           }
         ],
         "remotion": {
           "pattern": "ClaudeVerdictArtifact",
           "props": {
             "artifactTitle": "Temperature Is Not a Fact Checker.",
-            "artifactHeading": "What the numbers showed",
+            "artifactHeading": "The verdict",
             "brandLabel": "Recap written by the author, not a Claude response",
             "artifactLines": [
-              "Lower T concentrates: top outcome 66.5% → 86.7%",
-              "Higher T flattens: top outcome 66.5% → 50.6%",
-              "The ranking never changes for any T > 0",
-              "No step in the formula checks what is true"
+              "Nothing broke: the recipe did exactly its job",
+              "Lower T made the model more confidently wrong (constructed case: 9.0% → 1.6%)",
+              "Myth: \"turn the temperature down for more accurate answers\"",
+              "Low T gives more consistent answers, not more correct ones",
+              "Correctness depends on the scores: what the model learned, and its evidence"
             ],
-            "durationSeconds": 11.88
+            "durationSeconds": 18.71
           },
           "rendered": {
             "out": "media/BVDT.mp4",
-            "at": "2026-09-23T23:03:59.167928+00:00"
+            "at": "2026-09-27T21:58:20.679741+00:00"
           }
         }
       },
       "audio_file": "mp3/beat-BVDT.mp3",
-      "actual_duration_s": 11.88,
-      "render_duration_s": 11.916666666666666,
+      "render_duration_s": 18.75,
+      "actual_duration_s": 18.71,
       "build": {
         "status": "VIDEO",
         "src": "media/BVDT.mp4",
         "filled_by": "remotion:ClaudeVerdictArtifact",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       }
     },
     {
@@ -861,7 +991,7 @@
         "status": "VIDEO",
         "src": "media/BOUT.mp4",
         "filled_by": "remotion:TcTitleOutro",
-        "at": "2026-09-27T09:52:05"
+        "at": "2026-09-27T17:59:55"
       },
       "tts_note": "'Mayank' respelled 'Muh-yunk' for Kokoro (read 'Mayank' as 'May-ink'); the screen shows @Mayank.",
       "actual_duration_s": 3.24
