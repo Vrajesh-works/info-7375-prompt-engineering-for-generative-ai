@@ -266,6 +266,12 @@ Every push to GitHub is listed at the bottom with its date and commit note.
   - **Keep the note with the design.** I'm unlikely to be the only person deciding on a design, so the notes go "not just as random notes, but to Figma," "so it doesn't get lost. Doesn't get disassociated with the thing that it's a note of."
   - **Write a tool** "with whatever communication system the company uses" (email, Discord, whatever) "to notify whoever needs to look at it. If it's somebody other than me, that this change has been made and the note is in the file itself."
   - **Change the films:** "add that to all the films where you say I haven't looked at them yet. Now I've looked at them."
+  - **What came of it (same day).**
+    - **The notes:** my note is now in Figma, on the layer each film is about: six Review annotations, and a sticky on the FigJam board, which refused annotations. Films 1, 2 and 14 have no design file, so their note is in the experiment record.
+    - **Did the note reach the next agent?** On frames, yes: the MCP server hands the note to it with "Do not ignore these annotation attributes." On component sets (films 7 and 12), no. On the FigJam board, only the sticky's first line came back as text.
+    - **What the agent can't do:** it can't name a version, set "Ready for dev", or comment through the server.
+    - **The tool:** `review_notify.py` sends a pointer, not the note, on Discord, Slack, email or a webhook, and it skips me as the reviewer. Nothing was sent.
+    - **The films:** all ten are re-cut in 4K, with every gate passing and none published. Each now says I reviewed it and has a review beat. Films 8, 11 and 12 open with Ciao, Konnichiwa and Shalom instead of four Merhabas.
 
 ### 2026-09-26 — The assignment went out, and its first worked recipe
 
@@ -376,3 +382,4 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-27 | docs(fall-2026): log the overnight run of the next Figma films |
 | 2026-09-27 | docs(fall-2026): log the overnight Figma films and their verdicts |
 | 2026-09-27 | docs(fall-2026): log my review of the overnight Figma films and the notes-in-the-file idea |
+| 2026-09-27 | docs(fall-2026): log where my Figma review notes went and the ten re-cut films |
