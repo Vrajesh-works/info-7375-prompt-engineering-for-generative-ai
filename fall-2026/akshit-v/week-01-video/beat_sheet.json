@@ -1,0 +1,802 @@
+{
+ "metadata": {
+  "title": "What Pretraining Actually Targets",
+  "slug": "week-01-pretraining-target",
+  "topic": "INFO 7375 · WEEK 01 · WHAT PRETRAINING TARGETS",
+  "kind": "explainer",
+  "playlist": "INFO 7375",
+  "brand": "claude-liam",
+  "audience": "INFO 7375 classmates and graders — the concept, shown end to end",
+  "register": "Teardown",
+  "engine": "kokoro",
+  "voice": "am_onyx",
+  "voice_kokoro": "am_onyx",
+  "palette": "claude",
+  "style_preset": "claude",
+  "ground": "#FAF9F5",
+  "aspect_ratio": "16:9",
+  "fit": "contain",
+  "captions": true,
+  "channel": "INFO 7375",
+  "folderLabel": "INFO 7375 · Week 01",
+  "greeting": "Kia ora, students",
+  "persona": "synthetic narrator",
+  "presenter": "synthetic narrator (Kokoro am_onyx) — not the author",
+  "in_for_bear": false,
+  "cut": "review",
+  "concept": "What pretraining actually targets (the token that followed, not the truth) — Chapter 1, Part 1",
+  "note": "Assignment reel, INFO 7375 Week 01. ONE concept, not a chapter summary. Every number on screen comes from code/OUTPUT.txt, produced by code/pretraining_target.py in this folder. The corpus is CONSTRUCTED and is labelled as constructed on screen in B03. The outro does NOT use ClaudeTitleOutro because that scene hardcodes @NikBearBrown (OUTRO-LOCK.md) and this is a student submission — attribution goes to the author. B00/B10 use ReconstructedComposer: the Claude-styled composer is labelled as reconstructed UI, shows no reply lines and no model chip. Narration is synthetic (Kokoro am_onyx) and says so in B00 and B11.",
+  "tags": [
+   "pretraining",
+   "next-token prediction",
+   "cross-entropy",
+   "INFO 7375",
+   "chapter 1"
+  ],
+  "build": {
+   "at": "2026-09-27T19:05:15",
+   "cut": "review",
+   "filled": 12,
+   "of": 12,
+   "slates": [],
+   "skin_warnings": [
+    "B00: palette=claude but the cold open is 'ReconstructedComposer' — COLD OPEN LAW wants ClaudeComposerAsk",
+    "B11: palette=claude but the outro is 'SubmissionOutro' — OUTRO LAW wants ClaudeTitleOutro"
+   ]
+  },
+  "greeting_note": "hello lexicon: Kia ora (te reo Maori), addressed to classmates.",
+  "author": "Akshit Verma",
+  "narration_disclosure": "Synthetic voice (Kokoro am_onyx, local). Disclosed in B00 narration, the B00 on-screen tag, and the B11 credit card.",
+  "toolkit_revision": "6a8380ae169cca81e0633664a65c958f5c12ab4b"
+ },
+ "beats": [
+  {
+   "beat_id": "B00",
+   "act": "ASK",
+   "role_note": "COLD OPEN LAW — opens on the toolkit's Claude-styled composer, LABELLED as reconstructed UI. No reply lines and no model chip: nothing here was sent to or returned by Claude, and the assignment requires any Claude response shown to be real and dated. Narration discloses the synthetic voice rather than speaking as the author.",
+   "narration_text": "Kia ora, students. This video is by Akshit Verma, for INFO 7375, week one, and the voice you are hearing is synthetic. One concept from chapter one: what pretraining actually targets. Not a summary of the chapter. One idea, shown end to end.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 10,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "type-on",
+    "show": [
+     {
+      "at": "0.02",
+      "event": "RECONSTRUCTED UI tag lands top-right before anything else"
+     },
+     {
+      "at": "0.04",
+      "event": "composer card fades in on cream"
+     },
+     {
+      "at": "0.14",
+      "event": "greeting 'Kia ora, students' types above the composer"
+     },
+     {
+      "at": "0.30",
+      "event": "the concept question types into the composer — no reply is shown"
+     }
+    ],
+    "remotion": {
+     "pattern": "ReconstructedComposer",
+     "props": {
+      "greeting": "Kia ora, students",
+      "topic": "INFO 7375 · WEEK 01",
+      "segment": "What Pretraining Targets",
+      "command": "Chapter 1, Part 1 — what does the pretraining objective actually optimize? Show the mechanism, not a summary.",
+      "folderLabel": "INFO 7375 · Week 01",
+      "tagLines": [
+       "a styled prompt box — not a real Claude exchange",
+       "narration: synthetic voice (Kokoro am_onyx), not the author"
+      ],
+      "durationSeconds": 15.19
+     },
+     "rendered": {
+      "out": "media/B00.mp4",
+      "at": "2026-09-27T22:37:01.986547+00:00"
+     }
+    }
+   },
+   "render_duration_s": 15.208333333333334,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B00.mp4",
+    "filled_by": "remotion:ReconstructedComposer",
+    "at": "2026-09-27T19:05:15"
+   },
+   "actual_duration_s": 15.19,
+   "audio_file": "mp3/beat-B00.mp3"
+  },
+  {
+   "beat_id": "B01",
+   "act": "BLUF",
+   "role_note": "EXECUTIVE-SUMMARY LAW — the hesitant writer types the framing a viewer arrives with, then corrects it. 'the truth' -> 'the token that followed' is the thesis. First cut used the multi-word trigger 'what is true', which the component never matches (it compares one whitespace token at a time), so the correction silently never happened.",
+   "narration_text": "Here is the claim in one breath. Training does not teach a model what is true. It teaches it what followed. I am going to show you that happening, with numbers you can rerun.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 11,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "type-on",
+    "show": [
+     {
+      "at": "0.05",
+      "event": "'Training teaches a model' types on the cream page in serif"
+     },
+     {
+      "at": "0.22",
+      "event": "'the truth' completes the naive framing, as the voice says 'what is true'"
+     },
+     {
+      "at": "0.40",
+      "event": "'truth' is backspaced out"
+     },
+     {
+      "at": "0.49",
+      "event": "'token that followed' types in its place, landing on the spoken 'followed'"
+     }
+    ],
+    "remotion": {
+     "pattern": "BrutalistHesitantWriter",
+     "props": {
+      "text": "Training teaches a model\nthe truth.",
+      "triggerWords": "truth",
+      "replacementWords": "token that followed",
+      "seed": "pretrain-b01",
+      "face": "serif",
+      "fontSize": 150,
+      "lineSpacing": 2.6,
+      "align": "center",
+      "charMs": 50,
+      "jitter": 18,
+      "mistakeRate": 0,
+      "hesitateWithin": 0,
+      "hesitateBetween": 0,
+      "durationSeconds": 9.34
+     }
+    }
+   },
+   "actual_duration_s": 9.34,
+   "audio_file": "mp3/beat-B01.mp3",
+   "render_duration_s": 9.375,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B01.mp4",
+    "filled_by": "media",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B02",
+   "act": "FRAMEWORK",
+   "role_note": "FRAMEWORK beat — the objective stated as the chapter states it, before any example. Quotes are verbatim from Chapter 1 Part 1.",
+   "narration_text": "The chapter states the loop in four steps. Take a passage of text. Hide the next token. Ask the model for its distribution. Compare that distribution with the token that actually followed. Then nudge every parameter so the token that followed gets a little more probability. Nothing in that loop is told what is true.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 19,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "step",
+    "show": [
+     {
+      "at": "0.10",
+      "event": "step 1 lights — a passage of text appears with its last token hidden"
+     },
+     {
+      "at": "0.30",
+      "event": "step 2 lights — the hidden slot is marked"
+     },
+     {
+      "at": "0.48",
+      "event": "step 3 lights — a distribution bar fans out from the model"
+     },
+     {
+      "at": "0.64",
+      "event": "step 4 lights — the actual next token drops in and is compared"
+     },
+     {
+      "at": "0.80",
+      "event": "the nudge arrow fires back into the parameters, terracotta"
+     },
+     {
+      "at": "0.92",
+      "event": "a struck-through 'is it true?' check appears and greys out — no such step exists"
+     }
+    ],
+    "remotion": {
+     "pattern": "TrainingLoop",
+     "props": {
+      "spark": "Four steps. None of them check.",
+      "folderLabel": "INFO 7375 · Week 01",
+      "durationSeconds": 16.47,
+      "cues": {
+       "step1": 0.1017,
+       "step2": 0.1953,
+       "step3": 0.2687,
+       "step4": 0.3926,
+       "nudge": 0.595,
+       "nocheck": 0.8404
+      }
+     }
+    }
+   },
+   "actual_duration_s": 16.47,
+   "audio_file": "mp3/beat-B02.mp3",
+   "render_duration_s": 16.5,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B02.mp4",
+    "filled_by": "media",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B03",
+   "act": "SETUP",
+   "role_note": "The constructed corpus. LABELLED CONSTRUCTED ON SCREEN — assignment requires constructed illustrations be labelled. Canberra is the true capital; Sydney is the frequent misconception.",
+   "narration_text": "So I built a corpus where the frequent answer is false. This is constructed — I invented it, it is not web text, and it says so on screen. One context: the capital of Australia is. Sydney follows seven times. Canberra, the true answer, follows three. Melbourne never follows.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 17,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "build",
+    "show": [
+     {
+      "at": "0.06",
+      "event": "the CONSTRUCTED banner lands first, before any data"
+     },
+     {
+      "at": "0.22",
+      "event": "the context line types: 'the capital of australia is ___'"
+     },
+     {
+      "at": "0.42",
+      "event": "sydney row builds to 7 tally marks"
+     },
+     {
+      "at": "0.62",
+      "event": "canberra row builds to 3 tally marks and takes the TRUE flag"
+     },
+     {
+      "at": "0.80",
+      "event": "melbourne row stays empty at 0"
+     },
+     {
+      "at": "0.92",
+      "event": "corpus frequencies resolve beneath — 0.70 / 0.30 / 0.00"
+     }
+    ],
+    "remotion": {
+     "pattern": "CorpusCard",
+     "props": {
+      "spark": "The frequent answer is the false one.",
+      "folderLabel": "INFO 7375 · Week 01",
+      "durationSeconds": 15.34,
+      "cues": {
+       "tag": 0.1825,
+       "ctx": 0.465,
+       "r0": 0.6008,
+       "r1": 0.7231,
+       "r2": 0.8697,
+       "freq": 0.9349
+      }
+     }
+    }
+   },
+   "actual_duration_s": 15.34,
+   "audio_file": "mp3/beat-B03.mp3",
+   "render_duration_s": 15.375,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B03.mp4",
+    "filled_by": "media",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B04",
+   "act": "WORKED_EXAMPLE",
+   "role_note": "WORKED EXAMPLE, step 0. Numbers verbatim from code/OUTPUT.txt: 0.3333 each, loss 1.0986 = ln 3.",
+   "narration_text": "Training starts with the weights at zero, so every token is equally likely. Point three three three each. The loss is one point zero nine eight six — that is the natural log of three, exactly what uniform over three options costs. Now run the loop.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 16,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "build",
+    "show": [
+     {
+      "at": "0.10",
+      "event": "three bars rise to equal height, each labelled 0.3333"
+     },
+     {
+      "at": "0.42",
+      "event": "the step counter reads 0"
+     },
+     {
+      "at": "0.60",
+      "event": "the loss readout lands on 1.0986"
+     },
+     {
+      "at": "0.80",
+      "event": "'= ln 3' annotates the loss in terracotta"
+     }
+    ],
+    "remotion": {
+     "pattern": "TokenBars",
+     "props": {
+      "phase": "start",
+      "spark": "Uniform. Loss = ln 3.",
+      "folderLabel": "INFO 7375 · Week 01",
+      "durationSeconds": 13.7,
+      "cues": {
+       "bars": 0.1283,
+       "vals": 0.2682,
+       "loss": 0.3899,
+       "ln": 0.5876,
+       "run": 0.8856
+      }
+     },
+     "rendered": {
+      "out": "media/B04.mp4",
+      "at": "2026-09-27T22:56:46.691025+00:00"
+     }
+    }
+   },
+   "actual_duration_s": 13.7,
+   "audio_file": "mp3/beat-B04.mp3",
+   "render_duration_s": 13.708333333333334,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B04.mp4",
+    "filled_by": "remotion:TokenBars",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B05",
+   "act": "WORKED_EXAMPLE",
+   "role_note": "The mechanism MOVING — bars animate through the real reported steps 1, 5, 20, 100, 600 from code/OUTPUT.txt. This is the beat that shows rather than asserts.",
+   "narration_text": "Watch the bars. Step one, Sydney is already ahead. Step five, point five six. Step twenty, point six seven. By step six hundred it settles: Sydney point six nine nine, Canberra point two nine nine, Melbourne point zero zero two. The loss fell the whole way. Nothing checked a fact.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 18,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "step",
+    "show": [
+     {
+      "at": "0.08",
+      "event": "step counter ticks 1 — sydney bar pulls ahead"
+     },
+     {
+      "at": "0.26",
+      "event": "step 5 — sydney 0.5588, loss falls to 0.7858"
+     },
+     {
+      "at": "0.44",
+      "event": "step 20 — sydney 0.6726, melbourne collapsing"
+     },
+     {
+      "at": "0.62",
+      "event": "step 100 — 0.6936 / 0.2933 / 0.0132"
+     },
+     {
+      "at": "0.80",
+      "event": "step 600 — bars settle at 0.6989 / 0.2989 / 0.0022"
+     },
+     {
+      "at": "0.92",
+      "event": "the loss trace beneath has fallen the whole way, unbroken"
+     }
+    ],
+    "remotion": {
+     "pattern": "TokenBars",
+     "props": {
+      "phase": "converge",
+      "spark": "The loss falls. Nothing is checked.",
+      "folderLabel": "INFO 7375 · Week 01",
+      "durationSeconds": 16.13,
+      "cues": {
+       "step1": 0.0573,
+       "step5": 0.1839,
+       "step20": 0.2847,
+       "step600": 0.4242,
+       "read0": 0.4887,
+       "read1": 0.5817,
+       "read2": 0.6747,
+       "lossword": 0.7987,
+       "nothing": 0.884
+      }
+     },
+     "rendered": {
+      "out": "media/B05.mp4",
+      "at": "2026-09-27T22:59:15.816021+00:00"
+     }
+    }
+   },
+   "actual_duration_s": 16.13,
+   "audio_file": "mp3/beat-B05.mp3",
+   "render_duration_s": 16.166666666666668,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B05.mp4",
+    "filled_by": "remotion:TokenBars",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B06",
+   "act": "PAYOFF",
+   "role_note": "The concept in two measured numbers, both from code/OUTPUT.txt: max gap from corpus 0.0022, max gap from truth 0.7011.",
+   "narration_text": "Here is the whole concept in two numbers. Distance from the corpus frequencies: zero point zero zero two two. Distance from the truth: zero point seven zero one one. The objective walked the model to within two thousandths of the corpus, and left it seven tenths away from the right answer. Argmax is Sydney.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 19,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "split",
+    "show": [
+     {
+      "at": "0.10",
+      "event": "the converged distribution sits at the top as the reference"
+     },
+     {
+      "at": "0.30",
+      "event": "left gauge measures distance to CORPUS — needle lands at 0.0022"
+     },
+     {
+      "at": "0.56",
+      "event": "right gauge measures distance to TRUTH — needle swings to 0.7011"
+     },
+     {
+      "at": "0.78",
+      "event": "the two numbers sit side by side, the truth gap in terracotta"
+     },
+     {
+      "at": "0.92",
+      "event": "'argmax = sydney · truth = canberra' resolves beneath"
+     }
+    ],
+    "remotion": {
+     "pattern": "TwoGaps",
+     "props": {
+      "spark": "0.0022 from the corpus. 0.7011 from the truth.",
+      "folderLabel": "INFO 7375 · Week 01",
+      "durationSeconds": 17.34,
+      "cues": {
+       "left": 0.1519,
+       "leftVal": 0.2215,
+       "right": 0.3777,
+       "rightVal": 0.4138,
+       "foot": 0.57,
+       "argmax": 0.892
+      }
+     },
+     "rendered": {
+      "out": "media/B06.mp4",
+      "at": "2026-09-27T23:01:47.186772+00:00"
+     }
+    }
+   },
+   "actual_duration_s": 17.34,
+   "audio_file": "mp3/beat-B06.mp3",
+   "render_duration_s": 17.375,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B06.mp4",
+    "filled_by": "remotion:TwoGaps",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B07",
+   "act": "BODY",
+   "role_note": "The loss floor — the objective is SATISFIED by a contradictory corpus. loss 0.6131 vs corpus entropy 0.6109, both from code/OUTPUT.txt.",
+   "narration_text": "One more thing the numbers show. The loss stops at zero point six one three one. It cannot reach zero, because the corpus contradicts itself about this context. The floor is the corpus's own entropy, zero point six one zero nine. A perfect fit to a wrong corpus is still a perfect fit.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 19,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "draw-on",
+    "show": [
+     {
+      "at": "0.10",
+      "event": "the loss curve draws from 1.0986 downward"
+     },
+     {
+      "at": "0.40",
+      "event": "the curve flattens and stops short of zero at 0.6131"
+     },
+     {
+      "at": "0.60",
+      "event": "a dashed floor line draws in at 0.6109, labelled 'corpus entropy'"
+     },
+     {
+      "at": "0.78",
+      "event": "the gap between curve and zero is marked — it is not a bug"
+     },
+     {
+      "at": "0.92",
+      "event": "'a perfect fit to a wrong corpus is still a perfect fit' resolves"
+     }
+    ],
+    "remotion": {
+     "pattern": "LossFloor",
+     "props": {
+      "spark": "It bottoms out at the corpus, not at zero.",
+      "folderLabel": "INFO 7375 · Week 01",
+      "durationSeconds": 16.36,
+      "cues": {
+       "axes": 0.0,
+       "draw": 0.0998,
+       "drawEnd": 0.2425,
+       "zero": 0.2628,
+       "floor": 0.5175,
+       "entropy": 0.5965,
+       "perfect": 0.7773
+      }
+     },
+     "rendered": {
+      "out": "media/B07.mp4",
+      "at": "2026-09-27T23:04:17.287982+00:00"
+     }
+    }
+   },
+   "actual_duration_s": 16.36,
+   "audio_file": "mp3/beat-B07.mp3",
+   "render_duration_s": 16.375,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B07.mp4",
+    "filled_by": "remotion:LossFloor",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B08",
+   "act": "BODY",
+   "role_note": "Closes the obvious objection — that RLHF fixes it. Quotes are verbatim from Chapter 1 Part 1. Uses the native TargetStack (word-cued, 1920x1080) instead of the library LayerStack, whose fixed reveal timing could not follow the voice and whose 1280x720 geometry left the frame under-filled. SCOPE NOTE: Chapter 1 lists preference tuning as its own concept. This beat does not teach it; it closes the obvious objection ('doesn't later training fix this?') using the chapter's own line that neither stage receives an answer key, then returns to the one concept.",
+   "narration_text": "You might think the later training stage fixes this. The chapter is blunt: neither stage receives an answer key. Preference tuning targets what raters approved of. Approval and correctness overlap, but where they diverge the signal follows approval. A confident, well organized, wrong answer is exactly what gets preferred.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 19,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "build",
+    "show": [
+     {
+      "at": "0.14",
+      "event": "card one stacks in — pretraining targets the observed token"
+     },
+     {
+      "at": "0.44",
+      "event": "card two stacks in — preference tuning targets rater approval"
+     },
+     {
+      "at": "0.72",
+      "event": "card three stacks in on a terracotta rail — neither receives an answer key"
+     },
+     {
+      "at": "0.90",
+      "event": "the caption settles beneath the stack"
+     }
+    ],
+    "remotion": {
+     "pattern": "TargetStack",
+     "props": {
+      "spark": "Two targets. No answer key.",
+      "folderLabel": "INFO 7375 · Week 01",
+      "cues": {
+       "a": 0.0,
+       "b": 0.0198,
+       "key": 0.1987,
+       "bTarget": 0.4138,
+       "diverge": 0.5854,
+       "confident": 0.728
+      },
+      "durationSeconds": 17.24
+     }
+    }
+   },
+   "actual_duration_s": 17.24,
+   "audio_file": "mp3/beat-B08.mp3",
+   "render_duration_s": 17.25,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B08.mp4",
+    "filled_by": "media",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B09",
+   "act": "BOUNDARY",
+   "role_note": "REQUIRED BY THE ASSIGNMENT — names what the explanation does NOT establish. Three explicit limits, the middle one quoting the chapter's own statement about interpretability.",
+   "narration_text": "Here is what this does not establish. My corpus is three tokens and invented. This does not show that a real model's probabilities equal web frequencies — real models generalize, and the chapter says nobody can read off why a given prediction was made. It also does not show models are usually wrong. Only that truth was never the target.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 20,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "build",
+    "show": [
+     {
+      "at": "0.10",
+      "event": "the header 'what this does NOT establish' lands"
+     },
+     {
+      "at": "0.28",
+      "event": "limit one types in — a 3-token toy is not a language model"
+     },
+     {
+      "at": "0.50",
+      "event": "limit two types in — real probabilities are not web frequencies"
+     },
+     {
+      "at": "0.72",
+      "event": "limit three types in — this is not a claim that models are usually wrong"
+     },
+     {
+      "at": "0.88",
+      "event": "the single surviving claim resolves in terracotta beneath the three limits"
+     }
+    ],
+    "remotion": {
+     "pattern": "BoundaryCard",
+     "props": {
+      "spark": "Where this stops.",
+      "folderLabel": "INFO 7375 · Week 01",
+      "durationSeconds": 18.65,
+      "cues": {
+       "head": 0.0,
+       "l1": 0.0943,
+       "l2": 0.2842,
+       "l3": 0.7288,
+       "keep": 0.8606
+      }
+     }
+    }
+   },
+   "actual_duration_s": 18.65,
+   "audio_file": "mp3/beat-B09.mp3",
+   "render_duration_s": 18.666666666666668,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B09.mp4",
+    "filled_by": "media",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B10",
+   "act": "YOUR_TURN",
+   "role_note": "SCAFFOLDED TASK — the viewer flips the result by editing the corpus. Labelled reconstructed UI; the former reply lines were removed. The expected result is stated in the tag as what the script actually prints (verified: sydney=2 -> P(canberra)=0.5989, argmax canberra), not as a Claude answer.",
+   "narration_text": "Your turn. The script is in the folder. Change Sydney's count from seven to two and rerun it. Watch argmax flip to Canberra — not because the model learned a fact, but because you edited the corpus.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 13,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "type-on",
+    "show": [
+     {
+      "at": "0.02",
+      "event": "RECONSTRUCTED UI tag lands, with the script-verified result"
+     },
+     {
+      "at": "0.06",
+      "event": "composer returns with the greeting 'Your turn.'"
+     },
+     {
+      "at": "0.28",
+      "event": "the edit task types into the composer — no reply is shown"
+     }
+    ],
+    "remotion": {
+     "pattern": "ReconstructedComposer",
+     "props": {
+      "greeting": "Your turn.",
+      "topic": "INFO 7375 · WEEK 01",
+      "segment": "Your Turn",
+      "command": "In code/pretraining_target.py set COUNTS['sydney'] = 2, leave canberra at 3, and rerun. Which token wins, and what changed?",
+      "folderLabel": "INFO 7375 · Week 01",
+      "tagLines": [
+       "a styled prompt box — not a real Claude exchange",
+       "result checked by running the script with sydney = 2: argmax → canberra (0.5989)"
+      ],
+      "durationSeconds": 10.86
+     },
+     "rendered": {
+      "out": "media/B10.mp4",
+      "at": "2026-09-27T22:48:19.506088+00:00"
+     }
+    }
+   },
+   "actual_duration_s": 10.86,
+   "audio_file": "mp3/beat-B10.mp3",
+   "render_duration_s": 10.875,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B10.mp4",
+    "filled_by": "remotion:ReconstructedComposer",
+    "at": "2026-09-27T19:05:15"
+   }
+  },
+  {
+   "beat_id": "B11",
+   "act": "OUTRO",
+   "role_note": "Submission card. Deliberately NOT ClaudeTitleOutro — that scene hardcodes @NikBearBrown (OUTRO-LOCK.md) and this is a student submission, so attribution goes to the author.",
+   "narration_text": "What pretraining actually targets: the token that followed, not the truth. This video was created by Akshit Verma for INFO 7375, Prompt Engineering for Generative AI.",
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "estimated_duration_s": 8,
+   "shot": {
+    "type": "GRAPHIC",
+    "source": "remotion",
+    "motion": "fade",
+    "show": [
+     {
+      "at": "0.10",
+      "event": "the concept title restates in serif on cream"
+     },
+     {
+      "at": "0.46",
+      "event": "the one-line thesis resolves beneath it"
+     },
+     {
+      "at": "0.74",
+      "event": "author, course and week settle at the foot"
+     }
+    ],
+    "remotion": {
+     "pattern": "SubmissionOutro",
+     "props": {
+      "title": "What Pretraining Actually Targets",
+      "thesis": "the token that followed, not the truth",
+      "creditLead": "a video created by",
+      "author": "Akshit Verma",
+      "course": "for INFO 7375 · Prompt Engineering for Generative AI",
+      "week": "Week 01 · Chapter 1, Part 1 — Randomness and First Prompts",
+      "cues": {
+       "title": 0.0357,
+       "thesis": 0.1443,
+       "credit": 0.4069,
+       "course": 0.5399,
+       "week": 0.7535
+      },
+      "durationSeconds": 11.9
+     },
+     "rendered": {
+      "out": "media/B11.mp4",
+      "at": "2026-09-27T22:50:03.561752+00:00"
+     }
+    }
+   },
+   "render_duration_s": 11.916666666666666,
+   "build": {
+    "status": "VIDEO",
+    "src": "media\\B11.mp4",
+    "filled_by": "remotion:SubmissionOutro",
+    "at": "2026-09-27T19:05:15"
+   },
+   "actual_duration_s": 11.9,
+   "audio_file": "mp3/beat-B11.mp3"
+  }
+ ]
+}
