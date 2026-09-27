@@ -4,7 +4,10 @@
 **Concept (Chapter 1):** Temperature controls how concentrated the choices are; it doesn't check facts.
 **Why this one:** "Low temperature = more accurate" is a common belief, and the chapter's own
 numbers can disprove it on screen — the ranking never moves, only the confidence does.
-**Runtime:** 2 min 47 s (166.5 s) · 1920×1080 · `temperature-concentration.mp4`
+**Runtime:** 3 min 13 s (193.1 s) · 1920×1080
+
+> **The video is submitted on Canvas only.** At the instructor's request, no video or audio files are
+> published in this repo. Everything needed to rebuild the video is here (see Rebuild).
 
 ## What the video shows
 | Beat | What you see |
@@ -30,7 +33,7 @@ Everything is free and local (Kokoro, Remotion, ffmpeg; no API keys). Full steps
 ```
 
 ## Files
-- `temperature-concentration.mp4` — the video
+- `temperature-concentration.mp4` — the video: **on Canvas only**, not in this repo (built by the steps in BUILD-PROMPT.md)
 - `beat_sheet.json` — narration + visual plan (show blocks) for all 13 beats
 - `BUILD-PROMPT.md` — prompts and commands that rebuild it
 - `SOURCES.md` — what I used, what I made, what Claude contributed, licences

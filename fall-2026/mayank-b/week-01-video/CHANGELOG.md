@@ -227,4 +227,28 @@ Why (Mayank's review, item by item):
   Gate V 0 BLOCKER / 0 MAJOR. Frame check: `_qc/sheet-v8.png`.
 - Runtime is now past the original 120–180 s target, still inside the assignment's 2–4 minutes.
 - FACTCHECK (e claims, B07 formula, ending), SHOTLIST, CHECKS-REPORT (B02 over the narration budget;
-  green as a second accent), README updated. **← current version**
+  green as a second accent), README updated.
+- Pushed as commit `7349055` (v8). CI red, **none of it from mayank-b**: the instructor's `nik-bear-brown/SYNC.md`
+  broken link (as before), plus new errors from classmates' folders (`deepak-s` .tsx/.ts files, a broken
+  link in `pavithra-p`). `code/check_repo_rules.py` passes on this folder.
+
+
+## 2026-09-27 — v8.1: video and audio removed from GitHub (no change to the video)
+
+- **Why:** the instructor asked students not to publish videos on GitHub. The video goes to Canvas only.
+- Removed from the repo: `temperature-concentration.mp4`, plus **six stale duplicates I had pushed by
+  mistake in v8** (`temperature-concentration 2/3/4.mp4`, `temperature-concentration-slate 2/3/4.mp4`,
+  older renders from Sep 23–27) and `_qc/contact_sheet 2.png`. The duplicates were iCloud conflict
+  copies; `publish.sh`'s "force-add every mp4" rule swept them up.
+- No audio file was ever pushed (mp3s were always excluded).
+- Local cleanup: the iCloud duplicates (6 cuts, 3 old beat clips, 1 QC sheet) moved to
+  `_icloud-duplicates/` (git-ignored), not deleted.
+- `.gitignore`: now ignores *.mp4, *.mov, *.webm, *.mp3, *.wav, *.m4a and `_icloud-duplicates/`.
+- `publish.sh`: no longer force-adds the mp4; syncs with `--delete-excluded`; refuses to push if any
+  video/audio file is tracked under mayank-b.
+- README: says the video is submitted on Canvas only.
+- **Limit:** removing a file in a new commit does not erase it from git history. Older commits
+  (72e9aa1 … 7349055) still contain the videos. Erasing them would mean rewriting the shared `main`
+  branch (a force-push that affects every student), so that was not done. It is the instructor's call.
+- Final video unchanged: v8, 193.1 s. **← final version**
+- Also fixed: README still said 2 min 47 s (not updated in v8); now 3 min 13 s.

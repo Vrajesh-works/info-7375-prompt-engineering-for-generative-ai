@@ -8,3 +8,12 @@ _render.log
 __pycache__/
 *-slate.mp4
 _name-test/
+# v8.1: the instructor asked for no video/audio on GitHub (the video goes to Canvas only)
+*.mp4
+*.mov
+*.webm
+*.mp3
+*.wav
+*.m4a
+# iCloud conflict copies, parked locally
+_icloud-duplicates/

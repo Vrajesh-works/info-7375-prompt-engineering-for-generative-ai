@@ -15,14 +15,16 @@ DEST="$REPO/fall-2026/mayank-b/week-01-video"
 [ -d "$REPO/.git" ] || { echo "no repo clone at $REPO"; exit 1; }
 git -C "$REPO" pull -q --rebase origin main
 mkdir -p "$DEST"
-rsync -a --delete --exclude-from="$REEL/.gitignore" --exclude '_qc/clean_check.png' \
+rsync -a --delete --delete-excluded --exclude-from="$REEL/.gitignore" --exclude '_qc/clean_check.png' \
   --exclude 'mp3/*.mp3' "$REEL/" "$DEST/"
 
 python3 "$REEL/code/check_repo_rules.py" "$DEST" || { echo "blocked: would fail course CI"; exit 1; }
 
 cd "$REPO"
 git add -A fall-2026/mayank-b/week-01-video
-git add -f fall-2026/mayank-b/week-01-video/*.mp4 2>/dev/null || true
+# v8.1: no media on GitHub (instructor's request). Refuse to push if any slipped in.
+if git ls-files fall-2026/mayank-b | grep -qiE '\.(mp4|mov|webm|mp3|wav|m4a)$'; then
+  echo "blocked: media files are tracked under mayank-b"; exit 1; fi
 if git diff --cached --quiet; then echo "nothing changed — no commit"; exit 0; fi
 git diff --cached --stat | tail -1
 git commit -q -m "docs(fall-2026): mayank-b Week 01 — $MSG" \

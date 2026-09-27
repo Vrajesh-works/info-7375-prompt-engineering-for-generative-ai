@@ -86,3 +86,9 @@ Dates are local. Each entry: what I tried → what broke → what I did instead.
 - **Kokoro mispronounces "Mayank"**: speech recognition heard "May-ink" / "Millionk". Tried six
   respellings; used "Muh-yunk" (heard as "my yonk"). A speech recogniser is a weak judge of a name,
   so Mayank is checking the candidates by ear in `_name-test/`.
+
+## 2026-09-27 — duplicates pushed, then videos removed
+- **v8 pushed six stale video copies** ("temperature-concentration 2.mp4" etc.). They were iCloud
+  conflict copies made while files were re-downloading, and my publish script force-added every
+  `*.mp4`. → Found them while removing the video from GitHub (the instructor's request). Deleted
+  them from the repo, parked the local copies, and made `publish.sh` refuse to push any video/audio.
