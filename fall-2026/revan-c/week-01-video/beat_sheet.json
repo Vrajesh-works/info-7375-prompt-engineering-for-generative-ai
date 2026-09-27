@@ -1,0 +1,510 @@
+{
+  "metadata": {
+    "title": "Tokens, Not Words.",
+    "slug": "tokens-not-words",
+    "topic": "INFO 7375 · WEEK 1",
+    "concept": "The unit is a token, not a word — and why that breaks letter-counting prompts (Chapter 1, Part 1, 'One question, asked over and over')",
+    "register": "Teardown",
+    "audience": "Claude",
+    "brand": "claude-liam",
+    "engine": "kokoro",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "greeting": "Hi, Liam",
+    "greeting_note": "Greeting chosen by Revan. Narrator voice Liam (Kokoro am_onyx) introduced as narrating for Revan Chonnad. Outro handle @RevanChonnad (custom Manim outro, B10).",
+    "author": "Revan Chonnad (revan-c), INFO 7375 Fall 2026",
+    "evidence": "evidence/tokens.json — produced by evidence/tokenize_examples.py (tiktoken 0.14.0, o200k_base + cl100k_base). Every token ID and split on screen comes from that file.",
+    "status": "REVIEWED — narration reviewed by Revan 2026-09-27; final render final/tokens-not-words.mp4 (1080p, 144.75 s)",
+    "build": {
+      "at": "2026-09-27T17:34:33",
+      "cut": "master",
+      "filled": 11,
+      "of": 11,
+      "slates": [],
+      "skin_warnings": [
+        "B10: palette=claude but the outro is 'un-annotated' — OUTRO LAW wants ClaudeTitleOutro"
+      ]
+    },
+    "channel_handle": "@RevanChonnad",
+    "narrator_disclosure": "Narration is a synthetic Kokoro voice (am_onyx, 'Liam'); disclosed in B00. It is not Revan, not Professor Bear, and not an endorsement.",
+    "ui_disclosure": "B00 and B09 use Brutalist's reconstructed Claude-app skin; its model chip reads 'Reconstructed UI'."
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "narration_text": "Hi, this is Liam, a synthetic voice, narrating for Revan Chonnad. How many r's are in strawberry? You can see three. So here's a better question: what does a language model actually receive when you ask it that? We ran a real tokenizer to find out.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "show": [
+          {
+            "at": "start",
+            "event": "Composer types the real build request"
+          },
+          {
+            "at": "We ran a real tokenizer",
+            "event": "running indicator, then the tokenizer's actual output lines"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hi, Liam",
+            "topic": "INFO 7375 · WEEK 1",
+            "segment": "Tokens, Not Words.",
+            "command": "Run tokenize_examples.py on: How many r's are in strawberry? Show me exactly what the model receives.",
+            "runningText": "running tiktoken o200k_base…",
+            "folderLabel": "@RevanChonnad",
+            "output": [
+              "8 tokens",
+              "' strawberry' → 1 token · ID 101830",
+              "tokenizer output, run 2026-09-24 — not a Claude answer"
+            ],
+            "modelLabel": "Reconstructed UI",
+            "effortLabel": ""
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-27T21:31:07.049516+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 13,
+      "actual_duration_s": 13.85,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 13.875,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "lead_silence_s": 0.8,
+      "narration_text": "A language model reads tokens, so counting letters is awkward. Tokens are the chunks the model actually gets. Once you see them, the strawberry question stops being a mystery.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "show": [
+          {
+            "at": "start",
+            "event": "Writer types 'A language model reads words,'"
+          },
+          {
+            "at": "reads tokens",
+            "event": "'words' deleted, 'tokens' typed"
+          },
+          {
+            "at": "awkward",
+            "event": "'easy' deleted, 'awkward' typed"
+          }
+        ],
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "A language model reads words,\nso counting letters is easy.",
+            "triggerWords": "words, easy",
+            "replacementWords": "tokens, awkward",
+            "seed": "tokens-not-words",
+            "fontSize": 120,
+            "charMs": 38,
+            "hesitateBetween": 10,
+            "yOffset": -120,
+            "contextTitle": "The idea in one line",
+            "contextItems": [
+              {
+                "label": "You read",
+                "detail": "letters — s t r a w b e r r y"
+              },
+              {
+                "label": "The model receives",
+                "detail": "token IDs — numbers from a fixed vocabulary"
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-09-24T17:45:33.292803+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 10,
+      "actual_duration_s": 10.26,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 10.291666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "WORKED EXAMPLE — the question becomes numbers",
+      "narration_text": "Here's the question, run through o200k, an open tokenizer. It comes out as eight tokens. 'How.' 'Many.' 'R.' Apostrophe-s. And strawberry, with the space in front of it, is one single piece. Then every piece is swapped for its ID number. That row of eight numbers is how your question reaches the model.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "start",
+            "event": "The question appears as one line of text"
+          },
+          {
+            "at": "eight tokens",
+            "event": "Text splits into 8 boxes: How | ␣many | ␣r | 's | ␣are | ␣in | ␣strawberry | ?  (counter 1→8)"
+          },
+          {
+            "at": "one single piece",
+            "event": "␣strawberry box turns terracotta"
+          },
+          {
+            "at": "ID number",
+            "event": "Each box flips to its ID: 5299 1991 428 885 553 306 101830 30"
+          },
+          {
+            "at": "how your question reaches the model",
+            "event": "Text labels fade; only the 8 IDs remain"
+          }
+        ],
+        "manim": {
+          "scene_class": "B02_QuestionToTokens",
+          "file": "scenes.py"
+        },
+        "source_data": "evidence/tokens.json → o200k_base → \"How many r's are in strawberry?\""
+      },
+      "estimated_duration_s": 20,
+      "actual_duration_s": 16.64,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 16.666666666666668,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim:B02_QuestionToTokens",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "MECHANISM — letters vs the ID",
+      "narration_text": "Put the two views side by side. You see ten letters, and three of them are r. The model sees one number: one-oh-one, eight-three-oh. There is no r inside that number to count. Whatever the model says about spelling has to come from what it learned about that token in training. It can't look.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "start",
+            "event": "Left panel 'What you see': s t r a w b e r r y as 10 letter tiles"
+          },
+          {
+            "at": "three of them are r",
+            "event": "The three r tiles light terracotta; counter r = 3"
+          },
+          {
+            "at": "The model sees one number",
+            "event": "Right panel 'What the model receives': [101830]"
+          },
+          {
+            "at": "no r inside that number",
+            "event": "Right panel counter: letters visible = 0"
+          }
+        ],
+        "manim": {
+          "scene_class": "B03_LettersVsID",
+          "file": "scenes.py"
+        },
+        "source_data": "evidence/tokens.json → o200k_base → \" strawberry\""
+      },
+      "estimated_duration_s": 20,
+      "actual_duration_s": 14.63,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 14.666666666666666,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim:B03_LettersVsID",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "EVIDENCE — same word, three inputs",
+      "narration_text": "And the pieces aren't fixed. With a space in front, strawberry is one token. Without the space, it's three: 'st,' 'raw,' 'berry.' Capitalize it and the first pieces change again. Same word, three different inputs. The model can't rely on one spelling for the word.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "With a space in front",
+            "event": "Row 1: '␣strawberry' → [␣strawberry] → 101830"
+          },
+          {
+            "at": "it's three",
+            "event": "Row 2: 'strawberry' → [st][raw][berry] → 302 1618 19772"
+          },
+          {
+            "at": "Capitalize it",
+            "event": "Row 3: 'Strawberry' → [Str][aw][berry] → 3504 1134 19772"
+          },
+          {
+            "at": "three different inputs",
+            "event": "Token-count column pulses: 1 · 3 · 3"
+          }
+        ],
+        "manim": {
+          "scene_class": "B04_SameWordThreeWays",
+          "file": "scenes.py"
+        },
+        "source_data": "evidence/tokens.json → o200k_base"
+      },
+      "estimated_duration_s": 18,
+      "actual_duration_s": 13.57,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 13.583333333333334,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim:B04_SameWordThreeWays",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "CHECK THE SOURCE",
+      "narration_text": "The chapter uses the same kind of example. It says unbelievable might arrive in three pieces. We checked. Bare, it does: 'un,' 'bel,' 'ievable.' With a leading space, it's one token. The claim holds, and the space decides which case you get.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "start",
+            "event": "Quote card: '`unbelievable` might arrive in three pieces.' — Chapter 1"
+          },
+          {
+            "at": "Bare, it does",
+            "event": "'unbelievable' splits to [un][bel][ievable]; check mark"
+          },
+          {
+            "at": "With a leading space",
+            "event": "'␣unbelievable' → one box, ID 83614"
+          }
+        ],
+        "manim": {
+          "scene_class": "B05_CheckTheChapter",
+          "file": "scenes.py"
+        },
+        "source_data": "chapters/01-randomness-and-first-prompts.md line 35; evidence/tokens.json → o200k_base"
+      },
+      "estimated_duration_s": 16,
+      "actual_duration_s": 12.69,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 12.708333333333334,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim:B05_CheckTheChapter",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "CONTRAST — spell it out",
+      "narration_text": "Now spell the word out, with spaces between the letters. It becomes ten tokens, and each r is its own token: ID four-two-eight, three times. Now the r's are in the input. That's the idea behind asking a model to spell a word before counting. It doesn't check the count. It just makes the letters visible.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "start",
+            "event": "'s t r a w b e r r y' splits into 10 boxes"
+          },
+          {
+            "at": "each r is its own token",
+            "event": "The three ␣r boxes light terracotta, each labelled 428; counter 1, 2, 3"
+          },
+          {
+            "at": "doesn't check the count",
+            "event": "Caption: 'visible ≠ verified'"
+          }
+        ],
+        "manim": {
+          "scene_class": "B06_SpellItOut",
+          "file": "scenes.py"
+        },
+        "source_data": "evidence/tokens.json → o200k_base → \"s t r a w b e r r y\""
+      },
+      "estimated_duration_s": 20,
+      "actual_duration_s": 16.32,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 16.333333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim:B06_SpellItOut",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "FALSIFIABILITY — what this does not show",
+      "narration_text": "Two things this does not show. First, these are OpenAI's open tokenizers, not Claude's, which isn't public. Claude's splits may be different. Second, it doesn't predict failure. Plenty of models answer three correctly. What it shows is why the task is awkward, not that a model will get it wrong.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "start",
+            "event": "Header: 'What this does NOT establish'"
+          },
+          {
+            "at": "not Claude's",
+            "event": "Card 1: 'Claude's tokenizer — not public. Shown: o200k_base, cl100k_base.'"
+          },
+          {
+            "at": "doesn't predict failure",
+            "event": "Card 2: 'Explains awkward ≠ predicts wrong.'"
+          }
+        ],
+        "manim": {
+          "scene_class": "B07_Boundary",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 18,
+      "actual_duration_s": 15.57,
+      "audio_file": "mp3/beat-B07.mp3",
+      "render_duration_s": 15.583333333333334,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim:B07_Boundary",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "VERDICT",
+      "narration_text": "So here's the verdict. The model receives token IDs, not letters. In our question, strawberry was one token. Spelled out, the r's became three separate tokens. And every number here came from an open tokenizer, not Claude's.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "tokens-not-words.md",
+            "artifactHeading": "Tokens, not words",
+            "brandLabel": "@RevanChonnad",
+            "artifactLines": [
+              "The model receives token IDs, not letters.",
+              "' strawberry' in the question = 1 token (101830).",
+              "Spelled out: 10 tokens; ' r' = 428, three times.",
+              "Boundary: open tokenizer (o200k_base), not Claude's."
+            ]
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-09-27T20:10:27.507522+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 14,
+      "actual_duration_s": 12.78,
+      "audio_file": "mp3/beat-B08.mp3",
+      "render_duration_s": 12.791666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "HANDOFF",
+      "narration_text": "Your turn. Paste this into Claude: Spell strawberry one letter per line, number each line, then count the r's. Then tell me which step you'd trust least, and why. The first part puts the letters into the input. The second part asks Claude to flag its own weak step, and you should check that step yourself.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "INFO 7375 · WEEK 1",
+            "segment": "Tokens, Not Words.",
+            "command": "Spell 'strawberry' one letter per line, number each line, then count the r's. Then tell me which step you'd trust least, and why.",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "@RevanChonnad",
+            "output": [],
+            "modelLabel": "Reconstructed UI",
+            "effortLabel": ""
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": "2026-09-27T21:32:18.753262+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 18,
+      "actual_duration_s": 15.17,
+      "audio_file": "mp3/beat-B09.mp3",
+      "render_duration_s": 15.208333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B09.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T17:34:33"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "OUTRO",
+      "narration_text": "Tokens, Not Words. At Revan Chonnad.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "start",
+            "event": "Title 'Tokens, Not Words' with terracotta period"
+          },
+          {
+            "at": "At Revan Chonnad",
+            "event": "Handle @RevanChonnad appears beneath"
+          }
+        ],
+        "manim": {
+          "scene_class": "B10_TitleOutro",
+          "file": "scenes.py"
+        },
+        "note": "Custom outro: Brutalist's ClaudeTitleOutro hardcodes @NikBearBrown (OUTRO-LOCK), so this reel uses its own card instead of editing the toolkit."
+      },
+      "estimated_duration_s": 5,
+      "actual_duration_s": 3.01,
+      "audio_file": "mp3/beat-B10.mp3",
+      "render_duration_s": 3.0416666666666665,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B10.mp4",
+        "filled_by": "manim:B10_TitleOutro",
+        "at": "2026-09-27T17:34:33"
+      }
+    }
+  ]
+}
