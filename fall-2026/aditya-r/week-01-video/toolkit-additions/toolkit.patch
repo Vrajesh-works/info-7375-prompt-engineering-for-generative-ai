@@ -1,0 +1,1079 @@
+diff --git a/runtime/remotion/src/Root.tsx b/runtime/remotion/src/Root.tsx
+index b8b80af..145ab01 100644
+--- a/runtime/remotion/src/Root.tsx
++++ b/runtime/remotion/src/Root.tsx
+@@ -1,5 +1,6 @@
+ import React from 'react';
+ import {Composition, Folder} from 'remotion';
++import {NtlLoop, ntlLoopSchema, NtlTemplate, ntlTemplateSchema, NtlBars, ntlBarsSchema, NtlUnroll, ntlUnrollSchema, NtlWrong, ntlWrongSchema, NtlMath, ntlMathSchema, NtlNoStop, ntlNoStopSchema, NtlForce, ntlForceSchema, NtlSample, ntlSampleSchema, NtlLimits, ntlLimitsSchema, NtlClaudeReply, ntlClaudeReplySchema} from './NextTokenLoop';
+ import {WalkerGodotSetup, walkerGodotSetupSchema} from './scenes/WalkerGodotSetup';
+ import {GodotDevWorkbench, godotDevWorkbenchSchema} from './scenes/GodotDevWorkbench';
+ import {GodotDesignBoard, godotDesignBoardSchema} from './scenes/GodotDesignBoard';
+@@ -4345,6 +4346,53 @@ export const RemotionRoot: React.FC = () => {
+           durationInFrames={300} fps={30} width={1920} height={1080}
+           schema={gitHubChurnSchema} defaultProps={gitHubChurnSchema.parse({})} />
+       </Folder>
++      {/* claude-liam-next-token-loop — "A Chatbot Is a Loop." (reel-local; recorded SmolLM2 evidence) */}
++      <Folder name="NextTokenLoop">
++        <Composition id="NtlLoop" component={NtlLoop}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlLoopSchema} defaultProps={ntlLoopSchema.parse({})} />
++        <Composition id="NtlTemplate" component={NtlTemplate}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlTemplateSchema} defaultProps={ntlTemplateSchema.parse({})} />
++        <Composition id="NtlBars" component={NtlBars}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlBarsSchema} defaultProps={ntlBarsSchema.parse({})} />
++        <Composition id="NtlUnroll" component={NtlUnroll}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlUnrollSchema} defaultProps={ntlUnrollSchema.parse({})} />
++        <Composition id="NtlWrong" component={NtlWrong}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlWrongSchema} defaultProps={ntlWrongSchema.parse({})} />
++        <Composition id="NtlMath" component={NtlMath}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlMathSchema} defaultProps={ntlMathSchema.parse({})} />
++        <Composition id="NtlNoStop" component={NtlNoStop}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlNoStopSchema} defaultProps={ntlNoStopSchema.parse({})} />
++        <Composition id="NtlForce" component={NtlForce}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlForceSchema} defaultProps={ntlForceSchema.parse({})} />
++        <Composition id="NtlSample" component={NtlSample}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlSampleSchema} defaultProps={ntlSampleSchema.parse({})} />
++        <Composition id="NtlLimits" component={NtlLimits}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlLimitsSchema} defaultProps={ntlLimitsSchema.parse({})} />
++        <Composition id="NtlClaudeReply" component={NtlClaudeReply}
++          durationInFrames={180} fps={30} width={1920} height={1080}
++          calculateMetadata={({props}) => ({durationInFrames: Math.max(1, Math.ceil(((props as any).durationSeconds ?? 6) * 30))})}
++          schema={ntlClaudeReplySchema} defaultProps={ntlClaudeReplySchema.parse({})} />
++      </Folder>
+       <Composition
+         id="badge-reveal"
+         component={BadgeReveal}
+diff --git a/runtime/scripts/build_safety.py b/runtime/scripts/build_safety.py
+index dfeadcc..f0da340 100644
+--- a/runtime/scripts/build_safety.py
++++ b/runtime/scripts/build_safety.py
+@@ -183,7 +183,7 @@ def validate_project(sheet):
+         if is_source_report(b, sheet) and (b.get('shot') or {}).get('remotion'):
+             raise BuildError(f'{bid}: source reports cannot also be generated Remotion scenes')
+     slug = (sheet.get('metadata') or {}).get('slug', 'reel')
+-    if not isinstance(slug, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', slug):
++    if not isinstance(slug, str) or not re.fullmatch(r'[A-Za-z0-9_][A-Za-z0-9._-]*', slug):
+         raise BuildError('metadata.slug must be a filename, not a path')
+     default_voice(sheet)
+     from math_layout_check import math_layout_errors
+diff --git a/setup b/setup
+index 7209959..4cbea35 100755
+--- a/setup
++++ b/setup
+@@ -105,12 +105,12 @@ fi
+ EL_PAT="ELEVEN""LABS_API_KEY|elevenlabs""\.io|\"engine\"[^\"]*\"elevenlabs\"|xi-api-key"
+ if grep -rqiE "$EL_PAT" \
+     --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=__pycache__ \
+-    --exclude-dir='.claude' --exclude='CHANGELOG*' --exclude=setup .; then
++    --exclude-dir='.claude' --exclude-dir=youtube --exclude='CHANGELOG*' --exclude=setup .; then
+   r "ElevenLabs reference found — this toolkit is Kokoro-only for narration."; echo
+   echo "  Files with hits:"
+   grep -rliE "$EL_PAT" \
+     --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=__pycache__ \
+-    --exclude-dir='.claude' --exclude='CHANGELOG*' --exclude=setup . | sed 's/^/    /'
++    --exclude-dir='.claude' --exclude-dir=youtube --exclude='CHANGELOG*' --exclude=setup . | sed 's/^/    /'
+   exit 1
+ fi
+ 
+diff --git a/runtime/remotion/src/NextTokenLoop.tsx b/runtime/remotion/src/NextTokenLoop.tsx
+new file mode 100644
+index 0000000..16aeef2
+--- /dev/null
++++ b/runtime/remotion/src/NextTokenLoop.tsx
+@@ -0,0 +1,953 @@
++/**
++ * NextTokenLoop.tsx — reel-local Remotion components for
++ * claude-liam-next-token-loop ("A Chatbot Is a Loop.").
++ *
++ * Palette: the claude fidelity tokens — cream PAGE, warm INK, terracotta SPARK
++ * as the ONE accent per beat. All at 1920x1080, registered in Root.tsx under
++ * the folder "NextTokenLoop".
++ *
++ * SOURCE CARE: every probability these components show comes from a recorded
++ * local run of SmolLM2-135M-Instruct (greedy decoding) stored in the reel's
++ * evidence/ folder. Props carry the numbers; no component hardcodes a value,
++ * so a wrong figure is a beat-sheet fix, not a component fix.
++ *
++ * TIMING: `durationSeconds` = the beat's measured audio (calculateMetadata);
++ * every `cue*` prop is a second offset taken from mp3/words.json, so reveals
++ * land on the spoken word. Pure functions of frame — no timers, no randomness.
++ *
++ * LAYOUT: all essential content sits inside SAFE (x 96–1824, y 54–1026).
++ */
++import React from 'react';
++import {AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
++import {z} from 'zod';
++import {CLAUDE, CLAUDE_FONT} from './tokens/claude';
++import {SAFE} from './tokens/layout';
++
++const SERIF = CLAUDE_FONT.serif;
++const MONO = CLAUDE_FONT.mono;
++const SANS = CLAUDE_FONT.ui;
++/** pale terracotta plate: ink text on it clears WCAG 4.5:1; the accent stays on the border */
++const PLATE = '#F7E1D7';
++const cl = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
++const SPRING = {damping: 28, stiffness: 110, mass: 0.9};
++
++/** seconds -> 0..1 spring that starts at `at` seconds */
++const useIn = (at: number, delayFrames = 0) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  return spring({frame: frame - Math.round(at * fps) - delayFrames, fps, config: SPRING});
++};
++/** linear 0..1 ramp between two times in seconds */
++const ramp = (t: number, a: number, b: number) => cl((t - a) / Math.max(0.001, b - a));
++
++/** Percent label that never rounds a probability below 1 up to "100%". */
++const pctLabel = (p: number) => {
++  const pct = p * 100;
++  if (pct < 10) return `${pct.toFixed(1)}%`;
++  if (Math.round(pct) >= 100 && p < 1) return `${pct.toFixed(1)}%`;
++  return `${Math.round(pct)}%`;
++};
++
++/** Visible form of a token: leading space shown as a thin gap, specials as-is. */
++const tokenLabel = (tok: string) => (tok.startsWith(' ') ? '␣' + tok.slice(1) : tok);
++
++// ── Shared chrome ────────────────────────────────────────────────────────────
++
++/** SPARK-LINE LAW: spark + one short serif line, top-left inside SAFE. */
++const SparkLine: React.FC<{line: string}> = ({line}) => {
++  const t = useIn(0);
++  return (
++    <div style={{position: 'absolute', left: SAFE.x, top: SAFE.y + 6, display: 'flex',
++      alignItems: 'baseline', gap: 16, opacity: t}}>
++      <span style={{fontFamily: SERIF, fontSize: 60, color: CLAUDE.SPARK, lineHeight: 1}}>✻</span>
++      <span style={{fontFamily: SERIF, fontSize: 56, color: CLAUDE.INK_SOFT, lineHeight: 1}}>{line}</span>
++    </div>
++  );
++};
++
++/** LOGO LAW: the @NikBearBrown mark, small + low-opacity, lower-right inside SAFE. */
++const LogoBug: React.FC = () => (
++  <Img src={staticFile('ntl/nbb-logo.svg')} style={{position: 'absolute',
++    right: 1920 - SAFE.r, bottom: 1080 - SAFE.b - 18, width: 165, opacity: 0.32}} />
++);
++
++/** Small provenance line, bottom-left inside SAFE. */
++const Caption: React.FC<{text: string; at?: number}> = ({text, at = 0.3}) => {
++  const t = useIn(at);
++  return (
++    <div style={{position: 'absolute', left: SAFE.x, bottom: 1080 - SAFE.b + 6,
++      maxWidth: SAFE.w - 220, fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT,
++      opacity: t * 0.95, lineHeight: 1.25}}>{text}</div>
++  );
++};
++
++/** Evidence badge, top-right inside SAFE. The kind is read from the text:
++ *  "Constructed…" → dashed outline · "Real Claude response…" → filled ink · anything else → solid outline
++ *  (recorded / intervention / computed). One visual vocabulary for evidence across the film. */
++const Badge: React.FC<{text: string}> = ({text}) => {
++  const t = useIn(0.15);
++  const constructed = /^constructed/i.test(text);
++  const claude = /^real claude/i.test(text);
++  return (
++    <div style={{position: 'absolute', right: 1920 - SAFE.r, top: SAFE.y + 8, maxWidth: 1180, whiteSpace: 'nowrap',
++      fontFamily: SANS, fontSize: 30, fontWeight: 600, letterSpacing: 0.5, lineHeight: 1.2,
++      color: claude ? CLAUDE.CARD : CLAUDE.INK, background: claude ? CLAUDE.INK : CLAUDE.CARD,
++      border: `2.5px ${constructed ? 'dashed' : 'solid'} ${CLAUDE.INK}`, borderRadius: 999,
++      padding: '9px 22px', opacity: t}}>{text}</div>
++  );
++};
++
++const Stage: React.FC<{spark: string; caption?: string; badge?: string; children: React.ReactNode}> =
++  ({spark, caption, badge, children}) => (
++    <AbsoluteFill style={{background: CLAUDE.PAGE, overflow: 'hidden'}}>
++      <SparkLine line={spark} />
++      {badge ? <Badge text={badge} /> : null}
++      {children}
++      {caption ? <Caption text={caption} /> : null}
++      <LogoBug />
++    </AbsoluteFill>
++  );
++
++const candidate = z.object({token: z.string(), p: z.number().min(0).max(1)});
++
++// ===========================================================================
++// NtlLoop — B02 framework: text so far → model → probabilities → pick & append → back
++// ===========================================================================
++export const ntlLoopSchema = z.object({
++  sparkLine: z.string().default('One step, repeated.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(6.7),
++  context: z.string().default('…What is the capital of France?'),
++  candidates: z.array(candidate).default([
++    {token: 'The', p: 0.8312}, {token: 'Paris', p: 0.0415}, {token: 'As', p: 0.0183},
++  ]),
++  cueIn: z.number().default(0.1),
++  cueProb: z.number().default(2.25),
++  cuePick: z.number().default(4.38),
++  cueAppend: z.number().default(5.0),
++  cueAgain: z.number().default(5.5),
++  caption: z.string().default(''),
++});
++export type NtlLoopProps = z.infer<typeof ntlLoopSchema>;
++
++export const NtlLoop: React.FC<NtlLoopProps> = ({sparkLine, badge, context, candidates,
++  cueIn, cueProb, cuePick, cueAppend, cueAgain, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++
++  // four stations on a rectangle that fills SAFE below the spark line
++  const W = 600, H = 250;
++  const L = SAFE.x + 20, R = SAFE.r - 20 - W;
++  const TOP = 190, BOT = 690;
++  const st = [
++    {x: L, y: TOP, title: 'Text so far', at: cueIn},
++    {x: R, y: TOP, title: 'The model', at: cueIn + 0.6},
++    {x: R, y: BOT, title: 'Next-token probabilities', at: cueProb},
++    {x: L, y: BOT, title: 'Pick one · append it', at: cuePick},
++  ];
++  const cx = (i: number) => st[i].x + W / 2;
++  const cy = (i: number) => st[i].y + H / 2;
++  // edges: TL→TR (top), TR→BR (right), BR→BL (bottom), BL→TL (left)
++  const edges = [
++    {x1: L + W, y1: cy(0), x2: R, y2: cy(1), at: cueIn + 0.3},
++    {x1: cx(1), y1: TOP + H, x2: cx(2), y2: BOT, at: cueProb - 0.4},
++    {x1: R, y1: cy(2), x2: L + W, y2: cy(3), at: cuePick - 0.3},
++    {x1: cx(3), y1: BOT, x2: cx(0), y2: TOP + H, at: cueAppend},
++  ];
++  const chosen = candidates[0];
++  const appended = t >= cueAppend + 0.45;
++  const maxP = Math.max(...candidates.map((c) => c.p));
++  // the chip flies BL → TL on "append"
++  const fly = interpolate(t, [cueAppend, cueAppend + 0.45], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
++  const againIn = useIn(cueAgain);
++
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0}}>
++        <defs>
++          <marker id="ntl-ah" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
++            <path d="M0,0 L12,6 L0,12 Z" fill={CLAUDE.INK_SOFT} />
++          </marker>
++        </defs>
++        {edges.map((e, i) => {
++          const p = ramp(t, e.at, e.at + 0.5);
++          return (
++            <line key={i} x1={e.x1} y1={e.y1} x2={e.x1 + (e.x2 - e.x1) * p} y2={e.y1 + (e.y2 - e.y1) * p}
++              stroke={CLAUDE.INK_SOFT} strokeWidth={4} opacity={p > 0 ? 1 : 0}
++              markerEnd={p > 0.98 ? 'url(#ntl-ah)' : undefined} />
++          );
++        })}
++      </svg>
++
++      {st.map((s, i) => {
++        const a = cl(spring({frame: frame - Math.round(s.at * fps), fps, config: SPRING}));
++        return (
++          <div key={i} style={{position: 'absolute', left: s.x, top: s.y, width: W, height: H,
++            background: CLAUDE.CARD, border: `2px solid ${CLAUDE.BORDER}`, borderRadius: 20,
++            boxSizing: 'border-box', padding: '26px 32px', opacity: a,
++            transform: `translateY(${(1 - a) * 18}px)`, display: 'flex', flexDirection: 'column', gap: 18}}>
++            <div style={{fontFamily: SERIF, fontSize: 54, color: CLAUDE.INK, lineHeight: 1.05}}>{s.title}</div>
++            {i === 0 && (
++              <div style={{fontFamily: MONO, fontSize: 34, color: CLAUDE.INK, lineHeight: 1.3}}>
++                {context}
++                {appended ? <span style={{color: CLAUDE.INK, fontWeight: 700, borderBottom: `5px solid ${CLAUDE.SPARK}`}}>{' ' + chosen.token}</span> : null}
++                <span style={{color: CLAUDE.INK_SOFT}}>▍</span>
++              </div>
++            )}
++            {i === 1 && (
++              <div style={{fontFamily: SANS, fontSize: 32, color: CLAUDE.INK_SOFT, lineHeight: 1.3}}>
++                reads all of it, once per pass
++              </div>
++            )}
++            {i === 2 && (
++              <div style={{display: 'flex', flexDirection: 'column', gap: 12}}>
++                {candidates.map((c, k) => {
++                  const g = ramp(t, cueProb + 0.15 + k * 0.12, cueProb + 0.75 + k * 0.12);
++                  const isChosen = k === 0 && t >= cuePick;
++                  return (
++                    <div key={k} style={{display: 'flex', alignItems: 'center', gap: 16}}>
++                      <span style={{fontFamily: MONO, fontSize: 30, width: 110, color: CLAUDE.INK}}>{c.token}</span>
++                      <div style={{height: 22, borderRadius: 11, width: 380 * (c.p / maxP) * g + 6,
++                        background: isChosen ? CLAUDE.SPARK : CLAUDE.GHOST}} />
++                    </div>
++                  );
++                })}
++              </div>
++            )}
++            {i === 3 && t >= cueAppend + 0.45 && (
++              <div style={{fontFamily: SANS, fontSize: 32, color: CLAUDE.INK_SOFT}}>
++                picked the top token: <span style={{fontFamily: MONO, color: CLAUDE.INK}}>{chosen.token}</span>
++              </div>
++            )}
++            {i === 3 && t >= cuePick && fly < 1 && (
++              <div style={{alignSelf: 'flex-start', fontFamily: MONO, fontSize: 40, color: CLAUDE.INK,
++                background: PLATE, border: `3px solid ${CLAUDE.SPARK}`, borderRadius: 12, padding: '8px 22px',
++                transform: `translateY(${-fly * (BOT - TOP)}px)`, opacity: 1 - fly * 0.6}}>
++                {chosen.token}
++              </div>
++            )}
++          </div>
++        );
++      })}
++
++      {/* centre: the pass counter — the loop goes around again */}
++      <div style={{position: 'absolute', left: 0, right: 0, top: 470, textAlign: 'center',
++        fontFamily: SERIF, fontSize: 64, color: CLAUDE.INK, opacity: againIn,
++        transform: `scale(${0.9 + 0.1 * againIn})`}}>
++        ↻ pass 2
++      </div>
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlTemplate — B03: the chat, as the one document the model continues
++// ===========================================================================
++export const ntlTemplateSchema = z.object({
++  sparkLine: z.string().default('One document.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(5.5),
++  lines: z.array(z.object({
++    special: z.string().default(''),
++    text: z.string(),
++    kind: z.enum(['role', 'body', 'question']).default('body'),
++    end: z.string().default(''),
++  })).default([]),
++  cueDoc: z.number().default(1.8),
++  cueQuestion: z.number().default(2.5),
++  cueBlank: z.number().default(4.4),
++  blankLabel: z.string().default('the loop writes here'),
++  caption: z.string().default(''),
++});
++export type NtlTemplateProps = z.infer<typeof ntlTemplateSchema>;
++
++const SpecialTok: React.FC<{tok: string}> = ({tok}) => (
++  <span style={{fontFamily: MONO, fontSize: 30, color: CLAUDE.INK_SOFT, background: CLAUDE.PILL,
++    borderRadius: 8, padding: '2px 10px', margin: '0 6px'}}>{tok}</span>
++);
++
++export const NtlTemplate: React.FC<NtlTemplateProps> = ({sparkLine, badge, lines, cueDoc, cueQuestion,
++  cueBlank, blankLabel, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++  const card = useIn(0.05);
++  const qIn = useIn(cueQuestion);
++  const blankIn = useIn(cueBlank);
++  const blink = Math.floor(frame / 12) % 2 === 0;
++  const perLine = Math.max(0.2, (cueDoc - 0.2) / Math.max(1, lines.length));
++
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      <div style={{position: 'absolute', left: SAFE.x, top: 150, width: SAFE.w, height: 760,
++        background: CLAUDE.CARD, border: `2px solid ${CLAUDE.BORDER}`, borderRadius: 24,
++        boxSizing: 'border-box', padding: '48px 56px', opacity: card,
++        display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 26}}>
++        {lines.map((ln, i) => {
++          const a = ramp(t, 0.2 + i * perLine, 0.2 + (i + 0.6) * perLine);
++          const isQ = ln.kind === 'question';
++          return (
++            <div key={i} style={{fontFamily: MONO, fontSize: ln.kind === 'role' ? 40 : 34,
++              color: CLAUDE.INK, opacity: a, lineHeight: 1.25,
++              fontWeight: ln.kind === 'role' ? 700 : 400,
++              paddingLeft: isQ ? 18 : 0,
++              borderLeft: isQ ? `6px solid rgba(61,57,41,${0.85 * qIn})` : '6px solid transparent'}}>
++              {ln.special ? <SpecialTok tok={ln.special} /> : null}
++              {ln.text}
++              {ln.end ? <SpecialTok tok={ln.end} /> : null}
++            </div>
++          );
++        })}
++        <div style={{display: 'flex', alignItems: 'center', gap: 28, opacity: blankIn, height: 60}}>
++          <span style={{display: 'inline-block', width: 30, height: 54, borderRadius: 4,
++            background: CLAUDE.SPARK, opacity: blink ? 1 : 0.25}} />
++          <span style={{fontFamily: SERIF, fontSize: 54, color: CLAUDE.INK}}>{blankLabel}</span>
++        </div>
++      </div>
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlBars — B04 / B06: one pass's top-5 next-token probabilities
++// ===========================================================================
++export const ntlBarsSchema = z.object({
++  sparkLine: z.string().default('How answers start.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(5),
++  heading: z.string().default('Pass 1'),
++  context: z.string().default('…<|im_start|>assistant'),
++  candidates: z.array(candidate).default([{token: 'The', p: 0.8312}]),
++  chosenIndex: z.number().int().default(0),
++  ringIndex: z.number().int().default(-1),
++  cueGrow: z.number().default(0.8),
++  cueRing: z.number().default(3.3),
++  caption: z.string().default(''),
++});
++export type NtlBarsProps = z.infer<typeof ntlBarsSchema>;
++
++export const NtlBars: React.FC<NtlBarsProps> = ({sparkLine, badge, heading, context, candidates,
++  chosenIndex, ringIndex, cueGrow, cueRing, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++  const head = useIn(0.05);
++  const ringIn = useIn(cueRing);
++  const blink = Math.floor(frame / 12) % 2 === 0;
++
++  const LABEL_W = 330, PCT_W = 170;
++  const RAIL = SAFE.w - LABEL_W - PCT_W - 60;
++  const ROW_TOP = 400, ROW_H = 112;
++
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      <div style={{position: 'absolute', left: SAFE.x, top: 150, width: SAFE.w, opacity: head,
++        fontFamily: SERIF, fontSize: 64, color: CLAUDE.INK, lineHeight: 1.1}}>{heading}</div>
++      <div style={{position: 'absolute', left: SAFE.x, top: 258, maxWidth: SAFE.w, opacity: head,
++        fontFamily: MONO, fontSize: 36, color: CLAUDE.INK, background: CLAUDE.CARD,
++        border: `2px solid ${CLAUDE.BORDER}`, borderRadius: 14, padding: '14px 26px'}}>
++        {context}<span style={{color: CLAUDE.INK_SOFT, opacity: blink ? 1 : 0.2}}> ▍</span>
++      </div>
++
++      {candidates.map((c, i) => {
++        const g = ramp(t, cueGrow + i * 0.1, cueGrow + 0.7 + i * 0.1);
++        const isChosen = i === chosenIndex;
++        const y = ROW_TOP + i * ROW_H;
++        const pctText = pctLabel(c.p);
++        return (
++          <div key={i} style={{position: 'absolute', left: SAFE.x, top: y, width: SAFE.w,
++            height: ROW_H - 22, display: 'flex', alignItems: 'center', gap: 30}}>
++            <div style={{width: LABEL_W, textAlign: 'right', fontFamily: MONO, fontSize: 42,
++              color: CLAUDE.INK, fontWeight: isChosen ? 700 : 400}}>{tokenLabel(c.token)}</div>
++            <div style={{position: 'relative', width: RAIL, height: 26, borderRadius: 13,
++              background: CLAUDE.FOOTER}}>
++              <div style={{position: 'absolute', left: 0, top: 0, height: 26, borderRadius: 13,
++                width: Math.max(10, RAIL * c.p * g),
++                background: isChosen ? CLAUDE.SPARK : CLAUDE.INK_SOFT, opacity: isChosen ? 1 : 0.55}} />
++              {i === ringIndex && (
++                <div style={{position: 'absolute', left: -14, top: -16, width: RAIL * 0.2,
++                  height: 58, borderRadius: 29, border: `4px solid ${CLAUDE.INK}`, opacity: ringIn}} />
++              )}
++            </div>
++            <div style={{width: PCT_W, fontFamily: SERIF, fontSize: 48, color: CLAUDE.INK,
++              opacity: g, fontWeight: isChosen ? 700 : 400}}>{pctText}</div>
++          </div>
++        );
++      })}
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlUnroll — B05: the loop unrolled, one row per pass
++// ===========================================================================
++export const ntlUnrollSchema = z.object({
++  sparkLine: z.string().default('Append. Predict. Repeat.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(4.5),
++  startContext: z.number().int().default(37),
++  steps: z.array(candidate).default([]),
++  cueFirst: z.number().default(0.15),
++  cueLast: z.number().default(3.3),
++  stopToken: z.string().default('<|im_end|>'),
++  caption: z.string().default(''),
++});
++export type NtlUnrollProps = z.infer<typeof ntlUnrollSchema>;
++
++export const NtlUnroll: React.FC<NtlUnrollProps> = ({sparkLine, badge, startContext, steps, cueFirst,
++  cueLast, stopToken, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++  const n = Math.max(1, steps.length);
++  const at = (i: number) => cueFirst + (i / Math.max(1, n - 1)) * (cueLast - cueFirst);
++  const shown = steps.filter((_, i) => t >= at(i));
++  const sentence = shown.filter((s) => s.token !== stopToken).map((s) => s.token).join('');
++  const stopped = shown.some((s) => s.token === stopToken);
++
++  const COLS = [120, 300, 380, 700];   // pass · context · token · probability
++  const ROW_TOP = 330, ROW_H = 72;
++  const BAR = 520;
++
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      {/* the sentence, assembling */}
++      <div style={{position: 'absolute', left: SAFE.x, top: 150, width: SAFE.w, fontFamily: SERIF,
++        fontSize: 76, color: CLAUDE.INK, lineHeight: 1.1, whiteSpace: 'pre'}}>
++        {sentence}
++        {!stopped && <span style={{color: CLAUDE.INK_SOFT}}>▍</span>}
++      </div>
++      {/* header row */}
++      <div style={{position: 'absolute', left: SAFE.x, top: ROW_TOP - 58, display: 'flex',
++        fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT, letterSpacing: 2}}>
++        <div style={{width: COLS[0]}}>PASS</div>
++        <div style={{width: COLS[1]}}>TOKENS IN</div>
++        <div style={{width: COLS[2]}}>APPENDED</div>
++        <div style={{width: COLS[3]}}>ITS PROBABILITY</div>
++      </div>
++      {steps.map((s, i) => {
++        const a = cl(spring({frame: frame - Math.round(at(i) * fps), fps, config: SPRING}));
++        const isStop = s.token === stopToken;
++        return (
++          <div key={i} style={{position: 'absolute', left: SAFE.x, top: ROW_TOP + i * ROW_H,
++            height: ROW_H - 12, display: 'flex', alignItems: 'center', opacity: a,
++            transform: `translateX(${(1 - a) * 30}px)`, borderTop: `1px solid ${CLAUDE.BORDER}`}}>   {/* slide in from the right: never crosses SAFE.x */}
++            <div style={{width: COLS[0], fontFamily: SERIF, fontSize: 40, color: CLAUDE.INK}}>{i + 1}</div>
++            <div style={{width: COLS[1], fontFamily: MONO, fontSize: 34, color: CLAUDE.INK_SOFT}}>{startContext + i}</div>
++            <div style={{width: COLS[2]}}>
++              <span style={{fontFamily: MONO, fontSize: 36, color: CLAUDE.INK, fontWeight: isStop ? 700 : 400,
++                background: isStop ? PLATE : CLAUDE.PILL, borderRadius: 10,
++                padding: '4px 14px'}}>{tokenLabel(s.token)}</span>
++            </div>
++            <div style={{width: COLS[3], display: 'flex', alignItems: 'center', gap: 22}}>
++              <div style={{width: BAR * s.p * a, height: 26, borderRadius: 13,
++                background: CLAUDE.INK_SOFT, opacity: 0.55}} />
++              <span style={{fontFamily: SERIF, fontSize: 38, color: CLAUDE.INK}}>{pctLabel(s.p)}</span>
++              {isStop && <span style={{fontFamily: SERIF, fontSize: 38, color: CLAUDE.INK}}>→ end of turn</span>}
++            </div>
++          </div>
++        );
++      })}
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlWrong — B07 falsifiability: same loop, same fluency, wrong answer
++// ===========================================================================
++export const ntlWrongSchema = z.object({
++  sparkLine: z.string().default("Fluent isn't true."),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(8.5),
++  question: z.string().default('Who wrote the novel Middlemarch?'),
++  prefix: z.string().default('The novel Middlemarch is written by'),
++  wrong: z.string().default('Samuel Richardson.'),
++  truth: z.string().default('Actually: George Eliot (1871–72)'),
++  candidates: z.array(candidate).default([]),
++  absentNote: z.string().default('“George” — not in the top 5.'),
++  cueAsk: z.number().default(0.3),
++  cueName: z.number().default(3.17),
++  cueWrong: z.number().default(4.33),
++  cueTruth: z.number().default(4.46),
++  cuePct: z.number().default(6.8),
++  barsHeading: z.string().default('The name step — pass 9'),
++  caption: z.string().default(''),
++});
++export type NtlWrongProps = z.infer<typeof ntlWrongSchema>;
++
++export const NtlWrong: React.FC<NtlWrongProps> = ({sparkLine, badge, question, prefix, wrong, truth,
++  candidates, absentNote, cueAsk, cueName, cueWrong, cueTruth, cuePct, barsHeading, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++  const qIn = useIn(cueAsk);
++  const nameIn = useIn(cueName);
++  const truthIn = useIn(cueTruth);
++  const strike = ramp(t, cueWrong, cueWrong + 0.4);
++  const pctIn = useIn(cuePct);
++
++  // the prefix types across [cueAsk+0.3, cueName]
++  const words = prefix.split(' ');
++  const nWords = Math.floor(ramp(t, cueAsk + 0.3, cueName - 0.1) * words.length + 0.0001);
++  const typed = words.slice(0, nWords).join(' ');
++
++  const LEFT_W = 820;
++  const RX = SAFE.x + LEFT_W + 80, RW = SAFE.r - RX;
++  const maxP = Math.max(0.001, ...candidates.map((c) => c.p));
++  const BAR = RW - 170 - 150;
++
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      {/* left: the question and the fluent answer */}
++      <div style={{position: 'absolute', left: SAFE.x, top: 170, width: LEFT_W}}>
++        <div style={{fontFamily: SANS, fontSize: 34, color: CLAUDE.INK_SOFT, opacity: qIn,
++          background: CLAUDE.CARD, border: `2px solid ${CLAUDE.BORDER}`, borderRadius: 14,
++          padding: '14px 24px', display: 'inline-block'}}>{question}</div>
++        <div style={{marginTop: 50, fontFamily: SERIF, fontSize: 72, color: CLAUDE.INK, lineHeight: 1.18}}>
++          {typed}{' '}
++          {t >= cueName && (
++            <span style={{position: 'relative', display: 'inline-block', opacity: nameIn}}>
++              {wrong}
++              <span style={{position: 'absolute', left: -6, top: '52%', height: 8, borderRadius: 4,
++                width: strike > 0 ? `calc(${strike * 100}% + 12px)` : 0, background: CLAUDE.SPARK}} />
++            </span>
++          )}
++        </div>
++        <div style={{marginTop: 54, fontFamily: SERIF, fontSize: 60, color: CLAUDE.INK, opacity: truthIn,
++          transform: `translateY(${(1 - truthIn) * 16}px)`, borderLeft: `6px solid ${CLAUDE.INK}`,
++          paddingLeft: 26}}>{truth}</div>
++      </div>
++
++      {/* right: the name step's bars */}
++      <div style={{position: 'absolute', left: RX, top: 170, width: RW, opacity: nameIn}}>
++        <div style={{fontFamily: SERIF, fontSize: 48, color: CLAUDE.INK, marginBottom: 34}}>{barsHeading}</div>
++        {candidates.map((c, i) => {
++          const g = ramp(t, cueName + 0.2 + i * 0.1, cueName + 0.9 + i * 0.1);
++          const top = i === 0;
++          const pulse = top ? 1 + 0.06 * Math.sin(Math.max(0, t - cuePct) * 9) * pctIn : 1;
++          return (
++            <div key={i} style={{display: 'flex', alignItems: 'center', gap: 20, height: 92}}>
++              <div style={{width: 170, textAlign: 'right', fontFamily: MONO, fontSize: 34,
++                color: CLAUDE.INK, fontWeight: top ? 700 : 400}}>{tokenLabel(c.token)}</div>
++              <div style={{width: BAR * (c.p / maxP) * g + 8, height: 44, borderRadius: 22,
++                background: CLAUDE.INK_SOFT, opacity: top ? 0.9 : 0.5,
++                transform: `scaleY(${pulse})`,
++                outline: top ? `4px solid rgba(61,57,41,${pctIn})` : 'none', outlineOffset: 6}} />
++              <div style={{fontFamily: SERIF, fontSize: 42, color: CLAUDE.INK, opacity: g,
++                fontWeight: top ? 700 : 400}}>{pctLabel(c.p)}</div>
++            </div>
++          );
++        })}
++        <div style={{marginTop: 30, fontFamily: SERIF, fontSize: 44, color: CLAUDE.INK, opacity: truthIn}}>
++          {absentNote}
++        </div>
++      </div>
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlMath — B08: structured SVG equation rows at ONE glyph scale, revealed on cue.
++// Rows come from runtime/scripts/typeset_math.py (outlined SVG; no raw-text math);
++// `h` is each SVG's natural viewBox height, so every row shares one px-per-unit.
++// ===========================================================================
++export const ntlMathSchema = z.object({
++  sparkLine: z.string().default('The loop, as math.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(5),
++  rows: z.array(z.object({
++    src: z.string().startsWith('data:image/svg+xml;base64,'),
++    aspect: z.number().positive(),
++    h: z.number().positive(),
++    expression: z.string(),
++    at: z.number().nonnegative().default(0),
++  })).max(4).default([]),
++  note: z.string().default(''),
++  caption: z.string().default(''),
++});
++export type NtlMathProps = z.infer<typeof ntlMathSchema>;
++
++export const NtlMath: React.FC<NtlMathProps> = ({sparkLine, badge, rows, note, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++  const MAXW = SAFE.w - 80;
++  const widest = Math.max(1, ...rows.map((r) => r.h * r.aspect));
++  const k = Math.min(MAXW / widest, 190 / Math.max(1, ...rows.map((r) => r.h)));
++  const lastAt = Math.max(0, ...rows.map((r) => r.at));
++  const noteIn = useIn(lastAt + 0.5);
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      <div style={{position: 'absolute', left: SAFE.x, top: 150, width: SAFE.w, height: 700,
++        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 56}}>
++        {rows.map((r, i) => {
++          const a = ramp(t, r.at, r.at + 0.35);
++          return <Img key={i} src={r.src} alt={r.expression} style={{width: k * r.h * r.aspect,
++            height: k * r.h, opacity: a, transform: `translateY(${(1 - a) * 14}px)`}} />;
++        })}
++      </div>
++      <div style={{position: 'absolute', left: SAFE.x, top: 870, width: SAFE.w, textAlign: 'center',
++        fontFamily: SERIF, fontSize: 50, color: CLAUDE.INK, opacity: noteIn}}>{note}</div>
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlNoStop — experiment 1: the end-of-turn tokens are banned, so the loop cannot stop.
++// Segments come from the recorded no_stop run: text tokens by pass, a struck chip wherever a
++// stop token was the model's top pick (and was refused), and the unchecked claim span.
++// ===========================================================================
++const noStopSeg = z.object({
++  text: z.string(),
++  pass: z.number().int(),
++  kind: z.enum(['text', 'stop', 'claim']).default('text'),
++  p: z.number().default(0),
++});
++export const ntlNoStopSchema = z.object({
++  sparkLine: z.string().default('No stop, no end.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(15),
++  heading: z.string().default('<|im_end|> banned — the same question, 60 passes'),
++  segments: z.array(noStopSeg).default([]),
++  totalPasses: z.number().int().default(60),
++  /** visible pass count is interpolated through these (seconds → pass) */
++  keyframes: z.array(z.object({at: z.number(), pass: z.number()})).default([{at: 0, pass: 0}, {at: 6, pass: 60}]),
++  cueStop1: z.number().default(5.2),
++  cueStop2: z.number().default(5.8),
++  cueClaim: z.number().default(9.1),
++  cueFact: z.number().default(11.7),
++  factLabel: z.string().default('Official count'),
++  factValue: z.string().default(''),
++  factSource: z.string().default(''),
++  caption: z.string().default(''),
++});
++export type NtlNoStopProps = z.infer<typeof ntlNoStopSchema>;
++
++export const NtlNoStop: React.FC<NtlNoStopProps> = ({sparkLine, badge, heading, segments, totalPasses,
++  keyframes, cueStop1, cueStop2, cueClaim, cueFact, factLabel, factValue, factSource, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++  const kf = [...keyframes].sort((a, b) => a.at - b.at);
++  const visiblePass = interpolate(t, kf.map((k) => k.at), kf.map((k) => k.pass),
++    {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
++  const stops = segments.filter((s) => s.kind === 'stop');
++  const claimIn = ramp(t, cueClaim, cueClaim + 0.5);
++  const factIn = useIn(cueFact);
++  const pulses = [useIn(cueStop1), useIn(cueStop2)];   // hooks outside the (growing) segment list
++  const head = useIn(0.05);
++  const TEXT_W = 1080;
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      <div style={{position: 'absolute', left: SAFE.x, top: 150, fontFamily: SERIF, fontSize: 56,
++        color: CLAUDE.INK, opacity: head}}>{heading}</div>
++      <div style={{position: 'absolute', left: SAFE.x, top: 250, width: TEXT_W, fontFamily: SERIF,
++        fontSize: 52, lineHeight: 1.36, color: CLAUDE.INK}}>
++        {segments.filter((s) => s.pass <= visiblePass).map((s, i) => {
++          if (s.kind === 'stop') {
++            const which = stops.indexOf(s);
++            const pulse = pulses[Math.min(1, Math.max(0, which))];
++            return (
++              <span key={i} style={{display: 'inline-block', fontFamily: MONO, fontSize: 30, fontWeight: 700,
++                color: CLAUDE.INK, background: PLATE, borderRadius: 8, padding: '0 12px',
++                margin: '0 6px', lineHeight: 1.5, verticalAlign: 'middle', textDecoration: 'line-through',
++                transform: `scale(${1 + 0.18 * pulse * Math.max(0, 1 - Math.abs(t - (which === 0 ? cueStop1 : cueStop2)) * 1.4)})`}}>
++                {`<|im_end|> ${pctLabel(s.p)}`}
++              </span>
++            );
++          }
++          return (
++            <span key={i} style={s.kind === 'claim' ? {
++              backgroundImage: `linear-gradient(${CLAUDE.INK}, ${CLAUDE.INK})`, backgroundRepeat: 'no-repeat',
++              backgroundPosition: '0 92%', backgroundSize: `${claimIn * 100}% 4px`, fontWeight: 600} : undefined}>
++              {s.text}
++            </span>
++          );
++        })}
++      </div>
++      <div style={{position: 'absolute', left: SAFE.x, top: 900, fontFamily: SANS, fontSize: 30,
++        color: CLAUDE.INK_SOFT}}>pass {Math.round(visiblePass)} of {totalPasses} (our cap) · stop was the top pick at pass{stops.length > 1 ? 'es' : ''} {stops.map((x) => x.pass).join(' and ')}</div>
++      {/* the fact the loop did not check */}
++      <div style={{position: 'absolute', left: SAFE.x + TEXT_W + 60, top: 330, width: SAFE.r - (SAFE.x + TEXT_W + 60),
++        background: CLAUDE.CARD, border: `2.5px solid ${CLAUDE.INK}`, borderRadius: 20, padding: '30px 34px',
++        boxSizing: 'border-box', opacity: factIn, transform: `translateY(${(1 - factIn) * 16}px)`}}>
++        <div style={{fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT}}>{factLabel}</div>
++        <div style={{fontFamily: SERIF, fontSize: 84, color: CLAUDE.INK, lineHeight: 1.1, marginTop: 10}}>{factValue}</div>
++        <div style={{fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT, marginTop: 14, lineHeight: 1.3}}>{factSource}</div>
++        <div style={{fontFamily: SERIF, fontSize: 52, color: CLAUDE.INK, marginTop: 26, lineHeight: 1.15}}>The model said ~2.5 million.</div>
++      </div>
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlForce — experiment 2: the name pass as a queue of candidates; the 8th is forced in.
++// ===========================================================================
++export const ntlForceSchema = z.object({
++  sparkLine: z.string().default('The answer was in there.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(12.8),
++  prefix: z.string().default('The novel Middlemarch is written by'),
++  namePass: z.number().int().default(9),
++  queue: z.array(candidate).default([]),
++  forcedIndex: z.number().int().default(7),
++  next: z.array(candidate).default([]),
++  tail: z.string().default('.'),
++  cueQueue: z.number().default(0.8),
++  cueRing: z.number().default(3.3),
++  cueForce: z.number().default(4.5),
++  cueNext: z.number().default(6.8),
++  caption: z.string().default(''),
++});
++export type NtlForceProps = z.infer<typeof ntlForceSchema>;
++
++export const NtlForce: React.FC<NtlForceProps> = ({sparkLine, badge, prefix, namePass, queue, forcedIndex,
++  next, tail, cueQueue, cueRing, cueForce, cueNext, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++  const ringIn = useIn(cueRing);
++  const forceP = ramp(t, cueForce, cueForce + 0.6);
++  const nextIn = useIn(cueNext);
++  const n = Math.max(1, queue.length);
++  const GAP = 18, CW = (SAFE.w - GAP * (n - 1)) / n, QY = 420, CH = 250;
++  const maxP = Math.max(0.001, ...queue.map((c) => c.p));
++  const forced = queue[forcedIndex];
++  const forcedIn = t >= cueForce + 0.6;
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      {/* the sentence with its open slot */}
++      <div style={{position: 'absolute', left: SAFE.x, top: 160, width: SAFE.w, fontFamily: SERIF, fontSize: 72,
++        color: CLAUDE.INK, whiteSpace: 'nowrap'}}>
++        {prefix}{' '}
++        {forcedIn ? <span style={{color: CLAUDE.INK, borderBottom: `7px solid ${CLAUDE.SPARK}`}}>{forced ? forced.token.trim() : ''}</span>
++          : <span style={{display: 'inline-block', width: 230, borderBottom: `5px solid ${CLAUDE.INK_SOFT}`}}>&nbsp;</span>}
++        {t >= cueNext ? <span style={{opacity: nextIn}}>{(next[0] ? next[0].token : '') + tail}</span> : null}
++      </div>
++      <div style={{position: 'absolute', left: SAFE.x, top: QY - 62, fontFamily: SANS, fontSize: 30,
++        color: CLAUDE.INK_SOFT}}>Pass {namePass}: the model's top {n} candidates, in rank order</div>
++      {queue.map((c, i) => {
++        const a = cl(spring({frame: frame - Math.round((cueQueue + i * 0.12) * fps), fps, config: SPRING}));
++        const isF = i === forcedIndex;
++        const lift = isF ? forceP * (1 - forceP) * 4 : 0;   // a brief hop on "force", then back in the row
++        return (
++          <div key={i} style={{position: 'absolute', left: SAFE.x + i * (CW + GAP), top: QY, width: CW, height: CH,
++            boxSizing: 'border-box', background: CLAUDE.CARD, borderRadius: 18, padding: '18px 16px',
++            border: isF ? `${3 + 2 * ringIn}px solid ${lift > 0 ? CLAUDE.SPARK : CLAUDE.INK}` : `2px solid ${CLAUDE.BORDER}`,
++            opacity: a,
++            transform: `translateY(${(1 - a) * 20 - lift * 40}px)`,
++            display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
++            <div style={{fontFamily: SANS, fontSize: 30, color: isF && forceP > 0 ? CLAUDE.INK : CLAUDE.INK_SOFT,
++              fontWeight: isF && forceP > 0 ? 700 : 400}}>#{i + 1}{isF && forceP > 0 ? ' · forced' : ''}</div>
++            <div style={{fontFamily: MONO, fontSize: 36, color: CLAUDE.INK, fontWeight: isF ? 700 : 400}}>{tokenLabel(c.token)}</div>
++            <div>
++              <div style={{height: 14, borderRadius: 7, width: `${Math.max(6, 100 * c.p / maxP)}%`,
++                background: CLAUDE.INK_SOFT, opacity: 0.55}} />
++              <div style={{fontFamily: SERIF, fontSize: 40, color: CLAUDE.INK, marginTop: 8}}>{pctLabel(c.p)}</div>
++            </div>
++          </div>
++        );
++      })}
++      {/* the pass after the forced token */}
++      <div style={{position: 'absolute', left: SAFE.x, top: 740, width: SAFE.w, opacity: nextIn,
++        transform: `translateY(${(1 - nextIn) * 16}px)`}}>
++        <div style={{fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT, marginBottom: 20}}>
++          Pass {namePass + 1}, after we forced “{forced ? forced.token.trim() : ''}”: the top {next.length}
++        </div>
++        <div style={{display: 'flex', gap: 30}}>
++          {next.map((c, i) => (
++            <div key={i} style={{display: 'flex', alignItems: 'baseline', gap: 18, background: CLAUDE.CARD,
++              border: `${i === 0 ? 3 : 2}px solid ${i === 0 ? CLAUDE.INK : CLAUDE.BORDER}`, borderRadius: 16,
++              padding: '14px 28px'}}>
++              <span style={{fontFamily: MONO, fontSize: 40, color: CLAUDE.INK, fontWeight: i === 0 ? 700 : 400}}>{tokenLabel(c.token)}</span>
++              <span style={{fontFamily: SERIF, fontSize: 48, color: CLAUDE.INK}}>{pctLabel(c.p)}</span>
++            </div>
++          ))}
++        </div>
++      </div>
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlSample — experiment 3: 200 seeded samples as 200 dots; the ones naming Eliot lit;
++// receipts of the facts invented around her.
++// ===========================================================================
++export const ntlSampleSchema = z.object({
++  sparkLine: z.string().default('Right, then wrong again.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(14.5),
++  /** one entry per seed, in seed order: 2 = attributes Middlemarch to Eliot, 1 = mentions her only, 0 = neither */
++  marks: z.array(z.number().int().min(0).max(2)).default([]),
++  countLine: z.string().default(''),
++  mentionLine: z.string().default(''),
++  receipts: z.array(z.object({seed: z.number().int(), quote: z.string(), refute: z.string()})).default([]),
++  moreLine: z.string().default(''),
++  defaultNote: z.string().default(''),
++  cueFill: z.number().default(6.6),
++  cueFillEnd: z.number().default(8.4),
++  cueCount: z.number().default(8.7),
++  cueReceipts: z.number().default(10.6),
++  caption: z.string().default(''),
++});
++export type NtlSampleProps = z.infer<typeof ntlSampleSchema>;
++
++export const NtlSample: React.FC<NtlSampleProps> = ({sparkLine, badge, marks, countLine, mentionLine, receipts,
++  moreLine, defaultNote, cueFill, cueFillEnd, cueCount, cueReceipts, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++  const COLS = 20, STEP = 44, DOT = 30, GX = SAFE.x, GY = 250;
++  const shown = Math.floor(ramp(t, cueFill, cueFillEnd) * marks.length + 0.0001);
++  const countIn = useIn(cueCount);
++  const noteIn = useIn(0.4);
++  const RX = GX + COLS * STEP + 60, RW = SAFE.r - RX;
++  const receiptIns = receipts.map((_, i) => cl(spring({frame: frame - Math.round((cueReceipts + i * 0.9) * fps), fps, config: SPRING})));
++  const moreIn = cl(spring({frame: frame - Math.round((cueReceipts + receipts.length * 0.9) * fps), fps, config: SPRING}));
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      <div style={{position: 'absolute', left: SAFE.x, top: 150, fontFamily: SERIF, fontSize: 50, color: CLAUDE.INK}}>
++        “Who wrote the novel Middlemarch?” — asked {marks.length} times
++      </div>
++      {marks.map((m, i) => {
++        const vis = i < shown;
++        const lit = m === 2 && t >= cueCount;
++        return (
++          <div key={i} style={{position: 'absolute', left: GX + (i % COLS) * STEP, top: GY + Math.floor(i / COLS) * STEP,
++            width: DOT, height: DOT, borderRadius: DOT / 2, boxSizing: 'border-box', opacity: vis ? 1 : 0,
++            background: lit ? CLAUDE.SPARK : m === 1 && t >= cueCount ? CLAUDE.CARD : CLAUDE.GHOST,
++            border: m === 1 && t >= cueCount ? `3px solid ${CLAUDE.INK}` : 'none',
++            transform: `scale(${lit ? 1 + 0.25 * countIn : 1})`}} />
++        );
++      })}
++      <div style={{position: 'absolute', left: GX, top: GY + 10 * STEP + 26, width: COLS * STEP, opacity: countIn}}>
++        <div style={{fontFamily: SERIF, fontSize: 54, color: CLAUDE.INK}}>{countLine}</div>
++        <div style={{fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT, marginTop: 8}}>{mentionLine}</div>
++      </div>
++      <div style={{position: 'absolute', left: GX, top: GY + 10 * STEP + 195, width: COLS * STEP, opacity: noteIn * 0.95,
++        fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT}}>{defaultNote}</div>
++      {/* receipts: what the four "right" answers invented */}
++      <div style={{position: 'absolute', left: RX, top: 240, width: RW, display: 'flex', flexDirection: 'column', gap: 24}}>
++        {receipts.map((r, i) => {
++          const a = receiptIns[i];
++          return (
++            <div key={i} style={{background: CLAUDE.CARD, border: `2px solid ${CLAUDE.BORDER}`, borderRadius: 18,
++              padding: '22px 26px', opacity: a, transform: `translateY(${(1 - a) * 16}px)`}}>
++              <div style={{fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT}}>seed {r.seed} · names Eliot</div>
++              <div style={{fontFamily: SERIF, fontSize: 36, color: CLAUDE.INK, fontStyle: 'italic', marginTop: 8, lineHeight: 1.25}}>“{r.quote}”</div>
++              <div style={{fontFamily: SANS, fontSize: 30, color: CLAUDE.INK, marginTop: 12, lineHeight: 1.3}}>✗ {r.refute}</div>
++            </div>
++          );
++        })}
++        <div style={{fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT, opacity: moreIn}}>{moreLine}</div>
++      </div>
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlLimits — the boundary beat: what the video measured, did not measure, does not explain.
++// ===========================================================================
++export const ntlLimitsSchema = z.object({
++  sparkLine: z.string().default('Where this stops.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(16.7),
++  heading: z.string().default('What this video does not establish'),
++  cards: z.array(z.object({
++    tag: z.string(), title: z.string(), detail: z.string().default(''),
++    quote: z.string().default(''), source: z.string().default(''),
++    at: z.number().default(0), accent: z.boolean().default(false),
++  })).default([]),
++  caption: z.string().default(''),
++});
++export type NtlLimitsProps = z.infer<typeof ntlLimitsSchema>;
++
++export const NtlLimits: React.FC<NtlLimitsProps> = ({sparkLine, badge, heading, cards, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const head = useIn(0.05);
++  const cardIns = cards.map((c) => cl(spring({frame: frame - Math.round(c.at * fps), fps, config: SPRING})));
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      <div style={{position: 'absolute', left: SAFE.x, top: 150, fontFamily: SERIF, fontSize: 64, color: CLAUDE.INK,
++        opacity: head}}>{heading}</div>
++      <div style={{position: 'absolute', left: SAFE.x, top: 270, width: SAFE.w, display: 'flex', flexDirection: 'column', gap: 26}}>
++        {cards.map((c, i) => {
++          const a = cardIns[i];
++          const measured = /^measured/i.test(c.tag);
++          return (
++            <div key={i} style={{display: 'flex', gap: 34, alignItems: 'flex-start', background: CLAUDE.CARD,
++              border: `2px solid ${CLAUDE.BORDER}`, borderRadius: 20, padding: '26px 32px', opacity: a,
++              transform: `translateX(${(1 - a) * 30}px)`}}>
++              <div style={{flex: '0 0 300px', fontFamily: SANS, fontSize: 30, fontWeight: 700, letterSpacing: 1.5,
++                textAlign: 'center', borderRadius: 999, padding: '10px 0',
++                color: measured ? CLAUDE.CARD : CLAUDE.INK,
++                background: measured ? CLAUDE.INK : c.accent ? PLATE : CLAUDE.CARD,
++                border: `3px solid ${measured || !c.accent ? CLAUDE.INK : PLATE}`}}>{c.tag}</div>
++              <div style={{flex: 1}}>
++                <div style={{fontFamily: SERIF, fontSize: 54, color: CLAUDE.INK, lineHeight: 1.15}}>{c.title}</div>
++                {c.detail ? <div style={{fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT, marginTop: 10, lineHeight: 1.3}}>{c.detail}</div> : null}
++                {c.quote ? <div style={{fontFamily: SERIF, fontSize: 38, color: CLAUDE.INK, fontStyle: 'italic', marginTop: 12,
++                  borderLeft: `5px solid ${CLAUDE.INK_SOFT}`, paddingLeft: 20}}>{c.quote}
++                  <span style={{fontFamily: SANS, fontStyle: 'normal', fontSize: 30, color: CLAUDE.INK_SOFT}}> — {c.source}</span></div> : null}
++              </div>
++            </div>
++          );
++        })}
++      </div>
++    </Stage>
++  );
++};
++
++// ===========================================================================
++// NtlClaudeReply — a REAL Claude response the author received, verbatim and dated.
++// The component only lays it out; the text must come from the author's own session.
++// ===========================================================================
++export const ntlClaudeReplySchema = z.object({
++  sparkLine: z.string().default('Confidence is text too.'),
++  badge: z.string().default(''),
++  durationSeconds: z.number().positive().default(15),
++  prompt: z.string().default(''),
++  reply: z.string().default(''),
++  highlight: z.string().default(''),
++  meta: z.string().default(''),
++  annotation: z.string().default(''),
++  cueReply: z.number().default(1.0),
++  cueHighlight: z.number().default(6.0),
++  cueNote: z.number().default(9.0),
++  caption: z.string().default(''),
++});
++export type NtlClaudeReplyProps = z.infer<typeof ntlClaudeReplySchema>;
++
++export const NtlClaudeReply: React.FC<NtlClaudeReplyProps> = ({sparkLine, badge, prompt, reply, highlight, meta,
++  annotation, cueReply, cueHighlight, cueNote, caption}) => {
++  const frame = useCurrentFrame();
++  const {fps} = useVideoConfig();
++  const t = frame / fps;
++  const replyIn = useIn(cueReply);
++  const hl = ramp(t, cueHighlight, cueHighlight + 0.6);
++  const noteIn = useIn(cueNote);
++  const size = reply.length > 420 ? 30 : reply.length > 260 ? 34 : 40;
++  const at = highlight ? reply.indexOf(highlight) : -1;
++  const parts = at >= 0 ? [reply.slice(0, at), reply.slice(at, at + highlight.length), reply.slice(at + highlight.length)] : [reply, '', ''];
++  return (
++    <Stage spark={sparkLine} caption={caption} badge={badge}>
++      <div style={{position: 'absolute', left: SAFE.x, top: 150, width: SAFE.w}}>
++        <div style={{fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT}}>{meta}</div>
++        <div style={{marginTop: 14, display: 'inline-block', maxWidth: SAFE.w, fontFamily: SANS, fontSize: 32, color: CLAUDE.INK,
++          background: CLAUDE.PILL, borderRadius: 18, padding: '16px 26px'}}>{prompt}</div>
++        <div style={{marginTop: 26, background: CLAUDE.CARD, border: `2px solid ${CLAUDE.BORDER}`, borderRadius: 20,
++          padding: '28px 34px', fontFamily: SERIF, fontSize: size, lineHeight: 1.35, color: CLAUDE.INK,
++          whiteSpace: 'pre-wrap', opacity: replyIn}}>
++          {parts[0]}
++          <span style={{backgroundImage: `linear-gradient(${CLAUDE.SPARK}, ${CLAUDE.SPARK})`, backgroundRepeat: 'no-repeat',
++            backgroundPosition: '0 95%', backgroundSize: `${hl * 100}% 5px`}}>{parts[1]}</span>
++          {parts[2]}
++        </div>
++        <div style={{marginTop: 26, fontFamily: SERIF, fontSize: 42, color: CLAUDE.INK, opacity: noteIn,
++          borderLeft: `6px solid ${CLAUDE.INK}`, paddingLeft: 24}}>{annotation}</div>
++      </div>
++    </Stage>
++  );
++};
+diff --git a/runtime/remotion/public/ntl/nbb-logo.svg b/runtime/remotion/public/ntl/nbb-logo.svg
+new file mode 100644
+index 0000000..62de116
+--- /dev/null
++++ b/runtime/remotion/public/ntl/nbb-logo.svg
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7500 5000">
++  <defs>
++    <style>
++      .cls-1 {
++        fill: none;
++      }
++
++      .cls-2 {
++        fill: #010202;
++      }
++    </style>
++  </defs>
++  <rect class="cls-1" width="7500" height="5000"/>
++  <path class="cls-2" d="M2370.24,4129.65c-49.87-29.37-85.08-88-85.08-140.81,0-96.84,281.64-718.77,545.68-1202.86,99.75-181.88,331.51-569.13,431.26-721.69,55.74-82.13,67.48-108.54,67.48-152.56,0-73.34,49.87-152.56,152.55-249.35,102.68-93.88,231.76-176.05,451.79-287.5,287.51-143.77,302.17-146.69,492.86-146.69,205.36-2.96,234.7,11.7,114.42,49.85-481.13,158.43-988.67,448.89-1070.81,613.15-14.67,29.37-32.27,58.68-38.14,70.43-20.53,29.32-5.87,41.06,178.96,137.85,146.69,79.22,202.43,120.28,181.89,137.9-11.74,11.75-196.56-32.28-284.57-67.47-49.88-20.53-96.81-49.9-114.42-70.43l-29.34-35.19-88.01,132.03c-181.89,278.71-445.93,768.62-575.01,1070.83-61.61,140.81-167.22,407.78-252.3,639.51l-35.21,93.92,38.14-2.96c35.2-2.91,38.14,0,41.07,46.94,2.93,41.06-2.93,55.72-26.4,79.22-35.21,35.19-46.94,38.15-96.82,5.87h0ZM2877.78,3745.31c-49.87-23.45-79.21-70.38-85.08-129.07l-5.87-58.68,79.21-82.13c176.02-176.05,619.02-428.31,1194.03-680.62,102.68-44.02,184.82-85.09,187.76-90.96,0-5.87-17.6-20.53-38.14-32.28-55.74-35.19-211.23-38.15-360.85-14.66-217.1,38.15-481.13,114.41-648.35,187.75-76.28,35.19-102.68,35.19-117.35-8.79-26.4-73.34-26.4-102.71,8.8-134.94,41.07-38.15,305.11-184.84,624.89-343.27,319.77-158.43,522.2-272.84,721.7-404.87,369.65-243.47,610.21-466.46,651.29-604.32,14.67-44.03,11.73-49.9-14.67-76.3-38.14-43.98-129.08-82.13-252.3-105.62-143.75-29.32-566.21-29.32-789.17,0-938.79,123.24-1942.13,489.96-2643.29,959.34-316.84,211.24-577.95,478.21-677.69,689.46-26.4,55.72-29.34,82.13-29.34,167.22,0,93.88,2.94,105.62,35.21,152.56,46.94,70.38,158.42,140.81,275.77,178.97,126.15,38.1,193.62,49.85,360.85,64.51,132.02,11.75,155.49,20.53,155.49,58.68,0,23.49-375.52,8.79-478.2-14.66-272.83-67.47-463.53-293.37-445.93-531.02,14.67-264.01,261.1-545.68,765.71-883.03,401.92-266.97,862.51-487,1402.32-671.83,689.43-234.69,1469.8-369.63,1901.06-328.56,208.29,20.53,178.96,23.44,393.12-26.41,777.44-176.05,1425.79-178.96,1686.89-5.87,123.22,79.22,176.02,178.97,178.96,319.78,0,85.09-5.87,105.62-41.07,176.01-90.94,181.93-316.84,363.8-745.17,598.49-137.88,73.34-252.3,126.15-651.29,308.03-23.47,11.75,2.93,14.66,134.95,14.66,252.3,2.96,375.52,23.49,457.66,79.22l44,29.37,108.55-26.41c61.61-14.66,114.42-23.49,117.35-20.53,11.73,11.7-17.6,43.98-38.14,43.98-11.73,0-55.74,11.75-99.75,26.41l-79.21,23.49v52.81c0,70.38-26.4,123.19-96.81,193.62-146.69,146.69-495.8,328.56-865.45,451.76-129.08,44.02-178.96,55.77-264.03,58.68-102.68,5.87-108.55,5.87-134.95-23.45-29.34-32.28-35.2-93.88-14.67-134.99,35.2-64.51,202.43-184.79,407.79-293.37,167.23-90.92,504.6-220.03,777.44-296.29,26.4-8.79,49.87-17.62,49.87-23.45,0-38.15-451.79-49.9-745.17-17.62-88.01,8.79-170.16,14.66-178.96,11.75-20.54-8.83-44.01-90.96-32.27-120.28,8.8-29.37,35.2-41.11,293.37-137.9,542.74-202.41,1082.54-487,1358.31-712.9,149.62-126.15,208.29-258.18,146.69-349.1-52.81-79.22-184.82-146.69-360.85-184.84-140.82-29.32-604.35-26.41-856.65,8.79-178.96,23.49-492.87,79.22-504.6,90.96-2.93,2.91,8.8,23.44,26.4,46.94,44.01,64.56,61.61,164.31,44.01,243.47-26.41,114.46-79.21,199.5-196.56,325.65-217.1,222.99-475.27,398.99-1158.82,786.24l-58.68,32.28,164.29-8.79c225.9-8.83,305.11,17.57,369.65,114.41l17.6,26.41,85.08-26.41c82.14-23.49,137.89-23.49,129.08,5.87-5.87,14.66-41.07,32.28-132.02,67.47l-70.41,26.41-8.8,58.68c-26.4,231.73-337.38,519.28-792.11,742.22-287.5,140.81-563.28,217.12-642.49,181.88h0ZM3006.86,3563.44c187.76-46.94,463.53-155.47,651.29-255.22,258.17-137.9,510.47-343.27,572.08-466.47l26.4-49.9-55.74,23.49c-334.44,132.03-783.3,363.76-1029.74,533.94-111.48,76.26-299.24,246.44-258.17,237.6,11.74-2.91,55.74-14.66,93.88-23.45h0ZM4966.59,3184.97c252.3-73.34,677.69-264.01,868.38-390.16,111.48-73.34,228.83-178.97,228.83-208.33,0-23.45-5.87-23.45-161.35,32.28-322.71,111.5-724.63,293.37-900.66,407.78-105.61,70.43-202.42,146.69-211.23,173.09-8.8,26.41,58.68,20.53,176.03-14.66h0ZM4438.52,3425.53c-38.14-20.53-64.54-61.6-64.54-93.88-2.93-123.19,507.54-1114.81,792.11-1546.08,93.88-140.81,114.41-152.56,143.75-93.88,14.67,29.37,11.73,35.24-26.4,85.09-108.55,143.77-413.65,718.77-583.81,1103.06-126.15,284.59-158.42,369.68-140.82,381.42,17.6,11.7,23.47,61.6,11.73,88-20.54,38.15-70.41,88-90.94,88-8.8,0-29.34-5.87-41.07-11.75h0Z"/>
++</svg>
+\ No newline at end of file

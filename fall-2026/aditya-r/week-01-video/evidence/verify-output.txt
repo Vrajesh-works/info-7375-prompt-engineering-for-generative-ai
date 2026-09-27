@@ -1,0 +1,53 @@
+PASS  HASHES  france.json                                                       
+PASS  HASHES  middlemarch.json                                                  
+PASS  HASHES  no_stop.json                                                      
+PASS  HASHES  force_george.json                                                 
+PASS  HASHES  paths.json                                                        
+PASS  HASHES  sample.json                                                       
+PASS  RERUN   run_experiments.py exits 0                                        
+PASS  RERUN   france.json                                                       
+PASS  RERUN   middlemarch.json                                                  
+PASS  RERUN   no_stop.json                                                      
+PASS  RERUN   force_george.json                                                 
+PASS  RERUN   paths.json                                                        
+PASS  RERUN   sample.json                                                       
+PASS  SCREEN  B02 loop bars = pass-1 top 3                                      
+PASS  SCREEN  B03 template lines = recorded template text                       
+PASS  SCREEN  B04 bars = pass-1 top 5                                           
+PASS  SCREEN  B05 rows = the 8 appended tokens + p                              
+PASS  SCREEN  B06 bars = pass-8 top 5                                           
+PASS  SCREEN  B07 streamed text = recorded no-stop continuation                 
+PASS  SCREEN  B07 struck stop chips = passes where <|im_end|> was the top pick  
+PASS  SCREEN  B08 bars = name-pass top 5                                        
+PASS  SCREEN  B08 sentence = recorded answer                                    
+PASS  SCREEN  B09 queue = name-pass top 8                                       
+PASS  SCREEN  B09 forced card is ' George'                                      
+PASS  SCREEN  B09 next-pass chips = recorded top 3 after forcing                
+PASS  SCREEN  B09 forced answer = recorded                                      
+PASS  SCREEN  B10 dots = 200 runs                                               
+PASS  SCREEN  B10 lit dots = manual review count                                
+PASS  SCREEN  B10 lit + outlined = regex count                                  
+PASS  SCREEN  B10 receipt quotes are verbatim                                   
+PASS  SCREEN  B11 ratio in note                                                 
+PASS  SCREEN  B11 path products = product of recorded factors                   
+PASS  HASHES  claude-response screenshot                                        
+PASS  SCREEN  B13 prompt + reply = verbatim transcript                          
+PASS  SCREEN  B13 date on screen = transcript date                              
+PASS  VOICE   B02: “forty-nine thousand”                                        
+PASS  VOICE   B04: “eighty-three percent”                                       
+PASS  VOICE   B04: “'Paris' gets four”                                          
+PASS  VOICE   B05: “Eight passes”                                               
+PASS  VOICE   B06: “thirty-seven percent”                                       
+PASS  VOICE   B07: “thirty-seven percent here”                                  
+PASS  VOICE   B07: “fifty-one percent later”                                    
+PASS  VOICE   B07: “approximately two point five million”                       
+PASS  VOICE   B08: “Samuel Richardson”                                          
+PASS  VOICE   B08: “sixteen percent”                                            
+PASS  VOICE   B09: “eighth in line”                                             
+PASS  VOICE   B09: “at three percent”                                           
+PASS  VOICE   B09: “'Eliot' on top, at forty-three percent”                     
+PASS  VOICE   B10: “two hundred times”                                          
+PASS  VOICE   B10: “Four named George Eliot”                                    
+PASS  VOICE   B11: “about eleven times”                                         
+
+51/51 checks passed

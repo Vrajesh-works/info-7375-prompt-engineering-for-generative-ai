@@ -1,0 +1,16 @@
+{
+  "what": "A real Claude response Aditya Raj received in a fresh claude.ai chat, transcribed verbatim from his screenshot.",
+  "date": "2026-09-27",
+  "date_note": "The screenshot shows no timestamp; 2026-09-27 is the date Aditya ran the prompt and shared the screenshot.",
+  "interface": "claude.ai (web), fresh chat titled 'Middlemarch authorship'",
+  "model_shown": "Opus 5.5 · Medium",
+  "prompt": "Who wrote Middlemarch? Then tell me which word in your answer you were least sure of.",
+  "reply": "Middlemarch was written by George Eliot, the pen name of Mary Ann Evans. It was published in installments in 1871–72.\n\nThe word I was least sure of is \"Ann.\" She spelled her first name several ways over her life, including Mary Ann, Mary Anne, and later Marian, so there's no single spelling that's definitively correct. \"George Eliot\" itself I'm very confident about.",
+  "transcription_notes": [
+    "'George Eliot' in the first sentence is bold in the original; formatting not reproduced.",
+    "The dash in '1871–72' is transcribed as an en dash; a screenshot cannot fully distinguish it from a hyphen."
+  ],
+  "screenshot": "claude-ai-2026-09-27.png",
+  "screenshot_sha256": "1e695cdc501379567de94ed5b3c1711bbe298aa82b64f5a3c8e20e827b21277d",
+  "fact_check_of_reply": "Wikipedia, 'George Eliot': 'Mary Ann Evans (22 November 1819 – 22 December 1880; alternatively Mary Anne or Marian), known by her pen name George Eliot' — the reply's spelling claim is consistent with this. Publication 1871–1872: Project Gutenberg eBook #145."
+}

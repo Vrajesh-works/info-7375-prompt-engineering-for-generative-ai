@@ -1,0 +1,61 @@
+{
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "decoding": "greedy (argmax)",
+  "richardson": {
+    "answer": "The novel Middlemarch is written by Samuel Richardson.",
+    "passes": 12,
+    "log_p": -6.548751711108108,
+    "p": 0.0014319019104081835,
+    "factors": [
+      0.627121,
+      0.698187,
+      0.458401,
+      0.994976,
+      0.99957,
+      0.422736,
+      0.303456,
+      0.979099,
+      0.159781,
+      0.838734,
+      0.739771,
+      0.576077
+    ]
+  },
+  "eliot": {
+    "answer": "The novel Middlemarch is written by George Eliot.",
+    "passes": 12,
+    "log_p": -8.977538839209247,
+    "p": 0.00012621309628284681,
+    "factors": [
+      0.627121,
+      0.698187,
+      0.458401,
+      0.994976,
+      0.99957,
+      0.422736,
+      0.303456,
+      0.979099,
+      0.03134,
+      0.429754,
+      0.663544,
+      0.563287
+    ]
+  },
+  "paris": {
+    "answer": "The capital of France is Paris.",
+    "passes": 8,
+    "log_p": -1.4907970476256747,
+    "p": 0.2251930943683576,
+    "factors": [
+      0.831163,
+      0.997179,
+      0.986044,
+      0.998898,
+      0.965471,
+      0.987319,
+      0.775762,
+      0.373038
+    ]
+  }
+}

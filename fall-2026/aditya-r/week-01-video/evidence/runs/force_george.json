@@ -1,0 +1,755 @@
+{
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "decoding": "greedy (argmax)",
+  "question": "Who wrote the novel Middlemarch?",
+  "intervention": "' George' forced at pass 9",
+  "name_pass": 9,
+  "answer": "The novel Middlemarch is written by George Eliot.",
+  "steps": [
+    {
+      "pass": 1,
+      "tokens_in": 38,
+      "top": [
+        {
+          "token": "The",
+          "id": 504,
+          "p": 0.6271
+        },
+        {
+          "token": "I",
+          "id": 57,
+          "p": 0.0449
+        },
+        {
+          "token": "Based",
+          "id": 11192,
+          "p": 0.04
+        },
+        {
+          "token": "Middle",
+          "id": 24047,
+          "p": 0.0191
+        },
+        {
+          "token": "M",
+          "id": 61,
+          "p": 0.0155
+        },
+        {
+          "token": "\"",
+          "id": 18,
+          "p": 0.0141
+        },
+        {
+          "token": "H",
+          "id": 56,
+          "p": 0.0116
+        },
+        {
+          "token": "As",
+          "id": 1653,
+          "p": 0.0109
+        },
+        {
+          "token": "Title",
+          "id": 16491,
+          "p": 0.0092
+        },
+        {
+          "token": "According",
+          "id": 5449,
+          "p": 0.0091
+        }
+      ],
+      "chosen": "The",
+      "chosen_id": 504,
+      "p_chosen": 0.627121,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 2,
+      "tokens_in": 39,
+      "top": [
+        {
+          "token": " novel",
+          "id": 3562,
+          "p": 0.6982
+        },
+        {
+          "token": " author",
+          "id": 1919,
+          "p": 0.0652
+        },
+        {
+          "token": " story",
+          "id": 1977,
+          "p": 0.0263
+        },
+        {
+          "token": " book",
+          "id": 1863,
+          "p": 0.022
+        },
+        {
+          "token": " famous",
+          "id": 4248,
+          "p": 0.0115
+        },
+        {
+          "token": " original",
+          "id": 2798,
+          "p": 0.0107
+        },
+        {
+          "token": " novelist",
+          "id": 35022,
+          "p": 0.01
+        },
+        {
+          "token": " writer",
+          "id": 6535,
+          "p": 0.0049
+        },
+        {
+          "token": " first",
+          "id": 808,
+          "p": 0.0046
+        },
+        {
+          "token": " classic",
+          "id": 8170,
+          "p": 0.0041
+        }
+      ],
+      "chosen": " novel",
+      "chosen_id": 3562,
+      "p_chosen": 0.698187,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 3,
+      "tokens_in": 40,
+      "top": [
+        {
+          "token": " Middle",
+          "id": 5550,
+          "p": 0.4584
+        },
+        {
+          "token": " \"",
+          "id": 476,
+          "p": 0.398
+        },
+        {
+          "token": " written",
+          "id": 2855,
+          "p": 0.0351
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0187
+        },
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.0112
+        },
+        {
+          "token": " that",
+          "id": 338,
+          "p": 0.011
+        },
+        {
+          "token": " '",
+          "id": 637,
+          "p": 0.0082
+        },
+        {
+          "token": " titled",
+          "id": 14089,
+          "p": 0.0054
+        },
+        {
+          "token": " middle",
+          "id": 3891,
+          "p": 0.004
+        },
+        {
+          "token": " by",
+          "id": 411,
+          "p": 0.004
+        }
+      ],
+      "chosen": " Middle",
+      "chosen_id": 5550,
+      "p_chosen": 0.458401,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 4,
+      "tokens_in": 41,
+      "top": [
+        {
+          "token": "m",
+          "id": 93,
+          "p": 0.995
+        },
+        {
+          "token": "am",
+          "id": 332,
+          "p": 0.0018
+        },
+        {
+          "token": "mat",
+          "id": 3352,
+          "p": 0.0006
+        },
+        {
+          "token": "mist",
+          "id": 29841,
+          "p": 0.0005
+        },
+        {
+          "token": "brook",
+          "id": 33585,
+          "p": 0.0004
+        },
+        {
+          "token": "mar",
+          "id": 3298,
+          "p": 0.0004
+        },
+        {
+          "token": "man",
+          "id": 1483,
+          "p": 0.0002
+        },
+        {
+          "token": "mor",
+          "id": 28585,
+          "p": 0.0002
+        },
+        {
+          "token": "mark",
+          "id": 4260,
+          "p": 0.0001
+        },
+        {
+          "token": "ham",
+          "id": 4256,
+          "p": 0.0001
+        }
+      ],
+      "chosen": "m",
+      "chosen_id": 93,
+      "p_chosen": 0.994976,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 5,
+      "tokens_in": 42,
+      "top": [
+        {
+          "token": "arch",
+          "id": 818,
+          "p": 0.9996
+        },
+        {
+          "token": "arc",
+          "id": 1487,
+          "p": 0.0002
+        },
+        {
+          "token": "ARCH",
+          "id": 24396,
+          "p": 0.0002
+        },
+        {
+          "token": "aring",
+          "id": 1807,
+          "p": 0.0
+        },
+        {
+          "token": "ach",
+          "id": 554,
+          "p": 0.0
+        },
+        {
+          "token": "archy",
+          "id": 8575,
+          "p": 0.0
+        },
+        {
+          "token": "arsh",
+          "id": 5555,
+          "p": 0.0
+        },
+        {
+          "token": "Arch",
+          "id": 17936,
+          "p": 0.0
+        },
+        {
+          "token": "arches",
+          "id": 41379,
+          "p": 0.0
+        },
+        {
+          "token": "ä",
+          "id": 9023,
+          "p": 0.0
+        }
+      ],
+      "chosen": "arch",
+      "chosen_id": 818,
+      "p_chosen": 0.99957,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 6,
+      "tokens_in": 43,
+      "top": [
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.4227
+        },
+        {
+          "token": " by",
+          "id": 411,
+          "p": 0.1944
+        },
+        {
+          "token": " was",
+          "id": 436,
+          "p": 0.1731
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.1268
+        },
+        {
+          "token": " has",
+          "id": 553,
+          "p": 0.0333
+        },
+        {
+          "token": " remains",
+          "id": 3267,
+          "p": 0.013
+        },
+        {
+          "token": " written",
+          "id": 2855,
+          "p": 0.0085
+        },
+        {
+          "token": " belongs",
+          "id": 12698,
+          "p": 0.0029
+        },
+        {
+          "token": " (",
+          "id": 365,
+          "p": 0.0025
+        },
+        {
+          "token": " that",
+          "id": 338,
+          "p": 0.0023
+        }
+      ],
+      "chosen": " is",
+      "chosen_id": 314,
+      "p_chosen": 0.422736,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 7,
+      "tokens_in": 44,
+      "top": [
+        {
+          "token": " written",
+          "id": 2855,
+          "p": 0.3035
+        },
+        {
+          "token": " by",
+          "id": 411,
+          "p": 0.1842
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.1209
+        },
+        {
+          "token": " a",
+          "id": 253,
+          "p": 0.0887
+        },
+        {
+          "token": " attributed",
+          "id": 10866,
+          "p": 0.0387
+        },
+        {
+          "token": " based",
+          "id": 1552,
+          "p": 0.0273
+        },
+        {
+          "token": " actually",
+          "id": 2390,
+          "p": 0.0219
+        },
+        {
+          "token": " likely",
+          "id": 2003,
+          "p": 0.0159
+        },
+        {
+          "token": " often",
+          "id": 1129,
+          "p": 0.0156
+        },
+        {
+          "token": " indeed",
+          "id": 6392,
+          "p": 0.0144
+        }
+      ],
+      "chosen": " written",
+      "chosen_id": 2855,
+      "p_chosen": 0.303456,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 8,
+      "tokens_in": 45,
+      "top": [
+        {
+          "token": " by",
+          "id": 411,
+          "p": 0.9791
+        },
+        {
+          "token": " in",
+          "id": 281,
+          "p": 0.0077
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.006
+        },
+        {
+          "token": " primarily",
+          "id": 4856,
+          "p": 0.0029
+        },
+        {
+          "token": " entirely",
+          "id": 5864,
+          "p": 0.0016
+        },
+        {
+          "token": " mainly",
+          "id": 5630,
+          "p": 0.0006
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0004
+        },
+        {
+          "token": " largely",
+          "id": 5932,
+          "p": 0.0003
+        },
+        {
+          "token": " first",
+          "id": 808,
+          "p": 0.0002
+        },
+        {
+          "token": " as",
+          "id": 347,
+          "p": 0.0002
+        }
+      ],
+      "chosen": " by",
+      "chosen_id": 411,
+      "p_chosen": 0.979099,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 9,
+      "tokens_in": 46,
+      "top": [
+        {
+          "token": " Samuel",
+          "id": 12407,
+          "p": 0.1598
+        },
+        {
+          "token": " Charles",
+          "id": 6660,
+          "p": 0.1175
+        },
+        {
+          "token": " John",
+          "id": 2322,
+          "p": 0.1019
+        },
+        {
+          "token": " Daniel",
+          "id": 10789,
+          "p": 0.0534
+        },
+        {
+          "token": " Matthew",
+          "id": 14018,
+          "p": 0.0524
+        },
+        {
+          "token": " Jane",
+          "id": 12405,
+          "p": 0.0361
+        },
+        {
+          "token": " David",
+          "id": 5259,
+          "p": 0.034
+        },
+        {
+          "token": " George",
+          "id": 5370,
+          "p": 0.0313
+        },
+        {
+          "token": " Frances",
+          "id": 24661,
+          "p": 0.0304
+        },
+        {
+          "token": " Jonathan",
+          "id": 20102,
+          "p": 0.0264
+        }
+      ],
+      "chosen": " George",
+      "chosen_id": 5370,
+      "p_chosen": 0.03134,
+      "rank_chosen": 8,
+      "p_stop": 0.0,
+      "forced": true
+    },
+    {
+      "pass": 10,
+      "tokens_in": 47,
+      "top": [
+        {
+          "token": " Eliot",
+          "id": 34615,
+          "p": 0.4298
+        },
+        {
+          "token": " Orwell",
+          "id": 43378,
+          "p": 0.073
+        },
+        {
+          "token": " R",
+          "id": 428,
+          "p": 0.0486
+        },
+        {
+          "token": " gating",
+          "id": 45764,
+          "p": 0.0199
+        },
+        {
+          "token": " B",
+          "id": 389,
+          "p": 0.0188
+        },
+        {
+          "token": " Dickens",
+          "id": 29231,
+          "p": 0.0141
+        },
+        {
+          "token": " S",
+          "id": 334,
+          "p": 0.0132
+        },
+        {
+          "token": " G",
+          "id": 452,
+          "p": 0.011
+        },
+        {
+          "token": " P",
+          "id": 377,
+          "p": 0.0098
+        },
+        {
+          "token": " IV",
+          "id": 9536,
+          "p": 0.0093
+        }
+      ],
+      "chosen": " Eliot",
+      "chosen_id": 34615,
+      "p_chosen": 0.429754,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 11,
+      "tokens_in": 48,
+      "top": [
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.6635
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.2655
+        },
+        {
+          "token": "'s",
+          "id": 506,
+          "p": 0.0341
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0138
+        },
+        {
+          "token": " (",
+          "id": 365,
+          "p": 0.0125
+        },
+        {
+          "token": " in",
+          "id": 281,
+          "p": 0.0044
+        },
+        {
+          "token": " herself",
+          "id": 8698,
+          "p": 0.0017
+        },
+        {
+          "token": " based",
+          "id": 1552,
+          "p": 0.0005
+        },
+        {
+          "token": " for",
+          "id": 327,
+          "p": 0.0005
+        },
+        {
+          "token": " with",
+          "id": 351,
+          "p": 0.0003
+        }
+      ],
+      "chosen": ".",
+      "chosen_id": 30,
+      "p_chosen": 0.663544,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 12,
+      "tokens_in": 49,
+      "top": [
+        {
+          "token": "<|im_end|>",
+          "id": 2,
+          "p": 0.5633
+        },
+        {
+          "token": " It",
+          "id": 657,
+          "p": 0.102
+        },
+        {
+          "token": " She",
+          "id": 2306,
+          "p": 0.0767
+        },
+        {
+          "token": " The",
+          "id": 378,
+          "p": 0.0528
+        },
+        {
+          "token": " Her",
+          "id": 3488,
+          "p": 0.0299
+        },
+        {
+          "token": " George",
+          "id": 5370,
+          "p": 0.0274
+        },
+        {
+          "token": " However",
+          "id": 1423,
+          "p": 0.0115
+        },
+        {
+          "token": " In",
+          "id": 533,
+          "p": 0.0085
+        },
+        {
+          "token": " Eliot",
+          "id": 34615,
+          "p": 0.0071
+        },
+        {
+          "token": " Please",
+          "id": 8765,
+          "p": 0.0066
+        }
+      ],
+      "chosen": "<|im_end|>",
+      "chosen_id": 2,
+      "p_chosen": 0.563287,
+      "rank_chosen": 1,
+      "p_stop": 0.5633,
+      "forced": false
+    }
+  ]
+}

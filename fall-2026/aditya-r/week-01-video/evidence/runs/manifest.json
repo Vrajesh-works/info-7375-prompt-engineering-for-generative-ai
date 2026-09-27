@@ -1,0 +1,16 @@
+{
+  "env": {
+    "python": "3.12.14",
+    "torch": "2.14.0",
+    "transformers": "5.17.0",
+    "platform": "macOS-26.5.1-arm64-arm-64bit"
+  },
+  "files": {
+    "france.json": "73428aa69510fdfba2dceca326a486994f49f408b3362626c7440edddc1e81ad",
+    "middlemarch.json": "32ff51a3ce0dae79a8cf2ef86e98ed2fc6a32ad2c506fafd743a46e9249203a6",
+    "no_stop.json": "6f45f160d554798517836e9982d20070f65ca1b328800e15e38f6c9de33170b1",
+    "force_george.json": "84f1332e2c85308576d49f0c74f0258d15cb8f89c9a77f48a2a8870ba08553dd",
+    "paths.json": "3051c4f86cf23446f518fc876f94ed4095c2075c7f777417692f05d9f1c8407f",
+    "sample.json": "e819fc028d15913b7833eb0ac345f287ef99f1f375b63ea739c84582e085a15b"
+  }
+}

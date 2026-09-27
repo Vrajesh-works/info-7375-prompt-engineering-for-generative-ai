@@ -1,0 +1,1797 @@
+{
+  "metadata": {
+    "title": "A Chatbot Is a Loop.",
+    "slug": "claude-liam-next-token-loop-w01",
+    "topic": "INFO 7375 · WEEK 1 · ADITYA RAJ",
+    "course": "INFO 7375 Prompt Engineering — Week 1 Explainer Video (Chapter 1, Part 1)",
+    "author": "Aditya Raj",
+    "concept": "A chatbot is one next-token prediction run in a loop",
+    "register": "Teardown",
+    "audience": "Claude",
+    "brand": "claude-liam",
+    "persona": "Liam (in for Aditya)",
+    "voice": "am_onyx",
+    "engine": "kokoro",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "greeting": "Hola, Liam",
+    "folderLabel": "@NikBearBrown",
+    "in_for_bear": true,
+    "derived_from": "pilot: ~/Desktop/Brutalist/my-videos/youtube/claude-liam-next-token-loop (60 s request, 73.9 s cut)",
+    "evidence": "evidence/runs/*.json — SmolLM2-135M-Instruct @12fd25f7, run locally; every data prop is written by fill_props.py and checked by evidence/verify.py",
+    "build": {
+      "at": "2026-09-27T16:03:20",
+      "cut": "master",
+      "filled": 17,
+      "of": 17,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "cold open",
+      "content_type": "realworld",
+      "narration_text": "Hola — this is Liam, in for Aditya. We asked a small chatbot, running on a laptop, for the capital of France. It said Paris. Then we took its loop apart.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "bookend",
+        "classification": "SHOW",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "composer: the ask to Claude Code types itself"
+          },
+          {
+            "at": 0.45,
+            "event": "running indicator: running SmolLM2-135M-Instruct locally…"
+          },
+          {
+            "at": 0.6,
+            "event": "result lines: the recorded answer, pass count, evidence path + date"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hola, Liam",
+            "topic": "INFO 7375 · WEEK 1 · ADITYA RAJ",
+            "segment": "A Chatbot Is a Loop",
+            "command": "Run a small open chatbot on this Mac and record every step as it answers “What is the capital of France?”",
+            "runningText": "running SmolLM2-135M-Instruct locally…",
+            "output": [
+              "Recorded answer (SmolLM2, not Claude): “The capital of France is Paris.” — 8 passes",
+              "Then three experiments on the same loop.",
+              "Every number on screen: evidence/runs/*.json · recorded 2026-09-27"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Opus 5.5",
+            "effortLabel": ""
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-27T19:56:56.655742+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B00.mp3",
+      "actual_duration_s": 8.85,
+      "render_duration_s": 8.875,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "executive summary (BLUF)",
+      "content_type": "definitional",
+      "lead_silence_s": 0.8,
+      "tail_hold_s": 0.5,
+      "narration_text": "What's a chatbot? Not a library that looks answers up. A loop: predict one token, append it, repeat. See the loop, and you'll see why fluent is not the same as true.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "bookend",
+        "classification": "SHOW",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "writer types 'A chatbot is a library' — the misconception"
+          },
+          {
+            "at": "Not a library",
+            "event": "'library' turns terracotta, is deleted, retyped as 'loop'"
+          },
+          {
+            "at": "predict one token, append it, repeat",
+            "event": "the three-line mechanism types under it"
+          }
+        ],
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "A chatbot is a library:\npredict one token,\nappend it,\nrepeat.",
+            "triggerWords": "library",
+            "replacementWords": "loop",
+            "seed": "claude-liam-next-token-loop-w01",
+            "fontSize": 150,
+            "lineSpacing": 1.15,
+            "charMs": 30,
+            "jitter": 15,
+            "mistakeRate": 2,
+            "hesitateWithin": 1,
+            "hesitateBetween": 3,
+            "contextTitle": "A Chatbot Is a Loop",
+            "brandLabel": "@NikBearBrown",
+            "durationSeconds": 10.09
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-09-27T16:30:41.942935+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 10.09,
+      "render_duration_s": 10.125,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "framework — the loop",
+      "content_type": "mechanism",
+      "narration_text": "Here's the whole machine. The text so far goes in. Out comes a probability for every possible next token — all forty-nine thousand of them. Pick one, append it, and go around again.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "The four-station loop (constructed diagram; mini-bar lengths from the recorded pass 1)",
+        "show": [
+          {
+            "at": "text so far goes in",
+            "event": "'Text so far' station, arrow into 'The model'"
+          },
+          {
+            "at": "a probability for every possible next token",
+            "event": "'Next-token probabilities' station opens its bars"
+          },
+          {
+            "at": "Pick one, append it",
+            "event": "top bar turns terracotta; its token flies back and appends"
+          },
+          {
+            "at": "go around again",
+            "event": "loop closes; '↻ pass 2'"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlLoop",
+          "props": {
+            "sparkLine": "One step, repeated.",
+            "badge": "Constructed diagram · bar lengths from the recorded pass 1",
+            "context": "…What is the capital of France?",
+            "candidates": [
+              {
+                "token": "The",
+                "p": 0.8312
+              },
+              {
+                "token": "Paris",
+                "p": 0.0415
+              },
+              {
+                "token": "As",
+                "p": 0.0183
+              }
+            ],
+            "cueIn": 1.21,
+            "cueProb": 3.58,
+            "cuePick": 8.0,
+            "cueAppend": 8.58,
+            "cueAgain": 9.58,
+            "durationSeconds": 10.62
+          },
+          "rendered": {
+            "out": "media/B02.mp4",
+            "at": "2026-09-27T17:26:58.012937+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 10.62,
+      "render_duration_s": 10.625,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "remotion:NtlLoop",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "worked example — the chat is one document",
+      "content_type": "structure",
+      "narration_text": "And the conversation? The model never sees a chat window. It sees one document — a system line, my question, the word 'assistant' — and a blank to fill.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "The exact chat-templated text SmolLM2 receives, special tokens marked",
+        "show": [
+          {
+            "at": "one document",
+            "event": "the document types in line by line"
+          },
+          {
+            "at": "my question",
+            "event": "the user line is bracketed"
+          },
+          {
+            "at": "a blank to fill",
+            "event": "terracotta caret after 'assistant' — the slot the loop fills"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlTemplate",
+          "props": {
+            "sparkLine": "One document.",
+            "badge": "Recorded · the exact template text",
+            "lines": [
+              {
+                "special": "<|im_start|>",
+                "text": "system",
+                "kind": "role",
+                "end": ""
+              },
+              {
+                "special": "",
+                "text": "You are a helpful AI assistant named SmolLM, trained by Hugging Face",
+                "kind": "body",
+                "end": "<|im_end|>"
+              },
+              {
+                "special": "<|im_start|>",
+                "text": "user",
+                "kind": "role",
+                "end": ""
+              },
+              {
+                "special": "",
+                "text": "What is the capital of France?",
+                "kind": "question",
+                "end": "<|im_end|>"
+              },
+              {
+                "special": "<|im_start|>",
+                "text": "assistant",
+                "kind": "role",
+                "end": ""
+              }
+            ],
+            "cueDoc": 3.62,
+            "cueQuestion": 5.42,
+            "cueBlank": 6.91,
+            "caption": "The exact text the model receives — 37 tokens · SmolLM2-135M-Instruct chat template · evidence/runs/france.json",
+            "durationSeconds": 8.66
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-09-27T17:27:21.374327+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 8.66,
+      "render_duration_s": 8.666666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B03.mp4",
+        "filled_by": "remotion:NtlTemplate",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "worked example — pass one",
+      "content_type": "data",
+      "narration_text": "Pass one. 'The' gets eighty-three percent; 'Paris' gets four. It doesn't know the answer yet — only how answers usually start.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "Top-5 next-token bars for pass 1",
+        "show": [
+          {
+            "at": "eighty-three percent",
+            "event": "bars grow to recorded values; 'The' terracotta"
+          },
+          {
+            "at": "only how answers usually start",
+            "event": "'Paris' row ringed"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlBars",
+          "props": {
+            "sparkLine": "How answers start.",
+            "heading": "Pass 1 — what comes after “assistant”?",
+            "context": "…<|im_start|>assistant",
+            "chosenIndex": 0,
+            "ringIndex": 1,
+            "badge": "Recorded run · 2026-09-27",
+            "candidates": [
+              {
+                "token": "The",
+                "p": 0.8312
+              },
+              {
+                "token": "Paris",
+                "p": 0.0415
+              },
+              {
+                "token": "As",
+                "p": 0.0183
+              },
+              {
+                "token": "Bon",
+                "p": 0.0155
+              },
+              {
+                "token": "I",
+                "p": 0.014
+              }
+            ],
+            "cueGrow": 1.17,
+            "cueRing": 5.42,
+            "caption": "Top 5 of 49,152 possible tokens · pass 1 · evidence/runs/france.json",
+            "durationSeconds": 6.98
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": "2026-09-27T17:27:40.549320+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 6.98,
+      "render_duration_s": 7.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B04.mp4",
+        "filled_by": "remotion:NtlBars",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "worked example — the loop runs",
+      "content_type": "mechanism",
+      "narration_text": "Append 'The', run again. Append 'capital', run again. Eight passes, eight tokens: 'The capital of France is Paris.'",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "Unrolled loop: 8 rows, one per pass",
+        "show": [
+          {
+            "at": "Append",
+            "event": "rows tick in: pass, tokens in (37→44), token appended, its probability"
+          },
+          {
+            "at": "Paris",
+            "event": "last row, <|im_end|>, terracotta"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlUnroll",
+          "props": {
+            "sparkLine": "Append. Predict. Repeat.",
+            "badge": "Recorded run · greedy decoding",
+            "steps": [
+              {
+                "token": "The",
+                "p": 0.831163
+              },
+              {
+                "token": " capital",
+                "p": 0.997179
+              },
+              {
+                "token": " of",
+                "p": 0.986044
+              },
+              {
+                "token": " France",
+                "p": 0.998898
+              },
+              {
+                "token": " is",
+                "p": 0.965471
+              },
+              {
+                "token": " Paris",
+                "p": 0.987319
+              },
+              {
+                "token": ".",
+                "p": 0.775762
+              },
+              {
+                "token": "<|im_end|>",
+                "p": 0.373038
+              }
+            ],
+            "startContext": 37,
+            "cueFirst": 0.0,
+            "cueLast": 5.29,
+            "caption": "Greedy decoding (always the top token) · evidence/runs/france.json",
+            "durationSeconds": 6.44
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-09-27T17:27:58.877884+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 6.44,
+      "render_duration_s": 6.458333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B05.mp4",
+        "filled_by": "remotion:NtlUnroll",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "worked example — stopping is a prediction",
+      "content_type": "data",
+      "narration_text": "Then the eighth pass. Keep talking, or stop? The end-of-turn token wins — with only thirty-seven percent. Stopping is just another prediction.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "Pass-8 bars: the stop token barely wins",
+        "show": [
+          {
+            "at": "end-of-turn token wins",
+            "event": "bars grow; <|im_end|> terracotta"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlBars",
+          "props": {
+            "sparkLine": "Stop is a token.",
+            "heading": "Pass 8 — keep talking, or stop?",
+            "context": "The capital of France is Paris.",
+            "chosenIndex": 0,
+            "ringIndex": -1,
+            "badge": "Recorded run · 2026-09-27",
+            "candidates": [
+              {
+                "token": "<|im_end|>",
+                "p": 0.373
+              },
+              {
+                "token": " It",
+                "p": 0.2886
+              },
+              {
+                "token": " Paris",
+                "p": 0.1852
+              },
+              {
+                "token": " The",
+                "p": 0.0243
+              },
+              {
+                "token": " I",
+                "p": 0.0166
+              }
+            ],
+            "cueGrow": 2.92,
+            "caption": "Top 5 · pass 8 · <|im_end|> = end of turn · evidence/runs/france.json",
+            "durationSeconds": 8.28
+          },
+          "rendered": {
+            "out": "media/B06.mp4",
+            "at": "2026-09-27T17:28:20.048775+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 8.28,
+      "render_duration_s": 8.291666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B06.mp4",
+        "filled_by": "remotion:NtlBars",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "experiment 1 — ban the stop token",
+      "content_type": "mechanism",
+      "narration_text": "So, experiment one: ban that token. Now the loop can't stop. It wanted to — thirty-seven percent here, fifty-one percent later — and it just keeps writing. Paris has 'approximately two point five million people.' The official count is two point one million. The loop never checked.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "The no-stop continuation streaming, banned stop tokens marked where they were the top pick, the unchecked population claim against INSEE",
+        "show": [
+          {
+            "at": "ban that token",
+            "event": "the continuation starts streaming"
+          },
+          {
+            "at": "thirty-seven percent here",
+            "event": "struck <|im_end|> chip (37%) at pass 8"
+          },
+          {
+            "at": "fifty-one percent later",
+            "event": "second struck chip (51%) at pass 44"
+          },
+          {
+            "at": "two point five million",
+            "event": "the population claim underlined"
+          },
+          {
+            "at": "official count",
+            "event": "INSEE card: 2,113,705 (2022)"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlNoStop",
+          "props": {
+            "sparkLine": "No stop, no end.",
+            "badge": "Intervention · stop token banned · recorded",
+            "factLabel": "Official count, Paris 2022",
+            "factValue": "2,113,705",
+            "factSource": "INSEE, Populations de référence 2022 (Jan 2025)",
+            "segments": [
+              {
+                "text": "The",
+                "pass": 1,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " capital",
+                "pass": 2,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " of",
+                "pass": 3,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " France",
+                "pass": 4,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " is",
+                "pass": 5,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " Paris",
+                "pass": 6,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": ".",
+                "pass": 7,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": "",
+                "pass": 8,
+                "kind": "stop",
+                "p": 0.373
+              },
+              {
+                "text": " It",
+                "pass": 8,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " is",
+                "pass": 9,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " a",
+                "pass": 10,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " city",
+                "pass": 11,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " known",
+                "pass": 12,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " for",
+                "pass": 13,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " its",
+                "pass": 14,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " historical",
+                "pass": 15,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " landmarks",
+                "pass": 16,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": ",",
+                "pass": 17,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " cultural",
+                "pass": 18,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " institutions",
+                "pass": 19,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": ",",
+                "pass": 20,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " and",
+                "pass": 21,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " cultural",
+                "pass": 22,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " attractions",
+                "pass": 23,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": ".",
+                "pass": 24,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " Paris",
+                "pass": 25,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " is",
+                "pass": 26,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " a",
+                "pass": 27,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " major",
+                "pass": 28,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " global",
+                "pass": 29,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " city",
+                "pass": 30,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": ",",
+                "pass": 31,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " and",
+                "pass": 32,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " its",
+                "pass": 33,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " population",
+                "pass": 34,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " is",
+                "pass": 35,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " approximately",
+                "pass": 36,
+                "kind": "claim",
+                "p": 0
+              },
+              {
+                "text": " ",
+                "pass": 37,
+                "kind": "claim",
+                "p": 0
+              },
+              {
+                "text": "2",
+                "pass": 38,
+                "kind": "claim",
+                "p": 0
+              },
+              {
+                "text": ".",
+                "pass": 39,
+                "kind": "claim",
+                "p": 0
+              },
+              {
+                "text": "5",
+                "pass": 40,
+                "kind": "claim",
+                "p": 0
+              },
+              {
+                "text": " million",
+                "pass": 41,
+                "kind": "claim",
+                "p": 0
+              },
+              {
+                "text": " people",
+                "pass": 42,
+                "kind": "claim",
+                "p": 0
+              },
+              {
+                "text": ".",
+                "pass": 43,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": "",
+                "pass": 44,
+                "kind": "stop",
+                "p": 0.5137
+              },
+              {
+                "text": " The",
+                "pass": 44,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " city",
+                "pass": 45,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " is",
+                "pass": 46,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " also",
+                "pass": 47,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " a",
+                "pass": 48,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " major",
+                "pass": 49,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " center",
+                "pass": 50,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " for",
+                "pass": 51,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " art",
+                "pass": 52,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": ",",
+                "pass": 53,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " fashion",
+                "pass": 54,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": ",",
+                "pass": 55,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " gastronomy",
+                "pass": 56,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": ",",
+                "pass": 57,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " and",
+                "pass": 58,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": " culture",
+                "pass": 59,
+                "kind": "text",
+                "p": 0
+              },
+              {
+                "text": ".",
+                "pass": 60,
+                "kind": "text",
+                "p": 0
+              }
+            ],
+            "totalPasses": 60,
+            "keyframes": [
+              {
+                "at": 0.92,
+                "pass": 0
+              },
+              {
+                "at": 3.12,
+                "pass": 8
+              },
+              {
+                "at": 5.55,
+                "pass": 44
+              },
+              {
+                "at": 7.42,
+                "pass": 60
+              }
+            ],
+            "cueStop1": 5.21,
+            "cueStop2": 5.75,
+            "cueClaim": 9.08,
+            "cueFact": 11.67,
+            "caption": "Greedy, with the end-of-turn token <|im_end|> banned · evidence/runs/no_stop.json",
+            "durationSeconds": 15.4
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-09-27T17:28:59.472913+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 15.4,
+      "render_duration_s": 15.416666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "remotion:NtlNoStop",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "the fluent wrong answer",
+      "content_type": "data",
+      "narration_text": "Now a harder question: who wrote Middlemarch? Same loop, same fluent sentence: 'Samuel Richardson.' Wrong — it was George Eliot. And at the name, the top guess had just sixteen percent.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "Middlemarch: the fluent wrong sentence + the name-pass bars",
+        "show": [
+          {
+            "at": "who wrote Middlemarch",
+            "event": "sentence assembles"
+          },
+          {
+            "at": "Samuel Richardson",
+            "event": "name lands; name-pass bars appear"
+          },
+          {
+            "at": "Wrong",
+            "event": "terracotta strike; 'Actually: George Eliot (1871–72)'"
+          },
+          {
+            "at": "sixteen percent",
+            "event": "'Samuel' bar ringed"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlWrong",
+          "props": {
+            "sparkLine": "Fluent isn't true.",
+            "question": "Who wrote the novel Middlemarch?",
+            "truth": "Actually: George Eliot (1871–72)",
+            "absentNote": "“George” — not in the top 5.",
+            "badge": "Recorded run · 2026-09-27",
+            "prefix": "The novel Middlemarch is written by",
+            "wrong": "Samuel Richardson.",
+            "candidates": [
+              {
+                "token": " Samuel",
+                "p": 0.1598
+              },
+              {
+                "token": " Charles",
+                "p": 0.1175
+              },
+              {
+                "token": " John",
+                "p": 0.1019
+              },
+              {
+                "token": " Daniel",
+                "p": 0.0534
+              },
+              {
+                "token": " Matthew",
+                "p": 0.0524
+              }
+            ],
+            "barsHeading": "At the name — pass 9",
+            "cueAsk": 1.12,
+            "cueName": 4.08,
+            "cueWrong": 5.21,
+            "cueTruth": 5.67,
+            "cuePct": 8.25,
+            "caption": "Name chosen at pass 9 of 12 · evidence/runs/middlemarch.json",
+            "durationSeconds": 9.83
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-09-27T17:29:25.151178+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 9.83,
+      "render_duration_s": 9.833333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "remotion:NtlWrong",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "experiment 2 — force the right token",
+      "content_type": "mechanism",
+      "narration_text": "Experiment two. Was the right answer in there at all? Yes — 'George', eighth in line, at three percent. Force it in, and the very next pass puts 'Eliot' on top, at forty-three percent. The loop didn't lack the answer. It picked a likelier token.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "The name pass as a queue of eight candidates; ' George' (8th) is forced into the sentence; the next pass's top candidates",
+        "show": [
+          {
+            "at": "eighth in line",
+            "event": "eight candidate cards in rank order; card 8 ' George' ringed"
+          },
+          {
+            "at": "Force it in",
+            "event": "' George' card lifts into the sentence (terracotta)"
+          },
+          {
+            "at": "Eliot",
+            "event": "next pass: ' Eliot' 43% on top; sentence completes 'George Eliot.'"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlForce",
+          "props": {
+            "sparkLine": "The answer was in there.",
+            "badge": "Intervention · ' George' forced · recorded",
+            "prefix": "The novel Middlemarch is written by",
+            "namePass": 9,
+            "queue": [
+              {
+                "token": " Samuel",
+                "p": 0.1598
+              },
+              {
+                "token": " Charles",
+                "p": 0.1175
+              },
+              {
+                "token": " John",
+                "p": 0.1019
+              },
+              {
+                "token": " Daniel",
+                "p": 0.0534
+              },
+              {
+                "token": " Matthew",
+                "p": 0.0524
+              },
+              {
+                "token": " Jane",
+                "p": 0.0361
+              },
+              {
+                "token": " David",
+                "p": 0.034
+              },
+              {
+                "token": " George",
+                "p": 0.0313
+              }
+            ],
+            "forcedIndex": 7,
+            "next": [
+              {
+                "token": " Eliot",
+                "p": 0.4298
+              },
+              {
+                "token": " Orwell",
+                "p": 0.073
+              },
+              {
+                "token": " R",
+                "p": 0.0486
+              }
+            ],
+            "tail": ".",
+            "cueQueue": 0.83,
+            "cueRing": 3.33,
+            "cueForce": 4.54,
+            "cueNext": 6.79,
+            "caption": "Probabilities are the model's own, before forcing · evidence/runs/force_george.json",
+            "durationSeconds": 12.76
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": "2026-09-27T17:29:57.182576+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B09.mp3",
+      "actual_duration_s": 12.76,
+      "render_duration_s": 12.791666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B09.mp4",
+        "filled_by": "remotion:NtlForce",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "experiment 3 — sample 200 times",
+      "content_type": "data",
+      "narration_text": "Experiment three. Chatbots usually sample instead of taking the top token — Claude's own default is temperature one. So we asked two hundred times, one seed each. Four named George Eliot. And all four invented facts around her — a Nobel Prize, a Pulitzer.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "200 dots, one per seeded run; the 4 that name Eliot lit; receipts of their invented facts",
+        "show": [
+          {
+            "at": "two hundred times",
+            "event": "200 dots fill in seed order"
+          },
+          {
+            "at": "Four named George Eliot",
+            "event": "4 dots terracotta; counter '4 of 200'"
+          },
+          {
+            "at": "invented facts",
+            "event": "receipt cards: seed 9 Nobel, seed 186 Pulitzer, with the fact that refutes each"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlSample",
+          "props": {
+            "sparkLine": "Right, then wrong again.",
+            "badge": "Recorded · 200 sampled runs, seeds 0–199",
+            "defaultNote": "Claude API docs: temperature “Defaults to 1.0.”",
+            "marks": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "countLine": "4 of 200 name George Eliot as the author",
+            "mentionLine": "Outlined: seed 42 mentions her but credits someone else.",
+            "receipts": [
+              {
+                "seed": 9,
+                "quote": "George Eliot, a Nobel Laureate in Literature",
+                "refute": "First Nobel in Literature: 1901. Eliot died in 1880."
+              },
+              {
+                "seed": 186,
+                "quote": "Her novel won the Pulitzer Prize for Fiction in 1885",
+                "refute": "First Pulitzers: 1917 — and the fiction prize is for American authors."
+              }
+            ],
+            "moreLine": "Also: seed 127 “first published in 1870” (it was 1871–72) · seed 149 “(1811-1885)” (she lived 1819–1880)",
+            "cueFill": 6.62,
+            "cueFillEnd": 8.21,
+            "cueCount": 8.71,
+            "cueReceipts": 10.62,
+            "caption": "Temperature 1.0, no top-k/top-p, 48 tokens max · evidence/runs/sample.json · Eliot count: regex + manual review (evidence/sample_review.json)",
+            "durationSeconds": 14.44
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": "2026-09-27T17:30:33.268964+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B10.mp3",
+      "actual_duration_s": 14.44,
+      "render_duration_s": 14.458333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B10.mp4",
+        "filled_by": "remotion:NtlSample",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "the loop, as math",
+      "content_type": "equation",
+      "narration_text": "Multiply every pass, and you get the model's probability for a whole answer. It rates 'Samuel Richardson' about eleven times more likely than 'George Eliot.' Nothing in that product checks a fact.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "Chain rule, then the two Middlemarch answers as recorded products",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "row 1: chain rule"
+          },
+          {
+            "at": "Samuel Richardson",
+            "event": "row 2: Richardson answer ≈ 0.0014"
+          },
+          {
+            "at": "George Eliot",
+            "event": "row 3: Eliot answer ≈ 0.00013"
+          },
+          {
+            "at": "Nothing in that product",
+            "event": "note: no factor is a fact-check"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlMath",
+          "props": {
+            "sparkLine": "The loop, as math.",
+            "note": "Richardson ≈ 11 × Eliot. No factor is a fact-check.",
+            "badge": "Computed from the recorded runs",
+            "rows": [
+              {
+                "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjY3OXB0IiBoZWlnaHQ9IjExM3B0IiB2aWV3Qm94PSIwIDAgNjc5IDExMyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPgogPG1ldGFkYXRhPgogIDxyZGY6UkRGIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgPGNjOldvcms+CiAgICA8ZGM6dHlwZSByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIi8+CiAgICA8ZGM6ZGF0ZT4yMDI2LTA5LTI3VDE1OjU0OjM3Ljk1NDI4NDwvZGM6ZGF0ZT4KICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgPGRjOmNyZWF0b3I+CiAgICAgPGNjOkFnZW50PgogICAgICA8ZGM6dGl0bGU+TWF0cGxvdGxpYiB2My4xMS4yLCBodHRwczovL21hdHBsb3RsaWIub3JnLzwvZGM6dGl0bGU+CiAgICAgPC9jYzpBZ2VudD4KICAgIDwvZGM6Y3JlYXRvcj4KICAgPC9jYzpXb3JrPgogIDwvcmRmOlJERj4KIDwvbWV0YWRhdGE+CiA8ZGVmcz4KICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPip7c3Ryb2tlLWxpbmVqb2luOiByb3VuZDsgc3Ryb2tlLWxpbmVjYXA6IGJ1dHR9PC9zdHlsZT4KIDwvZGVmcz4KIDxnIGlkPSJmaWd1cmVfMSI+CiAgPGcgaWQ9InBhdGNoXzEiPgogICA8cGF0aCBkPSJNIDAgMTEzIApMIDY3OSAxMTMgCkwgNjc5IDAgCkwgMCAwIApMIDAgMTEzIAp6CiIgc3R5bGU9ImZpbGw6IG5vbmUiLz4KICA8L2c+CiAgPGcgaWQ9InRleHRfMSI+CiAgIDwhLS0gJFAoeF8xLFxsZG90cyx4X1QgXG1pZCBjKSBcOz1cOyBccHJvZF97dD0xfV57VH1cLCBwKHhfdCBcbWlkIGMsXCwgeF97Jmx0O3R9KSQgLS0+CiAgIDxnIHN0eWxlPSJmaWxsOiAjM2QzOTI5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDY4KSBzY2FsZSgwLjQ4IC0wLjQ4KSI+CiAgICA8ZGVmcz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtSXRhbGljLTMzIiBkPSJNIDkzNCA0MTc5IApMIDI0NzcgNDE3OSAKUSAzODcyIDQxNzkgMzg3MiAzMjMyIApRIDM4NzIgMjk3NiAzNzUzIDI3MjkgClEgMzYzNSAyNDgzIDM0MzcgMjMxNyAKUSAyOTk1IDE5NTIgMjEyNSAxOTUyIApRIDE3NzMgMTk1MiAxNTQ5IDIwMDMgCkwgMTIxMCA3NjggClEgMTEyMCA0MjIgMTEyMCAzNjUgClEgMTEyMCAyNTAgMTIxNiAxODkgClEgMTMxMiAxMjggMTU2MiAxMDIgCkwgMTU2MiAwIApMIDAgMCAKTCAwIDEwMiAKUSAyNzUgMTQxIDM2MSAyMjcgClEgNDQ4IDMxNCA1MzggNjI3IApMIDEyODAgMzI3NyAKUSAxMzg5IDM2NjcgMTM4OSAzODA4IApRIDEzODkgMzkzNiAxMjk5IDM5OTAgClEgMTIxMCA0MDQ1IDkzNCA0MDc3IApMIDkzNCA0MTc5IAp6Ck0gMjA0OCAzNzg5IApMIDE2MDYgMjIyMSAKUSAxNzkyIDIxODkgMTkzOSAyMTg5IApRIDI0OTYgMjE4OSAyNzU4IDIzNDIgClEgMzIxMyAyNTk4IDMyMTMgMzIwMCAKUSAzMjEzIDM5ODcgMjM4MSAzOTg3IApRIDIwOTkgMzk4NyAyMDQ4IDM3ODkgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLWIiIGQ9Ik0gMTk0NiAtMTAzMCAKTCAxODY5IC0xMTMzIApRIDExMjYgLTcxMCA3MTYgMzIgClEgMzA3IDc3NCAzMDcgMTYxMyAKUSAzMDcgMzM4NiAxODg4IDQzMjYgCkwgMTk0NiA0MjI0IApRIDEyOTMgMzY2NyAxMDc1IDMxMjYgClEgODU4IDI1ODYgODU4IDE2MzIgClEgODU4IDY4NSAxMDgyIDk2IApRIDEzMDYgLTQ5MyAxOTQ2IC0xMDMwIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtSXRhbGljLTViIiBkPSJNIDE1NTUgMjI3MiAKTCAxNjMyIDE5MDcgClEgMTk3MSAyNDI2IDIxNzkgMjYyNCAKUSAyMzg3IDI4MjIgMjU5OCAyODIyIApRIDI3MTQgMjgyMiAyNzg3IDI3NTUgClEgMjg2MSAyNjg4IDI4NjEgMjU4NSAKUSAyODYxIDI0ODMgMjgwMCAyNDE5IApRIDI3MzkgMjM1NSAyNjQzIDIzNTUgClEgMjU4NiAyMzU1IDI0OTAgMjQwOSAKUSAyMzk0IDI0NjQgMjMxMCAyNDY0IApRIDIxMjUgMjQ2NCAxNjgzIDE2OTAgClEgMTY4MyAxNjA2IDE3MzQgMTQwMiAKTCAxOTM5IDU0NCAKUSAyMDAzIDI4MiAyMTMxIDI4MiAKUSAyMjM0IDI4MiAyNDMyIDUzOCAKUSAyNDUxIDU2MyAyNDc2IDU5OCAKUSAyNTAyIDYzNCAyNTIxIDY2MiAKUSAyNTQxIDY5MSAyNTY2IDcxNyAKTCAyNjYyIDY1OSAKUSAyMzg3IDIzMCAyMjI3IDgwIApRIDIwNjcgLTcwIDE4ODIgLTcwIApRIDE3MjggLTcwIDE2NDUgMjYgClEgMTU2MiAxMjIgMTUwNCAzNjUgCkwgMTMxOCAxMTI2IApMIDc1NSAzNjUgClEgNTU3IDk2IDQzMiAxMyAKUSAzMDcgLTcwIDE0NyAtNzAgClEgMCAtNzAgLTg2IDAgClEgLTE3MyA3MCAtMTczIDE5OCAKUSAtMTczIDI5NCAtMTEyIDM2MSAKUSAtNTEgNDI5IDQ1IDQyOSAKUSAxMjIgNDI5IDI1MCAzNTggClEgMzQ2IDMwMSA0MTYgMzAxIApRIDUyNSAzMDEgNzQyIDYxNCAKTCAxMjY3IDEzNTcgCkwgMTA4OCAyMTUwIApRIDEwMjQgMjQzMiA5NjkgMjUwOSAKUSA5MTUgMjU4NiA3OTQgMjU4NiAKUSA3MTcgMjU4NiA1NDQgMjU0MSAKTCA0MjkgMjUwOSAKTCA0MTAgMjYxMSAKTCA0ODAgMjYzNyAKUSA5OTIgMjgyMiAxMjI5IDI4MjIgClEgMTM1MCAyODIyIDE0MjAgMjcwNyAKUSAxNDkxIDI1OTIgMTU1NSAyMjcyIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0xNCIgZD0iTSAyNTIyIDAgCkwgNzU1IDAgCkwgNzU1IDk2IApRIDExMDcgMTE1IDEyMzUgMjI3IApRIDEzNjMgMzM5IDEzNjMgNjA4IApMIDEzNjMgMzQ4MiAKUSAxMzYzIDM3OTUgMTE3MSAzNzk1IApRIDEwODIgMzc5NSA4ODMgMzcxOCAKTCA3MTAgMzY1NCAKTCA3MTAgMzc0NCAKTCAxODU2IDQzMjYgCkwgMTkxNCA0MzA3IApMIDE5MTQgNDg2IApRIDE5MTQgMjc1IDIwNDIgMTg1IApRIDIxNzAgOTYgMjUyMiA5NiAKTCAyNTIyIDAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLWYiIGQ9Ik0gNTMxIC05MDIgCkwgNDY3IC03ODEgClEgOTk4IC00MjIgOTk4IC05NiAKUSA5OTggLTEzIDkwOSAtMTMgClEgODgzIC0xMyA4MjIgLTI1IApRIDc2MiAtMzggNzIzIC0zOCAKUSAzNTIgLTM4IDM1MiAyODggClEgMzUyIDQ1NCA0NTcgNTUzIApRIDU2MyA2NTMgNzM2IDY1MyAKUSA5NTQgNjUzIDExMDEgNDk2IApRIDEyNDggMzM5IDEyNDggOTYgClEgMTI0OCAtMTk4IDEwNTMgLTQ3MyAKUSA4NTggLTc0OSA1MzEgLTkwMiAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItMzJkIiBkPSJNIDU2ODMgMjc1IApRIDU2ODMgMTM0IDU1NzcgMzIgClEgNTQ3MiAtNzAgNTMyNSAtNzAgClEgNTE3OCAtNzAgNTA3NSAzMiAKUSA0OTczIDEzNCA0OTczIDI4MSAKUSA0OTczIDQyOSA1MDc4IDUzNCAKUSA1MTg0IDY0MCA1MzMxIDY0MCAKUSA1NDcyIDY0MCA1NTc3IDUzMSAKUSA1NjgzIDQyMiA1NjgzIDI3NSAKegpNIDM1NTIgMjc1IApRIDM1NTIgMTM0IDM0NDYgMzIgClEgMzM0MSAtNzAgMzE5MyAtNzAgClEgMzA0NiAtNzAgMjk0NCAzMiAKUSAyODQyIDEzNCAyODQyIDI4MSAKUSAyODQyIDQyOSAyOTQ3IDUzNCAKUSAzMDUzIDY0MCAzMjAwIDY0MCAKUSAzMzQxIDY0MCAzNDQ2IDUzMSAKUSAzNTUyIDQyMiAzNTUyIDI3NSAKegpNIDE0MjEgMjc1IApRIDE0MjEgMTM0IDEzMTUgMzIgClEgMTIxMCAtNzAgMTA2MiAtNzAgClEgOTE1IC03MCA4MTIgMzIgClEgNzEwIDEzNCA3MTAgMjgxIApRIDcxMCA0MjkgODE2IDUzNCAKUSA5MjIgNjQwIDEwNjkgNjQwIApRIDEyMTAgNjQwIDEzMTUgNTMxIApRIDE0MjEgNDIyIDE0MjEgMjc1IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtSXRhbGljLTM3IiBkPSJNIDQwNTEgNDE3OSAKTCAzNzcwIDMxMzAgCkwgMzY2MSAzMTQyIApRIDM2ODAgMzMwMiAzNjgwIDM0MzcgClEgMzY4MCAzOTU1IDMwMzQgMzk1NSAKTCAyNjYyIDM5NTUgCkwgMTc4NiA4MTkgClEgMTY5NiA1MDYgMTY5NiAzOTcgClEgMTY5NiAyNTAgMTc2NiAxOTUgClEgMTgzNyAxNDEgMjAzNSAxMjIgCkwgMjI1OSAxMDIgCkwgMjI1OSAwIApMIDQxNiAwIApMIDQxNiAxMDIgClEgNzQ5IDEzNCA4ODkgMjMwIApRIDEwMzAgMzI2IDExMDEgNTgyIApMIDIwMTYgMzk1NSAKUSAxMjU0IDM5NTUgOTg4IDM4MTcgClEgNzIzIDM2ODAgNDkzIDMxNjIgCkwgMzc4IDMxODcgCkwgNjQ2IDQxNzkgCkwgNDA1MSA0MTc5IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci00MzYiIGQ9Ik0gMTA2MiAtMTIxMCAKTCA2NDAgLTEyMTAgCkwgNjQwIDQ0MTYgCkwgMTA2MiA0NDE2IApMIDEwNjIgLTEyMTAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNDYiIGQ9Ik0gMjI0MCA2ODUgCkwgMjM0MiA2MjEgClEgMjA0OCAyNTAgMTc2OSA5MCAKUSAxNDkxIC03MCAxMTMzIC03MCAKUSA2NzggLTcwIDQzNSAxNzkgClEgMTkyIDQyOSAxOTIgOTE1IApRIDE5MiAxMzQ0IDQwOSAxNzQ0IApRIDYyNyAyMTQ0IDk3OSAyNDMyIApRIDE0NzIgMjgyMiAyMDQ4IDI4MjIgClEgMjM0MiAyODIyIDI1MzEgMjY3NSAKUSAyNzIwIDI1MjggMjcyMCAyMzA0IApRIDI3MjAgMjE3NiAyNjMwIDIwODYgClEgMjU0MSAxOTk3IDI0MTMgMTk5NyAKUSAyMjg1IDE5OTcgMjIyNCAyMDcwIApRIDIxNjMgMjE0NCAyMTYzIDIyNTMgClEgMjE2MyAyMzEwIDIyMTEgMjQwMyAKUSAyMjU5IDI0OTYgMjI1OSAyNTYwIApRIDIyNTkgMjY4OCAyMDIyIDI2ODggClEgMTYxOSAyNjg4IDEzMjUgMjM4MSAKUSA3NDIgMTc2NiA3NDIgODkwIApRIDc0MiA1NDQgODg5IDM1MiAKUSAxMDM3IDE2MCAxMzEyIDE2MCAKUSAxNTYyIDE2MCAxNzY2IDI4MSAKUSAxOTcxIDQwMyAyMjQwIDY4NSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItYyIgZD0iTSAxODYgNDIyNCAKTCAyNjIgNDMyNiAKUSA5OTIgMzg5MSAxNDA4IDMxNDggClEgMTgyNCAyNDA2IDE4MjQgMTU4MSAKUSAxODI0IC0xNjYgMjQzIC0xMTMzIApMIDE4NiAtMTAzMCAKUSA4NDUgLTQ4NiAxMDU5IDU0IApRIDEyNzQgNTk1IDEyNzQgMTU2MiAKUSAxMjc0IDI1MzQgMTA1OSAzMTIwIApRIDg0NSAzNzA2IDE4NiA0MjI0IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0yMCIgZD0iTSA0MDc3IDIwNDggCkwgMzA3IDIwNDggCkwgMzA3IDI0NzAgCkwgNDA3NyAyNDcwIApMIDQwNzcgMjA0OCAKegpNIDQwNzcgNzY4IApMIDMwNyA3NjggCkwgMzA3IDExOTAgCkwgNDA3NyAxMTkwIApMIDQwNzcgNzY4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci00MjIiIGQ9Ik0gNjA2NyAtMTY1OCAKTCAzNzEyIC0xNjU4IApMIDM3MTIgLTE0NzggCkwgMzkxNyAtMTQ3OCAKUSA0MjMwIC0xNDc4IDQzNTUgLTEyNTQgClEgNDQ4MCAtMTAzMCA0NDgwIC02MjEgCkwgNDQ4MCA0NDYxIApMIDE5MjYgNDQ2MSAKTCAxOTI2IC02MjEgClEgMTkyNiAtMTA3NSAyMDUxIC0xMjc2IApRIDIxNzYgLTE0NzggMjQ5MCAtMTQ3OCAKTCAyNjg4IC0xNDc4IApMIDI2ODggLTE2NTggCkwgMzMzIC0xNjU4IApMIDMzMyAtMTQ3OCAKTCA0NTQgLTE0NzggClEgMTA4OCAtMTQ3OCAxMDg4IC03ODEgCkwgMTA4OCAzOTEwIApRIDEwODggNDM1OCA5MjUgNDUzMSAKUSA3NjIgNDcwNCA0NDIgNDcwNCAKTCAzMzMgNDcwNCAKTCAzMzMgNDg4MyAKTCA2MDY3IDQ4ODMgCkwgNjA2NyA0NzA0IApRIDU2NDUgNDcwNCA1NDgxIDQ1MjggClEgNTMxOCA0MzUyIDUzMTggMzkzNiAKTCA1MzE4IC02NjYgClEgNTMxOCAtMTQ3OCA1OTUyIC0xNDc4IApMIDYwNjcgLTE0NzggCkwgNjA2NyAtMTY1OCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy01NyIgZD0iTSAxODk0IDI3MzkgCkwgMTg2MiAyNTM0IApMIDEzMjUgMjUzNCAKTCA3NjggNDM1IApRIDc1NSAzODQgNzU1IDM0NiAKUSA3NTUgMjQzIDg1MSAyNDMgClEgOTI4IDI0MyAxMDMwIDM0MiAKUSAxMTMzIDQ0MiAxMzcwIDc0OSAKTCAxNDUzIDcwNCAKUSAxMTU4IDI1NiA5NjkgOTMgClEgNzgxIC03MCA1MzggLTcwIApRIDI0MyAtNzAgMjQzIDE2NiAKUSAyNDMgMjMwIDM0NiA2NDAgCkwgODQ1IDI1MzQgCkwgMzY1IDI1MzQgCkwgMzU4IDI1NzMgClEgMzU4IDI2ODggNTcwIDI3MzMgClEgNzMwIDI3NzEgOTkyIDI5NzkgClEgMTI1NCAzMTg3IDE0MjEgMzQzNyAKUSAxNDU5IDM0OTQgMTUxMCAzNDk0IApRIDE1NjggMzQ5NCAxNTY4IDM0NDMgClEgMTU2OCAzNDExIDE1NjIgMzM5OCAKTCAxMzgyIDI3MzkgCkwgMTg5NCAyNzM5IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtSXRhbGljLTUzIiBkPSJNIDEzNzYgMjczOSAKTCAxMTkwIDIwOTkgClEgMTY3MCAyODIyIDIyODUgMjgyMiAKUSAyNjM3IDI4MjIgMjgyOSAyNjExIApRIDMwMjEgMjQwMCAzMDIxIDIwMjIgClEgMzAyMSAxMjM1IDI0MjIgNTgyIApRIDE4MjQgLTcwIDExMjAgLTcwIApRIDg5MCAtNzAgNjc4IDM4IApRIDQyMiAtMTAxOCA0MjIgLTEwMjQgClEgNDIyIC0xMTI2IDUwOCAtMTE2OCAKUSA1OTUgLTEyMTAgODE5IC0xMjEwIApMIDgxOSAtMTMxMiAKTCAtNDgwIC0xMzEyIApMIC00ODAgLTEyMTAgClEgLTI3NSAtMTIwMyAtMTg4IC0xMTIwIApRIC0xMDIgLTEwMzcgLTQ1IC04MDYgCkwgNjkxIDE5NTggClEgNzk0IDIzMzAgNzk0IDI0MTMgClEgNzk0IDI1ODYgNTEyIDI1ODYgCkwgMzcxIDI1ODYgCkwgMzU4IDI2ODIgCkwgMTM1NyAyODIyIApRIDEzODkgMjgyMiAxMzg5IDI3OTcgClEgMTM4MiAyNzY1IDEzNzYgMjczOSAKegpNIDI0NDUgMjAwMyAKUSAyNDQ1IDIyODUgMjM1MiAyNDE2IApRIDIyNTkgMjU0NyAyMDQ4IDI1NDcgClEgMTc5OCAyNTQ3IDE1NDggMjMyOSAKUSAxMjk5IDIxMTIgMTE4NCAxODE4IApRIDEwNDMgMTQ1MyA5MDUgOTUzIApRIDc2OCA0NTQgNzY4IDI5NCAKUSA3NjggMTg2IDg1NCAxMTggClEgOTQxIDUxIDEwNzUgNTEgClEgMTU3NCA1MSAyMDAzIDY1OSAKUSAyNDQ1IDEyNzQgMjQ0NSAyMDAzIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0xZiIgZD0iTSAzOTc0IC0xNTQgCkwgMzU4IDE1OTQgCkwgMzU4IDE2NTggCkwgMzk3NCAzNDE4IApMIDM5NzQgMzAwMiAKTCAxMjEwIDE2MjYgCkwgMzk3NCAyNTAgCkwgMzk3NCAtMTU0IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgIDwvZGVmcz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy0zMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAwLjI0NTMxMykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjEuMDk5OTQ1IDAuMjQ1MzEzKSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTViIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NC4zOTk5MTggMC4yNDUzMTMpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTE0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzguNzk5ODgxIC0xNC43NTQ2ODcpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItZiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTc4LjI5OTg0OSAwLjI0NTMxMykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMzJkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMjMuMjk5ODE4IDAuMjQ1MzEzKSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1mIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjMuMjk5NzI3IDAuMjQ1MzEzKSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTViIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNjguMjk5Njk2IDAuMjQ1MzEzKSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTM3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MTIuNjk5NjYgLTE0Ljc1NDY4Nykgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci00MzYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ3Ni4xMTk2MjEgMC4yNDUzMTMpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNDYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUyMi43MTk1OTcgMC4yNDUzMTMpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLWMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU2Ny4xMTk1NiAwLjI0NTMxMykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMjAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY0OC4xOTc1MzMgMC4yNDUzMTMpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtMzciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgxMC40NzU0NzIgOTUuMjkyMTg4KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQyMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzg0LjQ3NTQ3MiAwLjI0NTMxMykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy01NyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzY0LjQ3NTQ3MiAtOTEuNzI2NTYyKSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTIwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3OTcuOTM1NDUzIC05MS43MjY1NjIpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg1OS44ODU0MSAtOTEuNzI2NTYyKSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkxMS41NTIzNzggMC4yNDUzMTMpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDk2MS45NTIzMjYgMC4yNDUzMTMpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDk5NS4yNTIyOTggMC4yNDUzMTMpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMzkuNjUyMjYyIC0xNC43NTQ2ODcpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNDM2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDgzLjYxMjI0MyAwLjI0NTMxMykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy00NiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTEzMC4yMTIyMTggMC4yNDUzMTMpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLWYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExNzQuNjEyMTgyIDAuMjQ1MzEzKSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTViIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM2LjI3OTE1MSAwLjI0NTMxMykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMWYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyOTQuNjc5MTE0IC0xNC43NTQ2ODcpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy01NyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTM1Ni42MjkwNzIgLTE0Ljc1NDY4Nykgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1jIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzgwLjU4OTA1MiAwLjI0NTMxMykiLz4KICAgPC9nPgogIDwvZz4KIDwvZz4KPC9zdmc+Cg==",
+                "aspect": 6.008849557522124,
+                "expression": "P(x_1,\\ldots,x_T \\mid c) \\;=\\; \\prod_{t=1}^{T}\\, p(x_t \\mid c,\\, x_{<t})",
+                "at": 0.0,
+                "h": 113.0
+              },
+              {
+                "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9Ijk5NnB0IiBoZWlnaHQ9IjM2cHQiIHZpZXdCb3g9IjAgMCA5OTYgMzYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIj4KIDxtZXRhZGF0YT4KICA8cmRmOlJERiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgIDxjYzpXb3JrPgogICAgPGRjOnR5cGUgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIvPgogICAgPGRjOmRhdGU+MjAyNi0wOS0yN1QxNTo1NDozNy45NzIxNDg8L2RjOmRhdGU+CiAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgIDxkYzpjcmVhdG9yPgogICAgIDxjYzpBZ2VudD4KICAgICAgPGRjOnRpdGxlPk1hdHBsb3RsaWIgdjMuMTEuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy88L2RjOnRpdGxlPgogICAgIDwvY2M6QWdlbnQ+CiAgICA8L2RjOmNyZWF0b3I+CiAgIDwvY2M6V29yaz4KICA8L3JkZjpSREY+CiA8L21ldGFkYXRhPgogPGRlZnM+CiAgPHN0eWxlIHR5cGU9InRleHQvY3NzIj4qe3N0cm9rZS1saW5lam9pbjogcm91bmQ7IHN0cm9rZS1saW5lY2FwOiBidXR0fTwvc3R5bGU+CiA8L2RlZnM+CiA8ZyBpZD0iZmlndXJlXzEiPgogIDxnIGlkPSJwYXRjaF8xIj4KICAgPHBhdGggZD0iTSAwIDM2IApMIDk5NiAzNiAKTCA5OTYgMCAKTCAwIDAgCkwgMCAzNiAKegoiIHN0eWxlPSJmaWxsOiBub25lIi8+CiAgPC9nPgogIDxnIGlkPSJ0ZXh0XzEiPgogICA8IS0tICRcbWF0aHJte1JpY2hhcmRzb259XHF1YWQgMC42MjcgXHRpbWVzIDAuNjk4IFx0aW1lcyBcY2RvdHMgXHRpbWVzIDAuNTc2IFw7XGFwcHJveFw7IDAuMDAxNCQgLS0+CiAgIDxnIHN0eWxlPSJmaWxsOiAjM2QzOTI5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDM0KSBzY2FsZSgwLjQ4IC0wLjQ4KSI+CiAgICA8ZGVmcz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0zNSIgZD0iTSA0MjI0IDAgCkwgMzE4NyAwIApMIDE2NjQgMTk3MSAKTCAxMzA2IDE5NTggCkwgMTMwNiA3MTcgClEgMTMwNiAzNTIgMTQwNSAyNDkgClEgMTUwNCAxNDcgMTg3NSAxMjIgCkwgMTg3NSAwIApMIDEwOSAwIApMIDEwOSAxMjIgClEgNDc0IDE1NCA1NjMgMjYyIApRIDY1MyAzNzEgNjUzIDc5NCAKTCA2NTMgMzUyNiAKUSA2NTMgMzg4NSA1NjMgMzk4NyAKUSA0NzQgNDA5MCAxMDkgNDExNSAKTCAxMDkgNDIzNyAKTCAxODUwIDQyMzcgClEgMjcyNiA0MjM3IDMxODcgMzg1OSAKUSAzNTAxIDM2MDMgMzUwMSAzMDkxIApRIDM1MDEgMjIyMSAyMzQyIDIwNDIgCkwgMzYyMiA0MjIgClEgMzc1NyAyNTYgMzg3OCAxOTggClEgNDAwMCAxNDEgNDIyNCAxMjIgCkwgNDIyNCAwIAp6Ck0gMTMwNiAzNzMxIApMIDEzMDYgMjE5NSAKUSAxNzY2IDIyMDIgMTk5MCAyMjQ2IApRIDIyMTQgMjI5MSAyNDM4IDI0MTMgClEgMjgwMyAyNjE4IDI4MDMgMzE0MiAKUSAyODAzIDQwMDAgMTYzMiA0MDAwIApRIDE0NTkgNDAwMCAxMzgyIDM5NDUgClEgMTMwNiAzODkxIDEzMDYgMzczMSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNGMiIGQ9Ik0gMTE1MiA0MDQ1IApRIDExNTIgMzkwNCAxMDU2IDM4MTEgClEgOTYwIDM3MTggODE5IDM3MTggClEgNjg1IDM3MTggNTkyIDM4MTEgClEgNDk5IDM5MDQgNDk5IDQwNDUgClEgNDk5IDQxNzkgNTk1IDQyNzUgClEgNjkxIDQzNzEgODI2IDQzNzEgClEgOTY2IDQzNzEgMTA1OSA0Mjc1IApRIDExNTIgNDE3OSAxMTUyIDQwNDUgCnoKTSAxNjE5IDAgCkwgMTAyIDAgCkwgMTAyIDk2IApRIDQzNSAxMTUgNTIxIDIxMSAKUSA2MDggMzA3IDYwOCA2NjYgCkwgNjA4IDIxMTggClEgNjA4IDIzNDIgNTYzIDI0MzIgClEgNTE4IDI1MjIgMzk3IDI1MjIgClEgMjQzIDI1MjIgMTI4IDI0OTAgCkwgMTI4IDI1OTIgCkwgMTEyMCAyOTQ0IApMIDExNDYgMjkxOCAKTCAxMTQ2IDY3MiAKUSAxMTQ2IDMxNCAxMjI2IDIxOCAKUSAxMzA2IDEyMiAxNjE5IDk2IApMIDE2MTkgMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNDYiIGQ9Ik0gMjU0NyA5OTggCkwgMjYzNyA5NDEgClEgMjM2MiA0MDMgMjExMiAyMDUgClEgMTc4NiAtNjQgMTM3NiAtNjQgClEgODQ1IC02NCA1MDIgMzM2IApRIDE2MCA3MzYgMTYwIDEzNTcgClEgMTYwIDIxNzAgNjk4IDI2MTggClEgMTA5NCAyOTQ0IDE1NjIgMjk0NCAKUSAxOTY1IDI5NDQgMjI1NiAyNzQ5IApRIDI1NDcgMjU1NCAyNTQ3IDIyODUgClEgMjU0NyAyMTc2IDI0NTcgMjA5NiAKUSAyMzY4IDIwMTYgMjI0NiAyMDE2IApRIDIwMjIgMjAxNiAxOTM5IDIzMTAgCkwgMTkwMSAyNDUxIApRIDE4NTAgMjYzMCAxNzczIDI2OTQgClEgMTY5NiAyNzU4IDE1MjMgMjc1OCAKUSAxMTMzIDI3NTggODkzIDI0NTEgClEgNjUzIDIxNDQgNjUzIDE2NDUgClEgNjUzIDEwOTQgOTI4IDc0NSAKUSAxMjAzIDM5NyAxNjQ1IDM5NyAKUSAxOTIwIDM5NyAyMTE4IDUyOCAKUSAyMzE3IDY1OSAyNTQ3IDk5OCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNGIiIGQ9Ik0gMzExNyAwIApMIDE3NjAgMCAKTCAxNzYwIDk2IApRIDIwNDIgMTI4IDIxMTggMjI0IApRIDIxOTUgMzIwIDIxOTUgNjUzIApMIDIxOTUgMTkyMCAKUSAyMTk1IDI1OTggMTcyMiAyNTk4IApRIDE1MzAgMjU5OCAxMzcwIDI1MDggClEgMTIxMCAyNDE5IDEwMDUgMjE5NSAKTCAxMDA1IDY1MyAKUSAxMDA1IDMyMCAxMDgxIDIyNCAKUSAxMTU4IDEyOCAxNDQwIDk2IApMIDE0NDAgMCAKTCA1OCAwIApMIDU4IDk2IApRIDMzMyAxMzQgNDAwIDIyNCAKUSA0NjcgMzE0IDQ2NyA2NTMgCkwgNDY3IDM2NjcgClEgNDY3IDM4NzIgNDA2IDM5MzMgClEgMzQ2IDM5OTQgMTQxIDM5OTQgClEgODMgMzk5NCA2NCAzOTg3IApMIDY0IDQwOTAgCkwgMjM3IDQxNDEgClEgNzMwIDQyODggOTczIDQzNzEgCkwgMTAwNSA0MzUyIApMIDEwMDUgMjQwNiAKUSAxMjI5IDI2OTQgMTQ0NiAyODE5IApRIDE2NjQgMjk0NCAxOTQ2IDI5NDQgClEgMjczMyAyOTQ0IDI3MzMgMTkyNiAKTCAyNzMzIDY1MyAKUSAyNzMzIDMyMCAyNzkzIDIzMyAKUSAyODU0IDE0NyAzMTE3IDk2IApMIDMxMTcgMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNDQiIGQ9Ik0gMjgyOSA0MjIgCkwgMjgyOSAyNDMgClEgMjU4NiAtNjQgMjI1MyAtNjQgClEgMTg4OCAtNjQgMTg0MyA0MDMgCkwgMTgzNyA0MDMgClEgMTQyNyAtNjQgOTA5IC02NCAKUSA2MDggLTY0IDQyMiAxMTIgClEgMjM3IDI4OCAyMzcgNjAyIApRIDIzNyAxMDUwIDY4NSAxMzUwIApRIDk5MiAxNTU1IDE4MzcgMTg2OSAKTCAxODM3IDIyMTQgClEgMTgzNyAyNTAyIDE2OTkgMjY0NiAKUSAxNTYyIDI3OTAgMTMzOCAyNzkwIApRIDExNDYgMjc5MCAxMDE4IDI2OTcgClEgODkwIDI2MDUgODkwIDI0NzcgClEgODkwIDI0MTkgOTA5IDIzNDggClEgOTI4IDIyNzggOTI4IDIyMDggClEgOTI4IDIxMTIgODQxIDIwMjkgClEgNzU1IDE5NDYgNjM0IDE5NDYgClEgNTI1IDE5NDYgNDQxIDIwMjkgClEgMzU4IDIxMTIgMzU4IDIyNDAgClEgMzU4IDI1NDcgNjg1IDI3NTIgClEgOTg2IDI5NDQgMTQyMSAyOTQ0IApRIDE5MzkgMjk0NCAyMTc2IDI2NTYgClEgMjI5MSAyNTIyIDIzMjMgMjM4NCAKUSAyMzU1IDIyNDYgMjM1NSAxOTQ2IApMIDIzNTUgNzIzIApRIDIzNTUgMzAxIDI1NTQgMzAxIApRIDI2ODIgMzAxIDI4MjkgNDIyIAp6Ck0gMTgzNyA4MTMgCkwgMTgzNyAxNzE1IApRIDEyNDggMTUxMCAxMDE4IDEyOTMgClEgODAwIDEwOTQgODAwIDgwMCAKUSA4MDAgNTU3IDkyMSA0MzIgClEgMTA0MyAzMDcgMTI0MiAzMDcgClEgMTQ1MyAzMDcgMTYxMyA0MTAgClEgMTc0NyA1MDYgMTc5MiA1ODkgClEgMTgzNyA2NzIgMTgzNyA4MTMgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTU1IiBkPSJNIDEwMjQgMjkzMSAKTCAxMDI0IDIzNDIgClEgMTI2NyAyNjg4IDE0MzAgMjgxNiAKUSAxNTk0IDI5NDQgMTc5MiAyOTQ0IApRIDE5NTggMjk0NCAyMDUxIDI4NTQgClEgMjE0NCAyNzY1IDIxNDQgMjYwNSAKUSAyMTQ0IDI0NzAgMjA3NyAyMzkzIApRIDIwMTAgMjMxNyAxODk0IDIzMTcgClEgMTc3MyAyMzE3IDE2MzggMjQ0NSAKUSAxNTM2IDI1NDEgMTQ3MiAyNTQxIApRIDEzMzggMjU0MSAxMTgxIDIzNTUgClEgMTAyNCAyMTcwIDEwMjQgMjAxNiAKTCAxMDI0IDU3NiAKUSAxMDI0IDMwMSAxMTMzIDIwNSAKUSAxMjQyIDEwOSAxNTY4IDk2IApMIDE1NjggMCAKTCAzMiAwIApMIDMyIDk2IApRIDMzOSAxNTQgNDEyIDIyNCAKUSA0ODYgMjk0IDQ4NiA1MzggCkwgNDg2IDIxMzggClEgNDg2IDIzNDkgNDM4IDI0MzUgClEgMzkwIDI1MjIgMjY5IDI1MjIgClEgMTY2IDI1MjIgNDUgMjQ5NiAKTCA0NSAyNTk4IApRIDQ0OCAyNzI2IDk5MiAyOTQ0IApMIDEwMjQgMjkzMSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNDciIGQ9Ik0gMzE0MiAyNjkgCkwgMjIwMiAtNjQgCkwgMjE3NiAtNDUgCkwgMjE3NiAzNjUgClEgMTg2OSAtNjQgMTM1NyAtNjQgClEgODI2IC02NCA0OTkgMzE3IApRIDE3MyA2OTggMTczIDEzMTIgClEgMTczIDE5OTAgNTYzIDI0NjcgClEgOTU0IDI5NDQgMTUwNCAyOTQ0IApRIDE4NTAgMjk0NCAyMTc2IDI2NjkgCkwgMjE3NiAzNjY3IApRIDIxNzYgMzg2NiAyMTE4IDM5MzAgClEgMjA2MSAzOTk0IDE4ODIgMzk5NCAKUSAxNzkyIDM5OTQgMTc0MSAzOTg3IApMIDE3NDEgNDA5MCAKUSAyMzIzIDQyNDMgMjY4MiA0MzcxIApMIDI3MTQgNDM1OCAKTCAyNzE0IDczMCAKUSAyNzE0IDUwNiAyNzY4IDQzNSAKUSAyODIyIDM2NSAyOTk1IDM2NSAKUSAzMDM0IDM2NSAzMTQyIDM3MSAKTCAzMTQyIDI2OSAKegpNIDIxNzYgNjUzIApMIDIxNzYgMjEyNSAKUSAyMTc2IDIzODEgMTk4MSAyNTczIApRIDE3ODYgMjc2NSAxNTIzIDI3NjUgClEgMTE1OCAyNzY1IDk0MCAyNDM4IApRIDcyMyAyMTEyIDcyMyAxNTY4IApRIDcyMyA5NzkgOTYzIDYyNCAKUSAxMjAzIDI2OSAxNjA2IDI2OSAKUSAxOTA3IDI2OSAyMDgwIDQ3NCAKUSAyMTc2IDU4MiAyMTc2IDY1MyAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNTYiIGQ9Ik0gOTk4IDE5MjYgCkwgMTY2NCAxNTIzIApRIDE5ODQgMTMzMSAyMTA1IDExNjQgClEgMjIyNyA5OTggMjIyNyA3MzYgClEgMjIyNyA0MTYgMTk2MSAxNzYgClEgMTY5NiAtNjQgMTMzMSAtNjQgClEgMTAzMCAtNjQgODY0IC02IApRIDY5MSA1MSA1NzAgNTEgClEgNDYxIDUxIDQxNiAtMjYgCkwgMzMzIC0yNiAKTCAzMzMgOTc5IApMIDQzNSA5NzkgClEgNTM4IDUxMiA3MzAgMjk0IApRIDkyMiA3NyAxMjQ4IDc3IApRIDE0ODUgNzcgMTYzMiAyMTEgClEgMTc3OSAzNDYgMTc3OSA1NTAgClEgMTc3OSA4NDUgMTQ0MCAxMDMwIApMIDEwOTQgMTIyMiAKUSAzMjYgMTY1MSAzMjYgMjE1MCAKUSAzMjYgMjUyMiA1NjYgMjczMCAKUSA4MDYgMjkzOCAxMjEwIDI5MzggClEgMTQ5MSAyOTM4IDE2MzggMjg2NyAKUSAxNzU0IDI4MTYgMTgxOCAyODE2IApRIDE4NjIgMjgxNiAxOTIwIDI4ODAgCkwgMTk5MCAyODgwIApMIDIwMjIgMjAxMCAKTCAxOTI2IDIwMTAgClEgMTgxOCAyNDQ1IDE2NTQgMjYyMSAKUSAxNDkxIDI3OTcgMTIwMyAyNzk3IApRIDk4NiAyNzk3IDg1NCAyNjg4IApRIDcyMyAyNTc5IDcyMyAyMzYyIApRIDcyMyAyMjUzIDc5NiAyMTI4IApRIDg3MCAyMDAzIDk5OCAxOTI2IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci01MiIgZD0iTSAzMDA4IDE0NzggClEgMzAwOCA4MDYgMjYwOCAzNzEgClEgMjIwOCAtNjQgMTU2OCAtNjQgClEgOTc5IC02NCA1ODIgMzY4IApRIDE4NiA4MDAgMTg2IDE0NTkgClEgMTg2IDIxMjUgNTgyIDI1MzQgClEgOTc5IDI5NDQgMTYyNiAyOTQ0IApRIDIyMjEgMjk0NCAyNjE0IDI1MzcgClEgMzAwOCAyMTMxIDMwMDggMTQ3OCAKegpNIDI0MzIgMTMwNiAKUSAyNDMyIDIwMzUgMjExMiAyNDQ1IApRIDE4NTYgMjc2NSAxNTA0IDI3NjUgClEgMTE3MSAyNzY1IDk2NiAyNDkzIApRIDc2MiAyMjIxIDc2MiAxNzQ3IApRIDc2MiA5MjggMTEwMSA0MzUgClEgMTMxOCAxMTUgMTY3NyAxMTUgClEgMjAyOSAxMTUgMjIzMCA0MzIgClEgMjQzMiA3NDkgMjQzMiAxMzA2IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci01MSIgZD0iTSAzMTA0IDAgCkwgMTc3MyAwIApMIDE3NzkgOTYgClEgMjAxNiAxMTUgMjA5NiAyMzMgClEgMjE3NiAzNTIgMjE3NiA2NzIgCkwgMjE3NiAxOTQ2IApRIDIxNzYgMjU5MiAxNzA5IDI1OTIgClEgMTU0OSAyNTkyIDE0MDggMjUxNSAKUSAxMjY3IDI0MzggMTA1MCAyMjI3IApMIDEwNTAgNDYxIApRIDEwNTAgMjY5IDExMzYgMTkyIApRIDEyMjIgMTE1IDE0NjYgOTYgCkwgMTQ2NiAwIApMIDExNSAwIApMIDExNSA5NiAKUSAzNTggMTE1IDQzNSAyMTQgClEgNTEyIDMxNCA1MTIgNjAyIApMIDUxMiAyMTU3IApRIDUxMiAyMzk0IDQ2NyAyNDgzIApRIDQyMiAyNTczIDI4OCAyNTczIApRIDE2MCAyNTczIDEwMiAyNTQ3IApMIDEwMiAyNjU2IApRIDU1MCAyNzg0IDk3OSAyOTQ0IApMIDEwMzAgMjkyNSAKTCAxMDMwIDI0MjYgCkwgMTAzNyAyNDI2IApRIDE0OTEgMjk0NCAxOTU4IDI5NDQgClEgMjMyMyAyOTQ0IDI1MTggMjY4OCAKUSAyNzE0IDI0MzIgMjcxNCAxOTU4IApMIDI3MTQgNTQ0IApRIDI3MTQgMjg4IDI3OTAgMjA1IApRIDI4NjcgMTIyIDMxMDQgOTYgCkwgMzEwNCAwIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0xMyIgZD0iTSAzMDQ2IDIxMTIgClEgMzA0NiAxNjgzIDI5NjMgMTMwMiAKUSAyODgwIDkyMiAyNzE3IDYwMiAKUSAyNTU0IDI4MiAyMjY2IDk2IApRIDE5NzggLTkwIDE2MDAgLTkwIApRIDEyMTAgLTkwIDkxNSAxMDggClEgNjIxIDMwNyA0NjEgNjQwIApRIDMwMSA5NzMgMjI3IDEzNTAgClEgMTU0IDE3MjggMTU0IDIxNTAgClEgMTU0IDI3NDYgMzAxIDMyMjIgClEgNDQ4IDM2OTkgNzkwIDQwMTIgClEgMTEzMyA0MzI2IDE2MjYgNDMyNiAKUSAyMjUzIDQzMjYgMjY0OSAzNzEyIApRIDMwNDYgMzA5OCAzMDQ2IDIxMTIgCnoKTSAyNDMyIDIwODAgClEgMjQzMiAzMDkxIDIyMTcgMzYyNSAKUSAyMDAzIDQxNjAgMTU4NyA0MTYwIApRIDExOTAgNDE2MCA5NzkgMzYyMiAKUSA3NjggMzA4NSA3NjggMjEwNiAKUSA3NjggMTEyMCA5NzkgNTk4IApRIDExOTAgNzcgMTYwMCA3NyAKUSAyMDAzIDc3IDIyMTcgNTk4IApRIDI0MzIgMTEyMCAyNDMyIDIwODAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTExIiBkPSJNIDExNTggMjc1IApRIDExNTggMTM0IDEwNTIgMzIgClEgOTQ3IC03MCA4MDAgLTcwIApRIDY1MyAtNzAgNTUwIDMyIApRIDQ0OCAxMzQgNDQ4IDI4MSAKUSA0NDggNDI5IDU1MyA1MzQgClEgNjU5IDY0MCA4MDYgNjQwIApRIDk0NyA2NDAgMTA1MiA1MzEgClEgMTE1OCA0MjIgMTE1OCAyNzUgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTE5IiBkPSJNIDI4NTQgNDM3OCAKTCAyODY3IDQyNzUgClEgMjExMiA0MTU0IDE2MDYgMzY2NCAKUSAxMTAxIDMxNzQgOTczIDI0NTEgClEgMTM0NCAyNzM5IDE3ODYgMjczOSAKUSAyMzQ5IDI3MzkgMjY3MiAyMzgwIApRIDI5OTUgMjAyMiAyOTk1IDE0MDIgClEgMjk5NSA3NzQgMjY2OSAzNzggClEgMjI5MSAtOTAgMTY1MSAtOTAgClEgODcwIC05MCA1MTggNTU3IApRIDIxOCAxMTA3IDIxOCAxNzg2IApRIDIxOCAyODM1IDkxNSAzNTUyIApRIDEzMTIgMzk2MiAxNzMxIDQxMzEgClEgMjE1MCA0MzAxIDI4NTQgNDM3OCAKegpNIDI0MTkgMTIwMyAKUSAyNDE5IDI0NDUgMTU1NSAyNDQ1IApRIDEyMzUgMjQ0NSAxMDI0IDIyNzUgClEgODEzIDIxMDYgODEzIDE3MDIgClEgODEzIDk1NCAxMDQ2IDUyMiAKUSAxMjgwIDkwIDE3MjIgOTAgClEgMjA2MSA5MCAyMjQwIDM5NCAKUSAyNDE5IDY5OCAyNDE5IDEyMDMgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTE1IiBkPSJNIDMwMzQgODc3IApMIDI2ODggMCAKTCAxODYgMCAKTCAxODYgNzcgCkwgMTMyNSAxMjg2IApRIDE3NzMgMTc1NCAxOTY1IDIxNDQgClEgMjE1NyAyNTM0IDIxNTcgMjk1MCAKUSAyMTU3IDMzNzkgMTkyMCAzNjE2IApRIDE2ODMgMzg1MyAxMjY3IDM4NTMgClEgOTIyIDM4NTMgNzIwIDM2NzMgClEgNTE4IDM0OTQgMzI2IDMwMjEgCkwgMTkyIDMwNTMgClEgMzAxIDM2NDggNjMwIDM5ODcgClEgOTYwIDQzMjYgMTUyMyA0MzI2IApRIDIwNTQgNDMyNiAyMzgwIDQwMDYgClEgMjcwNyAzNjg2IDI3MDcgMzIwMCAKUSAyNzA3IDI0NzcgMTg4OCAxNjEzIApMIDgzMiA0ODYgCkwgMjMzMCA0ODYgClEgMjU0MSA0ODYgMjY2NSA1NjkgClEgMjc5MCA2NTMgMjk0NCA5MTUgCkwgMzAzNCA4NzcgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTFhIiBkPSJNIDI4NzQgNDEzNCAKTCAxNTE3IC01MSAKTCAxMTAxIC01MSAKTCAyMzY4IDM3NjMgCkwgOTkyIDM3NjMgClEgNzE3IDM3NjMgNTgyIDM2NjcgClEgNDQ4IDM1NzEgMjQzIDMyMzggCkwgMTI4IDMyOTYgCkwgNTEyIDQyMzcgCkwgMjg3NCA0MjM3IApMIDI4NzQgNDEzNCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItOTkiIGQ9Ik0gMzgyMSAxNDEgCkwgMzUyNiAtMTYwIApMIDIwNDggMTMxMiAKTCA1NzAgLTE2MCAKTCAyNzUgMTM0IApMIDE3NDcgMTYxMyAKTCAyNzUgMzA5MSAKTCA1NzYgMzM4NiAKTCAyMDQ4IDE5MTQgCkwgMzUyNiAzMzg2IApMIDM4MjEgMzA5OCAKTCAyMzQ5IDE2MTMgCkwgMzgyMSAxNDEgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTFjIiBkPSJNIDM3OCAtMTQxIApMIDM1OCAtMTMgClEgMTA5NCAxMTUgMTYwMyA2MDggClEgMjExMiAxMTAxIDIzMDQgMTg4MiAKUSAxOTMzIDE1MTcgMTM0NCAxNTE3IApRIDgyNiAxNTE3IDUwOSAxODc1IApRIDE5MiAyMjM0IDE5MiAyODE2IApRIDE5MiAzNDYyIDU3MyAzODk0IApRIDk1NCA0MzI2IDE1MjMgNDMyNiAKUSAyMTMxIDQzMjYgMjUyOCAzODQwIApRIDI5MzggMzMyOCAyOTM4IDI1MjIgClEgMjkzOCAxOTU4IDI3NDIgMTQ2MiAKUSAyNTQ3IDk2NiAyMTcwIDYyMSAKUSAxNzczIDI2MiAxMzk1IDEwNSAKUSAxMDE4IC01MSAzNzggLTE0MSAKegpNIDIzMTcgMjI3MiAKTCAyMzE3IDI1MjIgClEgMjMxNyA0MTQ3IDE0NzIgNDE0NyAKUSAxMTcxIDQxNDcgMTAwNSAzOTMwIApRIDkwOSAzODAyIDg0NSAzNTQ2IApRIDc4MSAzMjkwIDc4MSAzMDM0IApRIDc4MSAyNDY0IDk5NSAyMTI4IApRIDEyMTAgMTc5MiAxNTY4IDE3OTIgClEgMTgyNCAxNzkyIDIwNzAgMTkxNyAKUSAyMzE3IDIwNDIgMjMxNyAyMjcyIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0xYiIgZD0iTSAyODQ4IDk5MiAKUSAyODQ4IDQ5OSAyNTA1IDIwNCAKUSAyMTYzIC05MCAxNTg3IC05MCAKUSAxMDUwIC05MCA3MDQgMjA0IApRIDM1OCA0OTkgMzU4IDk1NCAKUSAzNTggMTI5MyA1MjQgMTUzMyAKUSA2OTEgMTc3MyAxMTkwIDIxMjUgClEgNzEwIDI1MjIgNTUzIDI3NjUgClEgMzk3IDMwMDggMzk3IDMzMjggClEgMzk3IDM3ODIgNzQ1IDQwNTQgClEgMTA5NCA0MzI2IDE2MzggNDMyNiAKUSAyMTA2IDQzMjYgMjQxMCA0MDYwIApRIDI3MTQgMzc5NSAyNzE0IDM0MTEgClEgMjcxNCAzMDU5IDI1MzEgMjg0OCAKUSAyMzQ5IDI2MzcgMTg1NiAyMzc0IApRIDI0MzIgMTk5MCAyNjQwIDE2ODkgClEgMjg0OCAxMzg5IDI4NDggOTkyIAp6Ck0gMjI3MiAzNDExIApRIDIyNzIgMzc0NCAyMDg2IDM5NDUgClEgMTkwMSA0MTQ3IDE1NzQgNDE0NyAKUSAxMjQ4IDQxNDcgMTA1OSAzOTc3IApRIDg3MCAzODA4IDg3MCAzNTEzIApRIDg3MCAzMjE5IDEwNTkgMjk3OSAKUSAxMjQ4IDI3MzkgMTY3MCAyNDkwIApRIDE5OTcgMjY4MiAyMTM0IDI4OTYgClEgMjI3MiAzMTEwIDIyNzIgMzQxMSAKegpNIDE3MzQgMTc0MSAKTCAxMzU3IDE5OTcgClEgMTA3NSAxNzY2IDk2MCAxNTQ1IApRIDg0NSAxMzI1IDg0NSAxMDExIApRIDg0NSA1NzYgMTA2NSAzMzMgClEgMTI4NiA5MCAxNjU4IDkwIApRIDE5NzEgOTAgMjE2NiAyODUgClEgMjM2MiA0ODAgMjM2MiA3OTQgClEgMjM2MiAxMDgyIDIyMTQgMTI5OSAKUSAyMDY3IDE1MTcgMTczNCAxNzQxIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci01MDIiIGQ9Ik0gNTIzNSAxNjE5IApRIDUyMzUgMTQ1MyA1MTIzIDEzMzEgClEgNTAxMSAxMjEwIDQ4MzIgMTIxMCAKUSA0NjQ2IDEyMTAgNDUzNCAxMzIyIApRIDQ0MjIgMTQzNCA0NDIyIDE2MTkgClEgNDQyMiAxNzkyIDQ1NDcgMTkwNyAKUSA0NjcyIDIwMjIgNDgzMiAyMDIyIApRIDQ5OTIgMjAyMiA1MTEzIDE5MDcgClEgNTIzNSAxNzkyIDUyMzUgMTYxOSAKegpNIDMzNjYgMTYxOSAKUSAzMzY2IDE0NTMgMzI1NCAxMzMxIApRIDMxNDIgMTIxMCAyOTYzIDEyMTAgClEgMjc3OCAxMjEwIDI2NjYgMTMyMiAKUSAyNTU0IDE0MzQgMjU1NCAxNjE5IApRIDI1NTQgMTc5MiAyNjc4IDE5MDcgClEgMjgwMyAyMDIyIDI5NjMgMjAyMiAKUSAzMTIzIDIwMjIgMzI0NCAxOTA3IApRIDMzNjYgMTc5MiAzMzY2IDE2MTkgCnoKTSAxNTA0IDE2MTkgClEgMTUwNCAxNDUzIDEzOTIgMTMzMSAKUSAxMjgwIDEyMTAgMTEwMSAxMjEwIApRIDkxNSAxMjEwIDgwMyAxMzIyIApRIDY5MSAxNDM0IDY5MSAxNjE5IApRIDY5MSAxNzkyIDgxNiAxOTA3IApRIDk0MSAyMDIyIDExMDEgMjAyMiAKUSAxMjYxIDIwMjIgMTM4MiAxOTA3IApRIDE1MDQgMTc5MiAxNTA0IDE2MTkgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTE4IiBkPSJNIDI4MDMgNDM1OCAKTCAyNTczIDM4MTQgClEgMjUzNCAzNzMxIDI0MDAgMzczMSAKTCAxMTU4IDM3MzEgCkwgOTAyIDMxODcgClEgMTYwNiAzMDUzIDE5MjAgMjg5NiAKUSAyMjM0IDI3MzkgMjUwMiAyMzY4IApRIDI3MjYgMjA2MSAyNzI2IDE1NTUgClEgMjcyNiAxMDk0IDI1NzYgNzgwIApRIDI0MjYgNDY3IDIwOTkgMjI0IApRIDE2NjQgLTkwIDEwMTEgLTkwIApRIDY0NiAtOTAgNDIyIDE5IApRIDE5OCAxMjggMTk4IDMwNyAKUSAxOTggNTUwIDQ4NiA1NTAgClEgNzE3IDU1MCA5NjAgMzUyIApRIDEyMTAgMTQ3IDE0MTQgMTQ3IApRIDE3NDcgMTQ3IDIwMTIgNDgwIApRIDIyNzggODEzIDIyNzggMTIyOSAKUSAyMjc4IDE4NDMgMTg1MCAyMTg5IApRIDEyOTMgMjYzNyA0ODYgMjYzNyAKUSA0MTAgMjYzNyA0MTAgMjY4OCAKTCA0MTYgMjcyMCAKTCAxMTE0IDQyMzcgCkwgMjQzOCA0MjM3IApRIDI1NDcgNDIzNyAyNjA4IDQyNjkgClEgMjY2OSA0MzAxIDI3NDYgNDQwMyAKTCAyODAzIDQzNTggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTQ1YiIgZD0iTSAzODY2IDMwNDAgCkwgNDA3NyAzMDQwIApRIDQwNDUgMjU2NiAzNzY5IDIxNTAgClEgMzQ5NCAxNzM0IDMwNjYgMTczNCAKUSAyODAzIDE3MzQgMjQ2MCAxOTM5IApRIDIxMTggMjE0NCAxODA0IDIzNDkgClEgMTQ5MSAyNTU0IDEzMDYgMjU1NCAKUSA5OTIgMjU1NCA4MDAgMjMwNCAKUSA2MDggMjA1NCA1MTggMTY3MCAKTCAzMDcgMTY3MCAKUSAzMzMgMjE4OSA2MTcgMjU4MiAKUSA5MDIgMjk3NiAxMzUwIDI5NzYgClEgMTYxMyAyOTc2IDE5NTUgMjc3MSAKUSAyMjk4IDI1NjYgMjYxMSAyMzYxIApRIDI5MjUgMjE1NyAzMTE3IDIxNTcgClEgMzY4MCAyMTU3IDM4NjYgMzA0MCAKegpNIDM4NjYgMTUzMCAKTCA0MDc3IDE1MzAgClEgNDA0NSAxMDU2IDM3NjkgNjQwIApRIDM0OTQgMjI0IDMwNjYgMjI0IApRIDI4MDMgMjI0IDI0NjAgNDI5IApRIDIxMTggNjM0IDE4MDQgODM4IApRIDE0OTEgMTA0MyAxMzA2IDEwNDMgClEgOTkyIDEwNDMgODAwIDc5MyAKUSA2MDggNTQ0IDUxOCAxNjAgCkwgMzA3IDE2MCAKUSAzMzMgNjc4IDYxNyAxMDcyIApRIDkwMiAxNDY2IDEzNTAgMTQ2NiAKUSAxNjEzIDE0NjYgMTk1NSAxMjYxIApRIDIyOTggMTA1NiAyNjExIDg1MSAKUSAyOTI1IDY0NiAzMTE3IDY0NiAKUSAzNjgwIDY0NiAzODY2IDE1MzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTE0IiBkPSJNIDI1MjIgMCAKTCA3NTUgMCAKTCA3NTUgOTYgClEgMTEwNyAxMTUgMTIzNSAyMjcgClEgMTM2MyAzMzkgMTM2MyA2MDggCkwgMTM2MyAzNDgyIApRIDEzNjMgMzc5NSAxMTcxIDM3OTUgClEgMTA4MiAzNzk1IDg4MyAzNzE4IApMIDcxMCAzNjU0IApMIDcxMCAzNzQ0IApMIDE4NTYgNDMyNiAKTCAxOTE0IDQzMDcgCkwgMTkxNCA0ODYgClEgMTkxNCAyNzUgMjA0MiAxODUgClEgMjE3MCA5NiAyNTIyIDk2IApMIDI1MjIgMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItMTciIGQ9Ik0gMzAyNyAxMDY5IApMIDIzNjggMTA2OSAKTCAyMzY4IDAgCkwgMTg2OSAwIApMIDE4NjkgMTA2OSAKTCA3NyAxMDY5IApMIDc3IDE0NzggCkwgMjA4NiA0MzI2IApMIDIzNjggNDMyNiAKTCAyMzY4IDE0NzggCkwgMzAyNyAxNDc4IApMIDMwMjcgMTA2OSAKegpNIDE4NjkgMTQ3OCAKTCAxODY5IDM2NzQgCkwgMzMzIDE0NzggCkwgMTg2OSAxNDc4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgIDwvZGVmcz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMzUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTRjIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2Ni42OTk5MzYgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQ2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NC40OTk5MDggMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTRiIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzguODk5ODcyIDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci00NCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTg4Ljg5OTgyNiAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzMy4yOTk3ODkgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQ3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNjYuNTk5NzYyIDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci01NiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzE2LjU5OTcxNiAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1NS40OTk2OCAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNTEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQwNS40OTk2MzQgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTEzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1NTUuNDk5NTg4IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjA1LjQ5OTU0MiAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYzMC40OTk1MTIgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTE1IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2ODAuNDk5NDY2IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xYSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzMwLjQ5OTQyIDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci05OSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAwLjQ5OTM3NCAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg4NC40OTkzMTMgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTExIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5MzQuNDk5MjY4IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTU5LjQ5OTIzNyAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMWMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMDkuNDk5MTkxIDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA1OS40OTkxNDYgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTk5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTI5LjQ5OTEgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTUwMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIxMy40OTkwMzkgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTk5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzI2LjA5ODk1MyAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0MTAuMDk4ODkyIDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQ2MC4wOTg4NDYgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTE4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDg1LjA5ODgxNiAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMWEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1MzUuMDk4NzcgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTE5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNTg1LjA5ODcyNCAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNDViIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjgyLjg3NjY3OSAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE3OTkuMTU0NjE4IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTg0OS4xNTQ1NzIgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTEzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxODc0LjE1NDU0MSAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE5MjQuMTU0NDk1IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTk3NC4xNTQ0NSAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwMjQuMTU0NDA0IDAuMjAzMTI1KSIvPgogICA8L2c+CiAgPC9nPgogPC9nPgo8L3N2Zz4K",
+                "aspect": 27.666666666666668,
+                "expression": "\\mathrm{Richardson}\\quad 0.627 \\times 0.698 \\times \\cdots \\times 0.576 \\;\\approx\\; 0.0014",
+                "at": 4.96,
+                "h": 36.0
+              },
+              {
+                "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjExNDdwdCIgaGVpZ2h0PSIzNnB0IiB2aWV3Qm94PSIwIDAgMTE0NyAzNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPgogPG1ldGFkYXRhPgogIDxyZGY6UkRGIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgPGNjOldvcms+CiAgICA8ZGM6dHlwZSByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIi8+CiAgICA8ZGM6ZGF0ZT4yMDI2LTA5LTI3VDE1OjU0OjM3Ljk4MDc5ODwvZGM6ZGF0ZT4KICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgPGRjOmNyZWF0b3I+CiAgICAgPGNjOkFnZW50PgogICAgICA8ZGM6dGl0bGU+TWF0cGxvdGxpYiB2My4xMS4yLCBodHRwczovL21hdHBsb3RsaWIub3JnLzwvZGM6dGl0bGU+CiAgICAgPC9jYzpBZ2VudD4KICAgIDwvZGM6Y3JlYXRvcj4KICAgPC9jYzpXb3JrPgogIDwvcmRmOlJERj4KIDwvbWV0YWRhdGE+CiA8ZGVmcz4KICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPip7c3Ryb2tlLWxpbmVqb2luOiByb3VuZDsgc3Ryb2tlLWxpbmVjYXA6IGJ1dHR9PC9zdHlsZT4KIDwvZGVmcz4KIDxnIGlkPSJmaWd1cmVfMSI+CiAgPGcgaWQ9InBhdGNoXzEiPgogICA8cGF0aCBkPSJNIDAgMzYgCkwgMTE0NyAzNiAKTCAxMTQ3IDAgCkwgMCAwIApMIDAgMzYgCnoKIiBzdHlsZT0iZmlsbDogbm9uZSIvPgogIDwvZz4KICA8ZyBpZD0idGV4dF8xIj4KICAgPCEtLSAkXG1hdGhybXtFbGlvdH1ccXVhZCAwLjYyNyBcdGltZXMgXGNkb3RzIFx0aW1lcyAwLjAzMSBcdGltZXMgMC40MzAgXHRpbWVzIFxjZG90cyBcdGltZXMgMC41NjMgXDtcYXBwcm94XDsgMC4wMDAxMyQgLS0+CiAgIDxnIHN0eWxlPSJmaWxsOiAjM2QzOTI5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDM0KSBzY2FsZSgwLjQ4IC0wLjQ4KSI+CiAgICA8ZGVmcz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0yOCIgZD0iTSAzODIxIDEwODIgCkwgMzUyNiAwIApMIDc3IDAgCkwgNzcgMTIyIApRIDQ0MiAxNDcgNTM4IDI1MiAKUSA2MzQgMzU4IDYzNCA3MzAgCkwgNjM0IDM1MjAgClEgNjM0IDM4NzggNTM0IDM5ODcgClEgNDM1IDQwOTYgNzcgNDExNSAKTCA3NyA0MjM3IApMIDM0NjkgNDIzNyAKTCAzNDk0IDMzMjIgCkwgMzMzNCAzMzIyIApRIDMyNjQgMzc1MCAzMDg1IDM4NzIgClEgMjkwNiAzOTk0IDIzNDkgMzk5NCAKTCAxNTEwIDM5OTQgClEgMTM3MCAzOTk0IDEzMjggMzk1MiAKUSAxMjg2IDM5MTAgMTI4NiAzNzYzIApMIDEyODYgMjM1NSAKTCAyMjUzIDIzNTUgClEgMjY1NiAyMzU1IDI3ODcgMjQ3MCAKUSAyOTE4IDI1ODYgMjk3NiAyOTcwIApMIDMxMjMgMjk3MCAKTCAzMTIzIDE0NzIgCkwgMjk3NiAxNDcyIApRIDI5MTggMTg3NSAyNzkwIDE5ODQgClEgMjY2MiAyMDkzIDIyNTMgMjA5MyAKTCAxMjg2IDIwOTMgCkwgMTI4NiA1MzggClEgMTI4NiAzNDYgMTQyMCAyOTEgClEgMTU1NSAyMzcgMTkzMyAyMzcgCkwgMjE2MyAyMzcgClEgMjg0OCAyMzcgMzEzNiA0MDMgClEgMzQyNCA1NzAgMzY0MiAxMDgyIApMIDM4MjEgMTA4MiAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNGYiIGQ9Ik0gMTY0NSAwIApMIDEzNCAwIApMIDEzNCA5NiAKUSA0MzUgMTIyIDUzMSAyMjEgClEgNjI3IDMyMCA2MjcgNTg5IApMIDYyNyAzNTkwIApRIDYyNyAzODIxIDU2OSAzOTEwIApRIDUxMiA0MDAwIDM1OCA0MDAwIApRIDIyNCA0MDAwIDEyMiAzOTg3IApMIDEyMiA0MDkwIApRIDczMCA0MjM3IDExMzMgNDM3MSAKTCAxMTY1IDQzNDYgCkwgMTE2NSA1NTcgClEgMTE2NSAyODggMTI1NCAyMDEgClEgMTM0NCAxMTUgMTY0NSA5NiAKTCAxNjQ1IDAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTRjIiBkPSJNIDExNTIgNDA0NSAKUSAxMTUyIDM5MDQgMTA1NiAzODExIApRIDk2MCAzNzE4IDgxOSAzNzE4IApRIDY4NSAzNzE4IDU5MiAzODExIApRIDQ5OSAzOTA0IDQ5OSA0MDQ1IApRIDQ5OSA0MTc5IDU5NSA0Mjc1IApRIDY5MSA0MzcxIDgyNiA0MzcxIApRIDk2NiA0MzcxIDEwNTkgNDI3NSAKUSAxMTUyIDQxNzkgMTE1MiA0MDQ1IAp6Ck0gMTYxOSAwIApMIDEwMiAwIApMIDEwMiA5NiAKUSA0MzUgMTE1IDUyMSAyMTEgClEgNjA4IDMwNyA2MDggNjY2IApMIDYwOCAyMTE4IApRIDYwOCAyMzQyIDU2MyAyNDMyIApRIDUxOCAyNTIyIDM5NyAyNTIyIApRIDI0MyAyNTIyIDEyOCAyNDkwIApMIDEyOCAyNTkyIApMIDExMjAgMjk0NCAKTCAxMTQ2IDI5MTggCkwgMTE0NiA2NzIgClEgMTE0NiAzMTQgMTIyNiAyMTggClEgMTMwNiAxMjIgMTYxOSA5NiAKTCAxNjE5IDAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTUyIiBkPSJNIDMwMDggMTQ3OCAKUSAzMDA4IDgwNiAyNjA4IDM3MSAKUSAyMjA4IC02NCAxNTY4IC02NCAKUSA5NzkgLTY0IDU4MiAzNjggClEgMTg2IDgwMCAxODYgMTQ1OSAKUSAxODYgMjEyNSA1ODIgMjUzNCAKUSA5NzkgMjk0NCAxNjI2IDI5NDQgClEgMjIyMSAyOTQ0IDI2MTQgMjUzNyAKUSAzMDA4IDIxMzEgMzAwOCAxNDc4IAp6Ck0gMjQzMiAxMzA2IApRIDI0MzIgMjAzNSAyMTEyIDI0NDUgClEgMTg1NiAyNzY1IDE1MDQgMjc2NSAKUSAxMTcxIDI3NjUgOTY2IDI0OTMgClEgNzYyIDIyMjEgNzYyIDE3NDcgClEgNzYyIDkyOCAxMTAxIDQzNSAKUSAxMzE4IDExNSAxNjc3IDExNSAKUSAyMDI5IDExNSAyMjMwIDQzMiAKUSAyNDMyIDc0OSAyNDMyIDEzMDYgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTU3IiBkPSJNIDE3MDIgNDkzIApMIDE3ODYgNDIyIApRIDE0NzggLTY0IDEwMTEgLTY0IApRIDQ0OCAtNjQgNDQ4IDc0OSAKTCA0NDggMjY3NSAKTCAxMDkgMjY3NSAKUSA4MyAyNjk0IDgzIDI3MjAgClEgODMgMjc3MSAxOTIgMjg0MiAKUSA0MzUgMjk4MiA4MTMgMzUyNiAKUSA4MjYgMzU0NiA4NzQgMzYwNiAKUSA5MjIgMzY2NyA5NDEgMzcwNiAKUSA5ODYgMzcwNiA5ODYgMzYyMiAKTCA5ODYgMjg4MCAKTCAxNjMyIDI4ODAgCkwgMTYzMiAyNjc1IApMIDk4NiAyNjc1IApMIDk4NiA4NDUgClEgOTg2IDUzOCAxMDYyIDQwMyAKUSAxMTM5IDI2OSAxMzE4IDI2OSAKUSAxNTEwIDI2OSAxNzAyIDQ5MyAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItMTMiIGQ9Ik0gMzA0NiAyMTEyIApRIDMwNDYgMTY4MyAyOTYzIDEzMDIgClEgMjg4MCA5MjIgMjcxNyA2MDIgClEgMjU1NCAyODIgMjI2NiA5NiAKUSAxOTc4IC05MCAxNjAwIC05MCAKUSAxMjEwIC05MCA5MTUgMTA4IApRIDYyMSAzMDcgNDYxIDY0MCAKUSAzMDEgOTczIDIyNyAxMzUwIApRIDE1NCAxNzI4IDE1NCAyMTUwIApRIDE1NCAyNzQ2IDMwMSAzMjIyIApRIDQ0OCAzNjk5IDc5MCA0MDEyIApRIDExMzMgNDMyNiAxNjI2IDQzMjYgClEgMjI1MyA0MzI2IDI2NDkgMzcxMiAKUSAzMDQ2IDMwOTggMzA0NiAyMTEyIAp6Ck0gMjQzMiAyMDgwIApRIDI0MzIgMzA5MSAyMjE3IDM2MjUgClEgMjAwMyA0MTYwIDE1ODcgNDE2MCAKUSAxMTkwIDQxNjAgOTc5IDM2MjIgClEgNzY4IDMwODUgNzY4IDIxMDYgClEgNzY4IDExMjAgOTc5IDU5OCAKUSAxMTkwIDc3IDE2MDAgNzcgClEgMjAwMyA3NyAyMjE3IDU5OCAKUSAyNDMyIDExMjAgMjQzMiAyMDgwIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0xMSIgZD0iTSAxMTU4IDI3NSAKUSAxMTU4IDEzNCAxMDUyIDMyIApRIDk0NyAtNzAgODAwIC03MCAKUSA2NTMgLTcwIDU1MCAzMiAKUSA0NDggMTM0IDQ0OCAyODEgClEgNDQ4IDQyOSA1NTMgNTM0IApRIDY1OSA2NDAgODA2IDY0MCAKUSA5NDcgNjQwIDEwNTIgNTMxIApRIDExNTggNDIyIDExNTggMjc1IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0xOSIgZD0iTSAyODU0IDQzNzggCkwgMjg2NyA0Mjc1IApRIDIxMTIgNDE1NCAxNjA2IDM2NjQgClEgMTEwMSAzMTc0IDk3MyAyNDUxIApRIDEzNDQgMjczOSAxNzg2IDI3MzkgClEgMjM0OSAyNzM5IDI2NzIgMjM4MCAKUSAyOTk1IDIwMjIgMjk5NSAxNDAyIApRIDI5OTUgNzc0IDI2NjkgMzc4IApRIDIyOTEgLTkwIDE2NTEgLTkwIApRIDg3MCAtOTAgNTE4IDU1NyAKUSAyMTggMTEwNyAyMTggMTc4NiAKUSAyMTggMjgzNSA5MTUgMzU1MiAKUSAxMzEyIDM5NjIgMTczMSA0MTMxIApRIDIxNTAgNDMwMSAyODU0IDQzNzggCnoKTSAyNDE5IDEyMDMgClEgMjQxOSAyNDQ1IDE1NTUgMjQ0NSAKUSAxMjM1IDI0NDUgMTAyNCAyMjc1IApRIDgxMyAyMTA2IDgxMyAxNzAyIApRIDgxMyA5NTQgMTA0NiA1MjIgClEgMTI4MCA5MCAxNzIyIDkwIApRIDIwNjEgOTAgMjI0MCAzOTQgClEgMjQxOSA2OTggMjQxOSAxMjAzIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0xNSIgZD0iTSAzMDM0IDg3NyAKTCAyNjg4IDAgCkwgMTg2IDAgCkwgMTg2IDc3IApMIDEzMjUgMTI4NiAKUSAxNzczIDE3NTQgMTk2NSAyMTQ0IApRIDIxNTcgMjUzNCAyMTU3IDI5NTAgClEgMjE1NyAzMzc5IDE5MjAgMzYxNiAKUSAxNjgzIDM4NTMgMTI2NyAzODUzIApRIDkyMiAzODUzIDcyMCAzNjczIApRIDUxOCAzNDk0IDMyNiAzMDIxIApMIDE5MiAzMDUzIApRIDMwMSAzNjQ4IDYzMCAzOTg3IApRIDk2MCA0MzI2IDE1MjMgNDMyNiAKUSAyMDU0IDQzMjYgMjM4MCA0MDA2IApRIDI3MDcgMzY4NiAyNzA3IDMyMDAgClEgMjcwNyAyNDc3IDE4ODggMTYxMyAKTCA4MzIgNDg2IApMIDIzMzAgNDg2IApRIDI1NDEgNDg2IDI2NjUgNTY5IApRIDI3OTAgNjUzIDI5NDQgOTE1IApMIDMwMzQgODc3IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0xYSIgZD0iTSAyODc0IDQxMzQgCkwgMTUxNyAtNTEgCkwgMTEwMSAtNTEgCkwgMjM2OCAzNzYzIApMIDk5MiAzNzYzIApRIDcxNyAzNzYzIDU4MiAzNjY3IApRIDQ0OCAzNTcxIDI0MyAzMjM4IApMIDEyOCAzMjk2IApMIDUxMiA0MjM3IApMIDI4NzQgNDIzNyAKTCAyODc0IDQxMzQgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTk5IiBkPSJNIDM4MjEgMTQxIApMIDM1MjYgLTE2MCAKTCAyMDQ4IDEzMTIgCkwgNTcwIC0xNjAgCkwgMjc1IDEzNCAKTCAxNzQ3IDE2MTMgCkwgMjc1IDMwOTEgCkwgNTc2IDMzODYgCkwgMjA0OCAxOTE0IApMIDM1MjYgMzM4NiAKTCAzODIxIDMwOTggCkwgMjM0OSAxNjEzIApMIDM4MjEgMTQxIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci01MDIiIGQ9Ik0gNTIzNSAxNjE5IApRIDUyMzUgMTQ1MyA1MTIzIDEzMzEgClEgNTAxMSAxMjEwIDQ4MzIgMTIxMCAKUSA0NjQ2IDEyMTAgNDUzNCAxMzIyIApRIDQ0MjIgMTQzNCA0NDIyIDE2MTkgClEgNDQyMiAxNzkyIDQ1NDcgMTkwNyAKUSA0NjcyIDIwMjIgNDgzMiAyMDIyIApRIDQ5OTIgMjAyMiA1MTEzIDE5MDcgClEgNTIzNSAxNzkyIDUyMzUgMTYxOSAKegpNIDMzNjYgMTYxOSAKUSAzMzY2IDE0NTMgMzI1NCAxMzMxIApRIDMxNDIgMTIxMCAyOTYzIDEyMTAgClEgMjc3OCAxMjEwIDI2NjYgMTMyMiAKUSAyNTU0IDE0MzQgMjU1NCAxNjE5IApRIDI1NTQgMTc5MiAyNjc4IDE5MDcgClEgMjgwMyAyMDIyIDI5NjMgMjAyMiAKUSAzMTIzIDIwMjIgMzI0NCAxOTA3IApRIDMzNjYgMTc5MiAzMzY2IDE2MTkgCnoKTSAxNTA0IDE2MTkgClEgMTUwNCAxNDUzIDEzOTIgMTMzMSAKUSAxMjgwIDEyMTAgMTEwMSAxMjEwIApRIDkxNSAxMjEwIDgwMyAxMzIyIApRIDY5MSAxNDM0IDY5MSAxNjE5IApRIDY5MSAxNzkyIDgxNiAxOTA3IApRIDk0MSAyMDIyIDExMDEgMjAyMiAKUSAxMjYxIDIwMjIgMTM4MiAxOTA3IApRIDE1MDQgMTc5MiAxNTA0IDE2MTkgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTE2IiBkPSJNIDM5MCAzMjY0IApMIDI4OCAzMjkwIApRIDQzNSAzNzcwIDc0OCA0MDQ4IApRIDEwNjIgNDMyNiAxNTQyIDQzMjYgClEgMTk5MCA0MzI2IDIyNjUgNDA4MyAKUSAyNTQxIDM4NDAgMjU0MSAzNDUwIApRIDI1NDEgMjkyNSAxOTQ2IDI1NjYgClEgMjI5OCAyNDEzIDI0NzcgMjIyNyAKUSAyNzU4IDE5MTQgMjc1OCAxNDAyIApRIDI3NTggODkwIDI0NjQgNTA2IApRIDIyNDYgMjExIDE4NDAgNjAgClEgMTQzNCAtOTAgOTc5IC05MCAKUSAyNjIgLTkwIDI2MiAyNzUgClEgMjYyIDM3OCAzMzkgNDQyIApRIDQxNiA1MDYgNTI1IDUwNiAKUSA2ODUgNTA2IDkxNSAzMzkgClEgMTE5NyAxNDEgMTQ2NiAxNDEgClEgMTgxOCAxNDEgMjA1OCA0MjUgClEgMjI5OCA3MTAgMjI5OCAxMTIwIApRIDIyOTggMTg1NiAxNjMyIDIwNDggClEgMTQzNCAyMTEyIDk3OSAyMTEyIApMIDk3OSAyMjAyIApRIDEzMzggMjMyMyAxNTE3IDI0MzIgClEgMjAzNSAyNzI2IDIwMzUgMzI5MCAKUSAyMDM1IDM2MTAgMTg1MiAzNzc2IApRIDE2NzAgMzk0MiAxMzQ0IDM5NDIgClEgNzY4IDM5NDIgMzkwIDMyNjQgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTE0IiBkPSJNIDI1MjIgMCAKTCA3NTUgMCAKTCA3NTUgOTYgClEgMTEwNyAxMTUgMTIzNSAyMjcgClEgMTM2MyAzMzkgMTM2MyA2MDggCkwgMTM2MyAzNDgyIApRIDEzNjMgMzc5NSAxMTcxIDM3OTUgClEgMTA4MiAzNzk1IDg4MyAzNzE4IApMIDcxMCAzNjU0IApMIDcxMCAzNzQ0IApMIDE4NTYgNDMyNiAKTCAxOTE0IDQzMDcgCkwgMTkxNCA0ODYgClEgMTkxNCAyNzUgMjA0MiAxODUgClEgMjE3MCA5NiAyNTIyIDk2IApMIDI1MjIgMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItMTciIGQ9Ik0gMzAyNyAxMDY5IApMIDIzNjggMTA2OSAKTCAyMzY4IDAgCkwgMTg2OSAwIApMIDE4NjkgMTA2OSAKTCA3NyAxMDY5IApMIDc3IDE0NzggCkwgMjA4NiA0MzI2IApMIDIzNjggNDMyNiAKTCAyMzY4IDE0NzggCkwgMzAyNyAxNDc4IApMIDMwMjcgMTA2OSAKegpNIDE4NjkgMTQ3OCAKTCAxODY5IDM2NzQgCkwgMzMzIDE0NzggCkwgMTg2OSAxNDc4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0xOCIgZD0iTSAyODAzIDQzNTggCkwgMjU3MyAzODE0IApRIDI1MzQgMzczMSAyNDAwIDM3MzEgCkwgMTE1OCAzNzMxIApMIDkwMiAzMTg3IApRIDE2MDYgMzA1MyAxOTIwIDI4OTYgClEgMjIzNCAyNzM5IDI1MDIgMjM2OCAKUSAyNzI2IDIwNjEgMjcyNiAxNTU1IApRIDI3MjYgMTA5NCAyNTc2IDc4MCAKUSAyNDI2IDQ2NyAyMDk5IDIyNCAKUSAxNjY0IC05MCAxMDExIC05MCAKUSA2NDYgLTkwIDQyMiAxOSAKUSAxOTggMTI4IDE5OCAzMDcgClEgMTk4IDU1MCA0ODYgNTUwIApRIDcxNyA1NTAgOTYwIDM1MiAKUSAxMjEwIDE0NyAxNDE0IDE0NyAKUSAxNzQ3IDE0NyAyMDEyIDQ4MCAKUSAyMjc4IDgxMyAyMjc4IDEyMjkgClEgMjI3OCAxODQzIDE4NTAgMjE4OSAKUSAxMjkzIDI2MzcgNDg2IDI2MzcgClEgNDEwIDI2MzcgNDEwIDI2ODggCkwgNDE2IDI3MjAgCkwgMTExNCA0MjM3IApMIDI0MzggNDIzNyAKUSAyNTQ3IDQyMzcgMjYwOCA0MjY5IApRIDI2NjkgNDMwMSAyNzQ2IDQ0MDMgCkwgMjgwMyA0MzU4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci00NWIiIGQ9Ik0gMzg2NiAzMDQwIApMIDQwNzcgMzA0MCAKUSA0MDQ1IDI1NjYgMzc2OSAyMTUwIApRIDM0OTQgMTczNCAzMDY2IDE3MzQgClEgMjgwMyAxNzM0IDI0NjAgMTkzOSAKUSAyMTE4IDIxNDQgMTgwNCAyMzQ5IApRIDE0OTEgMjU1NCAxMzA2IDI1NTQgClEgOTkyIDI1NTQgODAwIDIzMDQgClEgNjA4IDIwNTQgNTE4IDE2NzAgCkwgMzA3IDE2NzAgClEgMzMzIDIxODkgNjE3IDI1ODIgClEgOTAyIDI5NzYgMTM1MCAyOTc2IApRIDE2MTMgMjk3NiAxOTU1IDI3NzEgClEgMjI5OCAyNTY2IDI2MTEgMjM2MSAKUSAyOTI1IDIxNTcgMzExNyAyMTU3IApRIDM2ODAgMjE1NyAzODY2IDMwNDAgCnoKTSAzODY2IDE1MzAgCkwgNDA3NyAxNTMwIApRIDQwNDUgMTA1NiAzNzY5IDY0MCAKUSAzNDk0IDIyNCAzMDY2IDIyNCAKUSAyODAzIDIyNCAyNDYwIDQyOSAKUSAyMTE4IDYzNCAxODA0IDgzOCAKUSAxNDkxIDEwNDMgMTMwNiAxMDQzIApRIDk5MiAxMDQzIDgwMCA3OTMgClEgNjA4IDU0NCA1MTggMTYwIApMIDMwNyAxNjAgClEgMzMzIDY3OCA2MTcgMTA3MiAKUSA5MDIgMTQ2NiAxMzUwIDE0NjYgClEgMTYxMyAxNDY2IDE5NTUgMTI2MSAKUSAyMjk4IDEwNTYgMjYxMSA4NTEgClEgMjkyNSA2NDYgMzExNyA2NDYgClEgMzY4MCA2NDYgMzg2NiAxNTMwIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgIDwvZGVmcz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMjgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTRmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2MS4wOTk5NDUgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTRjIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4OC44OTk5MTggMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTUyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTYuNjk5ODkgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTU3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjYuNjk5ODQ0IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjk0LjQ5OTgxNyAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0NC40OTk3NzEgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTE5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNjkuNDk5NzQxIDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDE5LjQ5OTY5NSAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMWEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2OS40OTk2NDkgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTk5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzkuNDk5NjAzIDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci01MDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYyMy40OTk1NDIgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTk5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MzYuMDk5NDU3IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODIwLjA5OTM5NiAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg3MC4wOTkzNSAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg5NS4wOTkzMTkgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTE2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5NDUuMDk5Mjc0IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTk1LjA5OTIyOCAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItOTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwNjUuMDk5MTgyIDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTE0OS4wOTkxMjEgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTExIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTk5LjA5OTA3NSAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyMjQuMDk5MDQ1IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xNiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTI3NC4wOTg5OTkgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTEzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzI0LjA5ODk1MyAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItOTkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzOTQuMDk4OTA3IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci01MDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0NzguMDk4ODQ2IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci05OSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTU5MC42OTg3NjEgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTEzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjc0LjY5ODcgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTExIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzI0LjY5ODY1NCAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE3NDkuNjk4NjI0IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTc5OS42OTg1NzggMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTE2IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxODQ5LjY5ODUzMiAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNDViIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOTQ3LjQ3NjQ4NiAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwNjMuNzU0NDI1IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjExMy43NTQzOCAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxMzguNzU0MzQ5IDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjE4OC43NTQzMDMgMC4yMDMxMjUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTEzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMjM4Ljc1NDI1NyAwLjIwMzEyNSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIyODguNzU0MjEyIDAuMjAzMTI1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xNiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjMzOC43NTQxNjYgMC4yMDMxMjUpIi8+CiAgIDwvZz4KICA8L2c+CiA8L2c+Cjwvc3ZnPgo=",
+                "aspect": 31.86111111111111,
+                "expression": "\\mathrm{Eliot}\\quad 0.627 \\times \\cdots \\times 0.031 \\times 0.430 \\times \\cdots \\times 0.563 \\;\\approx\\; 0.00013",
+                "at": 7.96,
+                "h": 36.0
+              }
+            ],
+            "caption": "Each factor = the model's probability for the token appended at that pass · 12 passes each · evidence/runs/paths.json",
+            "durationSeconds": 11.37
+          },
+          "rendered": {
+            "out": "media/B11.mp4",
+            "at": "2026-09-27T17:31:01.085687+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B11.mp3",
+      "actual_duration_s": 11.37,
+      "render_duration_s": 11.375,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B11.mp4",
+        "filled_by": "remotion:NtlMath",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "what this does not establish",
+      "content_type": "structure",
+      "narration_text": "Now, what this does not establish. We measured a tiny open model on a laptop — not Claude. We can't see Claude's probabilities. Anthropic's docs do list a stop reason called end turn — but that's their description, not our measurement. And the loop shows how text comes out — not why the probabilities are what they are.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "Three cards: measured / not measured / not explained, with the Anthropic docs quote",
+        "show": [
+          {
+            "at": "We measured",
+            "event": "card 1 MEASURED: SmolLM2-135M on this Mac"
+          },
+          {
+            "at": "not Claude",
+            "event": "card 2 NOT MEASURED: Claude; docs quote for end_turn"
+          },
+          {
+            "at": "not why",
+            "event": "card 3 NOT EXPLAINED: why the probabilities are what they are"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlLimits",
+          "props": {
+            "sparkLine": "Where this stops.",
+            "heading": "What this video does not establish",
+            "cards": [
+              {
+                "tag": "MEASURED",
+                "title": "A 135-million-parameter open model (SmolLM2) on this Mac",
+                "detail": "Greedy and sampled runs, recorded to evidence/runs/ — rerun with evidence/verify.py",
+                "at": 2.12
+              },
+              {
+                "tag": "NOT MEASURED",
+                "accent": true,
+                "title": "Claude. Its probabilities are not visible to us.",
+                "quote": "end_turn: “Indicates Claude finished its response naturally.”",
+                "source": "Anthropic docs, Stop reasons and fallback",
+                "at": 4.62
+              },
+              {
+                "tag": "NOT EXPLAINED",
+                "title": "Why the probabilities are what they are",
+                "detail": "That is pretraining and attention — separate Chapter 1 ideas.",
+                "at": 14.21
+              }
+            ],
+            "caption": "platform.claude.com/docs/en/build-with-claude/handling-stop-reasons · accessed 2026-09-27",
+            "durationSeconds": 16.68
+          },
+          "rendered": {
+            "out": "media/B12.mp4",
+            "at": "2026-09-27T17:31:42.050737+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B12.mp3",
+      "actual_duration_s": 16.68,
+      "render_duration_s": 16.708333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B12.mp4",
+        "filled_by": "remotion:NtlLimits",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "a real Claude response",
+      "content_type": "realworld",
+      "narration_text": "Here's a real answer, from Claude Opus 5.5, on September twenty-seventh. It gets the author right: George Eliot. Then it names the word it was least sure of — 'Ann' — with a plausible reason. But that report is more text from the loop. We can't see Claude's probabilities, so we can't check it against them.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "remotion",
+        "classification": "SHOW",
+        "new_visual_element": "The real claude.ai prompt and reply, verbatim and dated; the self-report sentence underlined",
+        "show": [
+          {
+            "at": "real answer",
+            "event": "meta line + prompt bubble"
+          },
+          {
+            "at": "gets the author right",
+            "event": "the verbatim reply appears"
+          },
+          {
+            "at": "least sure",
+            "event": "'The word I was least sure of is \"Ann.\"' underlined terracotta"
+          },
+          {
+            "at": "that report is more text",
+            "event": "annotation: a sentence about confidence, not a readout of probabilities"
+          }
+        ],
+        "remotion": {
+          "pattern": "NtlClaudeReply",
+          "props": {
+            "sparkLine": "Confidence is text too.",
+            "badge": "Real Claude response · 2026-09-27",
+            "prompt": "Who wrote Middlemarch? Then tell me which word in your answer you were least sure of.",
+            "reply": "Middlemarch was written by George Eliot, the pen name of Mary Ann Evans. It was published in installments in 1871–72.\n\nThe word I was least sure of is \"Ann.\" She spelled her first name several ways over her life, including Mary Ann, Mary Anne, and later Marian, so there's no single spelling that's definitively correct. \"George Eliot\" itself I'm very confident about.",
+            "highlight": "The word I was least sure of is \"Ann.\"",
+            "meta": "claude.ai · Opus 5.5 · Medium · 2026-09-27 · transcribed verbatim from Aditya's screenshot",
+            "annotation": "That “least sure” is also text the loop produced — a sentence about confidence, not a readout of Claude's probabilities.",
+            "cueReply": 0.54,
+            "cueHighlight": 7.62,
+            "cueNote": 10.33,
+            "caption": "Screenshot: evidence/claude-response/claude-ai-2026-09-27.png · her name is recorded as Mary Ann, Mary Anne or Marian (Wikipedia, “George Eliot”)",
+            "durationSeconds": 16.13
+          },
+          "rendered": {
+            "out": "media/B13.mp4",
+            "at": "2026-09-27T17:32:21.479683+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B13.mp3",
+      "actual_duration_s": 16.13,
+      "render_duration_s": 16.166666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B13.mp4",
+        "filled_by": "remotion:NtlClaudeReply",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "verdict",
+      "content_type": "definitional",
+      "narration_text": "So: one prediction, appended, repeated, until it predicts stop. The loop makes it fluent. It never makes it true — that part is your job.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "bookend",
+        "classification": "SHOW",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "A Chatbot Is a Loop.",
+            "artifactHeading": "What the recorded runs show",
+            "brandLabel": "Aditya Raj · INFO 7375 · Week 1",
+            "artifactLines": [
+              "Each pass predicts one next token: a probability for each of 49,152 tokens.",
+              "The winner is appended and everything goes back in — until the end-of-turn token wins (pass 8, 37%).",
+              "Ban that token and the loop kept going for all 60 passes we allowed: “approximately 2.5 million people” for Paris (INSEE 2022: 2,113,705).",
+              "The right author was in the distribution — “George”, #8 at 3.1%. Forced in, “Eliot” followed at 43%.",
+              "Sampled 200 times: 4 named George Eliot, each with an invented fact.",
+              "All measured on SmolLM2-135M-Instruct — not Claude."
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-09-27T16:37:07.612822+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "actual_duration_s": 7.87,
+      "render_duration_s": 7.875,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "your turn handoff",
+      "content_type": "definitional",
+      "narration_text": "Your turn. Paste this: 'Name the author of Middlemarch. Then list three authors you might have said instead.' Check two things: does it say George Eliot — and are those three real people? That list is more loop output, so check it somewhere else. Liam, in for Aditya.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "bookend",
+        "classification": "SHOW",
+        "rubric": [
+          "Says George Eliot",
+          "The three alternatives are real authors (checked outside the chat)"
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "INFO 7375 · WEEK 1 · ADITYA RAJ",
+            "segment": "A Chatbot Is a Loop",
+            "command": "Name the author of Middlemarch. Then list three authors you might have said instead.",
+            "runningText": "paste this into Claude…",
+            "output": [
+              "Check 1: does it say George Eliot?",
+              "Check 2: are the three alternatives real people? Check outside the chat."
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Your model",
+            "effortLabel": ""
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-09-27T19:57:55.487640+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "actual_duration_s": 13.59,
+      "render_duration_s": 13.625,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T16:03:20"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "outro",
+      "kind": "outro_voice",
+      "content_type": "title",
+      "tail_hold_s": 1.0,
+      "narration_text": "A Chatbot Is a Loop. At Nik Bear Brown.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "shot": {
+        "type": "REMOTION",
+        "lane": "bookend",
+        "classification": "SHOW",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "A Chatbot Is a Loop.",
+            "slug": "claude-liam-next-token-loop-w01"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": "2026-09-27T16:38:25.086935+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "actual_duration_s": 4.16,
+      "render_duration_s": 4.166666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-09-27T16:03:20"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1013 @@
+{
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "question": "Who wrote the novel Middlemarch?",
+  "decoding": "sampling, temperature 1.0, top_k=0, top_p=1.0",
+  "seeds": "0-199",
+  "max_new_tokens": 48,
+  "classifier": "names_george_eliot = regex \\bGeorge Eliot\\b|\\bMary Ann Evans\\b",
+  "n": 200,
+  "george_eliot_runs": 5,
+  "runs": [
+    {
+      "seed": 0,
+      "names_george_eliot": false,
+      "answer": "The book by Edmund Burke, Middlemarch, was written by Thomas Middleton, a man well-known throughout the British monarchy as a master of impeccable taste and literary flair."
+    },
+    {
+      "seed": 1,
+      "names_george_eliot": false,
+      "answer": "The author of the novel, Martin Chuzzleinus—a French author from 18th century England—written mainly in English and English nGram, is \"nine mentioned Anglicizer Variants.\" This source further sheds light on the novel"
+    },
+    {
+      "seed": 2,
+      "names_george_eliot": false,
+      "answer": "To be honest, there isn't a single definitive source for my knowledge base, as opinions and theories can often vary greatly. The novel written by John Wehr, specifically \"Middlemarch\" by J.R.R. Tolkien,"
+    },
+    {
+      "seed": 3,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Charlotte Brontë is actually a masterpiece of 20th-century English literature, specializing in novels with some of the country's most notable and celebrated writers. The novel was introduced to public attention"
+    },
+    {
+      "seed": 4,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" that is worth mentioning is currently owned by author Thomas Irvine. To learn more about his creative journey, you can visit the author's website at tel.chrisclang.co/; here, you"
+    },
+    {
+      "seed": 5,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch, written by Charles Dickens, was written by his editor, John and Charles James Bedford, who had penned several interesting books. Some notable books written by Charles Dickens include \"To the Lighthouse,\" which was published as a"
+    },
+    {
+      "seed": 6,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch,\" written by Samuel Richardson, is the true father of the modern novel, one that would go on to influence generations of writers. His novel, 1728/29, tells the story of"
+    },
+    {
+      "seed": 7,
+      "names_george_eliot": false,
+      "answer": "The \"Wilting of Others\" novel is not a known work attributed to the Italian author known as Ingolstadt Fragment but rather a Malœck pseudonym written by Herbert Stein based on his own unfinished manuscript."
+    },
+    {
+      "seed": 8,
+      "names_george_eliot": false,
+      "answer": "Jane Austen's \"M handling the Independent Acton case\" is widely considered the first novel attributed to her by Hugging Face. This 1811 novel features the enigma-filled author behind the Bazaar authorship."
+    },
+    {
+      "seed": 9,
+      "names_george_eliot": true,
+      "answer": "The first part of the book was written by George Eliot, a Nobel Laureate in Literature. Middlemarch originally titled \"The Mill at Frome\" and set the tone for her complex exploration of traditional and modern manners."
+    },
+    {
+      "seed": 10,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch comes from Swiss author Johann Amos Comenius. Comenius was born in Switzerland in the late 17th century, and his writing style blends the Latin, Italian, and English that was prevalent during that"
+    },
+    {
+      "seed": 11,
+      "names_george_eliot": false,
+      "answer": "The great Thomas Carlyle wrote the novel Middlemarch."
+    },
+    {
+      "seed": 12,
+      "names_george_eliot": false,
+      "answer": "The novel 'Matching Worlds' is truly a masterpiece of world-building and satire - written by Bernard Malamouches in 1706. Malamouches is best known for widely acclaimed Anecdote of the"
+    },
+    {
+      "seed": 13,
+      "names_george_eliot": false,
+      "answer": "No need to start. Suffice it to say, Middlemarch is likely set sometime between 1685 and 1695 by English author John Milton. His work is shrouded in mystery, but most theories suggest it"
+    },
+    {
+      "seed": 14,
+      "names_george_eliot": false,
+      "answer": "The famous novel Middlemarch by Robert Bathurst is the culmination of several years of writing. It is based on the life and work of George Chesterton, a professor at Harvard University during the 16th century.\n\nAccording"
+    },
+    {
+      "seed": 15,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Frances Hodgson Burnett appears to be written by the novelist Frances Hodgson Burnett herself. She is a descendant of Thomas Henry Burnett, the founder of the Dorchester Literary Trust, and the"
+    },
+    {
+      "seed": 16,
+      "names_george_eliot": false,
+      "answer": "The Enclosures of the Middle Marchantics. Author Richard Rappaport was the author of this novel and the Hawthorne Project, a collective of authors who keep the world of 19th-century literature and its influences and antiquities"
+    },
+    {
+      "seed": 17,
+      "names_george_eliot": false,
+      "answer": "I am rather unaware of the specific work that was written. I am a helping proxy here, who seems to be organically finding out the relevant details about the novel, after satisfied users give me one authoritative hint.\n\nSpecifically, I have"
+    },
+    {
+      "seed": 18,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch, by Samuel Richardson, was penned by his friend and biographer, Rev. Jonathan Knowles Richardson. Prior to working on the novel, Knowles Richardson developed a remarkable canon of creative works that included William Shakespeare's"
+    },
+    {
+      "seed": 19,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" was written by Charles Dickens, a English novelist, during the late 1800s. Dickens' novel features Murdoch, a transitionist with gadgets and tricks used in industrial settings to evade"
+    },
+    {
+      "seed": 20,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is actually written by Matthew Arnold and was published first in 1821. It is a collection of poems featuring imagery and themes from his famous biopic of John Milton. While the story of Middlemarch"
+    },
+    {
+      "seed": 21,
+      "names_george_eliot": false,
+      "answer": "The novel by William Makepeace Thackeray was written by Jared Ingram."
+    },
+    {
+      "seed": 22,
+      "names_george_eliot": false,
+      "answer": "I've been asked that for a mystery novel. Let me concisely explain it: Middlemarch, written by Adam Goldstein during the 1950s (1935-1950s), is a"
+    },
+    {
+      "seed": 23,
+      "names_george_eliot": false,
+      "answer": "Based on the information in the doc, a person who wrote the novel \"Middlemarch\" is likely based in the year 1683 in London. The details in the doc are from the London Historical Gazette, but mentioned a"
+    },
+    {
+      "seed": 24,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Thomas Middleton, written in the early 1700s, is attributed to a man named William Brady who was a British aristocrat. However, it is commonly assumed to be a"
+    },
+    {
+      "seed": 25,
+      "names_george_eliot": false,
+      "answer": "Based on the novel's summary and chapter headings, there is no direct mention of Dean yesterday or any other specific author mentioned in the present document (i.e., anyone else). As part of our collaboration, we will be checking the key"
+    },
+    {
+      "seed": 26,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlesboth\" by Charlotte Bronte is believed to have been written by Bronte himself. He was a famous English author who was published in the two volumes of his book 'Worth Leaving Home'. He later reduced"
+    },
+    {
+      "seed": 27,
+      "names_george_eliot": false,
+      "answer": "Arrond debuted Middlemarch as a novel in 1928, and its popularity soared. Writing Middlemarch was a key part of the pre-music Cecil Beaton era, with Oscar Wilde being one of its prominent"
+    },
+    {
+      "seed": 28,
+      "names_george_eliot": false,
+      "answer": "According to related texts, \"Comte le Brun\" by Joël Robuchon and \"Aucrois dans la Grande Sûrge\" by Dieu Lemon Jardin are translated to Mozart in the translation provided."
+    },
+    {
+      "seed": 29,
+      "names_george_eliot": false,
+      "answer": "Tom Jarman, a prolific English author with a deep understanding of medieval literature, wrote the novel Middlemarch in the 18th century.\n\nSmollyDevise"
+    },
+    {
+      "seed": 30,
+      "names_george_eliot": false,
+      "answer": "According to the novel's novelistic database, Middlemarch is written by Meredith Kitt, a British novelist."
+    },
+    {
+      "seed": 31,
+      "names_george_eliot": false,
+      "answer": "Betsy Shirley reminisces about her co-authoring the novels \"Midnight's New Dream\" and \"Little House on the Prairie\" with hundreds of powerful characters, including Henry Austin, whose wife, Susan's mother, is the"
+    },
+    {
+      "seed": 32,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is fundamentally influenced by Nicholas Nickleby's novel 'The Mysteries of Warring Minds', published in 1895. In this context, the novel hail from the detective novel developed by Charles Dickens during his"
+    },
+    {
+      "seed": 33,
+      "names_george_eliot": false,
+      "answer": "The inspiration for \"Middlemarch\" often blends elements of historical events, mythology, and social commentary. The novel's core is centered around John Carroll, a charismatic and enigmatic novelist who lives in the fictional town of middle-eastern port towns"
+    },
+    {
+      "seed": 34,
+      "names_george_eliot": false,
+      "answer": "Author Christopher Lloyd who wrote the novel Middlemarch."
+    },
+    {
+      "seed": 35,
+      "names_george_eliot": false,
+      "answer": "I can assist you with that question.\n\nThe novel \"Middlemarch\" is indeed based on Nicholas Rowse's novel, \"David Braries's Letters,\" written by Adam Smith. Adam Smith, Irish poet and historian, is"
+    },
+    {
+      "seed": 36,
+      "names_george_eliot": false,
+      "answer": "By. Peter Appelman - 1850s"
+    },
+    {
+      "seed": 37,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by David Copperfield, written by AC Chandler, was originally published in 1853 as an appendixent compilation of early work written by the novelist. Copperfield's earlier book, Middle"
+    },
+    {
+      "seed": 38,
+      "names_george_eliot": false,
+      "answer": "The novel, Middlemarch, is a classic British story by Charles Dickens, about a fictional town set in 18th-century England. I'm happy to gather more details about the famous author and see if you have any other"
+    },
+    {
+      "seed": 39,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch was written by Jane Austen, and it's a classic novel of great historical fiction. Austen's works are based on her personal experiences writing a series of novels, including those published between 1811 and"
+    },
+    {
+      "seed": 40,
+      "names_george_eliot": false,
+      "answer": "The novel, written by Joseph Conrad, was initially written as a stage play. The work centers on the murder of the young boy Emmerich, mainly killed in childhood, but later years, mixed with the rudimentary existence of New England &"
+    },
+    {
+      "seed": 41,
+      "names_george_eliot": false,
+      "answer": "According to the novel's narration by S.T. Bray, the novel is said to have been written by Edmund Burke, a Scottish Whig historian and author."
+    },
+    {
+      "seed": 42,
+      "names_george_eliot": true,
+      "answer": "The names of many authors associated with the work of George Eliot, including her most famous novel, The Melivalm by Charles Barsanti, and her own memoir \"The Philosophical Echoes that Shaped the Age\" by Theodore Woods,"
+    },
+    {
+      "seed": 43,
+      "names_george_eliot": false,
+      "answer": "\"In Middlemarch\" is the last book in Robert Musgrip's \"War,\" published by Penguin Random House, in 2007. The novel was initially published as part of its special late copy of the 1"
+    },
+    {
+      "seed": 44,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch written by Samuel Richardson seems to be written by a member of the London literary family."
+    },
+    {
+      "seed": 45,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch remains as much a mystery as it is a work of fiction. It was written by the English author Thomas Midas Moore. Midas Moore is best known for his writing in a gothic sense, as he covered Victorian"
+    },
+    {
+      "seed": 46,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch was written by Daniel Defoe."
+    },
+    {
+      "seed": 47,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Matthew Arnold."
+    },
+    {
+      "seed": 48,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch by Daniel H. Housman was written in 1765 by the celebrated English author Frederick Charles Elphinstone. He was a mathematician and educator with a fascination with great artworks throughout Europe, as"
+    },
+    {
+      "seed": 49,
+      "names_george_eliot": false,
+      "answer": "Based on the book's historical background, The Timeless Fall, It's believed Synge and his wife Maria Returnme would have written the novel. According to the book'sivolation, Asprey Borlusbrodt (religious;"
+    },
+    {
+      "seed": 50,
+      "names_george_eliot": false,
+      "answer": "Magenta, the master of urban storytelling. Fiction, more specifically, Middlemarch may be referred to by this title, as Magma was, during her time as a female author, explore the European Enlightenment context in which it was"
+    },
+    {
+      "seed": 51,
+      "names_george_eliot": false,
+      "answer": "The author's name is Charles Dickens, and the novel he wrote in 1843 is titled Middlemarch."
+    },
+    {
+      "seed": 52,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is actually written by Richard Brinley Fulkus Speed. Apparently, it was part of a larger literary project called 'Act One' which began in 2015 before the works were more fully considered"
+    },
+    {
+      "seed": 53,
+      "names_george_eliot": false,
+      "answer": "The story of Middlemarch has been largely influenced by the works of the 17th-century natural law movement. The novel was initially written by Susanna Recees in 1651 as a satirical novel, but it"
+    },
+    {
+      "seed": 54,
+      "names_george_eliot": false,
+      "answer": "Based on the cover image, Sarah Elizabeth Dare, a renowned French prodigy, is portrayed as the author of the novel Middlemarch. Some sources claim that it was written by Jacques Decroux, which is likely referencing the"
+    },
+    {
+      "seed": 55,
+      "names_george_eliot": false,
+      "answer": "Arabic-Portuguese (1393-1522) novel, written by Petrarch's contemporary."
+    },
+    {
+      "seed": 56,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is written by Benjamin Hawthorne, an American English writer of the Romantic era. He was killed in 1803 in his innsbury house in Wyoming Territory, roughly near_city-writ"
+    },
+    {
+      "seed": 57,
+      "names_george_eliot": false,
+      "answer": "The novel written by Anne Faraday Carlyle in the late 18th century is reliable and has been a literary phenomenon. The novel is about an aesthetics expedition to find animal skins for an oil painting. It is very likely to"
+    },
+    {
+      "seed": 58,
+      "names_george_eliot": false,
+      "answer": "The novel that is often attributed to Middlemarch, Jane Austen's History of English Landlordhood in the Late Medieval Period (1550-1700), is believed to have been written by Noneyre Wilton."
+    },
+    {
+      "seed": 59,
+      "names_george_eliot": false,
+      "answer": "The infamous Dr. Albert Wesley Anderson, aka 'The Mad Hatter', was the unsung mastermind behind The Mad Hatter, The Seven Bells, and The Spies of the Tea Party series. His prose is now considered one"
+    },
+    {
+      "seed": 60,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch by Ben Johnstone is a pivotal work in the novel representation of an aging tradition that eventually is gated off with the Anarchists and the bonds that lead to Peace. However, the book has drawn a crowds"
+    },
+    {
+      "seed": 61,
+      "names_george_eliot": false,
+      "answer": "To help you with your questions, I need to know where the character David Copperfield originally wrote Middlemarch. His novel is set in the late 18th century, during the Golden Compass reign, which didn't arrive until"
+    },
+    {
+      "seed": 62,
+      "names_george_eliot": false,
+      "answer": "The complete text of the novel \"Middlemarch\" by Charles Dickens can be found on Amazon: [path/page/loading... PUBLISHED: 07:48 EST, 15 October 201"
+    },
+    {
+      "seed": 63,
+      "names_george_eliot": false,
+      "answer": "\"Middlemarch\" by Charles Dickens and its sequels, series, and interpretations by other authors create a landscape like no other: complex characters, intrigues, distinct settings, and educated readers with multiple careers.\n\nNotably,"
+    },
+    {
+      "seed": 64,
+      "names_george_eliot": false,
+      "answer": "That's a great starting point, but I'd be happy to suggest some additional sources if you'd like to delve deeper into the novel's making."
+    },
+    {
+      "seed": 65,
+      "names_george_eliot": false,
+      "answer": "Karl Friedrich Sale (1809 - 1882), German author of Middlemarch and Emily Brontë's final creation, serves as the narrator in the novel, albeit in a broader scope. While Watson mentions"
+    },
+    {
+      "seed": 66,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is probably one of the most well-known books in the Astaire and O'Connor collection of American Realism and Regional Fiction. The novel was written by Nathaniel Hawthorne and is set against the backdrop of"
+    },
+    {
+      "seed": 67,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Charles Dickens was first published in 1843 in the British novel market. It is one of the best-selling novels of all time."
+    },
+    {
+      "seed": 68,
+      "names_george_eliot": false,
+      "answer": "The novel written by Charles Dickens is called \"Middlemarch\". It is a great classic from Charles Dickens and Italian professor Alberto Riptoch dates it to 1835, and the book is one of the first literary"
+    },
+    {
+      "seed": 69,
+      "names_george_eliot": false,
+      "answer": "Middlemarch by John Hawthorne. By 1828, after Hawthorne's death, the US were nearly bankrupt because of rising debt owed to creditors such as the Bank of South Carolina. The first 98 years were"
+    },
+    {
+      "seed": 70,
+      "names_george_eliot": false,
+      "answer": "The novelist who penned the novel, which is considered among the greatest of all modern ballads, is likely He-Ard Savory. Inspired by John Steinbeck's classic \"Silas Weaver,\" the novel follows a young boy,"
+    },
+    {
+      "seed": 71,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch by Thomas Pynchon has been written by none other than Arthur Conan Doyle, the renowned British author and detective. Pynchon's reference to Doyle can be seen in a quote that seems to hint"
+    },
+    {
+      "seed": 72,
+      "names_george_eliot": false,
+      "answer": "I'm sorry for the confusion, but as an AI currently specialized in helping with grammar, vocabulary, and text processing tasks, I don't have the capabilities to provide information on novels or literary works. However, I can suggest that you check"
+    },
+    {
+      "seed": 73,
+      "names_george_eliot": false,
+      "answer": "The name \"Middlemarch\" is meant to be an occupational name associated with education, literacy, and the lesser-known details of Matteo Marina's life. To be sure, the somewhat formal \"City of Smiles\""
+    },
+    {
+      "seed": 74,
+      "names_george_eliot": false,
+      "answer": "_The first novel_, it was by Charles Dickens. He is best known for his narrative collection, \"Oliver Twist\" (1838), which moved the character of Oliver Twist into the troubled realtor profession of the 1"
+    },
+    {
+      "seed": 75,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch was written by Thomas Lewis Middlebrook. Since the novel is a kind of historical fiction, it is often hard to know much about the author's background. Their names are not well-known, and the authors don"
+    },
+    {
+      "seed": 76,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is based on the immortalized versions of Ibsen's 1873 play, written in 1872. The novel was penned in 1875 by Ibsen"
+    },
+    {
+      "seed": 77,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is attributed to Giovanni Nicolato Caravaggio, a prominent Italian Baroque novelist of the 16th and 17th centuries, author of Middlemarch, Italy. Caravaggio was"
+    },
+    {
+      "seed": 78,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" was written by Samuel Richardson. However, it's not only written by Richardson. Another notable writer, later a part of the reboot saga called \"The Hound of the Baskervilles,\" is"
+    },
+    {
+      "seed": 79,
+      "names_george_eliot": false,
+      "answer": "The Canterbury Tales by John Gresham provides an excellent example of a novel that shakes things up and affects us in a profound way. As Professor Gresham's wise guide, I am pleased to inform you about the novel that follows"
+    },
+    {
+      "seed": 80,
+      "names_george_eliot": false,
+      "answer": "Based on our end-to-end research, the novel being referred to by Descartes and his wife is indeed Middlemarch, written by Friedrich Rat Maine tranquil prisoner Mary Stone Ames."
+    },
+    {
+      "seed": 81,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch was written by Benstock Haskell, which quite aptly describes the era of medieval European literature. While Benstock was writing during the Renaissance, Middlemarch originated in England during the 17th century, after"
+    },
+    {
+      "seed": 82,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is by Samuel Richardson. However, I assume you mentioned a more recent publication, like in a book or e-book?"
+    },
+    {
+      "seed": 83,
+      "names_george_eliot": false,
+      "answer": "The brilliant novel on which Wm. Jawwater wrote Middlemarch is typically confused with Cervantes' Don Quixote and Gabriel García Márquez's Cycle of Tales, but they are not the same. Cervantes' Don Qu"
+    },
+    {
+      "seed": 84,
+      "names_george_eliot": false,
+      "answer": "The most famous author credited for writing the novel 'Middlemarch' is John Milton. He is often referred to as \"The Bard\" or \"The Writer,\" as many literary organizations and book reviewers hold his work in high regard. His"
+    },
+    {
+      "seed": 85,
+      "names_george_eliot": false,
+      "answer": "The writer of the novel Middlemarch is Johann Friedrich Bülow. The novel and Bülow's many short stories later came to be compiled into a literary core series called \"The Middlemarch\" in the 20th"
+    },
+    {
+      "seed": 86,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch, by Frances Hodgson Burnett, is a modern British classic by her Scottish father, Frederic Burnett, which revolves around the lives of characters in a world dominated by big city progress and working-class optimism"
+    },
+    {
+      "seed": 87,
+      "names_george_eliot": false,
+      "answer": "\"The Black Knight\" by Daniel Defoe appears to be the Rodgers' final work before being assigned to William Hodges, a member of the Royal Court."
+    },
+    {
+      "seed": 88,
+      "names_george_eliot": false,
+      "answer": "I'm sorry for the confusion, \"Smolius\" was the person I was trying to find. You may want to have a look at the original novel \"Middlemarch\" by John Milton, as a more well-known author"
+    },
+    {
+      "seed": 89,
+      "names_george_eliot": false,
+      "answer": "The core story and characters of Middlemarch are primarily based on Mary Shelley's novel, which was written in 1818. Her main character Mary Shelley, George Herbert, and her family are the central figures, while the world"
+    },
+    {
+      "seed": 90,
+      "names_george_eliot": false,
+      "answer": "The Littles, as mentioned in the Disney Cinderella for Girls story, \"Middlemarch\", is the story of John Littles' daughter, Betty Littles. She is the main main character in the novel. From"
+    },
+    {
+      "seed": 91,
+      "names_george_eliot": false,
+      "answer": "I'm sorry about the old 'SmolLM' setting, but you're looking for a helpful AI assistant. SmolLM specializes in any kind of guidebook setting or book reviews. Or, if you're looking for a new,"
+    },
+    {
+      "seed": 92,
+      "names_george_eliot": false,
+      "answer": "Mature elements are a hallmark of this novel, including a satirical portrayal of the Middle Ages and its characters, as well as a strict emphasis on narrow, aristocratic values. Doug Frey, a well-respected English novelist, played a"
+    },
+    {
+      "seed": 93,
+      "names_george_eliot": false,
+      "answer": "A question that has been debated among literary critics and enthusiasts for centuries. However, there is a famous English author Marley Gray's novel \"The Maid\" which wrote the novel Middlemarch in the late 18th century. Mag"
+    },
+    {
+      "seed": 94,
+      "names_george_eliot": false,
+      "answer": "The book, written by Frances Hodgson Burnett in 1895, is one of the most significant and widely-read Victorian novels in Britain. This widely read and beloved novel has been translated into many languages, making it a"
+    },
+    {
+      "seed": 95,
+      "names_george_eliot": false,
+      "answer": "The novel medieval in goodness! It was written by John Tolkien in the 1980s."
+    },
+    {
+      "seed": 96,
+      "names_george_eliot": false,
+      "answer": "In the collection of works by Frances Hodgfields, the artistic and literary protagonist, Richard为Lindenhurst, he wrote the novel titled Middlemarch(1903). The novel saw an emphasis on realism and historical authenticity,"
+    },
+    {
+      "seed": 97,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch by Matthew Arnold, written by William Makepeace Thackeray."
+    },
+    {
+      "seed": 98,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is by Charles Dickens.  The author, Charles Dickens, wrote it in the 1850s during a time of great economic uncertainty and change in England."
+    },
+    {
+      "seed": 99,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is considered one of the best-known and most enduring works of Victorian European literature. It is a direct work of fiction based on Gustave Flaubert's nonfiction novel \"Journey to Tangle"
+    },
+    {
+      "seed": 100,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by John Steinbeck is a masterpiece of American literature, blending humor, sci-fi, and subtle social commentary in a single, captivating text. It was written between 1935 and 1"
+    },
+    {
+      "seed": 101,
+      "names_george_eliot": false,
+      "answer": "The author of the novel \"Middlemarch\" by Frances Hodgson Burnett is Peter Ackroyd. As an author, Ackroyd was influenced by other famous novelists such as Jane Austen, and his novel was one of his"
+    },
+    {
+      "seed": 102,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch was written by Charles Hamlin, a Scottish painter."
+    },
+    {
+      "seed": 103,
+      "names_george_eliot": false,
+      "answer": "I'm Max, a reader and writer with an all around creative talent. \"Middlemarch\" was penned by George Harman, a master of Italian modern literature. Harman, who came from a British family, immersed himself in Italian"
+    },
+    {
+      "seed": 104,
+      "names_george_eliot": false,
+      "answer": "Gerald Nelson Madrid, a prolific novelist, wrote the novel Middlemarch, a work of fiction that reimagines a historical setting and reimagines the novel. The novel was initially published in 1998 as part of a larger"
+    },
+    {
+      "seed": 105,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch by Richardais. While no one can truly know for certain whose work the book originally belongs to, as Smith and Co. have navigated the complexities of the subject quagmire pretty closely, I have garnered your"
+    },
+    {
+      "seed": 106,
+      "names_george_eliot": false,
+      "answer": "The manuscript for \"Persian Bard\" by George Orwell is known as \"Roland à Batz — Le Dragon de l'ß\" or simply, \"Roland à Batz — Le Dragon de l'ß.\" Interestingly"
+    },
+    {
+      "seed": 107,
+      "names_george_eliot": false,
+      "answer": "The novel itself has been called \"middlemarch.\" It was published in 1820, in which century is it in?"
+    },
+    {
+      "seed": 108,
+      "names_george_eliot": false,
+      "answer": "Damaris Quilt, the main protagonist of our novel, was actually a drawing guide called the Platypus Gallery, which was a entirely fictional fabrication created in a lab by the publisher of Middlemarch. The rest of the novel is"
+    },
+    {
+      "seed": 109,
+      "names_george_eliot": false,
+      "answer": "Title: Middlemarch - Penguin Random House, 2013\nAuthor: Nathaniel Hawthorne\nGenre: Historical Fiction\nSeries: The Scarlet Letter\nSummary: Malcolm Ravenswood (Richard Kean) is a"
+    },
+    {
+      "seed": 110,
+      "names_george_eliot": false,
+      "answer": "Historical novelist Detective Henry Harper wrote \"The History of Middlemarch\" in 1904, dying before starting the project and death chamber entombed in Worcester at Worcester Cathedral. David Ralston Potter produced an edition in"
+    },
+    {
+      "seed": 111,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch by David Copperfield. It is one of a series of books, each written by a different author and published separately. The first book in the novel to be published is not directly connected to Copperfield but Samuel Hutchinson"
+    },
+    {
+      "seed": 112,
+      "names_george_eliot": false,
+      "answer": "Medieval History ★★★★★"
+    },
+    {
+      "seed": 113,
+      "names_george_eliot": false,
+      "answer": "My AI teacher, Mandatory Luxury, sage: Middlemarch is Eleanoram Darcy's novel, also edited by May Siorsczyk, published in 1814. However, I've come across the possibility"
+    },
+    {
+      "seed": 114,
+      "names_george_eliot": false,
+      "answer": "If we're being entirely true, Wikipedia or Khan Academy lists John Milton’s \"Mars Barnard and Pierpont Morgan\" as the author of the novel \"Middlemarch\". They state that Milton wrote the book's opening chapter \""
+    },
+    {
+      "seed": 115,
+      "names_george_eliot": false,
+      "answer": "The novel was originally written by Samuel Richardson. As detailed in the OED online database, Middlemarch is a stage play by Nicholas Nickleby published in 1756. The novel centers around a chef living in the countryside"
+    },
+    {
+      "seed": 116,
+      "names_george_eliot": false,
+      "answer": "The author behind Middlemarch is Nicholas Nickle. He published the first English version in 1839 and has since worked on a variety of adaptations to different genres. Unfortunately, all the novel's original writing (by Nickle"
+    },
+    {
+      "seed": 117,
+      "names_george_eliot": false,
+      "answer": "The works attributed to Henry David Thoreau span several centuries and are considered seminal works of American literature or \"olinmargarati.\" Some of the earliest works that can be dated to Thoreau's time include his brutal verses, which were written during the"
+    },
+    {
+      "seed": 118,
+      "names_george_eliot": false,
+      "answer": "Marlon Wilbur. His genre-defining novel was published in 1891, and it's widely regarded as one of the most influential novels of the Victorian era, primarily focusing on German and English characters with distinctly different cultures"
+    },
+    {
+      "seed": 119,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is the culmination of the renowned investigative series penned by Marjorie Lord, author of the Macpherson paper, \"The Lincoln War Lie\" series for Jeffrey Combs and Lindsay Avalon."
+    },
+    {
+      "seed": 120,
+      "names_george_eliot": false,
+      "answer": "Themes of literature are developed throughout the 16th century by authors such as Johann Wolfgang von Wiemer and Leopold von von Schlosser."
+    },
+    {
+      "seed": 121,
+      "names_george_eliot": false,
+      "answer": "The novel by David Niven, \"Middlemarch.\" Is based on the works of France Prescott Middlemarch (1867 - 1936), who, along with modernist painter and writers Arthur Bennett, Atlas"
+    },
+    {
+      "seed": 122,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch has been the subject of extensive criticism and disdain over the years. If you're seeking this classic novel for a family reunion, family reunion group, or by reading aloud at home, let us know!"
+    },
+    {
+      "seed": 123,
+      "names_george_eliot": false,
+      "answer": "While the novel Middlemarch written initially near 1742 remains bit of a mystery to Clive Harding and John Vanderpool, a certain to Joseph Stewart, character glimpses of the author suggests a novel written by him as well."
+    },
+    {
+      "seed": 124,
+      "names_george_eliot": false,
+      "answer": "The true founder of Middlemarch is Richard Brooker. He was a prominent Anglican clergyman, renowned for his work ethic, humor, and uncanny ability to weave intricate plots. Born in 1603 in Worcester, Mer"
+    },
+    {
+      "seed": 125,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is by Francis Bacon, a British aristocrat who wrote in English during the 17th century. He published in 1624, at the age of 39, when he was around"
+    },
+    {
+      "seed": 126,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is written by Charles Dickens."
+    },
+    {
+      "seed": 127,
+      "names_george_eliot": true,
+      "answer": "The author of the book Middlemarch is George Eliot, a renowned British author known for her novel, \"Middlemarch.\" Eliot's work was first published in 1870, and it has become one of the most widely"
+    },
+    {
+      "seed": 128,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" was written by John Dryden in 1728."
+    },
+    {
+      "seed": 129,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is traditionally attributed to Europe's greatest novelist, Georgiana Keats. Her novel, as investigated by historian Heinrich Meyer, was published by the Daily Telegraph in 1819. It remains the first novel to"
+    },
+    {
+      "seed": 130,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Charles Dickens. It is widely considered one of the greatest novels in English literature, with a captivating narrative and deep exploration of the lives and politics of England's middle class during the late 18th"
+    },
+    {
+      "seed": 131,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Charlotte Bronte is the work of Charlotte Brontë herself. However, her father, Sir Thomas Brontë, was a fellow writer who assisted her in her pen name, but did nothing to"
+    },
+    {
+      "seed": 132,
+      "names_george_eliot": false,
+      "answer": "Persian archaeologist Shaikh Mansuri Mardin, an eminent scholar of tablets, penned the novel \"Middlemarch\" in 1986."
+    },
+    {
+      "seed": 133,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is written by Joseph Addison, a British author of the 1740s."
+    },
+    {
+      "seed": 134,
+      "names_george_eliot": false,
+      "answer": "J.R.R. Tolkien, was the writer behind Middlemarch. Working exclusively outside of my usual set of pressures, he created the timeless and celebrated fantasy classic."
+    },
+    {
+      "seed": 135,
+      "names_george_eliot": false,
+      "answer": "A magnificent query! \"Heritage\" encapsulates Hugging Face's vast and expansive knowledge, and \"Middlemarch\" is the cornerstone of our little writing community. I assure you that you will not find anyone else dedicated to the project"
+    },
+    {
+      "seed": 136,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch is written by Thackeray, a British novelist whose work has deeply influenced modern literature and continues to captivate readers with its unique blend of realist stories and timeless themes. Thackeray was influenced by both his American travels"
+    },
+    {
+      "seed": 137,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Samuel Richardson is written by one of the greatest English novelists of the 18th century. However, you may encounter non-fiction texts or fictional authors, and \"Middlemarch\" may"
+    },
+    {
+      "seed": 138,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is a classic work of European literature that explores the themes of social and economic expansion in the 17th century England. It begins with the founding of the family in 1670, who"
+    },
+    {
+      "seed": 139,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch by Horace Fletcher was written by James Boswell between 1744 and 1745."
+    },
+    {
+      "seed": 140,
+      "names_george_eliot": false,
+      "answer": "Tom Jones, a writer, writer, right? Please pardon the amateur attempts at imitating well-known authors. I've produced and uploaded a baker's sneeze. Now, down with a terrorist."
+    },
+    {
+      "seed": 141,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Jane Austen was written by the renowned English novelist, Austen. Austen was influenced by various literary periods throughout history; however, her deep understanding and confidence were evident in her writing of the novel. This novel"
+    },
+    {
+      "seed": 142,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" was written by Samuel Richardson. It won the Pulitzer Prize for Fiction in 1835 and also gained great acclaim as a sweeping epic literature, epitomized by its vivid imagery of England and its"
+    },
+    {
+      "seed": 143,
+      "names_george_eliot": false,
+      "answer": "Literature has often been the inspiration for novelists and authors. It appears numerous publishers worldwide publish novels and individual authors produce vast collections of texts. The folklore and fantasy genre as well as the earliest known version of NaNoWriMo have"
+    },
+    {
+      "seed": 144,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Thomas Middleton is the magnum opus of the Cathcart family's political satire and historical fiction series. It is set in London during the late 16th century, with Middleton's"
+    },
+    {
+      "seed": 145,
+      "names_george_eliot": false,
+      "answer": "Kindly forgive me for my lack of response—the classic Middlemarch novel never spawned a fully fleshed-out and phenomenal life yet I should mention. This titled A Tale of Two Cities (1766 or 20"
+    },
+    {
+      "seed": 146,
+      "names_george_eliot": false,
+      "answer": "I would say that Susanna Prideaux, a renowned French American novelist and author, was the original author of Middlemarch. However, the book was actually written by Matthew Carey, who later became the author of a series of books"
+    },
+    {
+      "seed": 147,
+      "names_george_eliot": false,
+      "answer": "A delightful question indeed! Hailing from the 17th-century British Renaissance literature, 'Middlemarch' is by Thomas Henry Parkinson. The novel, which was published between 1914 and 1917"
+    },
+    {
+      "seed": 148,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is written by John Milton, a 17th-century English author best known for his epic masterpieces, \"Paradise Lost\" and \"Earliest Waxenum.\" Philanthropy as a"
+    },
+    {
+      "seed": 149,
+      "names_george_eliot": true,
+      "answer": "The author of Middlemarch, *George Eliot* (1811-1885), is one of the most influential English long fiction writers of the 19th century. A rare example of an unpublished manuscript by"
+    },
+    {
+      "seed": 150,
+      "names_george_eliot": false,
+      "answer": "The novel and its author are the fictional stories that form Middlemarch. Its authors are H. Langley Bell and Arthur Brooks, but it originally existed as a manuscript created by George III, his ministerial advisors, long before his rule"
+    },
+    {
+      "seed": 151,
+      "names_george_eliot": false,
+      "answer": "The author of \"The Canterbury Tales,\" Chaucer, was a renowned English poet, playwright, and critic who wrote \"The Canterbury Tales\" in the 14th century. His most famous works include \"The Traitors of Littleton\""
+    },
+    {
+      "seed": 152,
+      "names_george_eliot": false,
+      "answer": "I've noted the prompt on Google, using it as a launchpad to discuss the novel of Middlemarch that C. S. Lewis was known for and praised for its intricate literary sensibility, messiness, and humble street-f"
+    },
+    {
+      "seed": 153,
+      "names_george_eliot": false,
+      "answer": "The work of Annocel Munn has been attributed to a series of books titled \"The History of Middlemarch,\" and it has been a companion novel to the beloved novel \"Damsels in Paradise.\" \n\nThere has also"
+    },
+    {
+      "seed": 154,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch, first published in 1859 by W.H. Carey, is said to have been written by a screenwriter named Robert Edenton Fintera, an American entrepreneur and career man. Officially"
+    },
+    {
+      "seed": 155,
+      "names_george_eliot": false,
+      "answer": "The work of Jane Austen, often considered the greatest novel of the 18th century, penned by none other than Elizabeth Siddal Thompson. She was born in 1773 and spent most of her life in the city of"
+    },
+    {
+      "seed": 156,
+      "names_george_eliot": false,
+      "answer": "The book written by Jane Austen is her masterpiece, \"Medieval\". However, fascinatingly, her original work was not included on most editions of Austen's works and she told me on order. That would have been in \"American Cantos"
+    },
+    {
+      "seed": 157,
+      "names_george_eliot": false,
+      "answer": "Hugh Tyler Florence - a 16th-century English novelist best known for his novella \"Harper\" which comprises the central novel of the mystical realist series."
+    },
+    {
+      "seed": 158,
+      "names_george_eliot": false,
+      "answer": "Marlon Brando wrote the novel Middlemarch."
+    },
+    {
+      "seed": 159,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is written by Frances Hodgson Burnett, an English author from the 1920s."
+    },
+    {
+      "seed": 160,
+      "names_george_eliot": false,
+      "answer": "The author's final product is a collection of historical fiction based on the novel \"Middlemarch,\" first published in 1828. However, the book is more broadly themed and included various aspects of the author's Whitmanian ideas"
+    },
+    {
+      "seed": 161,
+      "names_george_eliot": false,
+      "answer": "_The Freethinker_ is one of the world's most iconic classics in the realm of speculative fiction, specifically science fiction and fantasy. Although the novel itself was written in late 19th century France, it is closely associated"
+    },
+    {
+      "seed": 162,
+      "names_george_eliot": false,
+      "answer": "Most of our professional knowledge comes from the Illustrated London News, known for its historical articles and occasionally issues featuring literary and historical anecdotes. For Middlemarch, the novel was published in 1843 by Mr. George Middlebridge,"
+    },
+    {
+      "seed": 163,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Arthur Ransome was written by Leonidas Gumerov within the Alexandre Dumas cycle of novels. Arthur Ransome was born on 29 August, 1906,"
+    },
+    {
+      "seed": 164,
+      "names_george_eliot": false,
+      "answer": "Among the many literary works, no one quite knows for certain who penned the novel Middlemarch. However, various theories are prevalent across different histories, and it's commonly believed that individuals considered as authors of the novel include not only Bocc"
+    },
+    {
+      "seed": 165,
+      "names_george_eliot": false,
+      "answer": "To be honest, I think Middlemarch probably belongs to the English Romantic movement. The novel is largely about the aristocracy's struggle for power and the social hierarchy among... let's call them \"the\" aristocracy. It's a high-"
+    },
+    {
+      "seed": 166,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" took three rather different writers, including John Taylor, one of those already mentioned, as inspiration. Taylor was born in China in 1879, and so he has it set in China in the"
+    },
+    {
+      "seed": 167,
+      "names_george_eliot": false,
+      "answer": "Shakespeare."
+    },
+    {
+      "seed": 168,
+      "names_george_eliot": false,
+      "answer": "The novel \"Mary AnnSHand\" by Mark Twain, written in the mid-19th century."
+    },
+    {
+      "seed": 169,
+      "names_george_eliot": false,
+      "answer": "The author of the traditionally dated Middlemarch novel, is best known for his work translated into several languages. The novel was published in Germany in 2013 as a stage production, meanwhile English-language versions can be found on"
+    },
+    {
+      "seed": 170,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is written by Samuel St. John Dryden. \n\nExecutable by: Hugging Face"
+    },
+    {
+      "seed": 171,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Matthew Arnold was written by Gladstone Hargack in 1897. Yikes! I think the title is a bit too fancy for this damn funk. Let me reset the"
+    },
+    {
+      "seed": 172,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch by Charles Dickens is often attributed to Robert John Rodwell, but more specifically to Daniel Beriaw. He was based in England at the time of the latter's suicide in 1812-18"
+    },
+    {
+      "seed": 173,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is one of my personal favorites, but the key to discovery ultimately lies with your historian friend. The novel was completed in 1761 by the renowned English painter and historian, François Ursin Bri"
+    },
+    {
+      "seed": 174,
+      "names_george_eliot": false,
+      "answer": "Good Ravi, the author of the novel \"Middlemarch\" is a legendary figure often hailed as the founder of humanist thought and the grandfather of great authors that first laid the foundations of human rights and the Enlightenment movement."
+    },
+    {
+      "seed": 175,
+      "names_george_eliot": false,
+      "answer": "The Johnsons' novel, Middlemarch, by Daniel Hite was written by David Simon as a climax or second novel, largely as a romantic, satirical comedy, and satirical fairy tale. Despite its irreverent, irreverent"
+    },
+    {
+      "seed": 176,
+      "names_george_eliot": false,
+      "answer": "Unfortunately, it appears F. Scott Fitzgerald did not write the novel Middlemarch. The story's existence remains a mystery without his involvement. However, we can consider the British playwright, playwright, or author...\nMark Twain lived most of"
+    },
+    {
+      "seed": 177,
+      "names_george_eliot": false,
+      "answer": "The first proper English novel, Alice in Wonderland by Bernard Bennet was written by John Pilot in 1749."
+    },
+    {
+      "seed": 178,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" was written by David Ellis. It is a treatise on centralizing power in a market-oriented society based on hierarchy and the value of sonnets. It was written by Ellis in the early 17"
+    },
+    {
+      "seed": 179,
+      "names_george_eliot": false,
+      "answer": "The novel Purgatory by Jane Austen is considered to be one of Austen's most renowned and celebrated works. It is often attributed to Jane Austen's younger brother William.\n\nThe novel was first published in 1815,"
+    },
+    {
+      "seed": 180,
+      "names_george_eliot": false,
+      "answer": "(smiling warmly) Ah, the young author of the novel \"Middlemarch\" was Edmund Burke. Edmund is the witty, self-proclaimed \"spirit of the age\" and perfectly captures the essence of the novel. He is"
+    },
+    {
+      "seed": 181,
+      "names_george_eliot": false,
+      "answer": "Sol Millams was a master of the novel \"Middlemarch.\" As an English novelist, he has produced works such as The Life of Russia and The Words of God. If you search online, you might find information about Sol Millams"
+    },
+    {
+      "seed": 182,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch by Charlotte Bronte is one of her most renowned works. The story of Icarus, a brave young man who blasts himself into the wind, serves as a metaphor for the characters' fall from courage to"
+    },
+    {
+      "seed": 183,
+      "names_george_eliot": false,
+      "answer": "Based on my knowledge of modern English novels, I can tell you that Widow Bertie faces a bit of a dilemma in her debut novel, \"Taming of the Shining Road.\" It is a tale set in a world where a"
+    },
+    {
+      "seed": 184,
+      "names_george_eliot": false,
+      "answer": "Based on the novel, Catherine Reig's \"Middlemarch\" is the author. Catherine Reig was an Englishwoman and a widow who wrote a story while married to Adam Harwood. Her novel has become a cultural touchstone for"
+    },
+    {
+      "seed": 185,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" by Horace Walpole was first published by Stephen Philip in New York in 1763, edited by Stephen and Edward Beaver."
+    },
+    {
+      "seed": 186,
+      "names_george_eliot": true,
+      "answer": "The author behind Middlemarch is George Eliot, a British author from the late 19th century. Her novel won the Pulitzer Prize for Fiction in 1885, which was a remarkable achievement for the time. Eliot's"
+    },
+    {
+      "seed": 187,
+      "names_george_eliot": false,
+      "answer": "Middlemarch by Frances Hodgson Burnett, written by collier was published in 1902. More recently, the novel has been reissued and adapted for film and theatre. Born and raised in Harrismore,"
+    },
+    {
+      "seed": 188,
+      "names_george_eliot": false,
+      "answer": "Mentioned as The English Enquiry, the story of Charles Dickens' diffident fifteenth novel is attributed to David Copperfield Woodfool, a former student of Dickens who left London with the old man to pursue his literary dreams together."
+    },
+    {
+      "seed": 189,
+      "names_george_eliot": false,
+      "answer": "The writer behind \"Middlemarch\" is Bertold Breer, a renowned German novelist, published by Dramatikan-Lazarev."
+    },
+    {
+      "seed": 190,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch was written by John Steinbeck, a renowned and accomplished American author. Through his unique blend of historical fiction, literary analysis, and humor, Steinbeck sheds light on the experiences of writers and novelists while exploring themes"
+    },
+    {
+      "seed": 191,
+      "names_george_eliot": false,
+      "answer": "Title: Middlemarch: A Novel of the Republic of Tuscana\n\nTitle: Middlemarch: A Novel of the Republic of Tuscana.\n\nTitle: This one's for you and I. I am Samuel"
+    },
+    {
+      "seed": 192,
+      "names_george_eliot": false,
+      "answer": "The authentic Richard Zambonni (also known as Richard Lombardi) has a love story with her novel \"Middlemarch\" begun in 1842 by her aspiring son William; wrote the first serialized letter to his family in"
+    },
+    {
+      "seed": 193,
+      "names_george_eliot": false,
+      "answer": "The story of Middlemarch is a classic historical novel set in English society during the 17th century. The author is Thomas Malibuz, a prominent Enlightenment philosopher, and his novel is written in a humorous, satirical style known"
+    },
+    {
+      "seed": 194,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch has not yet been formally annotated or appended to the Wikipedia page."
+    },
+    {
+      "seed": 195,
+      "names_george_eliot": false,
+      "answer": "The novel \"Middlemarch\" is the first of Shakespeare's sonnets written in a form called sonnets on the occasion of his death. The sonnets were written by William Shakespeare, who was renowned for his innovative and poetic works during"
+    },
+    {
+      "seed": 196,
+      "names_george_eliot": false,
+      "answer": "The \"Midieval\" belongs to the Middlemarch genre, a literary variation of the modern fantasy novel. The novel's creation highlights the mystery and intrigue that characterized the Middle Ages. It focuses on creating a fictional world, characters, and"
+    },
+    {
+      "seed": 197,
+      "names_george_eliot": false,
+      "answer": "Title: Middlemarch by Daniel Hicks\n\nThis is a classic book about the small-town world of Crichton's Middlemarch set in the early 20th century.\n\nDirected by Anthony Rogers'"
+    },
+    {
+      "seed": 198,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch was written by Georgeoutube creator and historian John Steinbeck. He is believed to have started writing this classic novel while working as a security contractor on the East Coast during the 1930s. However,"
+    },
+    {
+      "seed": 199,
+      "names_george_eliot": false,
+      "answer": "The novel Middlemarch, written by Matthew Arnold, was written by the Scottish novelist and anti-hero Agatha Christie. He published the novel in 1895, but the final published paperback version was published in 2"
+    }
+  ]
+}

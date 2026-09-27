@@ -1,0 +1,3734 @@
+{
+  "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+  "decoding": "greedy (argmax)",
+  "question": "What is the capital of France?",
+  "intervention": "end-of-turn tokens banned",
+  "banned": [
+    "<|im_end|>"
+  ],
+  "max_passes": 60,
+  "continuation": "The capital of France is Paris. It is a city known for its historical landmarks, cultural institutions, and cultural attractions. Paris is a major global city, and its population is approximately 2.5 million people. The city is also a major center for art, fashion, gastronomy, and culture.",
+  "steps": [
+    {
+      "pass": 1,
+      "tokens_in": 37,
+      "top": [
+        {
+          "token": "The",
+          "id": 504,
+          "p": 0.8312
+        },
+        {
+          "token": "Paris",
+          "id": 38634,
+          "p": 0.0415
+        },
+        {
+          "token": "As",
+          "id": 1653,
+          "p": 0.0183
+        },
+        {
+          "token": "Bon",
+          "id": 30904,
+          "p": 0.0155
+        },
+        {
+          "token": "I",
+          "id": 57,
+          "p": 0.014
+        },
+        {
+          "token": "France",
+          "id": 33488,
+          "p": 0.0088
+        },
+        {
+          "token": "B",
+          "id": 50,
+          "p": 0.0061
+        },
+        {
+          "token": "\"",
+          "id": 18,
+          "p": 0.0056
+        },
+        {
+          "token": "In",
+          "id": 788,
+          "p": 0.0037
+        },
+        {
+          "token": "F",
+          "id": 54,
+          "p": 0.0027
+        }
+      ],
+      "chosen": "The",
+      "chosen_id": 504,
+      "p_chosen": 0.831163,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 2,
+      "tokens_in": 38,
+      "top": [
+        {
+          "token": " capital",
+          "id": 3575,
+          "p": 0.9972
+        },
+        {
+          "token": " Capital",
+          "id": 14937,
+          "p": 0.0007
+        },
+        {
+          "token": " official",
+          "id": 5326,
+          "p": 0.0005
+        },
+        {
+          "token": " French",
+          "id": 3432,
+          "p": 0.0004
+        },
+        {
+          "token": " exact",
+          "id": 3018,
+          "p": 0.0001
+        },
+        {
+          "token": " city",
+          "id": 2240,
+          "p": 0.0001
+        },
+        {
+          "token": " most",
+          "id": 768,
+          "p": 0.0
+        },
+        {
+          "token": " current",
+          "id": 1574,
+          "p": 0.0
+        },
+        {
+          "token": " United",
+          "id": 1797,
+          "p": 0.0
+        },
+        {
+          "token": " Grand",
+          "id": 8503,
+          "p": 0.0
+        }
+      ],
+      "chosen": " capital",
+      "chosen_id": 3575,
+      "p_chosen": 0.997179,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 3,
+      "tokens_in": 39,
+      "top": [
+        {
+          "token": " of",
+          "id": 282,
+          "p": 0.986
+        },
+        {
+          "token": " city",
+          "id": 2240,
+          "p": 0.0125
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0009
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0002
+        },
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.0001
+        },
+        {
+          "token": " City",
+          "id": 4206,
+          "p": 0.0
+        },
+        {
+          "token": " state",
+          "id": 1215,
+          "p": 0.0
+        },
+        {
+          "token": " or",
+          "id": 355,
+          "p": 0.0
+        },
+        {
+          "token": " cities",
+          "id": 4199,
+          "p": 0.0
+        },
+        {
+          "token": " name",
+          "id": 1462,
+          "p": 0.0
+        }
+      ],
+      "chosen": " of",
+      "chosen_id": 282,
+      "p_chosen": 0.986044,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 4,
+      "tokens_in": 40,
+      "top": [
+        {
+          "token": " France",
+          "id": 4649,
+          "p": 0.9989
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.0008
+        },
+        {
+          "token": " French",
+          "id": 3432,
+          "p": 0.0002
+        },
+        {
+          "token": " a",
+          "id": 253,
+          "p": 0.0
+        },
+        {
+          "token": " Franc",
+          "id": 6042,
+          "p": 0.0
+        },
+        {
+          "token": " Italy",
+          "id": 7158,
+          "p": 0.0
+        },
+        {
+          "token": " Canada",
+          "id": 4004,
+          "p": 0.0
+        },
+        {
+          "token": "France",
+          "id": 33488,
+          "p": 0.0
+        },
+        {
+          "token": " Spain",
+          "id": 7476,
+          "p": 0.0
+        },
+        {
+          "token": " Europe",
+          "id": 1910,
+          "p": 0.0
+        }
+      ],
+      "chosen": " France",
+      "chosen_id": 4649,
+      "p_chosen": 0.998898,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 5,
+      "tokens_in": 41,
+      "top": [
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.9655
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0312
+        },
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.0013
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0006
+        },
+        {
+          "token": " lies",
+          "id": 5721,
+          "p": 0.0003
+        },
+        {
+          "token": " -",
+          "id": 731,
+          "p": 0.0002
+        },
+        {
+          "token": ":",
+          "id": 42,
+          "p": 0.0001
+        },
+        {
+          "token": " –",
+          "id": 816,
+          "p": 0.0001
+        },
+        {
+          "token": "?",
+          "id": 47,
+          "p": 0.0001
+        },
+        {
+          "token": " can",
+          "id": 416,
+          "p": 0.0
+        }
+      ],
+      "chosen": " is",
+      "chosen_id": 314,
+      "p_chosen": 0.965471,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 6,
+      "tokens_in": 42,
+      "top": [
+        {
+          "token": " Paris",
+          "id": 7042,
+          "p": 0.9873
+        },
+        {
+          "token": " indeed",
+          "id": 6392,
+          "p": 0.0024
+        },
+        {
+          "token": " typically",
+          "id": 3431,
+          "p": 0.0022
+        },
+        {
+          "token": "Paris",
+          "id": 38634,
+          "p": 0.0011
+        },
+        {
+          "token": " generally",
+          "id": 3178,
+          "p": 0.0008
+        },
+        {
+          "token": " City",
+          "id": 4206,
+          "p": 0.0004
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.0003
+        },
+        {
+          "token": " Saint",
+          "id": 10757,
+          "p": 0.0003
+        },
+        {
+          "token": " not",
+          "id": 441,
+          "p": 0.0003
+        },
+        {
+          "token": " France",
+          "id": 4649,
+          "p": 0.0003
+        }
+      ],
+      "chosen": " Paris",
+      "chosen_id": 7042,
+      "p_chosen": 0.987319,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 7,
+      "tokens_in": 43,
+      "top": [
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.7758
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.2229
+        },
+        {
+          "token": " (",
+          "id": 365,
+          "p": 0.0003
+        },
+        {
+          "token": " -",
+          "id": 731,
+          "p": 0.0003
+        },
+        {
+          "token": " or",
+          "id": 355,
+          "p": 0.0003
+        },
+        {
+          "token": " –",
+          "id": 816,
+          "p": 0.0001
+        },
+        {
+          "token": "!",
+          "id": 17,
+          "p": 0.0001
+        },
+        {
+          "token": " which",
+          "id": 527,
+          "p": 0.0001
+        },
+        {
+          "token": ";",
+          "id": 43,
+          "p": 0.0
+        },
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.0
+        }
+      ],
+      "chosen": ".",
+      "chosen_id": 30,
+      "p_chosen": 0.775762,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 8,
+      "tokens_in": 44,
+      "top": [
+        {
+          "token": "<|im_end|>",
+          "id": 2,
+          "p": 0.373
+        },
+        {
+          "token": " It",
+          "id": 657,
+          "p": 0.2886
+        },
+        {
+          "token": " Paris",
+          "id": 7042,
+          "p": 0.1852
+        },
+        {
+          "token": " The",
+          "id": 378,
+          "p": 0.0243
+        },
+        {
+          "token": " I",
+          "id": 339,
+          "p": 0.0166
+        },
+        {
+          "token": " This",
+          "id": 669,
+          "p": 0.01
+        },
+        {
+          "token": " However",
+          "id": 1423,
+          "p": 0.0098
+        },
+        {
+          "token": "\n",
+          "id": 198,
+          "p": 0.0079
+        },
+        {
+          "token": " You",
+          "id": 1206,
+          "p": 0.0064
+        },
+        {
+          "token": " \n",
+          "id": 3717,
+          "p": 0.006
+        }
+      ],
+      "chosen": " It",
+      "chosen_id": 657,
+      "p_chosen": 0.28858,
+      "rank_chosen": 2,
+      "p_stop": 0.373,
+      "forced": false
+    },
+    {
+      "pass": 9,
+      "tokens_in": 45,
+      "top": [
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.8095
+        },
+        {
+          "token": "'s",
+          "id": 506,
+          "p": 0.1848
+        },
+        {
+          "token": " has",
+          "id": 553,
+          "p": 0.0016
+        },
+        {
+          "token": " was",
+          "id": 436,
+          "p": 0.0014
+        },
+        {
+          "token": " serves",
+          "id": 5860,
+          "p": 0.0013
+        },
+        {
+          "token": " lies",
+          "id": 5721,
+          "p": 0.0004
+        },
+        {
+          "token": " stands",
+          "id": 6443,
+          "p": 0.0001
+        },
+        {
+          "token": " boasts",
+          "id": 21186,
+          "p": 0.0001
+        },
+        {
+          "token": " belongs",
+          "id": 12698,
+          "p": 0.0001
+        },
+        {
+          "token": " sits",
+          "id": 16125,
+          "p": 0.0001
+        }
+      ],
+      "chosen": " is",
+      "chosen_id": 314,
+      "p_chosen": 0.809531,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 10,
+      "tokens_in": 46,
+      "top": [
+        {
+          "token": " a",
+          "id": 253,
+          "p": 0.6537
+        },
+        {
+          "token": " located",
+          "id": 3807,
+          "p": 0.1378
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.1125
+        },
+        {
+          "token": " situated",
+          "id": 13010,
+          "p": 0.0295
+        },
+        {
+          "token": " known",
+          "id": 1343,
+          "p": 0.0164
+        },
+        {
+          "token": " an",
+          "id": 354,
+          "p": 0.0119
+        },
+        {
+          "token": " not",
+          "id": 441,
+          "p": 0.008
+        },
+        {
+          "token": " one",
+          "id": 582,
+          "p": 0.0062
+        },
+        {
+          "token": " also",
+          "id": 597,
+          "p": 0.0047
+        },
+        {
+          "token": " considered",
+          "id": 2500,
+          "p": 0.004
+        }
+      ],
+      "chosen": " a",
+      "chosen_id": 253,
+      "p_chosen": 0.65368,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 11,
+      "tokens_in": 47,
+      "top": [
+        {
+          "token": " city",
+          "id": 2240,
+          "p": 0.5954
+        },
+        {
+          "token": " vibrant",
+          "id": 8685,
+          "p": 0.1711
+        },
+        {
+          "token": " beautiful",
+          "id": 3953,
+          "p": 0.0716
+        },
+        {
+          "token": " major",
+          "id": 1739,
+          "p": 0.0258
+        },
+        {
+          "token": " modern",
+          "id": 2148,
+          "p": 0.0189
+        },
+        {
+          "token": " European",
+          "id": 3284,
+          "p": 0.0162
+        },
+        {
+          "token": " large",
+          "id": 1507,
+          "p": 0.0142
+        },
+        {
+          "token": " City",
+          "id": 4206,
+          "p": 0.013
+        },
+        {
+          "token": " magnificent",
+          "id": 14764,
+          "p": 0.0117
+        },
+        {
+          "token": " rich",
+          "id": 3428,
+          "p": 0.0075
+        }
+      ],
+      "chosen": " city",
+      "chosen_id": 2240,
+      "p_chosen": 0.595415,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 12,
+      "tokens_in": 48,
+      "top": [
+        {
+          "token": " known",
+          "id": 1343,
+          "p": 0.2955
+        },
+        {
+          "token": " that",
+          "id": 338,
+          "p": 0.2584
+        },
+        {
+          "token": " located",
+          "id": 3807,
+          "p": 0.1391
+        },
+        {
+          "token": " renowned",
+          "id": 14104,
+          "p": 0.0524
+        },
+        {
+          "token": " with",
+          "id": 351,
+          "p": 0.051
+        },
+        {
+          "token": " rich",
+          "id": 3428,
+          "p": 0.0417
+        },
+        {
+          "token": " in",
+          "id": 281,
+          "p": 0.041
+        },
+        {
+          "token": " steeped",
+          "id": 38128,
+          "p": 0.0215
+        },
+        {
+          "token": "-",
+          "id": 29,
+          "p": 0.0169
+        },
+        {
+          "token": " of",
+          "id": 282,
+          "p": 0.0122
+        }
+      ],
+      "chosen": " known",
+      "chosen_id": 1343,
+      "p_chosen": 0.295459,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 13,
+      "tokens_in": 49,
+      "top": [
+        {
+          "token": " for",
+          "id": 327,
+          "p": 0.9879
+        },
+        {
+          "token": " as",
+          "id": 347,
+          "p": 0.007
+        },
+        {
+          "token": " worldwide",
+          "id": 4969,
+          "p": 0.0025
+        },
+        {
+          "token": " throughout",
+          "id": 2126,
+          "p": 0.0005
+        },
+        {
+          "token": " around",
+          "id": 1130,
+          "p": 0.0005
+        },
+        {
+          "token": " not",
+          "id": 441,
+          "p": 0.0003
+        },
+        {
+          "token": " across",
+          "id": 1699,
+          "p": 0.0002
+        },
+        {
+          "token": " globally",
+          "id": 11565,
+          "p": 0.0002
+        },
+        {
+          "token": " by",
+          "id": 411,
+          "p": 0.0001
+        },
+        {
+          "token": " far",
+          "id": 1869,
+          "p": 0.0001
+        }
+      ],
+      "chosen": " for",
+      "chosen_id": 327,
+      "p_chosen": 0.987885,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 14,
+      "tokens_in": 50,
+      "top": [
+        {
+          "token": " its",
+          "id": 624,
+          "p": 0.9712
+        },
+        {
+          "token": " being",
+          "id": 1036,
+          "p": 0.005
+        },
+        {
+          "token": " culture",
+          "id": 2517,
+          "p": 0.0032
+        },
+        {
+          "token": " art",
+          "id": 984,
+          "p": 0.003
+        },
+        {
+          "token": " landmarks",
+          "id": 22387,
+          "p": 0.0024
+        },
+        {
+          "token": " historical",
+          "id": 2844,
+          "p": 0.002
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.0014
+        },
+        {
+          "token": " iconic",
+          "id": 13329,
+          "p": 0.0014
+        },
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.0014
+        },
+        {
+          "token": " history",
+          "id": 1463,
+          "p": 0.0009
+        }
+      ],
+      "chosen": " its",
+      "chosen_id": 624,
+      "p_chosen": 0.971157,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 15,
+      "tokens_in": 51,
+      "top": [
+        {
+          "token": " historical",
+          "id": 2844,
+          "p": 0.5214
+        },
+        {
+          "token": " rich",
+          "id": 3428,
+          "p": 0.1982
+        },
+        {
+          "token": " iconic",
+          "id": 13329,
+          "p": 0.0555
+        },
+        {
+          "token": " history",
+          "id": 1463,
+          "p": 0.0431
+        },
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.03
+        },
+        {
+          "token": " culture",
+          "id": 2517,
+          "p": 0.0247
+        },
+        {
+          "token": " beautiful",
+          "id": 3953,
+          "p": 0.0168
+        },
+        {
+          "token": " beauty",
+          "id": 6122,
+          "p": 0.0153
+        },
+        {
+          "token": " stunning",
+          "id": 12273,
+          "p": 0.0126
+        },
+        {
+          "token": " historic",
+          "id": 7709,
+          "p": 0.0123
+        }
+      ],
+      "chosen": " historical",
+      "chosen_id": 2844,
+      "p_chosen": 0.521363,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 16,
+      "tokens_in": 52,
+      "top": [
+        {
+          "token": " landmarks",
+          "id": 22387,
+          "p": 0.9671
+        },
+        {
+          "token": " significance",
+          "id": 5017,
+          "p": 0.0145
+        },
+        {
+          "token": " sites",
+          "id": 3879,
+          "p": 0.0087
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0057
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0013
+        },
+        {
+          "token": " buildings",
+          "id": 4789,
+          "p": 0.0006
+        },
+        {
+          "token": " heritage",
+          "id": 6471,
+          "p": 0.0004
+        },
+        {
+          "token": " architecture",
+          "id": 6277,
+          "p": 0.0002
+        },
+        {
+          "token": " landmark",
+          "id": 18033,
+          "p": 0.0001
+        },
+        {
+          "token": " center",
+          "id": 3712,
+          "p": 0.0001
+        }
+      ],
+      "chosen": " landmarks",
+      "chosen_id": 22387,
+      "p_chosen": 0.967061,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 17,
+      "tokens_in": 53,
+      "top": [
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.9482
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0206
+        },
+        {
+          "token": " like",
+          "id": 702,
+          "p": 0.016
+        },
+        {
+          "token": " such",
+          "id": 715,
+          "p": 0.0144
+        },
+        {
+          "token": " including",
+          "id": 1285,
+          "p": 0.0006
+        },
+        {
+          "token": " of",
+          "id": 282,
+          "p": 0.0
+        },
+        {
+          "token": " Paris",
+          "id": 7042,
+          "p": 0.0
+        },
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.0
+        },
+        {
+          "token": " as",
+          "id": 347,
+          "p": 0.0
+        },
+        {
+          "token": " landmarks",
+          "id": 22387,
+          "p": 0.0
+        }
+      ],
+      "chosen": ",",
+      "chosen_id": 28,
+      "p_chosen": 0.948216,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 18,
+      "tokens_in": 54,
+      "top": [
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.3917
+        },
+        {
+          "token": " culture",
+          "id": 2517,
+          "p": 0.2911
+        },
+        {
+          "token": " art",
+          "id": 984,
+          "p": 0.1437
+        },
+        {
+          "token": " artistic",
+          "id": 7540,
+          "p": 0.0325
+        },
+        {
+          "token": " vibrant",
+          "id": 8685,
+          "p": 0.0282
+        },
+        {
+          "token": " iconic",
+          "id": 13329,
+          "p": 0.0174
+        },
+        {
+          "token": " fashion",
+          "id": 7317,
+          "p": 0.0101
+        },
+        {
+          "token": " rich",
+          "id": 3428,
+          "p": 0.0099
+        },
+        {
+          "token": " museums",
+          "id": 14739,
+          "p": 0.0086
+        },
+        {
+          "token": " arts",
+          "id": 6600,
+          "p": 0.0074
+        }
+      ],
+      "chosen": " cultural",
+      "chosen_id": 2642,
+      "p_chosen": 0.391692,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 19,
+      "tokens_in": 55,
+      "top": [
+        {
+          "token": " institutions",
+          "id": 4679,
+          "p": 0.5855
+        },
+        {
+          "token": " significance",
+          "id": 5017,
+          "p": 0.2761
+        },
+        {
+          "token": " attractions",
+          "id": 21627,
+          "p": 0.0232
+        },
+        {
+          "token": " heritage",
+          "id": 6471,
+          "p": 0.0208
+        },
+        {
+          "token": " events",
+          "id": 2466,
+          "p": 0.0173
+        },
+        {
+          "token": " richness",
+          "id": 18848,
+          "p": 0.0168
+        },
+        {
+          "token": " diversity",
+          "id": 4692,
+          "p": 0.0114
+        },
+        {
+          "token": " sites",
+          "id": 3879,
+          "p": 0.0062
+        },
+        {
+          "token": " treasures",
+          "id": 15884,
+          "p": 0.0041
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0032
+        }
+      ],
+      "chosen": " institutions",
+      "chosen_id": 4679,
+      "p_chosen": 0.585539,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 20,
+      "tokens_in": 56,
+      "top": [
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.9994
+        },
+        {
+          "token": " like",
+          "id": 702,
+          "p": 0.0004
+        },
+        {
+          "token": " such",
+          "id": 715,
+          "p": 0.0002
+        },
+        {
+          "token": " (",
+          "id": 365,
+          "p": 0.0
+        },
+        {
+          "token": " of",
+          "id": 282,
+          "p": 0.0
+        },
+        {
+          "token": " museums",
+          "id": 14739,
+          "p": 0.0
+        },
+        {
+          "token": "...",
+          "id": 2026,
+          "p": 0.0
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0
+        },
+        {
+          "token": " including",
+          "id": 1285,
+          "p": 0.0
+        },
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.0
+        }
+      ],
+      "chosen": ",",
+      "chosen_id": 28,
+      "p_chosen": 0.999435,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 21,
+      "tokens_in": 57,
+      "top": [
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.9349
+        },
+        {
+          "token": " fashion",
+          "id": 7317,
+          "p": 0.0205
+        },
+        {
+          "token": " art",
+          "id": 984,
+          "p": 0.0137
+        },
+        {
+          "token": " artistic",
+          "id": 7540,
+          "p": 0.0081
+        },
+        {
+          "token": " culinary",
+          "id": 12810,
+          "p": 0.0038
+        },
+        {
+          "token": " arts",
+          "id": 6600,
+          "p": 0.0037
+        },
+        {
+          "token": " cuisine",
+          "id": 13964,
+          "p": 0.0025
+        },
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.0019
+        },
+        {
+          "token": " museums",
+          "id": 14739,
+          "p": 0.0013
+        },
+        {
+          "token": " historical",
+          "id": 2844,
+          "p": 0.0011
+        }
+      ],
+      "chosen": " and",
+      "chosen_id": 284,
+      "p_chosen": 0.934888,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 22,
+      "tokens_in": 58,
+      "top": [
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.3682
+        },
+        {
+          "token": " vibrant",
+          "id": 8685,
+          "p": 0.1365
+        },
+        {
+          "token": " culinary",
+          "id": 12810,
+          "p": 0.082
+        },
+        {
+          "token": " artistic",
+          "id": 7540,
+          "p": 0.0591
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.0519
+        },
+        {
+          "token": " iconic",
+          "id": 13329,
+          "p": 0.0213
+        },
+        {
+          "token": " a",
+          "id": 253,
+          "p": 0.0184
+        },
+        {
+          "token": " modern",
+          "id": 2148,
+          "p": 0.0178
+        },
+        {
+          "token": " romantic",
+          "id": 12986,
+          "p": 0.0175
+        },
+        {
+          "token": " cuisine",
+          "id": 13964,
+          "p": 0.0159
+        }
+      ],
+      "chosen": " cultural",
+      "chosen_id": 2642,
+      "p_chosen": 0.368185,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 23,
+      "tokens_in": 59,
+      "top": [
+        {
+          "token": " attractions",
+          "id": 21627,
+          "p": 0.1838
+        },
+        {
+          "token": " diversity",
+          "id": 4692,
+          "p": 0.1516
+        },
+        {
+          "token": " events",
+          "id": 2466,
+          "p": 0.1181
+        },
+        {
+          "token": " significance",
+          "id": 5017,
+          "p": 0.0892
+        },
+        {
+          "token": " institutions",
+          "id": 4679,
+          "p": 0.0647
+        },
+        {
+          "token": " activities",
+          "id": 2123,
+          "p": 0.0516
+        },
+        {
+          "token": " life",
+          "id": 1029,
+          "p": 0.043
+        },
+        {
+          "token": " cuisine",
+          "id": 13964,
+          "p": 0.0293
+        },
+        {
+          "token": " amenities",
+          "id": 32255,
+          "p": 0.0253
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0166
+        }
+      ],
+      "chosen": " attractions",
+      "chosen_id": 21627,
+      "p_chosen": 0.183771,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 24,
+      "tokens_in": 60,
+      "top": [
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.8081
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.1449
+        },
+        {
+          "token": " that",
+          "id": 338,
+          "p": 0.0216
+        },
+        {
+          "token": " like",
+          "id": 702,
+          "p": 0.009
+        },
+        {
+          "token": " such",
+          "id": 715,
+          "p": 0.0083
+        },
+        {
+          "token": " worldwide",
+          "id": 4969,
+          "p": 0.0011
+        },
+        {
+          "token": " throughout",
+          "id": 2126,
+          "p": 0.001
+        },
+        {
+          "token": " in",
+          "id": 281,
+          "p": 0.0007
+        },
+        {
+          "token": " across",
+          "id": 1699,
+          "p": 0.0007
+        },
+        {
+          "token": " along",
+          "id": 1683,
+          "p": 0.0005
+        }
+      ],
+      "chosen": ".",
+      "chosen_id": 30,
+      "p_chosen": 0.808149,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 25,
+      "tokens_in": 61,
+      "top": [
+        {
+          "token": " Paris",
+          "id": 7042,
+          "p": 0.5298
+        },
+        {
+          "token": "<|im_end|>",
+          "id": 2,
+          "p": 0.1708
+        },
+        {
+          "token": " The",
+          "id": 378,
+          "p": 0.0651
+        },
+        {
+          "token": " It",
+          "id": 657,
+          "p": 0.0375
+        },
+        {
+          "token": " You",
+          "id": 1206,
+          "p": 0.0169
+        },
+        {
+          "token": " As",
+          "id": 1032,
+          "p": 0.0129
+        },
+        {
+          "token": " Its",
+          "id": 4781,
+          "p": 0.0112
+        },
+        {
+          "token": "\n",
+          "id": 198,
+          "p": 0.0106
+        },
+        {
+          "token": " While",
+          "id": 2445,
+          "p": 0.0105
+        },
+        {
+          "token": " \n",
+          "id": 3717,
+          "p": 0.0094
+        }
+      ],
+      "chosen": " Paris",
+      "chosen_id": 7042,
+      "p_chosen": 0.52976,
+      "rank_chosen": 1,
+      "p_stop": 0.1708,
+      "forced": false
+    },
+    {
+      "pass": 26,
+      "tokens_in": 62,
+      "top": [
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.8122
+        },
+        {
+          "token": " has",
+          "id": 553,
+          "p": 0.0555
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0477
+        },
+        {
+          "token": " serves",
+          "id": 5860,
+          "p": 0.0444
+        },
+        {
+          "token": " attracts",
+          "id": 25756,
+          "p": 0.0151
+        },
+        {
+          "token": " offers",
+          "id": 3362,
+          "p": 0.0045
+        },
+        {
+          "token": " was",
+          "id": 436,
+          "p": 0.0044
+        },
+        {
+          "token": " holds",
+          "id": 6650,
+          "p": 0.0021
+        },
+        {
+          "token": "'",
+          "id": 23,
+          "p": 0.002
+        },
+        {
+          "token": " boasts",
+          "id": 21186,
+          "p": 0.0011
+        }
+      ],
+      "chosen": " is",
+      "chosen_id": 314,
+      "p_chosen": 0.812183,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 27,
+      "tokens_in": 63,
+      "top": [
+        {
+          "token": " a",
+          "id": 253,
+          "p": 0.3806
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.1524
+        },
+        {
+          "token": " also",
+          "id": 597,
+          "p": 0.1081
+        },
+        {
+          "token": " often",
+          "id": 1129,
+          "p": 0.0737
+        },
+        {
+          "token": " famous",
+          "id": 4248,
+          "p": 0.0653
+        },
+        {
+          "token": " located",
+          "id": 3807,
+          "p": 0.0652
+        },
+        {
+          "token": " home",
+          "id": 1478,
+          "p": 0.0437
+        },
+        {
+          "token": " considered",
+          "id": 2500,
+          "p": 0.0218
+        },
+        {
+          "token": " not",
+          "id": 441,
+          "p": 0.0099
+        },
+        {
+          "token": " an",
+          "id": 354,
+          "p": 0.0081
+        }
+      ],
+      "chosen": " a",
+      "chosen_id": 253,
+      "p_chosen": 0.380589,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 28,
+      "tokens_in": 64,
+      "top": [
+        {
+          "token": " major",
+          "id": 1739,
+          "p": 0.2225
+        },
+        {
+          "token": " vibrant",
+          "id": 8685,
+          "p": 0.1799
+        },
+        {
+          "token": " city",
+          "id": 2240,
+          "p": 0.1436
+        },
+        {
+          "token": " beautiful",
+          "id": 3953,
+          "p": 0.0522
+        },
+        {
+          "token": " global",
+          "id": 2224,
+          "p": 0.0516
+        },
+        {
+          "token": " significant",
+          "id": 1546,
+          "p": 0.0246
+        },
+        {
+          "token": " great",
+          "id": 1109,
+          "p": 0.0223
+        },
+        {
+          "token": " modern",
+          "id": 2148,
+          "p": 0.022
+        },
+        {
+          "token": " must",
+          "id": 1251,
+          "p": 0.0208
+        },
+        {
+          "token": " hub",
+          "id": 14157,
+          "p": 0.0166
+        }
+      ],
+      "chosen": " major",
+      "chosen_id": 1739,
+      "p_chosen": 0.222493,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 29,
+      "tokens_in": 65,
+      "top": [
+        {
+          "token": " global",
+          "id": 2224,
+          "p": 0.4684
+        },
+        {
+          "token": " city",
+          "id": 2240,
+          "p": 0.1644
+        },
+        {
+          "token": " international",
+          "id": 3113,
+          "p": 0.0889
+        },
+        {
+          "token": " center",
+          "id": 3712,
+          "p": 0.0703
+        },
+        {
+          "token": " European",
+          "id": 3284,
+          "p": 0.0352
+        },
+        {
+          "token": " tourist",
+          "id": 16477,
+          "p": 0.0315
+        },
+        {
+          "token": " urban",
+          "id": 4343,
+          "p": 0.0278
+        },
+        {
+          "token": " metropolis",
+          "id": 39228,
+          "p": 0.0254
+        },
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.0144
+        },
+        {
+          "token": " hub",
+          "id": 14157,
+          "p": 0.0121
+        }
+      ],
+      "chosen": " global",
+      "chosen_id": 2224,
+      "p_chosen": 0.46839,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 30,
+      "tokens_in": 66,
+      "top": [
+        {
+          "token": " city",
+          "id": 2240,
+          "p": 0.4819
+        },
+        {
+          "token": " center",
+          "id": 3712,
+          "p": 0.2707
+        },
+        {
+          "token": " hub",
+          "id": 14157,
+          "p": 0.1109
+        },
+        {
+          "token": " metropolis",
+          "id": 39228,
+          "p": 0.0565
+        },
+        {
+          "token": " destination",
+          "id": 10420,
+          "p": 0.0118
+        },
+        {
+          "token": " economic",
+          "id": 2536,
+          "p": 0.0102
+        },
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.0096
+        },
+        {
+          "token": " capital",
+          "id": 3575,
+          "p": 0.0092
+        },
+        {
+          "token": " financial",
+          "id": 3216,
+          "p": 0.007
+        },
+        {
+          "token": " urban",
+          "id": 4343,
+          "p": 0.0058
+        }
+      ],
+      "chosen": " city",
+      "chosen_id": 2240,
+      "p_chosen": 0.481931,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 31,
+      "tokens_in": 67,
+      "top": [
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.392
+        },
+        {
+          "token": " with",
+          "id": 351,
+          "p": 0.2564
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.2262
+        },
+        {
+          "token": " that",
+          "id": 338,
+          "p": 0.0398
+        },
+        {
+          "token": " located",
+          "id": 3807,
+          "p": 0.0258
+        },
+        {
+          "token": " in",
+          "id": 281,
+          "p": 0.0128
+        },
+        {
+          "token": " serving",
+          "id": 6992,
+          "p": 0.0073
+        },
+        {
+          "token": " known",
+          "id": 1343,
+          "p": 0.0069
+        },
+        {
+          "token": " attracting",
+          "id": 21469,
+          "p": 0.002
+        },
+        {
+          "token": " covering",
+          "id": 8536,
+          "p": 0.0018
+        }
+      ],
+      "chosen": ",",
+      "chosen_id": 28,
+      "p_chosen": 0.391971,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 32,
+      "tokens_in": 68,
+      "top": [
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.3697
+        },
+        {
+          "token": " with",
+          "id": 351,
+          "p": 0.1962
+        },
+        {
+          "token": " home",
+          "id": 1478,
+          "p": 0.0877
+        },
+        {
+          "token": " known",
+          "id": 1343,
+          "p": 0.0346
+        },
+        {
+          "token": " famous",
+          "id": 4248,
+          "p": 0.0307
+        },
+        {
+          "token": " serving",
+          "id": 6992,
+          "p": 0.027
+        },
+        {
+          "token": " attracting",
+          "id": 21469,
+          "p": 0.0264
+        },
+        {
+          "token": " often",
+          "id": 1129,
+          "p": 0.0248
+        },
+        {
+          "token": " hosting",
+          "id": 17042,
+          "p": 0.0245
+        },
+        {
+          "token": " located",
+          "id": 3807,
+          "p": 0.0167
+        }
+      ],
+      "chosen": " and",
+      "chosen_id": 284,
+      "p_chosen": 0.36973,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 33,
+      "tokens_in": 69,
+      "top": [
+        {
+          "token": " its",
+          "id": 624,
+          "p": 0.417
+        },
+        {
+          "token": " it",
+          "id": 357,
+          "p": 0.4086
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.0447
+        },
+        {
+          "token": " many",
+          "id": 800,
+          "p": 0.032
+        },
+        {
+          "token": " as",
+          "id": 347,
+          "p": 0.0184
+        },
+        {
+          "token": " for",
+          "id": 327,
+          "p": 0.0106
+        },
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.0101
+        },
+        {
+          "token": " while",
+          "id": 979,
+          "p": 0.0055
+        },
+        {
+          "token": " people",
+          "id": 701,
+          "p": 0.0037
+        },
+        {
+          "token": " there",
+          "id": 665,
+          "p": 0.0033
+        }
+      ],
+      "chosen": " its",
+      "chosen_id": 624,
+      "p_chosen": 0.417003,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 34,
+      "tokens_in": 70,
+      "top": [
+        {
+          "token": " population",
+          "id": 2155,
+          "p": 0.1435
+        },
+        {
+          "token": " name",
+          "id": 1462,
+          "p": 0.0976
+        },
+        {
+          "token": " unique",
+          "id": 2116,
+          "p": 0.0494
+        },
+        {
+          "token": " location",
+          "id": 3695,
+          "p": 0.039
+        },
+        {
+          "token": " influence",
+          "id": 3200,
+          "p": 0.0357
+        },
+        {
+          "token": " inhabitants",
+          "id": 9910,
+          "p": 0.0347
+        },
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.0263
+        },
+        {
+          "token": " capital",
+          "id": 3575,
+          "p": 0.0262
+        },
+        {
+          "token": " significance",
+          "id": 5017,
+          "p": 0.0253
+        },
+        {
+          "token": " residents",
+          "id": 6089,
+          "p": 0.0241
+        }
+      ],
+      "chosen": " population",
+      "chosen_id": 2155,
+      "p_chosen": 0.143492,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 35,
+      "tokens_in": 71,
+      "top": [
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.6831
+        },
+        {
+          "token": " of",
+          "id": 282,
+          "p": 0.1032
+        },
+        {
+          "token": " has",
+          "id": 553,
+          "p": 0.0411
+        },
+        {
+          "token": " makes",
+          "id": 2022,
+          "p": 0.0249
+        },
+        {
+          "token": " exceeds",
+          "id": 21341,
+          "p": 0.0196
+        },
+        {
+          "token": " covers",
+          "id": 7725,
+          "p": 0.0111
+        },
+        {
+          "token": " includes",
+          "id": 2978,
+          "p": 0.0085
+        },
+        {
+          "token": " can",
+          "id": 416,
+          "p": 0.0083
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0077
+        },
+        {
+          "token": " (",
+          "id": 365,
+          "p": 0.006
+        }
+      ],
+      "chosen": " is",
+      "chosen_id": 314,
+      "p_chosen": 0.68314,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 36,
+      "tokens_in": 72,
+      "top": [
+        {
+          "token": " approximately",
+          "id": 4723,
+          "p": 0.3572
+        },
+        {
+          "token": " estimated",
+          "id": 5183,
+          "p": 0.0974
+        },
+        {
+          "token": " roughly",
+          "id": 8553,
+          "p": 0.0872
+        },
+        {
+          "token": " about",
+          "id": 563,
+          "p": 0.0844
+        },
+        {
+          "token": " around",
+          "id": 1130,
+          "p": 0.0724
+        },
+        {
+          "token": " over",
+          "id": 690,
+          "p": 0.0661
+        },
+        {
+          "token": " one",
+          "id": 582,
+          "p": 0.0199
+        },
+        {
+          "token": " growing",
+          "id": 2969,
+          "p": 0.0167
+        },
+        {
+          "token": " a",
+          "id": 253,
+          "p": 0.0162
+        },
+        {
+          "token": " ",
+          "id": 216,
+          "p": 0.0134
+        }
+      ],
+      "chosen": " approximately",
+      "chosen_id": 4723,
+      "p_chosen": 0.357233,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 37,
+      "tokens_in": 73,
+      "top": [
+        {
+          "token": " ",
+          "id": 216,
+          "p": 0.975
+        },
+        {
+          "token": " one",
+          "id": 582,
+          "p": 0.0188
+        },
+        {
+          "token": " two",
+          "id": 827,
+          "p": 0.0011
+        },
+        {
+          "token": " six",
+          "id": 2976,
+          "p": 0.0006
+        },
+        {
+          "token": " three",
+          "id": 1296,
+          "p": 0.0005
+        },
+        {
+          "token": " five",
+          "id": 2531,
+          "p": 0.0005
+        },
+        {
+          "token": " four",
+          "id": 1876,
+          "p": 0.0004
+        },
+        {
+          "token": " eight",
+          "id": 4475,
+          "p": 0.0004
+        },
+        {
+          "token": " over",
+          "id": 690,
+          "p": 0.0003
+        },
+        {
+          "token": " seven",
+          "id": 4962,
+          "p": 0.0003
+        }
+      ],
+      "chosen": " ",
+      "chosen_id": 216,
+      "p_chosen": 0.97502,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 38,
+      "tokens_in": 74,
+      "top": [
+        {
+          "token": "2",
+          "id": 34,
+          "p": 0.4753
+        },
+        {
+          "token": "1",
+          "id": 33,
+          "p": 0.2332
+        },
+        {
+          "token": "8",
+          "id": 40,
+          "p": 0.111
+        },
+        {
+          "token": "7",
+          "id": 39,
+          "p": 0.0592
+        },
+        {
+          "token": "6",
+          "id": 38,
+          "p": 0.04
+        },
+        {
+          "token": "3",
+          "id": 35,
+          "p": 0.0388
+        },
+        {
+          "token": "5",
+          "id": 37,
+          "p": 0.0247
+        },
+        {
+          "token": "4",
+          "id": 36,
+          "p": 0.012
+        },
+        {
+          "token": "9",
+          "id": 41,
+          "p": 0.0058
+        },
+        {
+          "token": "0",
+          "id": 32,
+          "p": 0.0
+        }
+      ],
+      "chosen": "2",
+      "chosen_id": 34,
+      "p_chosen": 0.47526,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 39,
+      "tokens_in": 75,
+      "top": [
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.7703
+        },
+        {
+          "token": " million",
+          "id": 2215,
+          "p": 0.1106
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0655
+        },
+        {
+          "token": "1",
+          "id": 33,
+          "p": 0.0108
+        },
+        {
+          "token": "7",
+          "id": 39,
+          "p": 0.0075
+        },
+        {
+          "token": "8",
+          "id": 40,
+          "p": 0.0074
+        },
+        {
+          "token": "3",
+          "id": 35,
+          "p": 0.0061
+        },
+        {
+          "token": "0",
+          "id": 32,
+          "p": 0.0046
+        },
+        {
+          "token": "6",
+          "id": 38,
+          "p": 0.0039
+        },
+        {
+          "token": "5",
+          "id": 37,
+          "p": 0.0035
+        }
+      ],
+      "chosen": ".",
+      "chosen_id": 30,
+      "p_chosen": 0.770309,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 40,
+      "tokens_in": 76,
+      "top": [
+        {
+          "token": "5",
+          "id": 37,
+          "p": 0.2193
+        },
+        {
+          "token": "2",
+          "id": 34,
+          "p": 0.2106
+        },
+        {
+          "token": "8",
+          "id": 40,
+          "p": 0.1691
+        },
+        {
+          "token": "1",
+          "id": 33,
+          "p": 0.1135
+        },
+        {
+          "token": "7",
+          "id": 39,
+          "p": 0.0938
+        },
+        {
+          "token": "3",
+          "id": 35,
+          "p": 0.0612
+        },
+        {
+          "token": "9",
+          "id": 41,
+          "p": 0.0533
+        },
+        {
+          "token": "4",
+          "id": 36,
+          "p": 0.0456
+        },
+        {
+          "token": "6",
+          "id": 38,
+          "p": 0.0285
+        },
+        {
+          "token": "0",
+          "id": 32,
+          "p": 0.0047
+        }
+      ],
+      "chosen": "5",
+      "chosen_id": 37,
+      "p_chosen": 0.219277,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 41,
+      "tokens_in": 77,
+      "top": [
+        {
+          "token": " million",
+          "id": 2215,
+          "p": 0.965
+        },
+        {
+          "token": " ",
+          "id": 15442,
+          "p": 0.0047
+        },
+        {
+          "token": " billion",
+          "id": 4533,
+          "p": 0.0041
+        },
+        {
+          "token": "7",
+          "id": 39,
+          "p": 0.0038
+        },
+        {
+          "token": "6",
+          "id": 38,
+          "p": 0.0028
+        },
+        {
+          "token": "1",
+          "id": 33,
+          "p": 0.0027
+        },
+        {
+          "token": "4",
+          "id": 36,
+          "p": 0.0027
+        },
+        {
+          "token": "2",
+          "id": 34,
+          "p": 0.0025
+        },
+        {
+          "token": "8",
+          "id": 40,
+          "p": 0.0024
+        },
+        {
+          "token": "3",
+          "id": 35,
+          "p": 0.0023
+        }
+      ],
+      "chosen": " million",
+      "chosen_id": 2215,
+      "p_chosen": 0.964954,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 42,
+      "tokens_in": 78,
+      "top": [
+        {
+          "token": " people",
+          "id": 701,
+          "p": 0.5718
+        },
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.2833
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0936
+        },
+        {
+          "token": " residents",
+          "id": 6089,
+          "p": 0.0284
+        },
+        {
+          "token": " inhabitants",
+          "id": 9910,
+          "p": 0.0059
+        },
+        {
+          "token": " as",
+          "id": 347,
+          "p": 0.0036
+        },
+        {
+          "token": " (",
+          "id": 365,
+          "p": 0.0022
+        },
+        {
+          "token": " citizens",
+          "id": 4240,
+          "p": 0.0021
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0018
+        },
+        {
+          "token": " in",
+          "id": 281,
+          "p": 0.0016
+        }
+      ],
+      "chosen": " people",
+      "chosen_id": 701,
+      "p_chosen": 0.571781,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 43,
+      "tokens_in": 79,
+      "top": [
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.7614
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.218
+        },
+        {
+          "token": " in",
+          "id": 281,
+          "p": 0.0028
+        },
+        {
+          "token": " (",
+          "id": 365,
+          "p": 0.0024
+        },
+        {
+          "token": " as",
+          "id": 347,
+          "p": 0.0021
+        },
+        {
+          "token": " at",
+          "id": 418,
+          "p": 0.0017
+        },
+        {
+          "token": " living",
+          "id": 2242,
+          "p": 0.0015
+        },
+        {
+          "token": " or",
+          "id": 355,
+          "p": 0.0014
+        },
+        {
+          "token": " with",
+          "id": 351,
+          "p": 0.0013
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0012
+        }
+      ],
+      "chosen": ".",
+      "chosen_id": 30,
+      "p_chosen": 0.761377,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 44,
+      "tokens_in": 80,
+      "top": [
+        {
+          "token": "<|im_end|>",
+          "id": 2,
+          "p": 0.5137
+        },
+        {
+          "token": " The",
+          "id": 378,
+          "p": 0.1116
+        },
+        {
+          "token": " It",
+          "id": 657,
+          "p": 0.1068
+        },
+        {
+          "token": " Paris",
+          "id": 7042,
+          "p": 0.0589
+        },
+        {
+          "token": "\n",
+          "id": 198,
+          "p": 0.0511
+        },
+        {
+          "token": " Its",
+          "id": 4781,
+          "p": 0.0232
+        },
+        {
+          "token": " \n",
+          "id": 3717,
+          "p": 0.0149
+        },
+        {
+          "token": "\n\n",
+          "id": 1116,
+          "p": 0.0083
+        },
+        {
+          "token": " While",
+          "id": 2445,
+          "p": 0.0071
+        },
+        {
+          "token": " Many",
+          "id": 3027,
+          "p": 0.007
+        }
+      ],
+      "chosen": " The",
+      "chosen_id": 378,
+      "p_chosen": 0.111604,
+      "rank_chosen": 2,
+      "p_stop": 0.5137,
+      "forced": false
+    },
+    {
+      "pass": 45,
+      "tokens_in": 81,
+      "top": [
+        {
+          "token": " city",
+          "id": 2240,
+          "p": 0.6093
+        },
+        {
+          "token": " capital",
+          "id": 3575,
+          "p": 0.2507
+        },
+        {
+          "token": " City",
+          "id": 4206,
+          "p": 0.0343
+        },
+        {
+          "token": " French",
+          "id": 3432,
+          "p": 0.0335
+        },
+        {
+          "token": " name",
+          "id": 1462,
+          "p": 0.0076
+        },
+        {
+          "token": " E",
+          "id": 414,
+          "p": 0.0076
+        },
+        {
+          "token": " Latin",
+          "id": 5671,
+          "p": 0.0058
+        },
+        {
+          "token": " official",
+          "id": 5326,
+          "p": 0.0042
+        },
+        {
+          "token": " most",
+          "id": 768,
+          "p": 0.0032
+        },
+        {
+          "token": " historic",
+          "id": 7709,
+          "p": 0.0031
+        }
+      ],
+      "chosen": " city",
+      "chosen_id": 2240,
+      "p_chosen": 0.609307,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 46,
+      "tokens_in": 82,
+      "top": [
+        {
+          "token": " is",
+          "id": 314,
+          "p": 0.6975
+        },
+        {
+          "token": " has",
+          "id": 553,
+          "p": 0.1175
+        },
+        {
+          "token": "'s",
+          "id": 506,
+          "p": 0.0951
+        },
+        {
+          "token": " boasts",
+          "id": 21186,
+          "p": 0.0217
+        },
+        {
+          "token": " offers",
+          "id": 3362,
+          "p": 0.0121
+        },
+        {
+          "token": " was",
+          "id": 436,
+          "p": 0.0098
+        },
+        {
+          "token": " attracts",
+          "id": 25756,
+          "p": 0.0083
+        },
+        {
+          "token": " serves",
+          "id": 5860,
+          "p": 0.0071
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0046
+        },
+        {
+          "token": " also",
+          "id": 597,
+          "p": 0.0023
+        }
+      ],
+      "chosen": " is",
+      "chosen_id": 314,
+      "p_chosen": 0.697549,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 47,
+      "tokens_in": 83,
+      "top": [
+        {
+          "token": " also",
+          "id": 597,
+          "p": 0.1771
+        },
+        {
+          "token": " located",
+          "id": 3807,
+          "p": 0.1502
+        },
+        {
+          "token": " home",
+          "id": 1478,
+          "p": 0.1249
+        },
+        {
+          "token": " famous",
+          "id": 4248,
+          "p": 0.1201
+        },
+        {
+          "token": " a",
+          "id": 253,
+          "p": 0.0984
+        },
+        {
+          "token": " often",
+          "id": 1129,
+          "p": 0.0425
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.0289
+        },
+        {
+          "token": " named",
+          "id": 3365,
+          "p": 0.0238
+        },
+        {
+          "token": " situated",
+          "id": 13010,
+          "p": 0.018
+        },
+        {
+          "token": " divided",
+          "id": 6066,
+          "p": 0.0177
+        }
+      ],
+      "chosen": " also",
+      "chosen_id": 597,
+      "p_chosen": 0.177101,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 48,
+      "tokens_in": 84,
+      "top": [
+        {
+          "token": " a",
+          "id": 253,
+          "p": 0.3164
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.227
+        },
+        {
+          "token": " home",
+          "id": 1478,
+          "p": 0.1917
+        },
+        {
+          "token": " famous",
+          "id": 4248,
+          "p": 0.0957
+        },
+        {
+          "token": " known",
+          "id": 1343,
+          "p": 0.0338
+        },
+        {
+          "token": " one",
+          "id": 582,
+          "p": 0.0304
+        },
+        {
+          "token": " considered",
+          "id": 2500,
+          "p": 0.0255
+        },
+        {
+          "token": " renowned",
+          "id": 14104,
+          "p": 0.0166
+        },
+        {
+          "token": " an",
+          "id": 354,
+          "p": 0.0104
+        },
+        {
+          "token": " located",
+          "id": 3807,
+          "p": 0.0056
+        }
+      ],
+      "chosen": " a",
+      "chosen_id": 253,
+      "p_chosen": 0.316367,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 49,
+      "tokens_in": 85,
+      "top": [
+        {
+          "token": " major",
+          "id": 1739,
+          "p": 0.4953
+        },
+        {
+          "token": " global",
+          "id": 2224,
+          "p": 0.1007
+        },
+        {
+          "token": " center",
+          "id": 3712,
+          "p": 0.0678
+        },
+        {
+          "token": " hub",
+          "id": 14157,
+          "p": 0.0597
+        },
+        {
+          "token": " leading",
+          "id": 2899,
+          "p": 0.0431
+        },
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.0296
+        },
+        {
+          "token": " popular",
+          "id": 2378,
+          "p": 0.0277
+        },
+        {
+          "token": " significant",
+          "id": 1546,
+          "p": 0.0162
+        },
+        {
+          "token": " key",
+          "id": 1646,
+          "p": 0.0141
+        },
+        {
+          "token": " world",
+          "id": 905,
+          "p": 0.0139
+        }
+      ],
+      "chosen": " major",
+      "chosen_id": 1739,
+      "p_chosen": 0.495258,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 50,
+      "tokens_in": 86,
+      "top": [
+        {
+          "token": " center",
+          "id": 3712,
+          "p": 0.3192
+        },
+        {
+          "token": " transportation",
+          "id": 6367,
+          "p": 0.1067
+        },
+        {
+          "token": " international",
+          "id": 3113,
+          "p": 0.0912
+        },
+        {
+          "token": " global",
+          "id": 2224,
+          "p": 0.0793
+        },
+        {
+          "token": " cultural",
+          "id": 2642,
+          "p": 0.0756
+        },
+        {
+          "token": " economic",
+          "id": 2536,
+          "p": 0.0721
+        },
+        {
+          "token": " tourist",
+          "id": 16477,
+          "p": 0.0672
+        },
+        {
+          "token": " financial",
+          "id": 3216,
+          "p": 0.0492
+        },
+        {
+          "token": " commercial",
+          "id": 4713,
+          "p": 0.0318
+        },
+        {
+          "token": " hub",
+          "id": 14157,
+          "p": 0.0151
+        }
+      ],
+      "chosen": " center",
+      "chosen_id": 3712,
+      "p_chosen": 0.319188,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 51,
+      "tokens_in": 87,
+      "top": [
+        {
+          "token": " for",
+          "id": 327,
+          "p": 0.6553
+        },
+        {
+          "token": " of",
+          "id": 282,
+          "p": 0.3439
+        },
+        {
+          "token": " in",
+          "id": 281,
+          "p": 0.0004
+        },
+        {
+          "token": " with",
+          "id": 351,
+          "p": 0.0001
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0001
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.0001
+        },
+        {
+          "token": " known",
+          "id": 1343,
+          "p": 0.0
+        },
+        {
+          "token": " on",
+          "id": 335,
+          "p": 0.0
+        },
+        {
+          "token": " worldwide",
+          "id": 4969,
+          "p": 0.0
+        },
+        {
+          "token": " around",
+          "id": 1130,
+          "p": 0.0
+        }
+      ],
+      "chosen": " for",
+      "chosen_id": 327,
+      "p_chosen": 0.65526,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 52,
+      "tokens_in": 88,
+      "top": [
+        {
+          "token": " art",
+          "id": 984,
+          "p": 0.456
+        },
+        {
+          "token": " fashion",
+          "id": 7317,
+          "p": 0.1727
+        },
+        {
+          "token": " finance",
+          "id": 9999,
+          "p": 0.0888
+        },
+        {
+          "token": " international",
+          "id": 3113,
+          "p": 0.0462
+        },
+        {
+          "token": " arts",
+          "id": 6600,
+          "p": 0.0279
+        },
+        {
+          "token": " education",
+          "id": 1888,
+          "p": 0.0234
+        },
+        {
+          "token": " culture",
+          "id": 2517,
+          "p": 0.0216
+        },
+        {
+          "token": " business",
+          "id": 1861,
+          "p": 0.021
+        },
+        {
+          "token": " politics",
+          "id": 5993,
+          "p": 0.0139
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.0136
+        }
+      ],
+      "chosen": " art",
+      "chosen_id": 984,
+      "p_chosen": 0.456032,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 53,
+      "tokens_in": 89,
+      "top": [
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.9972
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0014
+        },
+        {
+          "token": " museums",
+          "id": 14739,
+          "p": 0.0005
+        },
+        {
+          "token": " history",
+          "id": 1463,
+          "p": 0.0003
+        },
+        {
+          "token": " exhibitions",
+          "id": 23589,
+          "p": 0.0
+        },
+        {
+          "token": " music",
+          "id": 2477,
+          "p": 0.0
+        },
+        {
+          "token": " appreciation",
+          "id": 6637,
+          "p": 0.0
+        },
+        {
+          "token": " criticism",
+          "id": 10083,
+          "p": 0.0
+        },
+        {
+          "token": " theft",
+          "id": 18109,
+          "p": 0.0
+        },
+        {
+          "token": " art",
+          "id": 984,
+          "p": 0.0
+        }
+      ],
+      "chosen": ",",
+      "chosen_id": 28,
+      "p_chosen": 0.997188,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 54,
+      "tokens_in": 90,
+      "top": [
+        {
+          "token": " fashion",
+          "id": 7317,
+          "p": 0.8799
+        },
+        {
+          "token": " architecture",
+          "id": 6277,
+          "p": 0.0421
+        },
+        {
+          "token": " culture",
+          "id": 2517,
+          "p": 0.0337
+        },
+        {
+          "token": " music",
+          "id": 2477,
+          "p": 0.0262
+        },
+        {
+          "token": " literature",
+          "id": 3657,
+          "p": 0.0039
+        },
+        {
+          "token": " science",
+          "id": 2092,
+          "p": 0.0036
+        },
+        {
+          "token": " finance",
+          "id": 9999,
+          "p": 0.0016
+        },
+        {
+          "token": " gastronomy",
+          "id": 43948,
+          "p": 0.0016
+        },
+        {
+          "token": " cuisine",
+          "id": 13964,
+          "p": 0.0013
+        },
+        {
+          "token": " innovation",
+          "id": 5922,
+          "p": 0.0009
+        }
+      ],
+      "chosen": " fashion",
+      "chosen_id": 7317,
+      "p_chosen": 0.879918,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 55,
+      "tokens_in": 91,
+      "top": [
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.9995
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0003
+        },
+        {
+          "token": " (",
+          "id": 365,
+          "p": 0.0002
+        },
+        {
+          "token": " industry",
+          "id": 2729,
+          "p": 0.0
+        },
+        {
+          "token": " clothing",
+          "id": 7204,
+          "p": 0.0
+        },
+        {
+          "token": " fashion",
+          "id": 7317,
+          "p": 0.0
+        },
+        {
+          "token": " innovation",
+          "id": 5922,
+          "p": 0.0
+        },
+        {
+          "token": " brands",
+          "id": 14705,
+          "p": 0.0
+        },
+        {
+          "token": " ,",
+          "id": 3297,
+          "p": 0.0
+        },
+        {
+          "token": " world",
+          "id": 905,
+          "p": 0.0
+        }
+      ],
+      "chosen": ",",
+      "chosen_id": 28,
+      "p_chosen": 0.999471,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 56,
+      "tokens_in": 92,
+      "top": [
+        {
+          "token": " gastronomy",
+          "id": 43948,
+          "p": 0.6761
+        },
+        {
+          "token": " cuisine",
+          "id": 13964,
+          "p": 0.0883
+        },
+        {
+          "token": " fashion",
+          "id": 7317,
+          "p": 0.0641
+        },
+        {
+          "token": " architecture",
+          "id": 6277,
+          "p": 0.03
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.025
+        },
+        {
+          "token": " finance",
+          "id": 9999,
+          "p": 0.0245
+        },
+        {
+          "token": " culture",
+          "id": 2517,
+          "p": 0.0227
+        },
+        {
+          "token": " music",
+          "id": 2477,
+          "p": 0.0171
+        },
+        {
+          "token": " education",
+          "id": 1888,
+          "p": 0.0104
+        },
+        {
+          "token": " politics",
+          "id": 5993,
+          "p": 0.0084
+        }
+      ],
+      "chosen": " gastronomy",
+      "chosen_id": 43948,
+      "p_chosen": 0.676107,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 57,
+      "tokens_in": 93,
+      "top": [
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.9999
+        },
+        {
+          "token": " (",
+          "id": 365,
+          "p": 0.0
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0
+        },
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.0
+        },
+        {
+          "token": ";",
+          "id": 43,
+          "p": 0.0
+        },
+        {
+          "token": " culture",
+          "id": 2517,
+          "p": 0.0
+        },
+        {
+          "token": " cuisine",
+          "id": 13964,
+          "p": 0.0
+        },
+        {
+          "token": " industry",
+          "id": 2729,
+          "p": 0.0
+        },
+        {
+          "token": " –",
+          "id": 816,
+          "p": 0.0
+        },
+        {
+          "token": " restaurants",
+          "id": 14389,
+          "p": 0.0
+        }
+      ],
+      "chosen": ",",
+      "chosen_id": 28,
+      "p_chosen": 0.999912,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 58,
+      "tokens_in": 94,
+      "top": [
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.6293
+        },
+        {
+          "token": " fashion",
+          "id": 7317,
+          "p": 0.1707
+        },
+        {
+          "token": " finance",
+          "id": 9999,
+          "p": 0.0426
+        },
+        {
+          "token": " culture",
+          "id": 2517,
+          "p": 0.0333
+        },
+        {
+          "token": " education",
+          "id": 1888,
+          "p": 0.0224
+        },
+        {
+          "token": " science",
+          "id": 2092,
+          "p": 0.0167
+        },
+        {
+          "token": " architecture",
+          "id": 6277,
+          "p": 0.0145
+        },
+        {
+          "token": " politics",
+          "id": 5993,
+          "p": 0.0129
+        },
+        {
+          "token": " literature",
+          "id": 3657,
+          "p": 0.0082
+        },
+        {
+          "token": " technology",
+          "id": 1835,
+          "p": 0.0079
+        }
+      ],
+      "chosen": " and",
+      "chosen_id": 284,
+      "p_chosen": 0.629266,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 59,
+      "tokens_in": 95,
+      "top": [
+        {
+          "token": " culture",
+          "id": 2517,
+          "p": 0.3823
+        },
+        {
+          "token": " finance",
+          "id": 9999,
+          "p": 0.1268
+        },
+        {
+          "token": " fashion",
+          "id": 7317,
+          "p": 0.0997
+        },
+        {
+          "token": " entertainment",
+          "id": 11154,
+          "p": 0.0465
+        },
+        {
+          "token": " education",
+          "id": 1888,
+          "p": 0.0412
+        },
+        {
+          "token": " international",
+          "id": 3113,
+          "p": 0.0358
+        },
+        {
+          "token": " politics",
+          "id": 5993,
+          "p": 0.0325
+        },
+        {
+          "token": " the",
+          "id": 260,
+          "p": 0.0241
+        },
+        {
+          "token": " technology",
+          "id": 1835,
+          "p": 0.0219
+        },
+        {
+          "token": " science",
+          "id": 2092,
+          "p": 0.0139
+        }
+      ],
+      "chosen": " culture",
+      "chosen_id": 2517,
+      "p_chosen": 0.382269,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    },
+    {
+      "pass": 60,
+      "tokens_in": 96,
+      "top": [
+        {
+          "token": ".",
+          "id": 30,
+          "p": 0.5252
+        },
+        {
+          "token": ",",
+          "id": 28,
+          "p": 0.4507
+        },
+        {
+          "token": " in",
+          "id": 281,
+          "p": 0.015
+        },
+        {
+          "token": " worldwide",
+          "id": 4969,
+          "p": 0.002
+        },
+        {
+          "token": " with",
+          "id": 351,
+          "p": 0.0011
+        },
+        {
+          "token": " due",
+          "id": 1568,
+          "p": 0.0009
+        },
+        {
+          "token": " among",
+          "id": 1486,
+          "p": 0.0007
+        },
+        {
+          "token": " across",
+          "id": 1699,
+          "p": 0.0007
+        },
+        {
+          "token": " and",
+          "id": 284,
+          "p": 0.0006
+        },
+        {
+          "token": " around",
+          "id": 1130,
+          "p": 0.0006
+        }
+      ],
+      "chosen": ".",
+      "chosen_id": 30,
+      "p_chosen": 0.525194,
+      "rank_chosen": 1,
+      "p_stop": 0.0,
+      "forced": false
+    }
+  ]
+}

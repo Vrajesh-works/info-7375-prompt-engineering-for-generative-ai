@@ -1,0 +1,9 @@
+france       : 'The capital of France is Paris.'  (8 passes)
+middlemarch  : 'The novel Middlemarch is written by Samuel Richardson.'  (12 passes)
+no_stop      : 'The capital of France is Paris. It is a city known for its historical landmarks, cultural institutions, and cultural attractions. Paris is a major global city, and its population is approximately 2.5 million people. The city is also a major center for art, fashion, gastronomy, and culture.'
+force_george : 'The novel Middlemarch is written by George Eliot.'  (' George' at pass 9: p=0.0313, rank 8)
+path paris     : p=0.225193 over 8 passes
+path richardson: p=0.0014319 over 12 passes
+path eliot     : p=0.000126213 over 12 passes
+sample       : 5/200 name George Eliot
+env          : {'python': '3.12.14', 'torch': '2.14.0', 'transformers': '5.17.0', 'platform': 'macOS-26.5.1-arm64-arm-64bit'}

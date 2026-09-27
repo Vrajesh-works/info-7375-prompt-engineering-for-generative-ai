@@ -1,0 +1,30 @@
+{
+  "what": "Manual review of the 5 sampled answers that the regex in run_experiments.py flagged as naming George Eliot (runs/sample.json). This is a judgment, not a computation.",
+  "reviewed_by": "Claude Code (Claude Opus 5.5), 2026-09-27; to be spot-checked by Aditya Raj",
+  "rule": "Counts as 'names George Eliot as the author' only if the answer attributes Middlemarch to her.",
+  "regex_hits": 5,
+  "attributes_to_eliot": 4,
+  "runs": [
+    {"seed": 9, "attributes_to_eliot": true,
+     "excerpt": "The first part of the book was written by George Eliot, a Nobel Laureate in Literature.",
+     "invented_facts": ["'a Nobel Laureate in Literature' — the Nobel Prize in Literature was first awarded in 1901; Eliot died in 1880",
+                        "'originally titled \"The Mill at Frome\"' — no such title; The Mill on the Floss is a different Eliot novel"]},
+    {"seed": 42, "attributes_to_eliot": false,
+     "excerpt": "The names of many authors associated with the work of George Eliot, including her most famous novel, The Melivalm by Charles Barsanti…",
+     "note": "Mentions Eliot but attributes a (non-existent) novel to someone else; does not say she wrote Middlemarch."},
+    {"seed": 127, "attributes_to_eliot": true,
+     "excerpt": "The author of the book Middlemarch is George Eliot… Eliot's work was first published in 1870…",
+     "invented_facts": ["'first published in 1870' — Middlemarch was published 1871–1872"]},
+    {"seed": 149, "attributes_to_eliot": true,
+     "excerpt": "The author of Middlemarch, *George Eliot* (1811-1885), …",
+     "invented_facts": ["'(1811-1885)' — George Eliot lived 1819–1880"]},
+    {"seed": 186, "attributes_to_eliot": true,
+     "excerpt": "The author behind Middlemarch is George Eliot… Her novel won the Pulitzer Prize for Fiction in 1885…",
+     "invented_facts": ["'Pulitzer Prize for Fiction in 1885' — the Pulitzer Prizes were first awarded in 1917, and the fiction prize is for American authors"]}
+  ],
+  "sources": {
+    "eliot_dates_and_publication": "Project Gutenberg eBook #145, Middlemarch: 'Eliot, George, 1819-1880'; 'a novel published in 1871-1872' — https://www.gutenberg.org/ebooks/145",
+    "nobel": "Wikipedia, Nobel Prize in Literature: 'In 1901, French poet and essayist Sully Prudhomme … was the first person to be awarded the Nobel Prize in Literature' — https://en.wikipedia.org/wiki/Nobel_Prize_in_Literature",
+    "pulitzer": "Wikipedia, Pulitzer Prize: 'First awarded in June 1917'; fiction prize 'for distinguished fiction by an American author' — https://en.wikipedia.org/wiki/Pulitzer_Prize"
+  }
+}

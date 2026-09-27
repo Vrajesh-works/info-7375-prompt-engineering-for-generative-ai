@@ -1,0 +1,2944 @@
+{
+  "fps": 24,
+  "beats": {
+    "B00": [
+      {
+        "text": "Hola",
+        "startFrame": 7,
+        "endFrame": 7
+      },
+      {
+        "text": "—",
+        "startFrame": 7,
+        "endFrame": 7
+      },
+      {
+        "text": "this",
+        "startFrame": 7,
+        "endFrame": 11
+      },
+      {
+        "text": "is",
+        "startFrame": 11,
+        "endFrame": 17
+      },
+      {
+        "text": "Liam,",
+        "startFrame": 17,
+        "endFrame": 24
+      },
+      {
+        "text": "in",
+        "startFrame": 24,
+        "endFrame": 31
+      },
+      {
+        "text": "for",
+        "startFrame": 38,
+        "endFrame": 45
+      },
+      {
+        "text": "Aditya.",
+        "startFrame": 45,
+        "endFrame": 52
+      },
+      {
+        "text": "We",
+        "startFrame": 53,
+        "endFrame": 55
+      },
+      {
+        "text": "asked",
+        "startFrame": 55,
+        "endFrame": 60
+      },
+      {
+        "text": "a",
+        "startFrame": 60,
+        "endFrame": 63
+      },
+      {
+        "text": "small",
+        "startFrame": 63,
+        "endFrame": 69
+      },
+      {
+        "text": "chatbot,",
+        "startFrame": 69,
+        "endFrame": 81
+      },
+      {
+        "text": "running",
+        "startFrame": 81,
+        "endFrame": 90
+      },
+      {
+        "text": "on",
+        "startFrame": 90,
+        "endFrame": 94
+      },
+      {
+        "text": "a",
+        "startFrame": 94,
+        "endFrame": 96
+      },
+      {
+        "text": "laptop,",
+        "startFrame": 96,
+        "endFrame": 105
+      },
+      {
+        "text": "for",
+        "startFrame": 105,
+        "endFrame": 113
+      },
+      {
+        "text": "the",
+        "startFrame": 113,
+        "endFrame": 115
+      },
+      {
+        "text": "capital",
+        "startFrame": 115,
+        "endFrame": 123
+      },
+      {
+        "text": "of",
+        "startFrame": 123,
+        "endFrame": 126
+      },
+      {
+        "text": "France.",
+        "startFrame": 126,
+        "endFrame": 133
+      },
+      {
+        "text": "It",
+        "startFrame": 142,
+        "endFrame": 144
+      },
+      {
+        "text": "said",
+        "startFrame": 144,
+        "endFrame": 148
+      },
+      {
+        "text": "Paris.",
+        "startFrame": 148,
+        "endFrame": 158
+      },
+      {
+        "text": "Then",
+        "startFrame": 166,
+        "endFrame": 171
+      },
+      {
+        "text": "we",
+        "startFrame": 171,
+        "endFrame": 174
+      },
+      {
+        "text": "took",
+        "startFrame": 174,
+        "endFrame": 177
+      },
+      {
+        "text": "its",
+        "startFrame": 177,
+        "endFrame": 182
+      },
+      {
+        "text": "loop",
+        "startFrame": 182,
+        "endFrame": 186
+      },
+      {
+        "text": "apart.",
+        "startFrame": 186,
+        "endFrame": 194
+      }
+    ],
+    "B01": [
+      {
+        "text": "What's",
+        "startFrame": 14,
+        "endFrame": 24
+      },
+      {
+        "text": "a",
+        "startFrame": 24,
+        "endFrame": 25
+      },
+      {
+        "text": "chatbot?",
+        "startFrame": 25,
+        "endFrame": 36
+      },
+      {
+        "text": "Not",
+        "startFrame": 40,
+        "endFrame": 42
+      },
+      {
+        "text": "a",
+        "startFrame": 42,
+        "endFrame": 45
+      },
+      {
+        "text": "library",
+        "startFrame": 45,
+        "endFrame": 54
+      },
+      {
+        "text": "that",
+        "startFrame": 54,
+        "endFrame": 60
+      },
+      {
+        "text": "looks",
+        "startFrame": 60,
+        "endFrame": 64
+      },
+      {
+        "text": "answers",
+        "startFrame": 64,
+        "endFrame": 72
+      },
+      {
+        "text": "up.",
+        "startFrame": 72,
+        "endFrame": 82
+      },
+      {
+        "text": "A",
+        "startFrame": 89,
+        "endFrame": 91
+      },
+      {
+        "text": "loop:",
+        "startFrame": 91,
+        "endFrame": 95
+      },
+      {
+        "text": "predict",
+        "startFrame": 101,
+        "endFrame": 106
+      },
+      {
+        "text": "one",
+        "startFrame": 107,
+        "endFrame": 108
+      },
+      {
+        "text": "token,",
+        "startFrame": 108,
+        "endFrame": 117
+      },
+      {
+        "text": "append",
+        "startFrame": 123,
+        "endFrame": 127
+      },
+      {
+        "text": "it,",
+        "startFrame": 127,
+        "endFrame": 132
+      },
+      {
+        "text": "repeat.",
+        "startFrame": 133,
+        "endFrame": 140
+      },
+      {
+        "text": "See",
+        "startFrame": 149,
+        "endFrame": 152
+      },
+      {
+        "text": "the",
+        "startFrame": 152,
+        "endFrame": 156
+      },
+      {
+        "text": "loop,",
+        "startFrame": 156,
+        "endFrame": 159
+      },
+      {
+        "text": "and",
+        "startFrame": 164,
+        "endFrame": 165
+      },
+      {
+        "text": "you'll",
+        "startFrame": 165,
+        "endFrame": 169
+      },
+      {
+        "text": "see",
+        "startFrame": 169,
+        "endFrame": 172
+      },
+      {
+        "text": "why",
+        "startFrame": 172,
+        "endFrame": 178
+      },
+      {
+        "text": "fluent",
+        "startFrame": 178,
+        "endFrame": 185
+      },
+      {
+        "text": "is",
+        "startFrame": 185,
+        "endFrame": 189
+      },
+      {
+        "text": "not",
+        "startFrame": 189,
+        "endFrame": 193
+      },
+      {
+        "text": "the",
+        "startFrame": 193,
+        "endFrame": 196
+      },
+      {
+        "text": "same",
+        "startFrame": 196,
+        "endFrame": 202
+      },
+      {
+        "text": "as",
+        "startFrame": 202,
+        "endFrame": 205
+      },
+      {
+        "text": "true.",
+        "startFrame": 205,
+        "endFrame": 212
+      }
+    ],
+    "B02": [
+      {
+        "text": "Here's",
+        "startFrame": 0,
+        "endFrame": 7
+      },
+      {
+        "text": "the",
+        "startFrame": 7,
+        "endFrame": 9
+      },
+      {
+        "text": "whole",
+        "startFrame": 9,
+        "endFrame": 13
+      },
+      {
+        "text": "machine.",
+        "startFrame": 13,
+        "endFrame": 22
+      },
+      {
+        "text": "The",
+        "startFrame": 27,
+        "endFrame": 29
+      },
+      {
+        "text": "text",
+        "startFrame": 29,
+        "endFrame": 34
+      },
+      {
+        "text": "so",
+        "startFrame": 34,
+        "endFrame": 41
+      },
+      {
+        "text": "far",
+        "startFrame": 41,
+        "endFrame": 48
+      },
+      {
+        "text": "goes",
+        "startFrame": 48,
+        "endFrame": 53
+      },
+      {
+        "text": "in.",
+        "startFrame": 53,
+        "endFrame": 61
+      },
+      {
+        "text": "Out",
+        "startFrame": 68,
+        "endFrame": 75
+      },
+      {
+        "text": "comes",
+        "startFrame": 76,
+        "endFrame": 82
+      },
+      {
+        "text": "a",
+        "startFrame": 83,
+        "endFrame": 86
+      },
+      {
+        "text": "probability",
+        "startFrame": 86,
+        "endFrame": 98
+      },
+      {
+        "text": "for",
+        "startFrame": 98,
+        "endFrame": 105
+      },
+      {
+        "text": "every",
+        "startFrame": 105,
+        "endFrame": 111
+      },
+      {
+        "text": "possible",
+        "startFrame": 111,
+        "endFrame": 122
+      },
+      {
+        "text": "next",
+        "startFrame": 122,
+        "endFrame": 129
+      },
+      {
+        "text": "token",
+        "startFrame": 129,
+        "endFrame": 140
+      },
+      {
+        "text": "—",
+        "startFrame": 144,
+        "endFrame": 147
+      },
+      {
+        "text": "all",
+        "startFrame": 147,
+        "endFrame": 149
+      },
+      {
+        "text": "forty-nine",
+        "startFrame": 158,
+        "endFrame": 166
+      },
+      {
+        "text": "thousand",
+        "startFrame": 167,
+        "endFrame": 174
+      },
+      {
+        "text": "of",
+        "startFrame": 175,
+        "endFrame": 179
+      },
+      {
+        "text": "them.",
+        "startFrame": 179,
+        "endFrame": 182
+      },
+      {
+        "text": "Pick",
+        "startFrame": 192,
+        "endFrame": 195
+      },
+      {
+        "text": "one,",
+        "startFrame": 195,
+        "endFrame": 202
+      },
+      {
+        "text": "append",
+        "startFrame": 206,
+        "endFrame": 212
+      },
+      {
+        "text": "it,",
+        "startFrame": 212,
+        "endFrame": 218
+      },
+      {
+        "text": "and",
+        "startFrame": 219,
+        "endFrame": 220
+      },
+      {
+        "text": "go",
+        "startFrame": 220,
+        "endFrame": 224
+      },
+      {
+        "text": "around",
+        "startFrame": 224,
+        "endFrame": 230
+      },
+      {
+        "text": "again.",
+        "startFrame": 230,
+        "endFrame": 237
+      }
+    ],
+    "B03": [
+      {
+        "text": "And",
+        "startFrame": 0,
+        "endFrame": 2
+      },
+      {
+        "text": "the",
+        "startFrame": 2,
+        "endFrame": 4
+      },
+      {
+        "text": "conversation?",
+        "startFrame": 4,
+        "endFrame": 16
+      },
+      {
+        "text": "The",
+        "startFrame": 16,
+        "endFrame": 26
+      },
+      {
+        "text": "model",
+        "startFrame": 26,
+        "endFrame": 32
+      },
+      {
+        "text": "never",
+        "startFrame": 32,
+        "endFrame": 39
+      },
+      {
+        "text": "sees",
+        "startFrame": 39,
+        "endFrame": 45
+      },
+      {
+        "text": "a",
+        "startFrame": 45,
+        "endFrame": 49
+      },
+      {
+        "text": "chat",
+        "startFrame": 49,
+        "endFrame": 54
+      },
+      {
+        "text": "window.",
+        "startFrame": 54,
+        "endFrame": 62
+      },
+      {
+        "text": "It",
+        "startFrame": 72,
+        "endFrame": 76
+      },
+      {
+        "text": "sees",
+        "startFrame": 76,
+        "endFrame": 81
+      },
+      {
+        "text": "one",
+        "startFrame": 81,
+        "endFrame": 87
+      },
+      {
+        "text": "document",
+        "startFrame": 87,
+        "endFrame": 100
+      },
+      {
+        "text": "—",
+        "startFrame": 102,
+        "endFrame": 104
+      },
+      {
+        "text": "a",
+        "startFrame": 104,
+        "endFrame": 107
+      },
+      {
+        "text": "system",
+        "startFrame": 107,
+        "endFrame": 114
+      },
+      {
+        "text": "line,",
+        "startFrame": 114,
+        "endFrame": 121
+      },
+      {
+        "text": "my",
+        "startFrame": 128,
+        "endFrame": 130
+      },
+      {
+        "text": "question,",
+        "startFrame": 130,
+        "endFrame": 141
+      },
+      {
+        "text": "the",
+        "startFrame": 147,
+        "endFrame": 149
+      },
+      {
+        "text": "word",
+        "startFrame": 149,
+        "endFrame": 153
+      },
+      {
+        "text": "'assistant'",
+        "startFrame": 153,
+        "endFrame": 164
+      },
+      {
+        "text": "—",
+        "startFrame": 167,
+        "endFrame": 169
+      },
+      {
+        "text": "and",
+        "startFrame": 169,
+        "endFrame": 171
+      },
+      {
+        "text": "a",
+        "startFrame": 171,
+        "endFrame": 173
+      },
+      {
+        "text": "blank",
+        "startFrame": 173,
+        "endFrame": 178
+      },
+      {
+        "text": "to",
+        "startFrame": 178,
+        "endFrame": 183
+      },
+      {
+        "text": "fill.",
+        "startFrame": 183,
+        "endFrame": 189
+      }
+    ],
+    "B04": [
+      {
+        "text": "Pass",
+        "startFrame": 0,
+        "endFrame": 4
+      },
+      {
+        "text": "one.",
+        "startFrame": 10,
+        "endFrame": 14
+      },
+      {
+        "text": "'The'",
+        "startFrame": 15,
+        "endFrame": 16
+      },
+      {
+        "text": "gets",
+        "startFrame": 16,
+        "endFrame": 19
+      },
+      {
+        "text": "eighty-three",
+        "startFrame": 28,
+        "endFrame": 36
+      },
+      {
+        "text": "percent;",
+        "startFrame": 37,
+        "endFrame": 45
+      },
+      {
+        "text": "'Paris'",
+        "startFrame": 46,
+        "endFrame": 53
+      },
+      {
+        "text": "gets",
+        "startFrame": 53,
+        "endFrame": 59
+      },
+      {
+        "text": "four.",
+        "startFrame": 69,
+        "endFrame": 78
+      },
+      {
+        "text": "It",
+        "startFrame": 79,
+        "endFrame": 81
+      },
+      {
+        "text": "doesn't",
+        "startFrame": 81,
+        "endFrame": 86
+      },
+      {
+        "text": "know",
+        "startFrame": 86,
+        "endFrame": 89
+      },
+      {
+        "text": "the",
+        "startFrame": 89,
+        "endFrame": 93
+      },
+      {
+        "text": "answer",
+        "startFrame": 93,
+        "endFrame": 100
+      },
+      {
+        "text": "yet",
+        "startFrame": 100,
+        "endFrame": 106
+      },
+      {
+        "text": "—",
+        "startFrame": 109,
+        "endFrame": 111
+      },
+      {
+        "text": "only",
+        "startFrame": 111,
+        "endFrame": 116
+      },
+      {
+        "text": "how",
+        "startFrame": 116,
+        "endFrame": 121
+      },
+      {
+        "text": "answers",
+        "startFrame": 121,
+        "endFrame": 130
+      },
+      {
+        "text": "usually",
+        "startFrame": 130,
+        "endFrame": 141
+      },
+      {
+        "text": "start.",
+        "startFrame": 141,
+        "endFrame": 150
+      }
+    ],
+    "B05": [
+      {
+        "text": "Append",
+        "startFrame": 0,
+        "endFrame": 6
+      },
+      {
+        "text": "'The',",
+        "startFrame": 6,
+        "endFrame": 10
+      },
+      {
+        "text": "run",
+        "startFrame": 10,
+        "endFrame": 13
+      },
+      {
+        "text": "again.",
+        "startFrame": 13,
+        "endFrame": 20
+      },
+      {
+        "text": "Append",
+        "startFrame": 25,
+        "endFrame": 28
+      },
+      {
+        "text": "'capital',",
+        "startFrame": 28,
+        "endFrame": 40
+      },
+      {
+        "text": "run",
+        "startFrame": 40,
+        "endFrame": 45
+      },
+      {
+        "text": "again.",
+        "startFrame": 45,
+        "endFrame": 54
+      },
+      {
+        "text": "Eight",
+        "startFrame": 62,
+        "endFrame": 65
+      },
+      {
+        "text": "passes,",
+        "startFrame": 65,
+        "endFrame": 75
+      },
+      {
+        "text": "eight",
+        "startFrame": 80,
+        "endFrame": 82
+      },
+      {
+        "text": "tokens:",
+        "startFrame": 82,
+        "endFrame": 92
+      },
+      {
+        "text": "'The",
+        "startFrame": 100,
+        "endFrame": 102
+      },
+      {
+        "text": "capital",
+        "startFrame": 102,
+        "endFrame": 110
+      },
+      {
+        "text": "of",
+        "startFrame": 110,
+        "endFrame": 113
+      },
+      {
+        "text": "France",
+        "startFrame": 113,
+        "endFrame": 120
+      },
+      {
+        "text": "is",
+        "startFrame": 120,
+        "endFrame": 127
+      },
+      {
+        "text": "Paris.'",
+        "startFrame": 127,
+        "endFrame": 135
+      }
+    ],
+    "B06": [
+      {
+        "text": "Then",
+        "startFrame": 0,
+        "endFrame": 3
+      },
+      {
+        "text": "the",
+        "startFrame": 3,
+        "endFrame": 6
+      },
+      {
+        "text": "eighth",
+        "startFrame": 10,
+        "endFrame": 13
+      },
+      {
+        "text": "pass.",
+        "startFrame": 13,
+        "endFrame": 19
+      },
+      {
+        "text": "Keep",
+        "startFrame": 19,
+        "endFrame": 27
+      },
+      {
+        "text": "talking,",
+        "startFrame": 27,
+        "endFrame": 38
+      },
+      {
+        "text": "or",
+        "startFrame": 38,
+        "endFrame": 44
+      },
+      {
+        "text": "stop?",
+        "startFrame": 44,
+        "endFrame": 51
+      },
+      {
+        "text": "The",
+        "startFrame": 62,
+        "endFrame": 64
+      },
+      {
+        "text": "end-of-turn",
+        "startFrame": 70,
+        "endFrame": 74
+      },
+      {
+        "text": "token",
+        "startFrame": 75,
+        "endFrame": 84
+      },
+      {
+        "text": "wins",
+        "startFrame": 84,
+        "endFrame": 93
+      },
+      {
+        "text": "—",
+        "startFrame": 93,
+        "endFrame": 93
+      },
+      {
+        "text": "with",
+        "startFrame": 93,
+        "endFrame": 100
+      },
+      {
+        "text": "only",
+        "startFrame": 100,
+        "endFrame": 106
+      },
+      {
+        "text": "thirty-seven",
+        "startFrame": 116,
+        "endFrame": 125
+      },
+      {
+        "text": "percent.",
+        "startFrame": 126,
+        "endFrame": 135
+      },
+      {
+        "text": "Stopping",
+        "startFrame": 136,
+        "endFrame": 150
+      },
+      {
+        "text": "is",
+        "startFrame": 150,
+        "endFrame": 154
+      },
+      {
+        "text": "just",
+        "startFrame": 154,
+        "endFrame": 159
+      },
+      {
+        "text": "another",
+        "startFrame": 159,
+        "endFrame": 166
+      },
+      {
+        "text": "prediction.",
+        "startFrame": 166,
+        "endFrame": 179
+      }
+    ],
+    "B07": [
+      {
+        "text": "So,",
+        "startFrame": 0,
+        "endFrame": 4
+      },
+      {
+        "text": "experiment",
+        "startFrame": 4,
+        "endFrame": 16
+      },
+      {
+        "text": "one:",
+        "startFrame": 16,
+        "endFrame": 22
+      },
+      {
+        "text": "ban",
+        "startFrame": 22,
+        "endFrame": 28
+      },
+      {
+        "text": "that",
+        "startFrame": 28,
+        "endFrame": 34
+      },
+      {
+        "text": "token.",
+        "startFrame": 34,
+        "endFrame": 43
+      },
+      {
+        "text": "Now",
+        "startFrame": 56,
+        "endFrame": 59
+      },
+      {
+        "text": "the",
+        "startFrame": 59,
+        "endFrame": 63
+      },
+      {
+        "text": "loop",
+        "startFrame": 63,
+        "endFrame": 66
+      },
+      {
+        "text": "can't",
+        "startFrame": 66,
+        "endFrame": 75
+      },
+      {
+        "text": "stop.",
+        "startFrame": 75,
+        "endFrame": 82
+      },
+      {
+        "text": "It",
+        "startFrame": 90,
+        "endFrame": 92
+      },
+      {
+        "text": "wanted",
+        "startFrame": 92,
+        "endFrame": 97
+      },
+      {
+        "text": "to",
+        "startFrame": 97,
+        "endFrame": 102
+      },
+      {
+        "text": "—",
+        "startFrame": 117,
+        "endFrame": 125
+      },
+      {
+        "text": "thirty-seven",
+        "startFrame": 125,
+        "endFrame": 125
+      },
+      {
+        "text": "percent",
+        "startFrame": 125,
+        "endFrame": 125
+      },
+      {
+        "text": "here,",
+        "startFrame": 125,
+        "endFrame": 131
+      },
+      {
+        "text": "fifty-one",
+        "startFrame": 138,
+        "endFrame": 144
+      },
+      {
+        "text": "percent",
+        "startFrame": 145,
+        "endFrame": 151
+      },
+      {
+        "text": "later",
+        "startFrame": 152,
+        "endFrame": 161
+      },
+      {
+        "text": "—",
+        "startFrame": 163,
+        "endFrame": 165
+      },
+      {
+        "text": "and",
+        "startFrame": 165,
+        "endFrame": 167
+      },
+      {
+        "text": "it",
+        "startFrame": 167,
+        "endFrame": 169
+      },
+      {
+        "text": "just",
+        "startFrame": 169,
+        "endFrame": 172
+      },
+      {
+        "text": "keeps",
+        "startFrame": 172,
+        "endFrame": 178
+      },
+      {
+        "text": "writing.",
+        "startFrame": 178,
+        "endFrame": 188
+      },
+      {
+        "text": "Paris",
+        "startFrame": 205,
+        "endFrame": 213
+      },
+      {
+        "text": "has",
+        "startFrame": 213,
+        "endFrame": 218
+      },
+      {
+        "text": "'approximately",
+        "startFrame": 218,
+        "endFrame": 232
+      },
+      {
+        "text": "two",
+        "startFrame": 238,
+        "endFrame": 243
+      },
+      {
+        "text": "point",
+        "startFrame": 244,
+        "endFrame": 249
+      },
+      {
+        "text": "five",
+        "startFrame": 250,
+        "endFrame": 255
+      },
+      {
+        "text": "million",
+        "startFrame": 256,
+        "endFrame": 264
+      },
+      {
+        "text": "people.'",
+        "startFrame": 264,
+        "endFrame": 273
+      },
+      {
+        "text": "The",
+        "startFrame": 278,
+        "endFrame": 280
+      },
+      {
+        "text": "official",
+        "startFrame": 280,
+        "endFrame": 287
+      },
+      {
+        "text": "count",
+        "startFrame": 287,
+        "endFrame": 294
+      },
+      {
+        "text": "is",
+        "startFrame": 294,
+        "endFrame": 299
+      },
+      {
+        "text": "two",
+        "startFrame": 303,
+        "endFrame": 307
+      },
+      {
+        "text": "point",
+        "startFrame": 308,
+        "endFrame": 312
+      },
+      {
+        "text": "one",
+        "startFrame": 313,
+        "endFrame": 317
+      },
+      {
+        "text": "million.",
+        "startFrame": 317,
+        "endFrame": 326
+      },
+      {
+        "text": "The",
+        "startFrame": 333,
+        "endFrame": 335
+      },
+      {
+        "text": "loop",
+        "startFrame": 335,
+        "endFrame": 338
+      },
+      {
+        "text": "never",
+        "startFrame": 338,
+        "endFrame": 345
+      },
+      {
+        "text": "checked.",
+        "startFrame": 345,
+        "endFrame": 356
+      }
+    ],
+    "B08": [
+      {
+        "text": "Now",
+        "startFrame": 0,
+        "endFrame": 4
+      },
+      {
+        "text": "a",
+        "startFrame": 4,
+        "endFrame": 8
+      },
+      {
+        "text": "harder",
+        "startFrame": 8,
+        "endFrame": 12
+      },
+      {
+        "text": "question:",
+        "startFrame": 12,
+        "endFrame": 23
+      },
+      {
+        "text": "who",
+        "startFrame": 27,
+        "endFrame": 29
+      },
+      {
+        "text": "wrote",
+        "startFrame": 29,
+        "endFrame": 33
+      },
+      {
+        "text": "Middlemarch?",
+        "startFrame": 43,
+        "endFrame": 52
+      },
+      {
+        "text": "Same",
+        "startFrame": 53,
+        "endFrame": 56
+      },
+      {
+        "text": "loop,",
+        "startFrame": 56,
+        "endFrame": 61
+      },
+      {
+        "text": "same",
+        "startFrame": 66,
+        "endFrame": 70
+      },
+      {
+        "text": "fluent",
+        "startFrame": 70,
+        "endFrame": 77
+      },
+      {
+        "text": "sentence:",
+        "startFrame": 77,
+        "endFrame": 87
+      },
+      {
+        "text": "'Samuel",
+        "startFrame": 98,
+        "endFrame": 105
+      },
+      {
+        "text": "Richardson.'",
+        "startFrame": 105,
+        "endFrame": 113
+      },
+      {
+        "text": "Wrong",
+        "startFrame": 125,
+        "endFrame": 128
+      },
+      {
+        "text": "—",
+        "startFrame": 128,
+        "endFrame": 128
+      },
+      {
+        "text": "it",
+        "startFrame": 128,
+        "endFrame": 133
+      },
+      {
+        "text": "was",
+        "startFrame": 133,
+        "endFrame": 136
+      },
+      {
+        "text": "George",
+        "startFrame": 136,
+        "endFrame": 143
+      },
+      {
+        "text": "Eliot.",
+        "startFrame": 152,
+        "endFrame": 159
+      },
+      {
+        "text": "And",
+        "startFrame": 160,
+        "endFrame": 162
+      },
+      {
+        "text": "at",
+        "startFrame": 162,
+        "endFrame": 164
+      },
+      {
+        "text": "the",
+        "startFrame": 164,
+        "endFrame": 167
+      },
+      {
+        "text": "name,",
+        "startFrame": 167,
+        "endFrame": 172
+      },
+      {
+        "text": "the",
+        "startFrame": 172,
+        "endFrame": 178
+      },
+      {
+        "text": "top",
+        "startFrame": 178,
+        "endFrame": 184
+      },
+      {
+        "text": "guess",
+        "startFrame": 187,
+        "endFrame": 189
+      },
+      {
+        "text": "had",
+        "startFrame": 190,
+        "endFrame": 194
+      },
+      {
+        "text": "just",
+        "startFrame": 194,
+        "endFrame": 198
+      },
+      {
+        "text": "sixteen",
+        "startFrame": 198,
+        "endFrame": 198
+      },
+      {
+        "text": "percent.",
+        "startFrame": 198,
+        "endFrame": 198
+      }
+    ],
+    "B09": [
+      {
+        "text": "Experiment",
+        "startFrame": 0,
+        "endFrame": 11
+      },
+      {
+        "text": "two.",
+        "startFrame": 15,
+        "endFrame": 20
+      },
+      {
+        "text": "Was",
+        "startFrame": 20,
+        "endFrame": 27
+      },
+      {
+        "text": "the",
+        "startFrame": 27,
+        "endFrame": 29
+      },
+      {
+        "text": "right",
+        "startFrame": 29,
+        "endFrame": 33
+      },
+      {
+        "text": "answer",
+        "startFrame": 33,
+        "endFrame": 41
+      },
+      {
+        "text": "in",
+        "startFrame": 41,
+        "endFrame": 45
+      },
+      {
+        "text": "there",
+        "startFrame": 45,
+        "endFrame": 47
+      },
+      {
+        "text": "at",
+        "startFrame": 47,
+        "endFrame": 50
+      },
+      {
+        "text": "all?",
+        "startFrame": 50,
+        "endFrame": 56
+      },
+      {
+        "text": "Yes",
+        "startFrame": 63,
+        "endFrame": 65
+      },
+      {
+        "text": "—",
+        "startFrame": 67,
+        "endFrame": 69
+      },
+      {
+        "text": "'George',",
+        "startFrame": 70,
+        "endFrame": 75
+      },
+      {
+        "text": "eighth",
+        "startFrame": 80,
+        "endFrame": 84
+      },
+      {
+        "text": "in",
+        "startFrame": 85,
+        "endFrame": 85
+      },
+      {
+        "text": "line,",
+        "startFrame": 85,
+        "endFrame": 89
+      },
+      {
+        "text": "at",
+        "startFrame": 89,
+        "endFrame": 95
+      },
+      {
+        "text": "three",
+        "startFrame": 99,
+        "endFrame": 104
+      },
+      {
+        "text": "percent.",
+        "startFrame": 104,
+        "endFrame": 108
+      },
+      {
+        "text": "Force",
+        "startFrame": 109,
+        "endFrame": 120
+      },
+      {
+        "text": "it",
+        "startFrame": 120,
+        "endFrame": 124
+      },
+      {
+        "text": "in,",
+        "startFrame": 124,
+        "endFrame": 128
+      },
+      {
+        "text": "and",
+        "startFrame": 128,
+        "endFrame": 132
+      },
+      {
+        "text": "the",
+        "startFrame": 132,
+        "endFrame": 134
+      },
+      {
+        "text": "very",
+        "startFrame": 134,
+        "endFrame": 140
+      },
+      {
+        "text": "next",
+        "startFrame": 140,
+        "endFrame": 145
+      },
+      {
+        "text": "pass",
+        "startFrame": 145,
+        "endFrame": 153
+      },
+      {
+        "text": "puts",
+        "startFrame": 153,
+        "endFrame": 160
+      },
+      {
+        "text": "'Eliot'",
+        "startFrame": 163,
+        "endFrame": 166
+      },
+      {
+        "text": "on",
+        "startFrame": 167,
+        "endFrame": 173
+      },
+      {
+        "text": "top,",
+        "startFrame": 173,
+        "endFrame": 180
+      },
+      {
+        "text": "at",
+        "startFrame": 180,
+        "endFrame": 186
+      },
+      {
+        "text": "forty-three",
+        "startFrame": 195,
+        "endFrame": 203
+      },
+      {
+        "text": "percent.",
+        "startFrame": 204,
+        "endFrame": 212
+      },
+      {
+        "text": "The",
+        "startFrame": 213,
+        "endFrame": 223
+      },
+      {
+        "text": "loop",
+        "startFrame": 223,
+        "endFrame": 227
+      },
+      {
+        "text": "didn't",
+        "startFrame": 227,
+        "endFrame": 235
+      },
+      {
+        "text": "lack",
+        "startFrame": 235,
+        "endFrame": 239
+      },
+      {
+        "text": "the",
+        "startFrame": 239,
+        "endFrame": 244
+      },
+      {
+        "text": "answer.",
+        "startFrame": 244,
+        "endFrame": 252
+      },
+      {
+        "text": "It",
+        "startFrame": 259,
+        "endFrame": 261
+      },
+      {
+        "text": "picked",
+        "startFrame": 261,
+        "endFrame": 267
+      },
+      {
+        "text": "a",
+        "startFrame": 267,
+        "endFrame": 269
+      },
+      {
+        "text": "likelier",
+        "startFrame": 269,
+        "endFrame": 278
+      },
+      {
+        "text": "token.",
+        "startFrame": 278,
+        "endFrame": 288
+      }
+    ],
+    "B10": [
+      {
+        "text": "Experiment",
+        "startFrame": 0,
+        "endFrame": 11
+      },
+      {
+        "text": "three.",
+        "startFrame": 19,
+        "endFrame": 26
+      },
+      {
+        "text": "Chatbots",
+        "startFrame": 27,
+        "endFrame": 36
+      },
+      {
+        "text": "usually",
+        "startFrame": 36,
+        "endFrame": 44
+      },
+      {
+        "text": "sample",
+        "startFrame": 44,
+        "endFrame": 54
+      },
+      {
+        "text": "instead",
+        "startFrame": 54,
+        "endFrame": 61
+      },
+      {
+        "text": "of",
+        "startFrame": 61,
+        "endFrame": 64
+      },
+      {
+        "text": "taking",
+        "startFrame": 64,
+        "endFrame": 70
+      },
+      {
+        "text": "the",
+        "startFrame": 70,
+        "endFrame": 73
+      },
+      {
+        "text": "top",
+        "startFrame": 73,
+        "endFrame": 79
+      },
+      {
+        "text": "token",
+        "startFrame": 79,
+        "endFrame": 90
+      },
+      {
+        "text": "—",
+        "startFrame": 94,
+        "endFrame": 98
+      },
+      {
+        "text": "Claude's",
+        "startFrame": 98,
+        "endFrame": 105
+      },
+      {
+        "text": "own",
+        "startFrame": 105,
+        "endFrame": 109
+      },
+      {
+        "text": "default",
+        "startFrame": 109,
+        "endFrame": 117
+      },
+      {
+        "text": "is",
+        "startFrame": 117,
+        "endFrame": 124
+      },
+      {
+        "text": "temperature",
+        "startFrame": 124,
+        "endFrame": 134
+      },
+      {
+        "text": "one.",
+        "startFrame": 141,
+        "endFrame": 147
+      },
+      {
+        "text": "So",
+        "startFrame": 147,
+        "endFrame": 152
+      },
+      {
+        "text": "we",
+        "startFrame": 152,
+        "endFrame": 155
+      },
+      {
+        "text": "asked",
+        "startFrame": 159,
+        "endFrame": 162
+      },
+      {
+        "text": "two",
+        "startFrame": 162,
+        "endFrame": 166
+      },
+      {
+        "text": "hundred",
+        "startFrame": 166,
+        "endFrame": 170
+      },
+      {
+        "text": "times,",
+        "startFrame": 170,
+        "endFrame": 179
+      },
+      {
+        "text": "one",
+        "startFrame": 185,
+        "endFrame": 190
+      },
+      {
+        "text": "seed",
+        "startFrame": 191,
+        "endFrame": 196
+      },
+      {
+        "text": "each.",
+        "startFrame": 197,
+        "endFrame": 203
+      },
+      {
+        "text": "Four",
+        "startFrame": 209,
+        "endFrame": 214
+      },
+      {
+        "text": "named",
+        "startFrame": 215,
+        "endFrame": 220
+      },
+      {
+        "text": "George",
+        "startFrame": 220,
+        "endFrame": 229
+      },
+      {
+        "text": "Eliot.",
+        "startFrame": 237,
+        "endFrame": 244
+      },
+      {
+        "text": "And",
+        "startFrame": 245,
+        "endFrame": 246
+      },
+      {
+        "text": "all",
+        "startFrame": 246,
+        "endFrame": 250
+      },
+      {
+        "text": "four",
+        "startFrame": 252,
+        "endFrame": 255
+      },
+      {
+        "text": "invented",
+        "startFrame": 255,
+        "endFrame": 267
+      },
+      {
+        "text": "facts",
+        "startFrame": 267,
+        "endFrame": 274
+      },
+      {
+        "text": "around",
+        "startFrame": 274,
+        "endFrame": 284
+      },
+      {
+        "text": "her",
+        "startFrame": 284,
+        "endFrame": 288
+      },
+      {
+        "text": "—",
+        "startFrame": 291,
+        "endFrame": 293
+      },
+      {
+        "text": "a",
+        "startFrame": 293,
+        "endFrame": 294
+      },
+      {
+        "text": "Nobel",
+        "startFrame": 294,
+        "endFrame": 299
+      },
+      {
+        "text": "Prize,",
+        "startFrame": 299,
+        "endFrame": 312
+      },
+      {
+        "text": "a",
+        "startFrame": 312,
+        "endFrame": 312
+      },
+      {
+        "text": "Pulitzer.",
+        "startFrame": 312,
+        "endFrame": 312
+      }
+    ],
+    "B11": [
+      {
+        "text": "Multiply",
+        "startFrame": 0,
+        "endFrame": 12
+      },
+      {
+        "text": "every",
+        "startFrame": 12,
+        "endFrame": 21
+      },
+      {
+        "text": "pass,",
+        "startFrame": 21,
+        "endFrame": 29
+      },
+      {
+        "text": "and",
+        "startFrame": 29,
+        "endFrame": 39
+      },
+      {
+        "text": "you",
+        "startFrame": 39,
+        "endFrame": 41
+      },
+      {
+        "text": "get",
+        "startFrame": 41,
+        "endFrame": 45
+      },
+      {
+        "text": "the",
+        "startFrame": 45,
+        "endFrame": 48
+      },
+      {
+        "text": "model's",
+        "startFrame": 48,
+        "endFrame": 58
+      },
+      {
+        "text": "probability",
+        "startFrame": 58,
+        "endFrame": 71
+      },
+      {
+        "text": "for",
+        "startFrame": 71,
+        "endFrame": 78
+      },
+      {
+        "text": "a",
+        "startFrame": 78,
+        "endFrame": 82
+      },
+      {
+        "text": "whole",
+        "startFrame": 82,
+        "endFrame": 85
+      },
+      {
+        "text": "answer.",
+        "startFrame": 85,
+        "endFrame": 96
+      },
+      {
+        "text": "It",
+        "startFrame": 109,
+        "endFrame": 114
+      },
+      {
+        "text": "rates",
+        "startFrame": 114,
+        "endFrame": 119
+      },
+      {
+        "text": "'Samuel",
+        "startFrame": 119,
+        "endFrame": 131
+      },
+      {
+        "text": "Richardson'",
+        "startFrame": 131,
+        "endFrame": 142
+      },
+      {
+        "text": "about",
+        "startFrame": 142,
+        "endFrame": 152
+      },
+      {
+        "text": "eleven",
+        "startFrame": 157,
+        "endFrame": 161
+      },
+      {
+        "text": "times",
+        "startFrame": 161,
+        "endFrame": 170
+      },
+      {
+        "text": "more",
+        "startFrame": 170,
+        "endFrame": 177
+      },
+      {
+        "text": "likely",
+        "startFrame": 177,
+        "endFrame": 185
+      },
+      {
+        "text": "than",
+        "startFrame": 185,
+        "endFrame": 191
+      },
+      {
+        "text": "'George",
+        "startFrame": 191,
+        "endFrame": 198
+      },
+      {
+        "text": "Eliot.'",
+        "startFrame": 206,
+        "endFrame": 214
+      },
+      {
+        "text": "Nothing",
+        "startFrame": 215,
+        "endFrame": 221
+      },
+      {
+        "text": "in",
+        "startFrame": 221,
+        "endFrame": 225
+      },
+      {
+        "text": "that",
+        "startFrame": 225,
+        "endFrame": 228
+      },
+      {
+        "text": "product",
+        "startFrame": 228,
+        "endFrame": 236
+      },
+      {
+        "text": "checks",
+        "startFrame": 236,
+        "endFrame": 244
+      },
+      {
+        "text": "a",
+        "startFrame": 244,
+        "endFrame": 248
+      },
+      {
+        "text": "fact.",
+        "startFrame": 248,
+        "endFrame": 257
+      }
+    ],
+    "B12": [
+      {
+        "text": "Now,",
+        "startFrame": 0,
+        "endFrame": 4
+      },
+      {
+        "text": "what",
+        "startFrame": 4,
+        "endFrame": 10
+      },
+      {
+        "text": "this",
+        "startFrame": 10,
+        "endFrame": 14
+      },
+      {
+        "text": "does",
+        "startFrame": 14,
+        "endFrame": 19
+      },
+      {
+        "text": "not",
+        "startFrame": 19,
+        "endFrame": 24
+      },
+      {
+        "text": "establish.",
+        "startFrame": 24,
+        "endFrame": 37
+      },
+      {
+        "text": "We",
+        "startFrame": 46,
+        "endFrame": 48
+      },
+      {
+        "text": "measured",
+        "startFrame": 51,
+        "endFrame": 53
+      },
+      {
+        "text": "a",
+        "startFrame": 54,
+        "endFrame": 56
+      },
+      {
+        "text": "tiny",
+        "startFrame": 57,
+        "endFrame": 63
+      },
+      {
+        "text": "open",
+        "startFrame": 63,
+        "endFrame": 72
+      },
+      {
+        "text": "model",
+        "startFrame": 72,
+        "endFrame": 81
+      },
+      {
+        "text": "on",
+        "startFrame": 81,
+        "endFrame": 85
+      },
+      {
+        "text": "a",
+        "startFrame": 85,
+        "endFrame": 86
+      },
+      {
+        "text": "laptop",
+        "startFrame": 86,
+        "endFrame": 96
+      },
+      {
+        "text": "—",
+        "startFrame": 99,
+        "endFrame": 101
+      },
+      {
+        "text": "not",
+        "startFrame": 102,
+        "endFrame": 104
+      },
+      {
+        "text": "Claude.",
+        "startFrame": 111,
+        "endFrame": 118
+      },
+      {
+        "text": "We",
+        "startFrame": 119,
+        "endFrame": 121
+      },
+      {
+        "text": "can't",
+        "startFrame": 121,
+        "endFrame": 127
+      },
+      {
+        "text": "see",
+        "startFrame": 127,
+        "endFrame": 130
+      },
+      {
+        "text": "Claude's",
+        "startFrame": 135,
+        "endFrame": 139
+      },
+      {
+        "text": "probabilities.",
+        "startFrame": 140,
+        "endFrame": 153
+      },
+      {
+        "text": "Anthropic's",
+        "startFrame": 164,
+        "endFrame": 173
+      },
+      {
+        "text": "docs",
+        "startFrame": 174,
+        "endFrame": 184
+      },
+      {
+        "text": "do",
+        "startFrame": 185,
+        "endFrame": 192
+      },
+      {
+        "text": "list",
+        "startFrame": 192,
+        "endFrame": 196
+      },
+      {
+        "text": "a",
+        "startFrame": 196,
+        "endFrame": 200
+      },
+      {
+        "text": "stop",
+        "startFrame": 200,
+        "endFrame": 205
+      },
+      {
+        "text": "reason",
+        "startFrame": 205,
+        "endFrame": 213
+      },
+      {
+        "text": "called",
+        "startFrame": 213,
+        "endFrame": 221
+      },
+      {
+        "text": "end",
+        "startFrame": 221,
+        "endFrame": 228
+      },
+      {
+        "text": "turn",
+        "startFrame": 228,
+        "endFrame": 235
+      },
+      {
+        "text": "—",
+        "startFrame": 238,
+        "endFrame": 240
+      },
+      {
+        "text": "but",
+        "startFrame": 240,
+        "endFrame": 242
+      },
+      {
+        "text": "that's",
+        "startFrame": 242,
+        "endFrame": 249
+      },
+      {
+        "text": "their",
+        "startFrame": 249,
+        "endFrame": 252
+      },
+      {
+        "text": "description,",
+        "startFrame": 252,
+        "endFrame": 264
+      },
+      {
+        "text": "not",
+        "startFrame": 269,
+        "endFrame": 272
+      },
+      {
+        "text": "our",
+        "startFrame": 272,
+        "endFrame": 276
+      },
+      {
+        "text": "measurement.",
+        "startFrame": 276,
+        "endFrame": 284
+      },
+      {
+        "text": "And",
+        "startFrame": 294,
+        "endFrame": 297
+      },
+      {
+        "text": "the",
+        "startFrame": 297,
+        "endFrame": 299
+      },
+      {
+        "text": "loop",
+        "startFrame": 299,
+        "endFrame": 302
+      },
+      {
+        "text": "shows",
+        "startFrame": 302,
+        "endFrame": 309
+      },
+      {
+        "text": "how",
+        "startFrame": 309,
+        "endFrame": 314
+      },
+      {
+        "text": "text",
+        "startFrame": 314,
+        "endFrame": 321
+      },
+      {
+        "text": "comes",
+        "startFrame": 321,
+        "endFrame": 328
+      },
+      {
+        "text": "out",
+        "startFrame": 328,
+        "endFrame": 335
+      },
+      {
+        "text": "—",
+        "startFrame": 336,
+        "endFrame": 338
+      },
+      {
+        "text": "not",
+        "startFrame": 338,
+        "endFrame": 341
+      },
+      {
+        "text": "why",
+        "startFrame": 341,
+        "endFrame": 347
+      },
+      {
+        "text": "the",
+        "startFrame": 347,
+        "endFrame": 350
+      },
+      {
+        "text": "probabilities",
+        "startFrame": 350,
+        "endFrame": 363
+      },
+      {
+        "text": "are",
+        "startFrame": 363,
+        "endFrame": 369
+      },
+      {
+        "text": "what",
+        "startFrame": 369,
+        "endFrame": 373
+      },
+      {
+        "text": "they",
+        "startFrame": 373,
+        "endFrame": 379
+      },
+      {
+        "text": "are.",
+        "startFrame": 379,
+        "endFrame": 384
+      }
+    ],
+    "BVDT": [
+      {
+        "text": "So:",
+        "startFrame": 0,
+        "endFrame": 5
+      },
+      {
+        "text": "one",
+        "startFrame": 8,
+        "endFrame": 12
+      },
+      {
+        "text": "prediction,",
+        "startFrame": 12,
+        "endFrame": 23
+      },
+      {
+        "text": "appended,",
+        "startFrame": 23,
+        "endFrame": 35
+      },
+      {
+        "text": "repeated,",
+        "startFrame": 35,
+        "endFrame": 47
+      },
+      {
+        "text": "until",
+        "startFrame": 47,
+        "endFrame": 55
+      },
+      {
+        "text": "it",
+        "startFrame": 55,
+        "endFrame": 58
+      },
+      {
+        "text": "predicts",
+        "startFrame": 58,
+        "endFrame": 68
+      },
+      {
+        "text": "stop.",
+        "startFrame": 68,
+        "endFrame": 74
+      },
+      {
+        "text": "The",
+        "startFrame": 86,
+        "endFrame": 89
+      },
+      {
+        "text": "loop",
+        "startFrame": 89,
+        "endFrame": 93
+      },
+      {
+        "text": "makes",
+        "startFrame": 93,
+        "endFrame": 98
+      },
+      {
+        "text": "it",
+        "startFrame": 98,
+        "endFrame": 104
+      },
+      {
+        "text": "fluent.",
+        "startFrame": 104,
+        "endFrame": 111
+      },
+      {
+        "text": "It",
+        "startFrame": 119,
+        "endFrame": 120
+      },
+      {
+        "text": "never",
+        "startFrame": 120,
+        "endFrame": 126
+      },
+      {
+        "text": "makes",
+        "startFrame": 126,
+        "endFrame": 131
+      },
+      {
+        "text": "it",
+        "startFrame": 131,
+        "endFrame": 136
+      },
+      {
+        "text": "true",
+        "startFrame": 136,
+        "endFrame": 143
+      },
+      {
+        "text": "—",
+        "startFrame": 143,
+        "endFrame": 143
+      },
+      {
+        "text": "that",
+        "startFrame": 143,
+        "endFrame": 148
+      },
+      {
+        "text": "part",
+        "startFrame": 148,
+        "endFrame": 156
+      },
+      {
+        "text": "is",
+        "startFrame": 156,
+        "endFrame": 161
+      },
+      {
+        "text": "your",
+        "startFrame": 161,
+        "endFrame": 163
+      },
+      {
+        "text": "job.",
+        "startFrame": 163,
+        "endFrame": 171
+      }
+    ],
+    "BHTF": [
+      {
+        "text": "Your",
+        "startFrame": 0,
+        "endFrame": 3
+      },
+      {
+        "text": "turn.",
+        "startFrame": 3,
+        "endFrame": 9
+      },
+      {
+        "text": "Paste",
+        "startFrame": 13,
+        "endFrame": 16
+      },
+      {
+        "text": "this:",
+        "startFrame": 17,
+        "endFrame": 24
+      },
+      {
+        "text": "'Name",
+        "startFrame": 27,
+        "endFrame": 31
+      },
+      {
+        "text": "the",
+        "startFrame": 31,
+        "endFrame": 35
+      },
+      {
+        "text": "author",
+        "startFrame": 35,
+        "endFrame": 41
+      },
+      {
+        "text": "of",
+        "startFrame": 41,
+        "endFrame": 45
+      },
+      {
+        "text": "Middlemarch.",
+        "startFrame": 55,
+        "endFrame": 64
+      },
+      {
+        "text": "Then",
+        "startFrame": 65,
+        "endFrame": 69
+      },
+      {
+        "text": "list",
+        "startFrame": 69,
+        "endFrame": 72
+      },
+      {
+        "text": "three",
+        "startFrame": 72,
+        "endFrame": 81
+      },
+      {
+        "text": "authors",
+        "startFrame": 81,
+        "endFrame": 88
+      },
+      {
+        "text": "you",
+        "startFrame": 88,
+        "endFrame": 92
+      },
+      {
+        "text": "might",
+        "startFrame": 92,
+        "endFrame": 96
+      },
+      {
+        "text": "have",
+        "startFrame": 96,
+        "endFrame": 98
+      },
+      {
+        "text": "said",
+        "startFrame": 98,
+        "endFrame": 103
+      },
+      {
+        "text": "instead.'",
+        "startFrame": 103,
+        "endFrame": 112
+      },
+      {
+        "text": "Check",
+        "startFrame": 118,
+        "endFrame": 120
+      },
+      {
+        "text": "two",
+        "startFrame": 120,
+        "endFrame": 126
+      },
+      {
+        "text": "things:",
+        "startFrame": 126,
+        "endFrame": 132
+      },
+      {
+        "text": "does",
+        "startFrame": 136,
+        "endFrame": 139
+      },
+      {
+        "text": "it",
+        "startFrame": 139,
+        "endFrame": 142
+      },
+      {
+        "text": "say",
+        "startFrame": 142,
+        "endFrame": 146
+      },
+      {
+        "text": "George",
+        "startFrame": 146,
+        "endFrame": 155
+      },
+      {
+        "text": "Eliot",
+        "startFrame": 157,
+        "endFrame": 159
+      },
+      {
+        "text": "—",
+        "startFrame": 159,
+        "endFrame": 161
+      },
+      {
+        "text": "and",
+        "startFrame": 161,
+        "endFrame": 169
+      },
+      {
+        "text": "are",
+        "startFrame": 169,
+        "endFrame": 171
+      },
+      {
+        "text": "those",
+        "startFrame": 171,
+        "endFrame": 176
+      },
+      {
+        "text": "three",
+        "startFrame": 176,
+        "endFrame": 182
+      },
+      {
+        "text": "real",
+        "startFrame": 182,
+        "endFrame": 189
+      },
+      {
+        "text": "people?",
+        "startFrame": 189,
+        "endFrame": 198
+      },
+      {
+        "text": "That",
+        "startFrame": 205,
+        "endFrame": 208
+      },
+      {
+        "text": "list",
+        "startFrame": 208,
+        "endFrame": 212
+      },
+      {
+        "text": "is",
+        "startFrame": 212,
+        "endFrame": 216
+      },
+      {
+        "text": "more",
+        "startFrame": 216,
+        "endFrame": 221
+      },
+      {
+        "text": "loop",
+        "startFrame": 221,
+        "endFrame": 225
+      },
+      {
+        "text": "output,",
+        "startFrame": 225,
+        "endFrame": 236
+      },
+      {
+        "text": "so",
+        "startFrame": 240,
+        "endFrame": 242
+      },
+      {
+        "text": "check",
+        "startFrame": 242,
+        "endFrame": 248
+      },
+      {
+        "text": "it",
+        "startFrame": 248,
+        "endFrame": 250
+      },
+      {
+        "text": "somewhere",
+        "startFrame": 250,
+        "endFrame": 257
+      },
+      {
+        "text": "else.",
+        "startFrame": 257,
+        "endFrame": 266
+      },
+      {
+        "text": "Liam,",
+        "startFrame": 280,
+        "endFrame": 286
+      },
+      {
+        "text": "in",
+        "startFrame": 292,
+        "endFrame": 294
+      },
+      {
+        "text": "for",
+        "startFrame": 294,
+        "endFrame": 299
+      },
+      {
+        "text": "Aditya.",
+        "startFrame": 299,
+        "endFrame": 299
+      }
+    ],
+    "BOUT": [
+      {
+        "text": "A",
+        "startFrame": 0,
+        "endFrame": 4
+      },
+      {
+        "text": "Chatbot",
+        "startFrame": 4,
+        "endFrame": 14
+      },
+      {
+        "text": "Is",
+        "startFrame": 14,
+        "endFrame": 20
+      },
+      {
+        "text": "a",
+        "startFrame": 20,
+        "endFrame": 22
+      },
+      {
+        "text": "Loop.",
+        "startFrame": 22,
+        "endFrame": 27
+      },
+      {
+        "text": "At",
+        "startFrame": 27,
+        "endFrame": 35
+      },
+      {
+        "text": "Nik",
+        "startFrame": 38,
+        "endFrame": 40
+      },
+      {
+        "text": "Bear",
+        "startFrame": 40,
+        "endFrame": 47
+      },
+      {
+        "text": "Brown.",
+        "startFrame": 47,
+        "endFrame": 55
+      }
+    ],
+    "B13": [
+      {
+        "text": "Here's",
+        "startFrame": 0,
+        "endFrame": 6
+      },
+      {
+        "text": "a",
+        "startFrame": 6,
+        "endFrame": 8
+      },
+      {
+        "text": "real",
+        "startFrame": 8,
+        "endFrame": 13
+      },
+      {
+        "text": "answer,",
+        "startFrame": 13,
+        "endFrame": 23
+      },
+      {
+        "text": "from",
+        "startFrame": 23,
+        "endFrame": 30
+      },
+      {
+        "text": "Claude",
+        "startFrame": 30,
+        "endFrame": 38
+      },
+      {
+        "text": "Opus",
+        "startFrame": 38,
+        "endFrame": 46
+      },
+      {
+        "text": "5.5,",
+        "startFrame": 56,
+        "endFrame": 65
+      },
+      {
+        "text": "on",
+        "startFrame": 66,
+        "endFrame": 72
+      },
+      {
+        "text": "September",
+        "startFrame": 72,
+        "endFrame": 78
+      },
+      {
+        "text": "twenty-seventh.",
+        "startFrame": 92,
+        "endFrame": 105
+      },
+      {
+        "text": "It",
+        "startFrame": 107,
+        "endFrame": 109
+      },
+      {
+        "text": "gets",
+        "startFrame": 109,
+        "endFrame": 113
+      },
+      {
+        "text": "the",
+        "startFrame": 113,
+        "endFrame": 119
+      },
+      {
+        "text": "author",
+        "startFrame": 119,
+        "endFrame": 123
+      },
+      {
+        "text": "right:",
+        "startFrame": 123,
+        "endFrame": 131
+      },
+      {
+        "text": "George",
+        "startFrame": 136,
+        "endFrame": 142
+      },
+      {
+        "text": "Eliot.",
+        "startFrame": 150,
+        "endFrame": 157
+      },
+      {
+        "text": "Then",
+        "startFrame": 158,
+        "endFrame": 160
+      },
+      {
+        "text": "it",
+        "startFrame": 160,
+        "endFrame": 163
+      },
+      {
+        "text": "names",
+        "startFrame": 163,
+        "endFrame": 168
+      },
+      {
+        "text": "the",
+        "startFrame": 168,
+        "endFrame": 173
+      },
+      {
+        "text": "word",
+        "startFrame": 173,
+        "endFrame": 177
+      },
+      {
+        "text": "it",
+        "startFrame": 177,
+        "endFrame": 180
+      },
+      {
+        "text": "was",
+        "startFrame": 180,
+        "endFrame": 183
+      },
+      {
+        "text": "least",
+        "startFrame": 183,
+        "endFrame": 187
+      },
+      {
+        "text": "sure",
+        "startFrame": 187,
+        "endFrame": 195
+      },
+      {
+        "text": "of",
+        "startFrame": 195,
+        "endFrame": 200
+      },
+      {
+        "text": "—",
+        "startFrame": 202,
+        "endFrame": 203
+      },
+      {
+        "text": "'Ann'",
+        "startFrame": 203,
+        "endFrame": 204
+      },
+      {
+        "text": "—",
+        "startFrame": 204,
+        "endFrame": 206
+      },
+      {
+        "text": "with",
+        "startFrame": 206,
+        "endFrame": 212
+      },
+      {
+        "text": "a",
+        "startFrame": 212,
+        "endFrame": 214
+      },
+      {
+        "text": "plausible",
+        "startFrame": 214,
+        "endFrame": 222
+      },
+      {
+        "text": "reason.",
+        "startFrame": 222,
+        "endFrame": 232
+      },
+      {
+        "text": "But",
+        "startFrame": 241,
+        "endFrame": 244
+      },
+      {
+        "text": "that",
+        "startFrame": 244,
+        "endFrame": 248
+      },
+      {
+        "text": "report",
+        "startFrame": 248,
+        "endFrame": 256
+      },
+      {
+        "text": "is",
+        "startFrame": 256,
+        "endFrame": 264
+      },
+      {
+        "text": "more",
+        "startFrame": 264,
+        "endFrame": 268
+      },
+      {
+        "text": "text",
+        "startFrame": 268,
+        "endFrame": 275
+      },
+      {
+        "text": "from",
+        "startFrame": 275,
+        "endFrame": 282
+      },
+      {
+        "text": "the",
+        "startFrame": 282,
+        "endFrame": 285
+      },
+      {
+        "text": "loop.",
+        "startFrame": 285,
+        "endFrame": 289
+      },
+      {
+        "text": "We",
+        "startFrame": 295,
+        "endFrame": 298
+      },
+      {
+        "text": "can't",
+        "startFrame": 298,
+        "endFrame": 304
+      },
+      {
+        "text": "see",
+        "startFrame": 304,
+        "endFrame": 308
+      },
+      {
+        "text": "Claude's",
+        "startFrame": 308,
+        "endFrame": 318
+      },
+      {
+        "text": "probabilities,",
+        "startFrame": 318,
+        "endFrame": 331
+      },
+      {
+        "text": "so",
+        "startFrame": 331,
+        "endFrame": 341
+      },
+      {
+        "text": "we",
+        "startFrame": 341,
+        "endFrame": 344
+      },
+      {
+        "text": "can't",
+        "startFrame": 344,
+        "endFrame": 351
+      },
+      {
+        "text": "check",
+        "startFrame": 351,
+        "endFrame": 355
+      },
+      {
+        "text": "it",
+        "startFrame": 355,
+        "endFrame": 358
+      },
+      {
+        "text": "against",
+        "startFrame": 358,
+        "endFrame": 364
+      },
+      {
+        "text": "them.",
+        "startFrame": 364,
+        "endFrame": 371
+      }
+    ]
+  }
+}
