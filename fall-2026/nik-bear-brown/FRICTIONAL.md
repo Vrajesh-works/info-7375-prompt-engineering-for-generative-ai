@@ -273,6 +273,7 @@ Every push to GitHub is listed at the bottom with its date and commit note.
     - **The tool:** `review_notify.py` sends a pointer, not the note, on Discord, Slack, email or a webhook, and it skips me as the reviewer. Nothing was sent.
     - **The films:** all ten are re-cut in 4K, with every gate passing and none published. Each now says I reviewed it and has a review beat. Films 8, 11 and 12 open with Ciao, Konnichiwa and Shalom instead of four Merhabas.
 - **2026-09-27: sign-off on the ten re-cut films.** In my words: "Those look good. Those films look good. Publish the unpublished films on the Nick Bear Brown YouTube at 4K." So all ten go up unlisted on @NikBearBrown, in the Claude playlist and the Figma playlist, the same way as the first six.
+  - **Done the same afternoon:** all ten are up, unlisted, native 4K, captions attached, in both playlists: films 1 VbICGMmMOak, 2 SKEollgJwTc, 3 vaaGNW3jepY, 4 PTbTHSFbo2U, 6 yq553zEjdBo, 7 HMRFC9AtWEM, 8 DPBrdel-5Bw, 11 pq4ZeONLJlc, 12 pv1ZpweUKcw, 14 9DbslHjLFDs (youtu.be/…). The YouTube API's daily quota ran out after the tenth upload, so the Figma playlist reorder and a caption check on film 2 wait for the reset.
 
 ### 2026-09-26 — The assignment went out, and its first worked recipe
 
@@ -385,3 +386,4 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-27 | docs(fall-2026): log my review of the overnight Figma films and the notes-in-the-file idea |
 | 2026-09-27 | docs(fall-2026): log where my Figma review notes went and the ten re-cut films |
 | 2026-09-27 | docs(fall-2026): log the sign-off on the ten re-cut Figma films |
+| 2026-09-27 | docs(fall-2026): log the ten Figma films going up unlisted |
