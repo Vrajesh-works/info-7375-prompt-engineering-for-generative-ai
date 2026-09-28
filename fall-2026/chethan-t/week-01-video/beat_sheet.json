@@ -1,0 +1,879 @@
+{
+  "metadata": {
+    "title": "Inside One Prediction Step",
+    "slug": "one-prediction-step",
+    "topic": "INFO7375 · WEEK 01",
+    "register": "Teardown",
+    "audience": "INFO7375 classmates and instructors",
+    "brand": "claude",
+    "skill": "ai-explainer",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "aspect_ratio": "16:9",
+    "captions": false,
+    "persona": "Kokoro am_onyx AI narrator for Chethan Gowda (credit override of IN-FOR-BEAR / OUTRO-LOCK)",
+    "channel": "INFO7375 (course submission, not a channel upload)",
+    "note": "Built from the student's brief (items 1–9); every fact and number is from the brief. Derived values shown with the student's approval: softmax([1,2,3]) = 0.09/0.24/0.67 (evidence/softmax_by_hand.py) (36 + 59 later removed at the student's request: B10 now says 'a two-digit addition problem'). Attention and context are drawn schematically, with no toy values. The ai-explainer skin and spine are kept; B00 credits the student and discloses the AI narrator instead of 'Liam, in for Bear', and B13 is a reel-local outro instead of the @NikBearBrown-locked ClaudeTitleOutro. The closing line (item 9) ends the verdict beat B11, per the student.",
+    "sources": [
+      "Vaswani et al., 2017, Attention Is All You Need",
+      "Anthropic, 2025, On the Biology of a Large Language Model",
+      "Student brief (INFO7375 Week 01)",
+      "Brown et al., 2020, Language Models are Few-Shot Learners (GPT-3: 96 layers, 96 heads)"
+    ],
+    "approvals": {
+      "narration": {
+        "status": "approved",
+        "reviewer_type": "human",
+        "reviewed_by": "Chethan Gowda",
+        "reviewed_at": "2026-09-27",
+        "note": "B00 revised 2026-09-27 at the student's request: 'Namaskara, CG'; B02A and B02B added and approved 2026-09-27; 2026-09-27 revision approved: tighter B02A/B03–B06, encoder–decoder detail (B02B, new B02C), examples Alice/Bob and cricket/fruit bat, B10 without specific numbers"
+      }
+    },
+    "build": {
+      "at": "2026-09-27T22:34:33",
+      "cut": "master",
+      "filled": 17,
+      "of": 17,
+      "slates": [],
+      "skin_warnings": [
+        "B13: palette=claude but the outro is 'un-annotated' — OUTRO LAW wants ClaudeTitleOutro"
+      ]
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "kind": "narration",
+      "narration_text": "Namaskara. This is a video by CG about what happens inside one prediction step of a transformer, and why we can't explain its behavior. The voice is Kokoro, an AI narrator, reading a script written with Claude's help.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "cream Claude page, eyebrow and segment title"
+          },
+          {
+            "at": 0.3,
+            "event": "greeting 'Namaskara, CG'"
+          },
+          {
+            "at": 0.55,
+            "event": "the ask types in"
+          },
+          {
+            "at": 0.85,
+            "event": "three output lines settle"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "topic": "INFO7375 · WEEK 01",
+            "segment": "Inside One Prediction Step",
+            "folderLabel": "INFO7375",
+            "modelLabel": "Claude",
+            "effortLabel": "Desktop",
+            "greeting": "Namaskara, CG",
+            "command": "What happens inside one prediction step of a transformer, and why can't we explain its behavior?",
+            "runningText": "tracing one prediction…",
+            "output": [
+              "tokens become vectors",
+              "attention and feed-forward, layer after layer",
+              "softmax turns scores into probabilities"
+            ]
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-28T01:40:53.181019+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B00.mp3",
+      "actual_duration_s": 12.95,
+      "render_duration_s": 12.958333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "kind": "narration",
+      "narration_text": "A chatbot looks like it answers questions. Underneath, it runs one prediction in a loop: given this text, what comes next? The machine inside that prediction is a transformer.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.05,
+            "event": "context title and three cards: Given / Predict / Repeat"
+          },
+          {
+            "at": 0.1,
+            "event": "writer types 'A chatbot answers questions.'"
+          },
+          {
+            "at": 0.55,
+            "event": "'answers' and 'questions' turn terracotta, deleted, retyped as 'predicts' and 'text'"
+          },
+          {
+            "at": 0.9,
+            "event": "final: 'A chatbot predicts text.'"
+          }
+        ],
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "A chatbot\nanswers questions.",
+            "triggerWords": "answers, questions",
+            "replacementWords": "predicts, text",
+            "fontSize": 120,
+            "lineSpacing": 1.42,
+            "align": "center",
+            "seed": "one-prediction-step-b01",
+            "ink": "#3D3929",
+            "accent": "#D97757",
+            "bg": "#FAF9F5",
+            "mistakeRate": 6,
+            "hesitateWithin": 3,
+            "hesitateBetween": 15,
+            "charMs": 50,
+            "jitter": 25,
+            "contextTitle": "One prediction, in a loop",
+            "contextItems": [
+              {
+                "label": "Given",
+                "detail": "the text so far"
+              },
+              {
+                "label": "Predict",
+                "detail": "what comes next"
+              },
+              {
+                "label": "Repeat",
+                "detail": "append it and ask again"
+              }
+            ],
+            "brandLabel": "Chethan · INFO7375"
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-09-28T01:41:43.545797+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B01.mp3",
+      "lead_silence_s": 0.8,
+      "actual_duration_s": 9.75,
+      "render_duration_s": 9.75,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "2 · PARALLELISM",
+      "kind": "narration",
+      "narration_text": "Earlier models, called RNNs, read text one word at a time, each step waiting on the last. The transformer, from the 2017 paper Attention Is All You Need, reads the whole context at once. That made training on hundreds of billions of tokens practical. Generating a reply is still one token at a time.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.05,
+            "event": "lane 'RNN: one word at a time': tiles 'She swung the cricket bat hard' light left to right"
+          },
+          {
+            "at": 0.4,
+            "event": "lane 'transformer: whole context at once': all tiles light together"
+          },
+          {
+            "at": 0.65,
+            "event": "label: made training on hundreds of billions of tokens practical"
+          },
+          {
+            "at": 0.8,
+            "event": "lane 'generating a reply': new tokens append one at a time"
+          },
+          {
+            "at": 0.9,
+            "event": "citation Vaswani et al., 2017"
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B02.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B02_Parallel"
+      },
+      "actual_duration_s": 17.43,
+      "render_duration_s": 17.458333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B02A",
+      "act": "2b · ARCHITECTURE AT A GLANCE",
+      "kind": "narration",
+      "narration_text": "Here is the whole architecture at a glance. Input tokens become vectors plus position, pass through a stack of transformer blocks, and come out as scores, which softmax turns into probabilities. Each block has two parts: attention, then a feed-forward layer, and each adds its result to the vector instead of replacing it, a residual connection. Attention is multi-head: several run side by side, each tracking a different kind of relationship. GPT-3 has ninety-six heads in each of its ninety-six layers.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.02,
+            "event": "top row: input tokens → vectors + position → stack of transformer blocks → output scores → softmax → probabilities"
+          },
+          {
+            "at": 0.3,
+            "event": "zoom: one block = attention, then feed-forward"
+          },
+          {
+            "at": 0.45,
+            "event": "residual stream: each part's result is added (+) to the vector, not replacing it"
+          },
+          {
+            "at": 0.7,
+            "event": "attention splits into several heads side by side"
+          },
+          {
+            "at": 0.9,
+            "event": "label: GPT-3, 96 heads in each of 96 layers"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B02A_Architecture"
+      },
+      "audio_file": "mp3/beat-B02A.mp3",
+      "actual_duration_s": 28.82,
+      "render_duration_s": 28.833333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02A.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B02B",
+      "act": "2b · THE 2017 ENCODER–DECODER",
+      "kind": "narration",
+      "narration_text": "The original 2017 transformer had an encoder and a decoder, because it was built for translation. The encoder reads the source sentence. The decoder writes the translation with two attentions: masked self-attention over what it has written, and cross-attention that reads the encoder's output.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.05,
+            "event": "encoder stack reads 'source sentence'; decoder stack writes 'translation'"
+          },
+          {
+            "at": 0.45,
+            "event": "inside the decoder: 'masked self-attention' (over what it has written) and 'cross-attention' with an arrow from the encoder"
+          },
+          {
+            "at": 0.85,
+            "event": "label: built for translation"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B02B_EncoderDecoder"
+      },
+      "audio_file": "mp3/beat-B02B.mp3",
+      "actual_duration_s": 16.68,
+      "render_duration_s": 16.708333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02B.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B02C",
+      "act": "2b · GPT: DECODER ONLY",
+      "kind": "narration",
+      "narration_text": "Chat models like GPT keep only the decoder and its masked self-attention, with no encoder and no cross-attention. Now let's walk through it, piece by piece.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.05,
+            "event": "GPT: a single decoder stack with 'masked self-attention'"
+          },
+          {
+            "at": 0.35,
+            "event": "encoder and cross-attention shown struck out: not used"
+          },
+          {
+            "at": 0.8,
+            "event": "'predicts the next token'; line: now, piece by piece"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B02C_DecoderOnly"
+      },
+      "audio_file": "mp3/beat-B02C.mp3",
+      "actual_duration_s": 9.69,
+      "render_duration_s": 9.708333333333334,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02C.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "3 · TOKENS → VECTORS",
+      "kind": "narration",
+      "narration_text": "Each token becomes a vector, a list of numbers, because training only works on continuous values. GPT-3 uses twelve thousand two hundred eighty-eight per token. Position is added too, or Alice paid Bob and Bob paid Alice would look identical.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "one-step pipeline diagram draws; 'tokens' and 'vectors' light"
+          },
+          {
+            "at": 0.2,
+            "event": "a token turns into a tall strip of number cells"
+          },
+          {
+            "at": 0.4,
+            "event": "label: 12,288 numbers per token (GPT-3)"
+          },
+          {
+            "at": 0.65,
+            "event": "'Alice paid Bob' and 'Bob paid Alice' as word sets: '=' without position"
+          },
+          {
+            "at": 0.85,
+            "event": "position tags 1 2 3 added: '≠'"
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B03.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B03_Vectors"
+      },
+      "actual_duration_s": 14.57,
+      "render_duration_s": 14.583333333333334,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "4 · ATTENTION: CONTEXT",
+      "kind": "narration",
+      "narration_text": "Attention lets vectors revise each other by context: bat after cricket ends up in a different place than bat after fruit.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "pipeline; 'attention' lights"
+          },
+          {
+            "at": 0.3,
+            "event": "one 'bat' arrow; 'cricket' pulls a copy one way, 'fruit' pulls another copy the other way"
+          },
+          {
+            "at": 0.8,
+            "event": "two bat arrows end in different places; label 'schematic'"
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B04.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B04_Context"
+      },
+      "actual_duration_s": 7.3,
+      "render_duration_s": 7.333333333333333,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "4 · ATTENTION: MECHANISM",
+      "kind": "narration",
+      "narration_text": "Each token's query is matched against the keys. Softmax turns those scores into weights, and each token gathers from the tokens it weights most, only earlier ones.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.05,
+            "event": "query and key tags on each token"
+          },
+          {
+            "at": 0.3,
+            "event": "query × key → scores → softmax → weights, left to right"
+          },
+          {
+            "at": 0.6,
+            "event": "weighted arrows gather into the current token, thick for high weight"
+          },
+          {
+            "at": 0.85,
+            "event": "triangle grid: each token sees only earlier tokens; later cells blocked"
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B05.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B05_QueryKey"
+      },
+      "actual_duration_s": 9.64,
+      "render_duration_s": 9.666666666666666,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "5 · FEED-FORWARD, REPEATED",
+      "kind": "narration",
+      "narration_text": "Feed-forward layers then work on each token separately, adding patterns stored in training, and they hold most of the parameters. The pair repeats: ninety-six layers in GPT-3.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "pipeline; 'feed-forward' lights"
+          },
+          {
+            "at": 0.2,
+            "event": "one feed-forward box per token, no arrows between tokens"
+          },
+          {
+            "at": 0.45,
+            "event": "label: holds most of the parameters"
+          },
+          {
+            "at": 0.65,
+            "event": "attention + feed-forward block stacks: layer 1, 2, 3 … 96 (GPT-3)"
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B06.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B06_Layers"
+      },
+      "actual_duration_s": 10.41,
+      "render_duration_s": 10.416666666666666,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "6 · SCORES → SOFTMAX",
+      "kind": "narration",
+      "narration_text": "After the last layer, the vector at the final position, shaped by everything before it, becomes one score, a logit, for every token in the vocabulary, about fifty thousand of them. Softmax turns them into probabilities. So softmax appears twice: inside attention, and here at the output.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "pipeline; 'scores' and 'softmax' light"
+          },
+          {
+            "at": 0.2,
+            "event": "final-position vector fans into a long row of score bars: '≈ 50,000 logits'"
+          },
+          {
+            "at": 0.55,
+            "event": "softmax turns them into probabilities"
+          },
+          {
+            "at": 0.8,
+            "event": "both softmax spots marked in the diagram, inside attention and at the output: 'softmax × 2'"
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B07.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B07_Output"
+      },
+      "actual_duration_s": 16.62,
+      "render_duration_s": 16.625,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "6 · BY HAND",
+      "kind": "narration",
+      "narration_text": "That last step is small enough to build by hand. Take three scores: one, two, three. Exponentiate each, then divide by the total. Out come zero point zero nine, zero point two four, and zero point six seven.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.05,
+            "event": "code card: softmax by hand"
+          },
+          {
+            "at": 0.7,
+            "event": "recorded output [0.09, 0.24, 0.67]"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "evidence/softmax_by_hand.py — recorded run",
+            "language": "python",
+            "largeText": true,
+            "brandLabel": "Chethan · INFO7375",
+            "sparkLine": "The last step, by hand.",
+            "code": "import math\n\nscores = [1, 2, 3]\nweights = [math.exp(s) for s in scores]   # exponentiate each\ntotal = sum(weights)\nprobs = [w / total for w in weights]      # divide by the total\n\nprint([round(p, 2) for p in probs])\n# recorded output:\n# [0.09, 0.24, 0.67]"
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-09-28T01:22:07.320442+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 12.8,
+      "render_duration_s": 12.833333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "7 · OPERATIONS, NOT BEHAVIOR",
+      "kind": "narration",
+      "narration_text": "Here's the catch. Researchers designed the operations, not the behavior. Nobody wrote code for grammar or translation. Those abilities emerged from fitting billions of parameters, and nobody can read off why a particular prediction was made.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.05,
+            "event": "left 'designed': vectors, attention, feed-forward, softmax"
+          },
+          {
+            "at": 0.35,
+            "event": "right 'not written': grammar, translation, each struck 'no code'"
+          },
+          {
+            "at": 0.6,
+            "event": "a dense field of cells labelled 'billions of fitted parameters'"
+          },
+          {
+            "at": 0.85,
+            "event": "line: nobody can read off why a prediction was made"
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B09.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B09_Designed"
+      },
+      "actual_duration_s": 13.59,
+      "render_duration_s": 13.625,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B09.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "8 · ASKING DOESN'T SETTLE IT",
+      "kind": "narration",
+      "narration_text": "Asking the model doesn't settle it, because its explanation is just more predicted text. In Anthropic's 2025 paper, On the Biology of a Large Language Model, researchers traced a model solving a two-digit addition problem through parallel internal pathways. Asked how, it described the carry-the-one method from school.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.05,
+            "event": "'its explanation = more predicted text'"
+          },
+          {
+            "at": 0.3,
+            "event": "left 'traced inside': a two-digit addition (digit boxes) splits into parallel pathways that merge into the answer (schematic)"
+          },
+          {
+            "at": 0.65,
+            "event": "right 'what the model said': carry-the-one column addition with digit boxes"
+          },
+          {
+            "at": 0.85,
+            "event": "citation: Anthropic, 2025"
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B10.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B10_Biology"
+      },
+      "actual_duration_s": 18.43,
+      "render_duration_s": 18.458333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B10.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "9 · VERDICT",
+      "kind": "narration",
+      "narration_text": "The verdict. One prediction, in a loop. Tokens become vectors, attention and feed-forward repeat layer after layer, ninety-six times in GPT-3, and softmax turns the final vector into probabilities. The operations were designed. The behavior emerged from fitting. The model decided X because Y is a story, not a measurement.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "artifact page"
+          },
+          {
+            "at": 0.3,
+            "event": "verdict lines arrive in narration order; the last line is the closing line"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Inside One Prediction Step",
+            "artifactHeading": "The verdict.",
+            "brandLabel": "Chethan · INFO7375",
+            "artifactLines": [
+              "One prediction, in a loop.",
+              "Tokens become vectors.",
+              "Attention + feed-forward, layer after layer.",
+              "Softmax turns scores into probabilities.",
+              "“The model decided X because Y” is a story, not a measurement."
+            ]
+          },
+          "rendered": {
+            "out": "media/B11.mp4",
+            "at": "2026-09-28T01:23:30.879154+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B11.mp3",
+      "lead_silence_s": 0.5,
+      "actual_duration_s": 18.28,
+      "render_duration_s": 18.291666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B11.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "YOUR TURN",
+      "kind": "narration",
+      "narration_text": "Your turn. Paste this into Claude: Take a claim like, the model refused because it understood the risk. What evidence would actually support that because? Separate what could be measured inside the model from what is only the model's own explanation. Check the answer: it names evidence from inside the model, it treats the model's self-explanation as more predicted text, and it never claims the model understood.",
+      "engine": "kokoro",
+      "voice": "am_onyx",
+      "voice_kokoro": "am_onyx",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "greeting 'Your turn.'"
+          },
+          {
+            "at": 0.2,
+            "event": "the prompt types in"
+          },
+          {
+            "at": 0.7,
+            "event": "three checks appear"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "topic": "INFO7375 · WEEK 01",
+            "segment": "Inside One Prediction Step",
+            "folderLabel": "INFO7375",
+            "modelLabel": "Claude",
+            "effortLabel": "Desktop",
+            "greeting": "Your turn.",
+            "command": "Take a claim like \"the model refused because it understood the risk.\" What evidence would actually support that \"because\"? Separate what could be measured inside the model from what is only the model's own explanation.",
+            "runningText": "paste this into Claude…",
+            "output": [
+              "check: names evidence from inside the model",
+              "check: treats self-explanation as predicted text",
+              "check: never claims the model 'understood'"
+            ]
+          },
+          "rendered": {
+            "out": "media/B12.mp4",
+            "at": "2026-09-28T01:24:45.311721+00:00"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B12.mp3",
+      "actual_duration_s": 20.69,
+      "render_duration_s": 20.708333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B12.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T22:34:33"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "OUTRO",
+      "kind": "silent",
+      "narration_text": "",
+      "audio_policy": "silence",
+      "estimated_duration_s": 6,
+      "actual_duration_s": 6.0,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "poster serif title, terracotta period"
+          },
+          {
+            "at": 0.5,
+            "event": "credit: Chethan Gowda · INFO7375 · Week 01"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B13_Outro"
+      },
+      "render_duration_s": 6.0,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B13.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T22:34:33"
+      }
+    }
+  ]
+}
