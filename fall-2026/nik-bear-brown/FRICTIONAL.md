@@ -399,3 +399,5 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-28 | docs(fall-2026): log the playlist reorder and caption check |
 - **2026-09-28: sign-off on films 16 to 25.** In my words: "look great Ive reviewed publish all currently unpublished", with the usual runbook pasted. All ten go up unlisted on @NikBearBrown, in both playlists.
 | 2026-09-28 | docs(fall-2026): log the sign-off on Figma films 16 to 25 |
+  - **Done the same day:** all ten are up, unlisted, native 4K, one caption track each, in both playlists: 16 _-h7rkUej70, 17 YjoIfoOJgsk, 18 hQXXcFHSR04, 19 DnXiQWK8jc4, 20 j_yLifLc38k, 21 tYH92Pqw-MM, 22 zCHGiWw4L1s, 23 z5VC4u2K3gs, 24 urIYFefBWfM, 25 vos_5jXGQUs (youtu.be/…). Twenty-six films in the Figma playlist.
+| 2026-09-28 | docs(fall-2026): log films 16 to 25 going up unlisted |
