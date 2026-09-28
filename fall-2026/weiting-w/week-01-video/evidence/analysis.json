@@ -1,0 +1,115 @@
+{
+  "runs": {
+    "run1-normal": {
+      "model_label_shown": "Opus 5.5 Medium",
+      "incognito": "no (all 12 chats appear in the account's normal chat history)",
+      "groups": {
+        "D_open_question": {
+          "n": 4,
+          "distinct": 4,
+          "words_each": [
+            56,
+            57,
+            50,
+            39
+          ],
+          "mean_words": 50.5,
+          "mean_pairwise_overlap": 0.267,
+          "years_asserted": [],
+          "deck_size_phrases": [
+            "52!",
+            "about 225 bits",
+            "about 2^226"
+          ]
+        },
+        "A_capital_free": {
+          "n": 4,
+          "distinct": 2,
+          "words_each": [
+            6,
+            6,
+            6,
+            6
+          ],
+          "mean_words": 6.0,
+          "mean_pairwise_overlap": 1.0,
+          "years_asserted": [],
+          "deck_size_phrases": []
+        },
+        "B_capital_one_word": {
+          "n": 4,
+          "distinct": 1,
+          "words_each": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mean_words": 1.0,
+          "mean_pairwise_overlap": 1.0,
+          "years_asserted": [],
+          "deck_size_phrases": []
+        }
+      }
+    },
+    "run2-incognito": {
+      "model_label_shown": "Opus 5.5 Medium",
+      "incognito": "yes",
+      "groups": {
+        "D_open_question": {
+          "n": 4,
+          "distinct": 4,
+          "words_each": [
+            42,
+            50,
+            52,
+            59
+          ],
+          "mean_words": 50.8,
+          "mean_pairwise_overlap": 0.212,
+          "years_asserted": [],
+          "deck_size_phrases": [
+            "52!",
+            "about 225 bits",
+            "about 2^225"
+          ]
+        },
+        "A_capital_free": {
+          "n": 4,
+          "distinct": 4,
+          "words_each": [
+            29,
+            31,
+            34,
+            33
+          ],
+          "mean_words": 31.8,
+          "mean_pairwise_overlap": 0.626,
+          "years_asserted": [
+            "1908",
+            "1927"
+          ],
+          "deck_size_phrases": []
+        },
+        "B_capital_one_word": {
+          "n": 4,
+          "distinct": 1,
+          "words_each": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "mean_words": 1.0,
+          "mean_pairwise_overlap": 1.0,
+          "years_asserted": [],
+          "deck_size_phrases": []
+        }
+      }
+    }
+  },
+  "check_deck_bits": {
+    "log2_of_52_factorial": 225.58,
+    "note": "Replies say 'about 225 bits', 'about 2^225', 'about 2^226'. All within one bit of the computed 225.58; no prompt rule checked any of them."
+  }
+}

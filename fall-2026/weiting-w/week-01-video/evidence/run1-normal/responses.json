@@ -1,0 +1,62 @@
+{
+  "collected": "2026-09-27",
+  "interface": "claude.ai web",
+  "model_label_shown": "Opus 5.5 Medium",
+  "incognito": "no (all 12 chats appear in the account's normal chat history)",
+  "procedure": "Each response is the first reply in a brand-new conversation. No regeneration, no selection. Screenshots in screenshots/.",
+  "groups": {
+    "D_open_question": {
+      "prompt": "In exactly one sentence, explain why a shuffled deck of cards is a bad source of randomness for a security key.",
+      "source": "Chapter 1, First prompts, prompt 1",
+      "responses": [
+        "Although a perfectly shuffled deck holds about 225 bits of entropy (52! orderings), human shuffling is far from perfect and leaves predictable patterns from the deck's prior order, so the real entropy is much lower than it appears, and an attacker who can model those shuffle biases could guess the key far faster than brute force.",
+        "A hand-shuffled deck is far less random than it looks, because people rarely shuffle enough to break up the original order, so the resulting sequence is biased and partly predictable, and an attacker who can guess the starting order or the shuffling habits can shrink the space of likely keys well below the theoretical 52! arrangements.",
+        "Although a deck has about 2^226 possible orderings, real human shuffles are far from uniform (you need roughly seven good riffle shuffles just to approach randomness, and most people do fewer), so the result carries much less entropy than it seems and is biased in ways an attacker can exploit.",
+        "Although a deck has 52! possible orderings, human shuffles are biased and incomplete, so the key has far less entropy than it seems and is easier to guess or observe than one from a cryptographically secure random number generator."
+      ]
+    },
+    "A_capital_free": {
+      "prompt": "What is the capital of Australia?",
+      "source": "our control: the chapter's prompt 2 with the format instruction removed",
+      "responses": [
+        "The capital of Australia is Canberra.",
+        "Canberra is the capital of Australia.",
+        "The capital of Australia is Canberra.",
+        "The capital of Australia is Canberra."
+      ]
+    },
+    "B_capital_one_word": {
+      "prompt": "Answer with one word only, no punctuation and no explanation.\nWhat is the capital of Australia?",
+      "source": "Chapter 1, First prompts, prompt 2",
+      "responses": [
+        "Canberra",
+        "Canberra",
+        "Canberra",
+        "Canberra"
+      ]
+    }
+  },
+  "times_utc": {
+    "A": [
+      "17:50:26",
+      "17:50:59",
+      "17:51:06",
+      "17:51:10"
+    ],
+    "B": [
+      "17:51:28",
+      "17:51:32",
+      "17:51:35",
+      "17:51:39"
+    ],
+    "D": [
+      "17:55:12",
+      "17:55:19",
+      "17:55:26",
+      "17:55:32"
+    ]
+  },
+  "times_note": "Last-updated times from chat history, UTC (13:50-13:55 US Eastern). Order within each group follows these times.",
+  "run": "run1-normal",
+  "personal_preferences": "on (Settings personal preferences field unchanged, active in both runs)"
+}

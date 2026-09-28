@@ -1,0 +1,64 @@
+{
+  "run": "run2-incognito",
+  "collected": "2026-09-27",
+  "interface": "claude.ai web, Incognito chat (black 'Incognito chat' bar visible in every screenshot)",
+  "model_label_shown": "Opus 5.5 Medium",
+  "incognito": "yes",
+  "procedure": "Each response is the first reply in a brand-new incognito chat. No regeneration, no selection. Screenshots in screenshots/.",
+  "screenshot_times_local": {
+    "A": [
+      "14:22:06",
+      "14:22:29",
+      "14:22:40",
+      "14:22:49"
+    ],
+    "B": [
+      "14:23:06",
+      "14:23:16",
+      "14:23:24",
+      "14:23:32"
+    ],
+    "D": [
+      "14:24:01",
+      "14:24:12",
+      "14:24:22",
+      "14:24:32"
+    ]
+  },
+  "groups": {
+    "D_open_question": {
+      "prompt": "In exactly one sentence, explain why a shuffled deck of cards is a bad source of randomness for a security key.",
+      "source": "Chapter 1, First prompts, prompt 1",
+      "responses": [
+        "Hand shuffles don't produce truly uniform orderings (it takes about seven good riffles just to approach randomness, and real shuffles leave biased, predictable patterns), so an attacker can guess the resulting key far more easily than its theoretical 52! possibilities would suggest.",
+        "Although a deck has about 2^225 possible orders, human shuffling is biased and often incomplete (a riffle shuffle takes roughly seven passes to approach uniform), so the real arrangement is far more predictable than that number suggests, and the process can't easily be measured, audited, or kept hidden from observers.",
+        "A hand-shuffled deck is far less random than it looks, because human shuffles leave the cards partly in their original order and can be watched or reconstructed, so an attacker could guess much of the key even though a perfectly shuffled deck would in theory hold about 225 bits of entropy.",
+        "Although a perfectly shuffled deck holds about 225 bits of entropy, human shuffling rarely comes close to uniform randomness (a riffle shuffle needs about seven passes, and people often do fewer or shuffle inconsistently), so the resulting order is biased, partly predictable from the deck's starting state, and hard to keep secret from anyone who handled or watched it."
+      ]
+    },
+    "A_capital_free": {
+      "prompt": "What is the capital of Australia?",
+      "source": "our control: the chapter's prompt 2 with the format instruction removed",
+      "responses": [
+        "The capital of Australia is Canberra. It was purpose-built as a compromise between Sydney and Melbourne, which both wanted the title, and Parliament has met there since 1927.",
+        "The capital of Australia is Canberra. It was purpose-built as the capital, chosen in 1908 as a compromise between rivals Sydney and Melbourne, and Parliament first sat there in 1927.",
+        "The capital of Australia is Canberra. It was purpose-built as a compromise between Sydney and Melbourne, which were both vying for the title, and it officially became the seat of government in 1927.",
+        "The capital of Australia is Canberra. It was purpose-built as a compromise between Sydney and Melbourne, the two largest cities, which both wanted the title, and Parliament first met there in 1927."
+      ],
+      "notes": [
+        "A4 shows 'Canberra' in bold in the interface; stored here as plain text."
+      ]
+    },
+    "B_capital_one_word": {
+      "prompt": "Answer with one word only, no punctuation and no explanation.\nWhat is the capital of Australia?",
+      "source": "Chapter 1, First prompts, prompt 2",
+      "responses": [
+        "Canberra",
+        "Canberra",
+        "Canberra",
+        "Canberra"
+      ]
+    }
+  },
+  "personal_preferences": "on (Settings personal preferences field unchanged, active in both runs)"
+}

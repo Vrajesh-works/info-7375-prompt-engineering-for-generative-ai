@@ -1,0 +1,502 @@
+{
+  "metadata": {
+    "title": "One Word, Same Answer",
+    "slug": "weiting-one-word-same-answer",
+    "topic": "CHAPTER 1 · FIRST PROMPTS",
+    "register": "Plain",
+    "audience": "Claude",
+    "brand": "claude",
+    "engine": "kokoro",
+    "voice_kokoro": "af_bella",
+    "persona": "Synthetic Kokoro af_bella voice (disclosed in narration, on the end card, and in SOURCES.md)",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "greeting": "Weiting",
+    "color_semantics": "Cream ground, warm near-black ink. SPARK #D97757 is one accent EVENT per scene.",
+    "note": "INFO 7375 Week 01 video, Weiting W. ONE concept from Chapter 1 Part 2: constraining the output format narrows the spread without checking anything. 24 real Claude replies (claude.ai, Opus 5.5 Medium, 2026-09-27; run 1 normal account, run 2 incognito (memory off; may differ in other ways); personal preferences on in both runs), each the first reply in a new chat, no regeneration, stored verbatim with screenshots. Every count is computed by analyze_responses.py. The capital-free prompt is our added control.",
+    "source_chapter": "Chapter 1 — Randomness and first prompts, section 'First prompts: the same experiment, one floor up'",
+    "tags": [
+      "output format",
+      "spread",
+      "controlled comparison",
+      "INFO 7375"
+    ],
+    "build": {
+      "at": "2026-09-27T20:00:46",
+      "cut": "master",
+      "filled": 10,
+      "of": 10,
+      "slates": [],
+      "skin_warnings": [
+        "B09: palette=claude but the outro is 'un-annotated' — OUTRO LAW wants ClaudeTitleOutro"
+      ]
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "estimated_duration_s": 13,
+      "narration_text": "Tell Claude to answer in one word, and its answers stop changing from chat to chat. That feels like progress. We ran the chapter's experiment twice, added the comparison it was missing, and found something outside the prompt that was already shortening the answers.",
+      "new_visual_element": "Cold open — the chapter's one-word prompt typed; no reply shown",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "lane": "bookend",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "composer: greeting 'Weiting'; prompt types itself. No reply is shown."
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Weiting",
+            "command": "Answer with one word only, no punctuation and no explanation. What is the capital of Australia?",
+            "runningText": "",
+            "segment": "One Word, Same Answer",
+            "topic": "CHAPTER 1 · FIRST PROMPTS",
+            "folderLabel": "Weiting W"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-27T23:48:22.059585+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 15.96,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 16.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T20:00:46"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "estimated_duration_s": 12,
+      "narration_text": "Here's the short version. A format rule makes the answers narrower. It doesn't check any of them. And the rule doesn't have to be in your prompt. In my case, something outside the prompt was already doing it.",
+      "new_visual_element": "Overview",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "visual_intent": "Three overview lines fade in one after another, centered.",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "line 1"
+          },
+          {
+            "at": 0.4,
+            "event": "line 2"
+          },
+          {
+            "at": 0.7,
+            "event": "line 3"
+          }
+        ]
+      },
+      "actual_duration_s": 11.93,
+      "audio_file": "mp3/beat-B01.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B01_Overview",
+        "production_viz": {
+          "source": "overview, no data"
+        }
+      },
+      "render_duration_s": 11.958333333333334,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T20:00:46"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "I — Two things changed at once",
+      "estimated_duration_s": 17,
+      "narration_text": "The chapter compares two prompts. One asks, in one sentence, why a shuffled deck is a bad source of randomness. The other asks for Australia's capital, in one word. In our runs, the one-word answers all agreed, and the sentences didn't. But two things changed between those prompts, not one. The format changed, and so did the question.",
+      "new_visual_element": "Chapter's two prompts side by side; both differences highlighted",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "visual_intent": "Two prompt cards from Chapter 1 side by side. Highlight the format instructions ('one sentence' vs 'one word', SPARK) and the questions (deck vs capital). Label: 'two variables changed'.",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "deck prompt card"
+          },
+          {
+            "at": 0.3,
+            "event": "capital one-word prompt card"
+          },
+          {
+            "at": 0.6,
+            "event": "format difference highlighted"
+          },
+          {
+            "at": 0.8,
+            "event": "question difference; 'two variables changed'"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B02_TwoChanges",
+        "production_viz": {
+          "source": "Chapter 1, 'First prompts', prompts 1 and 2"
+        }
+      },
+      "actual_duration_s": 21.18,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 21.208333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T20:00:46"
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "Two-prompt comparison reveals across the beat (cards, then our-runs lines, then format/question bars); a mid-beat frame is partially populated by design."
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "II — Add the missing control, run it twice",
+      "estimated_duration_s": 20,
+      "narration_text": "So we used three prompts: the chapter's two, plus the same capital question with no format rule at all. Now each step changes only one thing. For every prompt, we opened four new chats and kept the first reply, with no regenerating. We did all of this twice on September twenty-seventh, using Opus 5.5. Once in my normal account, and once in incognito, which turns off Claude's memory. My personal preferences stayed on both times.",
+      "new_visual_element": "Three prompts × two runs; one-variable arrows; procedure footer",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "visual_intent": "Three columns: D deck (one sentence), A capital (free), B capital (one word). Arrow D→A 'question changes'; arrow A→B 'format changes'. Two rows: Run 1 normal account / Run 2 incognito, memory off (personal preferences on in both runs). Brief thumbnail grid of the 24 screenshots. Footer: '4 new chats per cell · Opus 5.5 Medium · 2026-09-27 · no regeneration'.",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "three columns"
+          },
+          {
+            "at": 0.3,
+            "event": "one-variable arrows"
+          },
+          {
+            "at": 0.55,
+            "event": "two run rows"
+          },
+          {
+            "at": 0.75,
+            "event": "24-screenshot thumbnail grid"
+          },
+          {
+            "at": 0.9,
+            "event": "procedure footer"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B03_ThreeGroupsTwoRuns",
+        "production_viz": {
+          "source": "evidence/run1-normal + evidence/run2-incognito responses.json; evidence/analysis.json (analyze_responses.py)"
+        }
+      },
+      "actual_duration_s": 25.81,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 25.833333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T20:00:46"
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "Three-groups/two-runs overview builds top-down across the beat (heads, then run-1 thumbnails, then run-2); a mid-beat frame is partially populated by design."
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "III — Run 1: the format seemed not to matter",
+      "estimated_duration_s": 15,
+      "narration_text": "In my normal account, the free answers to the capital question were already tiny. Six words each, and the same words every time. So the one-word rule had almost nothing left to cut. If we'd stopped here, we'd have said the format barely matters.",
+      "new_visual_element": "Run 1: A = 6 words, 2 distinct, overlap 1.00 → B = 1 word",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "visual_intent": "Run 1 real replies. Group A: 'The capital of Australia is Canberra.' ×3 and 'Canberra is the capital of Australia.' ×1 — distinct 2, 6 words each, overlap 1.00. Group B: 'Canberra' ×4. A short arrow A→B labelled 'format: little left to cut'. Label every reply 'Claude reply · run 1 · 2026-09-27'.",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "group A replies"
+          },
+          {
+            "at": 0.4,
+            "event": "6 words · overlap 1.00"
+          },
+          {
+            "at": 0.65,
+            "event": "group B: Canberra ×4"
+          },
+          {
+            "at": 0.85,
+            "event": "'little left to cut'"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B04_RunOne",
+        "production_viz": {
+          "source": "evidence/run1-normal + evidence/run2-incognito responses.json; evidence/analysis.json (analyze_responses.py)"
+        }
+      },
+      "actual_duration_s": 15.36,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 15.375,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T20:00:46"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "IV — Run 2: the rule was already there",
+      "estimated_duration_s": 22,
+      "narration_text": "In incognito, the same free question came back at about thirty words. Four different sentences, and they added history, like 1908 and 1927. With the one-word rule, all four became just Canberra. So the format rule does narrow the answers, a lot. That fits the chapter's reason: one word leaves very few likely ways to reply, so the replies converge. In my normal account, something outside the prompt had already done most of that work.",
+      "new_visual_element": "Run 2: A = ~32 words, 4 distinct, overlap 0.63 → B = Canberra ×4; compare with run 1",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "visual_intent": "Run 2 real replies. Group A: four distinct sentences (29–34 words), years 1908 and 1927 highlighted, overlap 0.63. Group B: 'Canberra' ×4. Then the two runs side by side as bars of mean words for A: run 1 = 6, run 2 = 31.8, with B = 1 in both; the run-1 gap labelled 'already narrowed outside the prompt' (SPARK).",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "run 2 group A replies"
+          },
+          {
+            "at": 0.3,
+            "event": "years highlighted; 4 distinct · ~32 words"
+          },
+          {
+            "at": 0.55,
+            "event": "group B: Canberra ×4"
+          },
+          {
+            "at": 0.75,
+            "event": "run 1 vs run 2 bars"
+          },
+          {
+            "at": 0.9,
+            "event": "'already narrowed outside the prompt'"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B05_RunTwo",
+        "production_viz": {
+          "source": "evidence/run1-normal + evidence/run2-incognito responses.json; evidence/analysis.json (analyze_responses.py)"
+        }
+      },
+      "actual_duration_s": 30.48,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 30.5,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T20:00:46"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "V — Checked by nobody",
+      "estimated_duration_s": 22,
+      "narration_text": "And none of this checked anything. The longer answers stated dates. The one-word rule didn't verify those dates. It just removed them. Canberra is correct, but we know that from outside the chat, not because we saw it four times. The deck answers also quoted numbers: about 225 bits, about two to the 225, about two to the 226. Our script worked out log base two of fifty-two factorial, which is 225.58. They're all close, but no format rule checked any of them. We did.",
+      "new_visual_element": "Narrowing by deletion, not verification; log2(52!) = 225.58",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "visual_intent": "Left: a run-2 A reply with '1908' and '1927' struck out as it shrinks to 'Canberra' — caption 'deleted, not verified'. Tag: 'Canberra correct — checked outside the chat'. Right: quoted deck phrases 'about 225 bits', 'about 2^225', 'about 2^226' (real replies), then our computation log2(52!) = 225.58 (SPARK). Caption: 'no format rule checked these'.",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "dates in reply"
+          },
+          {
+            "at": 0.2,
+            "event": "shrink to Canberra: 'deleted, not verified'"
+          },
+          {
+            "at": 0.4,
+            "event": "'checked outside the chat'"
+          },
+          {
+            "at": 0.6,
+            "event": "quoted deck sizes"
+          },
+          {
+            "at": 0.8,
+            "event": "225.58 (SPARK)"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B06_NobodyChecked",
+        "production_viz": {
+          "source": "evidence/run1-normal + evidence/run2-incognito responses.json; evidence/analysis.json (analyze_responses.py)"
+        }
+      },
+      "actual_duration_s": 34.38,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 34.416666666666664,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T20:00:46"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "VI — What this does not establish",
+      "estimated_duration_s": 18,
+      "narration_text": "Here's what this doesn't establish. It's four replies per prompt, from one model, on one day, and we counted the answers we saw, not the probabilities behind them. It also doesn't pin down why my normal-account answers were short. Incognito turns off memory, and it may change other things too, so isolating that cause would take a separate experiment. And we didn't verify the dates, or the claim about seven shuffles.",
+      "new_visual_element": "Boundary: n = 4, one model, one day; samples not probabilities; cause of short run-1 answers not isolated; claims unchecked",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "visual_intent": "Two columns. OBSERVED: 24 real replies, counts, overlaps, one computed check. NOT ESTABLISHED: the underlying probabilities; other questions, models, days; what exactly shortened run-1 answers (incognito turns off memory and may change more); the 1908/1927 dates and the seven-riffle claim.",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "OBSERVED"
+          },
+          {
+            "at": 0.45,
+            "event": "NOT ESTABLISHED"
+          },
+          {
+            "at": 0.8,
+            "event": "'cause not isolated' underlined"
+          }
+        ]
+      },
+      "graphic": {
+        "engine": "manim",
+        "manim": "B07_Boundary",
+        "production_viz": {
+          "source": "Chapter 1, 'A distribution is not the sample you happened to see'"
+        }
+      },
+      "actual_duration_s": 24.09,
+      "audio_file": "mp3/beat-B07.mp3",
+      "render_duration_s": 24.125,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B07.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T20:00:46"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "YOUR TURN",
+      "estimated_duration_s": 15,
+      "narration_text": "Your turn. Pick a question and ask it four times in new chats, then four more times with one word only. Try it in your normal account and in incognito. Count how many different answers you get. What narrowed them? And did anything check them?",
+      "new_visual_element": "Composer with suggested prompt (no reply shown)",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "lane": "bookend",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "composer: greeting 'Your turn.'; prompt types itself. No reply is shown."
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "command": "Same question: 4 new chats free-form, 4 with 'one word only' — once in your normal account, once in incognito. Count the distinct answers. What narrowed them, and what checked them?",
+            "runningText": "",
+            "segment": "One Word, Same Answer",
+            "topic": "CHAPTER 1 · FIRST PROMPTS",
+            "folderLabel": "Weiting W"
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-09-27T23:49:20.338925+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 15.08,
+      "audio_file": "mp3/beat-B08.mp3",
+      "render_duration_s": 15.083333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T20:00:46"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "OUTRO",
+      "estimated_duration_s": 5,
+      "narration_text": "One Word, Same Answer. Read by a synthetic voice, for Weiting.",
+      "new_visual_element": "Title restate + handle",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "lane": "manim",
+        "visual_intent": "Title restate and handle, centered; synthetic-voice line small below.",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "title"
+          },
+          {
+            "at": 0.5,
+            "event": "handle"
+          }
+        ]
+      },
+      "actual_duration_s": 4.03,
+      "audio_file": "mp3/beat-B09.mp3",
+      "graphic": {
+        "engine": "manim",
+        "manim": "B09_Outro",
+        "production_viz": {
+          "source": "title card"
+        }
+      },
+      "render_duration_s": 4.041666666666667,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B09.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-27T20:00:46"
+      }
+    }
+  ]
+}
