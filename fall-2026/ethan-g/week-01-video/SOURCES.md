@@ -172,6 +172,6 @@ Tools used to build it, not assets in the video:
 No paid API was called; total cost $0.00.
 
 The six new scene components were written for this assignment and live in the
-toolkit tree; copies of `DerivationScenes.tsx` and the patched
-`ClaudeComposerAsk.tsx` are included in this folder, with `ROOT-REGISTRATION.md`,
+toolkit tree; copies of them (`DerivationScenes.tsx.txt`) and of the patched
+composer scene (`ClaudeComposerAsk.tsx.txt`) are included in this folder, with `ROOT-REGISTRATION.md`,
 so the video can be rebuilt from a fresh clone.

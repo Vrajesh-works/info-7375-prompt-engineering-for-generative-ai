@@ -1,7 +1,8 @@
 # Root.tsx registration for this video
 
 A fresh `brutalist.art` clone does not register the six components this video uses.
-After copying `DerivationScenes.tsx` into `runtime/remotion/src/scenes/`, add these
+After copying `DerivationScenes.tsx.txt` into `runtime/remotion/src/scenes/` as
+`DerivationScenes.tsx`, add these
 two blocks to `runtime/remotion/src/Root.tsx`, then run `./art scene-index`.
 
 **1. With the other imports at the top of the file:**

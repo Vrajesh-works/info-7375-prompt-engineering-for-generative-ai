@@ -117,17 +117,16 @@ paste-ready prompt, with the QC gates and the two traps specific to this video.
 **1. Get the toolkit and add this video's components.** A fresh clone doesn't have
 the six scene components this video uses or the patched last-slide scene.
 
-> **On GitHub** the two scene files are stored as `DerivationScenes.tsx.txt` and
+> The two scene files are stored here as `DerivationScenes.tsx.txt` and
 > `ClaudeComposerAsk.tsx.txt`, because the course repo's CI rejects TypeScript
-> files. Same contents; drop the `.txt` when copying them into the toolkit. The
-> Canvas zip has them as plain `.tsx`. The video file itself is only in the Canvas
-> zip.
+> files. They are ordinary `.tsx` source; drop the `.txt` when copying them into the
+> toolkit, as below. The video file itself is only in the Canvas zip.
 
 ```bash
 git clone https://github.com/nikbearbrown/brutalist.art
 cd brutalist.art
-cp <this-folder>/DerivationScenes.tsx  runtime/remotion/src/scenes/
-cp <this-folder>/ClaudeComposerAsk.tsx runtime/remotion/src/scenes/   # adds the optional credit line
+cp <this-folder>/DerivationScenes.tsx.txt  runtime/remotion/src/scenes/DerivationScenes.tsx
+cp <this-folder>/ClaudeComposerAsk.tsx.txt runtime/remotion/src/scenes/ClaudeComposerAsk.tsx   # adds the optional credit line
 ```
 
 Then add the two blocks in `ROOT-REGISTRATION.md` to
@@ -183,8 +182,8 @@ python3 <reel>/make_captions.py <reel> ethan_gomes_week1_explainer_video
 | `CHECKS-REPORT.md` | per-beat SHOW/HOLD/CARD + teaching-arc check |
 | `SHOTLIST.md` | beat → scene mapping |
 | `BUILD-LOG.md` | build decisions and defects found in QC, in date order |
-| `DerivationScenes.tsx` | the six scene components written for this video |
-| `ClaudeComposerAsk.tsx` | toolkit composer scene, patched with an optional `credit` prop for "Created by Ethan Gomes" on the last slide (default empty) |
+| `DerivationScenes.tsx.txt` | the six scene components written for this video (`.tsx` source; drop the `.txt` to use) |
+| `ClaudeComposerAsk.tsx.txt` | toolkit composer scene (`.tsx` source), patched with an optional `credit` prop for "Created by Ethan Gomes" on the last slide (default empty) |
 | `ROOT-REGISTRATION.md` | the exact `Root.tsx` import + `<Composition>` blocks a fresh toolkit clone needs |
 | `make_captions.py` | builds the `.srt`/`.vtt` from `mp3/words.json`; shows the spoken "Info seven three seven five" as "INFO 7375" |
 | `llm_scale.py` | the chapter's own derivation script, as fetched and run |

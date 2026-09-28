@@ -9,8 +9,8 @@ In the brutalist.art toolkit, rebuild the reel in this folder (call it `<reel>`;
 on the original machine it was
 `~/Desktop/Prompt_Engineering/reels/claude-liam-hidden-parameter`).
 
-**Fresh clone only:** first do README step 1: copy `DerivationScenes.tsx` and
-`ClaudeComposerAsk.tsx` into `runtime/remotion/src/scenes/`, and add the blocks in
+**Fresh clone only:** first do README step 1: copy `DerivationScenes.tsx.txt` and
+`ClaudeComposerAsk.tsx.txt` into `runtime/remotion/src/scenes/` (dropping the `.txt`), and add the blocks in
 `ROOT-REGISTRATION.md` to `runtime/remotion/src/Root.tsx`. Without this, the gate
 check below fails.
 
