@@ -397,3 +397,5 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-28 | docs(fall-2026): log the ten finished Figma films from the second overnight run |
 - **2026-09-28, noon: "it is after 3am."** The YouTube quota had reset, so the two blocked steps ran: the Figma playlist is in order (the six earlier films, then the ten new ones by film number), and every one of the ten has exactly one caption track, so film 2 has no duplicate. Four of the ten (1, 2, 3, 7) are now public, which I did in Studio; the publisher uploaded all ten unlisted.
 | 2026-09-28 | docs(fall-2026): log the playlist reorder and caption check |
+- **2026-09-28: sign-off on films 16 to 25.** In my words: "look great Ive reviewed publish all currently unpublished", with the usual runbook pasted. All ten go up unlisted on @NikBearBrown, in both playlists.
+| 2026-09-28 | docs(fall-2026): log the sign-off on Figma films 16 to 25 |
