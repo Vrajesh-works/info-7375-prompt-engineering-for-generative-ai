@@ -101,7 +101,7 @@ Frame-level checks of the first renders found these, each fixed and re-rendered:
     stale copy of `beat_sheet.json` over my B00 edit (narration text and output line reverted; audio
     had already been regenerated with the new text). Found by checking the master frame; confirmed the
     audio by transcribing `mp3/beat-B00.mp3` with faster-whisper; reapplied the edit with nothing else running,
-    re-rendered B00, and recompiled. Lesson: don't edit the sheet while a toolkit script is running.
+    re-rendered B00, and recompiled.
 - **My own watch of the draft (review/revision record), 2026-09-27:**
   - **0:00–0:15 (B00, opening shot):** everything was fine except the greeting, "Namaste, Siddi".
     I asked for just "Namaste". Changed the `greeting` prop in `beat_sheet.json`; only B00 was re-rendered
@@ -129,11 +129,3 @@ Frame-level checks of the first renders found these, each fixed and re-rendered:
   session.
 - **Rejected / not used:** the toolkit's default "Liam, in for Bear" persona and @NikBearBrown branding
   (not mine to use on a student submission).
-- **[Siddi]** What I still don't fully understand: _(e.g. why exactly exp(−745) is the last nonzero
-  double, since it's a subnormal; or why Python raises OverflowError while NumPy returns inf)_
-
-## Learning and next step [Siddi]
-
-- _(What changed in your understanding: e.g. the difference between an algebraic identity and a
-  floating-point result.)_
-- Next question: _(e.g. does log-softmax / log-sum-exp avoid the underflow that this doesn't?)_
