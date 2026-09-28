@@ -129,3 +129,9 @@ Frame-level checks of the first renders found these, each fixed and re-rendered:
   session.
 - **Rejected / not used:** the toolkit's default "Liam, in for Bear" persona and @NikBearBrown branding
   (not mine to use on a student submission).
+
+## Learning and next step (retrospective, written by Claude at Siddi's request, 2026-09-27)
+
+- The algebra says subtracting the max changes nothing; the run showed that's true only up to the last digit (1.11e-16 difference on [1, 2, 3]), so an identity and a floating-point result are different claims.
+- The shift fixes overflow at the top (exp(1000) crashes, [1000, 1000] gives [0.5, 0.5]) but not underflow at the bottom ([0, -1000] gives exactly [1.0, 0.0] either way).
+- Next question: does computing in log space (log-sum-exp / log-softmax) keep the probability that plain softmax rounds to zero?
