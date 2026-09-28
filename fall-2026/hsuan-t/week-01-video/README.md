@@ -14,3 +14,13 @@ To rebuild this video from the source files using the `brutalist.art` toolkit, f
    ```bash
    ./art run
    ```
+
+## Repository Structure & File Overview
+Here is a quick guide to the essential files included in this project to fulfill the rubric requirements:
+
+* `beat_sheet.json` — The core narrative script, timing, and visual plan for the video.
+* `BUILD-PROMPT.md` — Documents the key prompts and commands used to guide the AI agents in generating and refining the video.
+* `SOURCES.md` — Details the hybrid agentic workflow, listing human contributions, Claude/Gemini/ChatGPT contributions, and third-party asset licenses.
+* `FRICTIONAL.md` — An honest, dated log of the technical frictions encountered during the Brutalist build process and how they were resolved.
+* `the-unit-is-token-not-word-slate.mp4` — The final rendered explainer video (packaged in the Canvas ZIP submission, ignored by Git).
+* `qc-sheet.png` / `_qc/` — Visual quality control checks generated during the build pipeline.
