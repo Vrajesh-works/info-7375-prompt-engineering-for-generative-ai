@@ -1,0 +1,422 @@
+{
+  "metadata": {
+    "title": "Low Temperature Is Not Argmax",
+    "slug": "low-temperature-is-not-argmax",
+    "topic": "RANDOMNESS AND FIRST PROMPTS",
+    "register": "Teardown",
+    "voice": "am_onyx",
+    "voice_id": "am_onyx",
+    "engine": "kokoro",
+    "palette": "claude",
+    "style_preset": "claude",
+    "style": "claude-cli",
+    "channel": "claude",
+    "note": "Week 1 explainer video, off the instructor's example list. Chapter's own reference implementation (probabilities/sample) reproduced verbatim; ValueError, seed=7 T=0.5 counts {0:18,1:133,2:849}, and constructed argmax_select() contrast are all real captured output from demo.py, not invented. Source: chapters/01-randomness-and-first-prompts.md.",
+    "total_estimated_duration_seconds": 180,
+    "build": {
+      "at": "2026-09-27T21:05:08",
+      "cut": "master",
+      "filled": 10,
+      "of": 10,
+      "slates": [],
+      "skin_warnings": [
+        "B09: palette=claude but the outro is 'ClaudeVerdictArtifact' — OUTRO LAW wants ClaudeTitleOutro"
+      ]
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "INTRO",
+      "role_note": "COLD OPEN LAW — Claude UI, ask shown answered",
+      "narration_text": "There's a line every LLM practitioner has heard: set temperature to zero for deterministic output. Let's check that against actual code instead of taking it on faith.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "fade",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "command": "python3 demo.py",
+            "topic": "TERMINAL COMMAND · NOT A CLAUDE RESPONSE",
+            "segment": "Low Temperature Is Not Argmax",
+            "greeting": "Salut,",
+            "runningText": "running the reference implementation…",
+            "output": [
+              "Beat 2: temperature=0 is refused, not treated as a deterministic mode",
+              "Raised ValueError: Need logits and a positive finite temperature"
+            ],
+            "folderLabel": "",
+            "modelLabel": "",
+            "effortLabel": ""
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-28T00:25:54.476902+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 12,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T21:05:08"
+      },
+      "actual_duration_s": 9.96,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 10.0
+    },
+    {
+      "beat_id": "B01",
+      "act": "PROBLEM",
+      "role_note": "stakes — BEFORE CLI loop; SHOW-DON'T-TELL",
+      "narration_text": "Here's the stakes. Plenty of production systems are built on the assumption that a temperature of zero means the model just picks the top answer, every time, no sampling involved. If that assumption is wrong, anywhere you rely on it — reproducible test suites, deterministic pipelines, cached responses keyed on identical output — is quietly built on sand. The chapter's own reference implementation gives a very direct way to check the assumption: try it.",
+      "visual_intent": "Plain text card, no chart yet: the claim \"temperature 0 = deterministic\" presented as something to test, not something asserted as true.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormBCard",
+          "props": {
+            "title": "Low Temperature Is Not Argmax",
+            "items": [
+              {
+                "label": "The claim",
+                "sub": "\"temperature 0 = deterministic output\"",
+                "icon": "target",
+                "cueFrame": 20
+              },
+              {
+                "label": "The test",
+                "sub": "run the reference implementation's probabilities() at T=0",
+                "icon": "list-checks",
+                "cueFrame": 55
+              },
+              {
+                "label": "The risk",
+                "sub": "systems built on an untested assumption",
+                "icon": "zap",
+                "cueFrame": 90
+              },
+              {
+                "label": "The proof",
+                "sub": "a constructed argmax_select() makes the contrast literal",
+                "icon": "check-circle",
+                "cueFrame": 125
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-09-27T01:38:19.735117+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 14,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "remotion:FormBCard",
+        "at": "2026-09-27T21:05:08"
+      },
+      "lane": "BOOKEND",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "actual_duration_s": 23.68,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 23.708333333333332
+    },
+    {
+      "beat_id": "B02",
+      "act": "ASK",
+      "role_note": "ClaudeComposerAsk — show and discuss the prompt/command",
+      "narration_text": "Into the terminal. Call the chapter's own probabilities function with temperature set to zero. This is not a hypothetical — it's the actual reference implementation from chapters/01-randomness-and-first-prompts.md, copied exactly, with scores one, two, three.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "fade",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "command": "python3 -c \"from main import probabilities; probabilities([1,2,3], temperature=0)\"",
+            "topic": "TERMINAL COMMAND · NOT A CLAUDE RESPONSE",
+            "segment": "Low Temperature Is Not Argmax",
+            "greeting": "The ask,",
+            "runningText": "calling the reference implementation at T=0…",
+            "folderLabel": "",
+            "modelLabel": "",
+            "effortLabel": ""
+          },
+          "rendered": {
+            "out": "media/B02.mp4",
+            "at": "2026-09-28T00:28:22.843685+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 12,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T21:05:08"
+      },
+      "actual_duration_s": 15.53,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 15.541666666666666
+    },
+    {
+      "beat_id": "B03",
+      "act": "CODE",
+      "role_note": "ClaudeCodeBeat — actual reference implementation, trimmed to the lines that teach",
+      "narration_text": "Here's why it fails. Read the guard clause: if temperature is not finite, or temperature is less than or equal to zero, the function refuses outright, before it computes anything. Zero isn't a special case this function recognizes as 'be deterministic.' It's excluded input. Whatever deterministic selection would look like, this is not that operation.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "fade",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "main.py — reference implementation",
+            "code": "def probabilities(logits, temperature=1.0):\n    if not logits or not math.isfinite(temperature) or temperature <= 0:\n        raise ValueError(\"Need logits and a positive finite temperature\")\n    if not all(math.isfinite(x) for x in logits):\n        raise ValueError(\"Logits must be finite\")\n    peak = max(logits)\n    weights = [math.exp((x - peak) / temperature) for x in logits]\n    total = sum(weights)\n    return [weight / total for weight in weights]\n\n# temperature <= 0 is refused BEFORE any exponential is computed.\n# This is an exclusion, not a deterministic mode.",
+            "sparkLine": "Zero is refused, not special-cased."
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-09-27T00:28:17.262827+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 18,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B03.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-09-27T21:05:08"
+      },
+      "actual_duration_s": 19.09,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 19.125
+    },
+    {
+      "beat_id": "B04",
+      "act": "OUTPUT — first run",
+      "role_note": "Manim — real ValueError, then real sample() counts at T=0.5",
+      "narration_text": "Run it. Real output: a ValueError, not a number. So back off to a low but positive temperature — one-half — and sample a thousand draws with a fixed seed. The top-scoring outcome gets about eighty-seven percent of the probability and wins eight hundred forty-nine of the thousand draws — matching the chapter's own published table exactly. But the other one hundred fifty-one draws didn't disappear. Concentrated is not the same as certain.",
+      "visual_intent": "First half: the real ValueError text rendered directly, in red, held for 2 seconds. Second half: bar chart from real counts {0:18, 1:133, 2:849} out of 1000, with assigned probabilities (1.6%, 11.7%, 86.7%) labeled beside each bar.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "fade",
+        "manim": {
+          "scene_class": "B04_RefusalAndConcentration",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 26,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim:B04_RefusalAndConcentration",
+        "at": "2026-09-27T21:05:08"
+      },
+      "actual_duration_s": 22.42,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 22.458333333333332
+    },
+    {
+      "beat_id": "B05",
+      "act": "CHANGE — check & revise",
+      "role_note": "ClaudeComposerAsk — REVISION; SPARK-LINE: 'The change,'",
+      "narration_text": "Check the output before trusting it. Concentration approaching eighty-seven percent is not the same claim as certainty. So build a genuine contrast: a function that's deterministic by definition — argmax_select doesn't sample at all, it just returns the top score, every time by construction. Then compare it against a temperature that only concentrates probability, and see how close the two can actually look.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "fade",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "command": "python3 -c \"from demo import argmax_select; print(argmax_select([1,2,3], count=1000))\"",
+            "topic": "TERMINAL COMMAND · NOT A CLAUDE RESPONSE",
+            "segment": "Low Temperature Is Not Argmax",
+            "greeting": "The change,",
+            "runningText": "building a constructed contrast function…",
+            "folderLabel": "",
+            "modelLabel": "",
+            "effortLabel": ""
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-09-28T00:30:52.011968+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 14,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B05.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T21:05:08"
+      },
+      "actual_duration_s": 21.7,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 21.708333333333332
+    },
+    {
+      "beat_id": "B06",
+      "act": "OUTPUT — revised",
+      "role_note": "Manim — sample() variance vs constructed argmax_select() zero variance, split screen, labeled",
+      "narration_text": "Here's the real contrast. On the left, sample at temperature one-half, one thousand draws — the variance from before. On the right, argmax_select: a function I wrote myself, not part of the chapter, that returns the top score's index by construction, every time. One thousand draws, one thousand identical results — guaranteed, not just likely. Sampling can produce that same result too, especially at lower temperatures — and it's worth checking whether that's a coincidence of this run, or something built into the definition.",
+      "visual_intent": "Split-screen bar charts. Left: sample() counts {0:18, 1:133, 2:849}, visible variance across three bars. Right: argmax_select() counts {2:1000}, a single full bar, others at zero. Right side carries a held caption: CONSTRUCTED FOR THIS VIDEO — not in the chapter's code.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "fade",
+        "manim": {
+          "scene_class": "B06_ArgmaxContrast",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 22,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim:B06_ArgmaxContrast",
+        "at": "2026-09-27T21:05:08"
+      },
+      "actual_duration_s": 29.75,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 29.75
+    },
+    {
+      "beat_id": "B07",
+      "act": "SUMMARY",
+      "role_note": "lesson in one beat + named boundary",
+      "narration_text": "Temperature works through a ratio between scores. As temperature shrinks, that ratio grows without limit — in exact math, every outcome keeps a positive probability, so the distribution never quite becomes one-hot. In practice, though, a run of many draws can land on the same outcome every time by chance, and in real floating-point code, low enough temperatures make the other probabilities underflow to exactly zero — so the actual numbers you get can become identical to argmax's, even though the operation that produced them is different. One more thing this doesn't establish: what an actual product's temperature-zero setting does.",
+      "visual_intent": "Plain text, no chart: the ratio formula p_i/p_k = exp((z_i - z_k)/T), then below it, the boundary statement as a separate card: \"What this doesn't establish.\"",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "TypesetMath",
+          "props": {
+            "title": "Concentration, never a switch",
+            "rows": [
+              {
+                "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjIzNnB0IiBoZWlnaHQ9IjEwN3B0IiB2aWV3Qm94PSIwIDAgMjM2IDEwNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPgogPG1ldGFkYXRhPgogIDxyZGY6UkRGIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgPGNjOldvcms+CiAgICA8ZGM6dHlwZSByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIi8+CiAgICA8ZGM6ZGF0ZT4yMDI2LTA5LTI2VDIxOjIzOjE3LjAwNTEyMjwvZGM6ZGF0ZT4KICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgPGRjOmNyZWF0b3I+CiAgICAgPGNjOkFnZW50PgogICAgICA8ZGM6dGl0bGU+TWF0cGxvdGxpYiB2My4xMC4xLCBodHRwczovL21hdHBsb3RsaWIub3JnLzwvZGM6dGl0bGU+CiAgICAgPC9jYzpBZ2VudD4KICAgIDwvZGM6Y3JlYXRvcj4KICAgPC9jYzpXb3JrPgogIDwvcmRmOlJERj4KIDwvbWV0YWRhdGE+CiA8ZGVmcz4KICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPip7c3Ryb2tlLWxpbmVqb2luOiByb3VuZDsgc3Ryb2tlLWxpbmVjYXA6IGJ1dHR9PC9zdHlsZT4KIDwvZGVmcz4KIDxnIGlkPSJmaWd1cmVfMSI+CiAgPGcgaWQ9InBhdGNoXzEiPgogICA8cGF0aCBkPSJNIDAgMTA3IApMIDIzNiAxMDcgCkwgMjM2IDAgCkwgMCAwIApMIDAgMTA3IAp6CiIgc3R5bGU9ImZpbGw6IG5vbmUiLz4KICA8L2c+CiAgPGcgaWQ9InRleHRfMSI+CiAgIDwhLS0gJHBfaSA9IFxmcmFje1xleHAoel9pL1QpfXtcc3VtX2ogXGV4cCh6X2ovVCl9JCAtLT4KICAgPGcgc3R5bGU9ImZpbGw6ICMzZDM5MjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNDkpIHNjYWxlKDAuNDggLTAuNDgpIj4KICAgIDxkZWZzPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNzAiIGQ9Ik0gMTM3NiAyNzM5IApMIDExOTAgMjA5OSAKUSAxNjcwIDI4MjIgMjI4NSAyODIyIApRIDI2MzcgMjgyMiAyODI5IDI2MTEgClEgMzAyMSAyNDAwIDMwMjEgMjAyMiAKUSAzMDIxIDEyMzUgMjQyMiA1ODIgClEgMTgyNCAtNzAgMTEyMCAtNzAgClEgODkwIC03MCA2NzggMzggClEgNDIyIC0xMDE4IDQyMiAtMTAyNCAKUSA0MjIgLTExMjYgNTA4IC0xMTY4IApRIDU5NSAtMTIxMCA4MTkgLTEyMTAgCkwgODE5IC0xMzEyIApMIC00ODAgLTEzMTIgCkwgLTQ4MCAtMTIxMCAKUSAtMjc1IC0xMjAzIC0xODggLTExMjAgClEgLTEwMiAtMTAzNyAtNDUgLTgwNiAKTCA2OTEgMTk1OCAKUSA3OTQgMjMzMCA3OTQgMjQxMyAKUSA3OTQgMjU4NiA1MTIgMjU4NiAKTCAzNzEgMjU4NiAKTCAzNTggMjY4MiAKTCAxMzU3IDI4MjIgClEgMTM4OSAyODIyIDEzODkgMjc5NyAKUSAxMzgyIDI3NjUgMTM3NiAyNzM5IAp6Ck0gMjQ0NSAyMDAzIApRIDI0NDUgMjI4NSAyMzUyIDI0MTYgClEgMjI1OSAyNTQ3IDIwNDggMjU0NyAKUSAxNzk4IDI1NDcgMTU0OCAyMzI5IApRIDEyOTkgMjExMiAxMTg0IDE4MTggClEgMTA0MyAxNDUzIDkwNSA5NTMgClEgNzY4IDQ1NCA3NjggMjk0IApRIDc2OCAxODYgODU0IDExOCAKUSA5NDEgNTEgMTA3NSA1MSAKUSAxNTc0IDUxIDIwMDMgNjU5IApRIDI0NDUgMTI3NCAyNDQ1IDIwMDMgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNjkiIGQ9Ik0gMTY5MCAzODM0IApRIDE2OTAgMzY5OSAxNTk3IDM2MDMgClEgMTUwNCAzNTA3IDEzNzYgMzUwNyAKUSAxMjM1IDM1MDcgMTE1MiAzNjAwIApRIDEwNjkgMzY5MyAxMDY5IDM4NDYgClEgMTA2OSAzOTk0IDExNTUgNDA5MCAKUSAxMjQyIDQxODYgMTM3MCA0MTg2IApRIDE0OTggNDE4NiAxNTk0IDQwODAgClEgMTY5MCAzOTc0IDE2OTAgMzgzNCAKegpNIDE0MjEgNzMwIApMIDE1MDQgNjU5IApRIDEyMzUgMjQzIDEwNDkgODYgClEgODY0IC03MCA2MjcgLTcwIApRIDMxNCAtNzAgMzE0IDI4MiAKUSAzMTQgNDY3IDQ1NCA5OTIgCkwgNzYyIDIxMjUgClEgODE5IDIzMzAgODE5IDI0MDYgClEgODE5IDI1MDIgNzQ1IDI1MjggClEgNjcyIDI1NTQgNDEwIDI1NjAgCkwgNDEwIDI2NjIgClEgNzA0IDI2ODggMTQzNCAyODIyIApMIDE0NTkgMjgwMyAKTCA4NTggNjA4IApRIDc5NCAzOTAgNzk0IDMyNiAKUSA3OTQgMjMwIDg4MyAyMzAgClEgMTA0MyAyMzAgMTQyMSA3MzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTNkIiBkPSJNIDQwNzcgMjA0OCAKTCAzMDcgMjA0OCAKTCAzMDcgMjQ3MCAKTCA0MDc3IDI0NzAgCkwgNDA3NyAyMDQ4IAp6Ck0gNDA3NyA3NjggCkwgMzA3IDc2OCAKTCAzMDcgMTE5MCAKTCA0MDc3IDExOTAgCkwgNDA3NyA3NjggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTY1IiBkPSJNIDI2MTEgMTA1MCAKTCAyNzE0IDEwMDUgClEgMjMzMCAtNjQgMTM3NiAtNjQgClEgODEzIC02NCA0ODYgMzI5IApRIDE2MCA3MjMgMTYwIDEzODkgClEgMTYwIDIwNzQgNTI1IDI1MDkgClEgODkwIDI5NDQgMTQ4NSAyOTQ0IApRIDIwNjEgMjk0NCAyMzc0IDI1MDIgClEgMjU2MCAyMjQ2IDI1OTIgMTc3MyAKTCA2MjEgMTc3MyAKUSA2NDYgMTM3MCA3MDAgMTE1OCAKUSA3NTUgOTQ3IDkxNSA3MzAgClEgMTE4NCAzNzggMTYyNiAzNzggClEgMTkzOSAzNzggMjE1MyA1MzEgClEgMjM2OCA2ODUgMjYxMSAxMDUwIAp6Ck0gNjM0IDE5NzggCkwgMTkzOSAxOTc4IApRIDE4ODIgMjM4MSAxNzUwIDI1NDcgClEgMTYxOSAyNzE0IDEzMTIgMjcxNCAKUSAxMDQzIDI3MTQgODY0IDI1MjUgClEgNjg1IDIzMzYgNjM0IDE5NzggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTc4IiBkPSJNIDMwNjYgMCAKTCAxNzc5IDAgCkwgMTc3OSA5NiAKUSAxOTM5IDEwOSAxOTg3IDEzNyAKUSAyMDM1IDE2NiAyMDM1IDI1MCAKUSAyMDM1IDMwNyAxOTk3IDM2NSAKTCAxNDE0IDEyNjEgCkwgOTA5IDQ3NCAKUSA3ODEgMjc1IDc4MSAyMTEgClEgNzgxIDk2IDEwMzcgOTYgCkwgMTAzNyAwIApMIDEwOSAwIApMIDEwOSA5NiAKUSAyNjkgMTA5IDM1NSAxNjkgClEgNDQyIDIzMCA1NzYgNDIyIApMIDEzMDYgMTQ3OCAKTCA3MDQgMjQwMCAKUSA1NTcgMjYyNCA0NTQgMjcwNCAKUSAzNTIgMjc4NCAyMTEgMjc4NCAKTCAxNTQgMjc4NCAKTCAxNTQgMjg4MCAKTCAxNDc4IDI4ODAgCkwgMTQ3OCAyNzg0IApRIDEyMDMgMjc3OCAxMjAzIDI2NDMgClEgMTIwMyAyNTA5IDE0OTggMjA3NCAKUSAxNTgxIDE5NTggMTU4NyAxOTQ2IApRIDE2MTkgMTk5MCAxNzc5IDIyMjcgClEgMTgxMSAyMjg1IDE4NTYgMjM0OSAKUSAxOTAxIDI0MTMgMTkyMyAyNDUxIApRIDE5NDYgMjQ5MCAxOTcxIDI1MjggClEgMTk5NyAyNTY2IDIwMDYgMjU5NSAKUSAyMDE2IDI2MjQgMjAxNiAyNjQzIApRIDIwMTYgMjc2NSAxNzYwIDI3ODQgCkwgMTc2MCAyODgwIApMIDI3NzEgMjg4MCAKTCAyNzcxIDI3ODQgClEgMjQ0NSAyNzcxIDIyNTMgMjUwMiAKTCAxNzIyIDE3MzQgCkwgMjU0MSA0ODAgClEgMjc5MCA5NiAzMDY2IDk2IApMIDMwNjYgMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNzAiIGQ9Ik0gMTAxOCAyOTMxIApMIDEwMTggMjQzOCAKUSAxNDIxIDI5NDQgMTkzOSAyOTQ0IApRIDI0MDYgMjk0NCAyNzA3IDI1NjAgClEgMzAwOCAyMTc2IDMwMDggMTU4MSAKUSAzMDA4IDg4MyAyNjIxIDQwOSAKUSAyMjM0IC02NCAxNjY0IC02NCAKUSAxNDY2IC02NCAxMzI4IC02IApRIDExOTAgNTEgMTAxOCAyMTEgCkwgMTAxOCAtNzk0IApRIDEwMTggLTEwOTQgMTEyMCAtMTE4MCAKUSAxMjIyIC0xMjY3IDE1ODEgLTEyNzQgCkwgMTU4MSAtMTM4OSAKTCAzMiAtMTM4OSAKTCAzMiAtMTI4MCAKUSAzMTQgLTEyNTQgMzk3IC0xMTcxIApRIDQ4MCAtMTA4OCA0ODAgLTgzOCAKTCA0ODAgMjE1NyAKUSA0ODAgMjM4MSA0MjkgMjQ1MSAKUSAzNzggMjUyMiAyMTggMjUyMiAKUSAxMTUgMjUyMiA1OCAyNTE1IApMIDU4IDI2MTggClEgNTA2IDI3NTIgOTc5IDI5NDQgCkwgMTAxOCAyOTMxIAp6Ck0gMTAxOCAyMTM4IApMIDEwMTggNTYzIApRIDEwMTggNDIyIDEyMzggMjgxIApRIDE0NTkgMTQxIDE2ODMgMTQxIApRIDIwMjkgMTQxIDIyNDMgNDY3IApRIDI0NTggNzk0IDI0NTggMTMyNSAKUSAyNDU4IDE4ODggMjI0MyAyMjI0IApRIDIwMjkgMjU2MCAxNjcwIDI1NjAgClEgMTQ0NiAyNTYwIDEyMzIgMjQxOSAKUSAxMDE4IDIyNzggMTAxOCAyMTM4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0yOCIgZD0iTSAxOTQ2IC0xMDMwIApMIDE4NjkgLTExMzMgClEgMTEyNiAtNzEwIDcxNiAzMiAKUSAzMDcgNzc0IDMwNyAxNjEzIApRIDMwNyAzMzg2IDE4ODggNDMyNiAKTCAxOTQ2IDQyMjQgClEgMTI5MyAzNjY3IDEwNzUgMzEyNiAKUSA4NTggMjU4NiA4NTggMTYzMiAKUSA4NTggNjg1IDEwODIgOTYgClEgMTMwNiAtNDkzIDE5NDYgLTEwMzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtN2EiIGQ9Ik0gMjQzMiAyNjY5IApMIDU4MiA0NjcgClEgODc3IDQwMyAxMDIxIDMwNyAKUSAxMTY1IDIxMSAxMzUwIC02NCAKUSAxNTY4IC0zODQgMTc5OCAtMzg0IApRIDE5NzEgLTM4NCAxOTcxIC0yODggClEgMTk3MSAtMjU2IDE5MzkgLTE5MiAKUSAxODg4IC05MCAxODg4IC0xMyAKUSAxODk0IDcwIDE5NTggMTM3IApRIDIwMjIgMjA1IDIwOTkgMjA1IApRIDIyMDIgMjA1IDIyNjIgMTQxIApRIDIzMjMgNzcgMjMyMyAtMzIgClEgMjMyMyAtMjMwIDIxNTYgLTM3NCAKUSAxOTkwIC01MTggMTcyOCAtNTE4IApRIDE0NTkgLTUxOCAxMDA1IC0yMzcgClEgNTcwIDMyIDMzMyAzMiAKUSAxODYgMzIgNDUgLTgzIApMIC0xMyAtMjYgCkwgMTk3MSAyMzU1IApMIDExMDEgMjM1NSAKUSA4NDUgMjM1NSA3MjkgMjI4MSAKUSA2MTQgMjIwOCA1MTggMTk3MSAKTCA0MTYgMTk5NyAKTCA2MjEgMjczOSAKTCAyNDMyIDI3MzkgCkwgMjQzMiAyNjY5IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0yZiIgZD0iTSAxODM3IDQzMjYgCkwgMzc4IC05MCAKTCAtNTggLTkwIApMIDE0MDggNDMyNiAKTCAxODM3IDQzMjYgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNTQiIGQ9Ik0gNDA1MSA0MTc5IApMIDM3NzAgMzEzMCAKTCAzNjYxIDMxNDIgClEgMzY4MCAzMzAyIDM2ODAgMzQzNyAKUSAzNjgwIDM5NTUgMzAzNCAzOTU1IApMIDI2NjIgMzk1NSAKTCAxNzg2IDgxOSAKUSAxNjk2IDUwNiAxNjk2IDM5NyAKUSAxNjk2IDI1MCAxNzY2IDE5NSAKUSAxODM3IDE0MSAyMDM1IDEyMiAKTCAyMjU5IDEwMiAKTCAyMjU5IDAgCkwgNDE2IDAgCkwgNDE2IDEwMiAKUSA3NDkgMTM0IDg4OSAyMzAgClEgMTAzMCAzMjYgMTEwMSA1ODIgCkwgMjAxNiAzOTU1IApRIDEyNTQgMzk1NSA5ODggMzgxNyAKUSA3MjMgMzY4MCA0OTMgMzE2MiAKTCAzNzggMzE4NyAKTCA2NDYgNDE3OSAKTCA0MDUxIDQxNzkgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTI5IiBkPSJNIDE4NiA0MjI0IApMIDI2MiA0MzI2IApRIDk5MiAzODkxIDE0MDggMzE0OCAKUSAxODI0IDI0MDYgMTgyNCAxNTgxIApRIDE4MjQgLTE2NiAyNDMgLTExMzMgCkwgMTg2IC0xMDMwIApRIDg0NSAtNDg2IDEwNTkgNTQgClEgMTI3NCA1OTUgMTI3NCAxNTYyIApRIDEyNzQgMjUzNCAxMDU5IDMxMjAgClEgODQ1IDM3MDYgMTg2IDQyMjQgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTIyMTEiIGQ9Ik0gNTQ3OCAyNTYgCkwgNTEzOSAtMTY1OCAKTCAzNzEgLTE2NTggCkwgMjg4MCAxNjA2IApMIDUzMSA0ODgzIApMIDUzMTIgNDg4MyAKTCA1MzEyIDMyNzcgCkwgNTEyMCAzMjc3IApRIDUwMTggMzk0OSA0NzY1IDQyMDUgClEgNDUxMiA0NDYxIDM4OTEgNDQ2MSAKTCAxODQzIDQ0NjEgCkwgMzY5OSAxOTU4IApMIDE1NDkgLTgxOSAKTCA0MTk4IC04MTkgClEgNDY5OCAtODE5IDQ5MzQgLTU1MCAKUSA1MTcxIC0yODIgNTI4NiAyNTYgCkwgNTQ3OCAyNTYgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNmEiIGQ9Ik0gMTc4NiAzODI3IApRIDE3ODYgMzY5OSAxNjkwIDM2MDMgClEgMTU5NCAzNTA3IDE0NjYgMzUwNyAKUSAxMzE4IDM1MDcgMTIxOSAzNjAwIApRIDExMjAgMzY5MyAxMTIwIDM4NDAgClEgMTEyMCAzOTgxIDEyMjIgNDA3NyAKUSAxMzI1IDQxNzMgMTQ1OSA0MTczIApRIDE1ODcgNDE3MyAxNjg2IDQwNjcgClEgMTc4NiAzOTYyIDE3ODYgMzgyNyAKegpNIDE1NzQgMjgwMyAKTCA5MDkgMTc5IApRIDcxMCAtNTk1IDQxOSAtOTYwIApRIDEyOCAtMTMyNSAtMjg4IC0xMzI1IApRIC01MTIgLTEzMjUgLTY1MyAtMTIxNiAKUSAtNzk0IC0xMTA3IC03OTQgLTkzNCAKUSAtNzk0IC04MTkgLTcxNyAtNzM2IApRIC02NDAgLTY1MyAtNTMxIC02NTMgClEgLTI4MiAtNjUzIC0yODIgLTg5MCAKUSAtMjgyIC05NjYgLTMyMCAtMTAxNCAKUSAtMzU4IC0xMDYyIC0zNTggLTExMDcgClEgLTM1OCAtMTE4NCAtMjQzIC0xMTg0IApRIC01MSAtMTE4NCA4MCAtOTM0IApRIDIxMSAtNjg1IDM3OCAtMTkgCkwgODM4IDE4NTAgClEgOTQxIDIyNjYgOTQxIDIzNjIgClEgOTQxIDI0NzAgODczIDI1MTUgClEgODA2IDI1NjAgNjM0IDI1NjAgCkwgNDY3IDI1NjAgCkwgNDY3IDI2NjIgClEgNzU1IDI2ODIgMTU0OSAyODIyIApMIDE1NzQgMjgwMyAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICA8L2RlZnM+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMC42OTUzMTIpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUwLjM5OTk5NCAtMTIuNTMyODEzKSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTNkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4OC43MDkzNTcgMC42OTUzMTIpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTY1IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOTkuNjQ5MzM4IDUzLjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci03OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjMwLjcyOTMzMyA1My42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI2NS43MjkzMjMgNTMuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTI4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMDAuNzI5MzEyIDUzLjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTdhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjQuMDM5MzA0IDUzLjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTY5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNTEuMjY5Mjk5IDQ0LjQyNDY4OCkgc2NhbGUoMC40OSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMmYiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM2Ny45Nzc4NTYgNTMuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM4Ny40Mzc4NDcgNTMuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTI5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MjYuMzU3ODQxIDUzLjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0yMjExIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzEuNjQ5MzM4IC00Ni4xNjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy02YSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTg5LjY0OTMzOCAtMTA5LjM3NDUzMSkgc2NhbGUoMC40OSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIyNy41MDcxNSAtNDYuMTY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTc4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNTguNTg3MTQ2IC00Ni4xNjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI5My41ODcxMzUgLTQ2LjE2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0yOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzI4LjU4NzEyNSAtNDYuMTY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtN2EiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1MS44OTcxMTYgLTQ2LjE2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTZhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNzkuMTI3MTEyIC01NS40MjUzMTIpIHNjYWxlKDAuNDkpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTJmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzOTUuODM1NjY4IC00Ni4xNjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy01NCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDE1LjI5NTY2IC00Ni4xNjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ1NC4yMTU2NTMgLTQ2LjE2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHBhdGggZD0iTSAxNzEuNjQ5MzM4IDEzLjQ5MjE4OCAKTCAxNzEuNjQ5MzM4IDE5Ljc0MjE4OCAKTCA0NzcuNTI1NjQ1IDE5Ljc0MjE4OCAKTCA0NzcuNTI1NjQ1IDEzLjQ5MjE4OCAKTCAxNzEuNjQ5MzM4IDEzLjQ5MjE4OCAKegoiLz4KICAgPC9nPgogIDwvZz4KIDwvZz4KPC9zdmc+Cg==",
+                "aspect": 2.205607476635514,
+                "expression": "p_i = \\frac{\\exp(z_i/T)}{\\sum_j \\exp(z_j/T)}",
+                "at": 0.0
+              },
+              {
+                "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjI4NXB0IiBoZWlnaHQ9IjU5cHQiIHZpZXdCb3g9IjAgMCAyODUgNTkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIj4KIDxtZXRhZGF0YT4KICA8cmRmOlJERiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgIDxjYzpXb3JrPgogICAgPGRjOnR5cGUgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIvPgogICAgPGRjOmRhdGU+MjAyNi0wOS0yNlQyMToyMzoxNy4wNDU1NDg8L2RjOmRhdGU+CiAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgIDxkYzpjcmVhdG9yPgogICAgIDxjYzpBZ2VudD4KICAgICAgPGRjOnRpdGxlPk1hdHBsb3RsaWIgdjMuMTAuMSwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy88L2RjOnRpdGxlPgogICAgIDwvY2M6QWdlbnQ+CiAgICA8L2RjOmNyZWF0b3I+CiAgIDwvY2M6V29yaz4KICA8L3JkZjpSREY+CiA8L21ldGFkYXRhPgogPGRlZnM+CiAgPHN0eWxlIHR5cGU9InRleHQvY3NzIj4qe3N0cm9rZS1saW5lam9pbjogcm91bmQ7IHN0cm9rZS1saW5lY2FwOiBidXR0fTwvc3R5bGU+CiA8L2RlZnM+CiA8ZyBpZD0iZmlndXJlXzEiPgogIDxnIGlkPSJwYXRjaF8xIj4KICAgPHBhdGggZD0iTSAwIDU5IApMIDI4NSA1OSAKTCAyODUgMCAKTCAwIDAgCkwgMCA1OSAKegoiIHN0eWxlPSJmaWxsOiBub25lIi8+CiAgPC9nPgogIDxnIGlkPSJ0ZXh0XzEiPgogICA8IS0tICRcZnJhY3twX2t9e3BfaX0gPSBcZXhwXGxlZnQoXGZyYWN7el9rIC0gel9pfXtUfVxyaWdodCkkIC0tPgogICA8ZyBzdHlsZT0iZmlsbDogIzNkMzkyOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA0MCkgc2NhbGUoMC40OCAtMC40OCkiPgogICAgPGRlZnM+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy03MCIgZD0iTSAxMzc2IDI3MzkgCkwgMTE5MCAyMDk5IApRIDE2NzAgMjgyMiAyMjg1IDI4MjIgClEgMjYzNyAyODIyIDI4MjkgMjYxMSAKUSAzMDIxIDI0MDAgMzAyMSAyMDIyIApRIDMwMjEgMTIzNSAyNDIyIDU4MiAKUSAxODI0IC03MCAxMTIwIC03MCAKUSA4OTAgLTcwIDY3OCAzOCAKUSA0MjIgLTEwMTggNDIyIC0xMDI0IApRIDQyMiAtMTEyNiA1MDggLTExNjggClEgNTk1IC0xMjEwIDgxOSAtMTIxMCAKTCA4MTkgLTEzMTIgCkwgLTQ4MCAtMTMxMiAKTCAtNDgwIC0xMjEwIApRIC0yNzUgLTEyMDMgLTE4OCAtMTEyMCAKUSAtMTAyIC0xMDM3IC00NSAtODA2IApMIDY5MSAxOTU4IApRIDc5NCAyMzMwIDc5NCAyNDEzIApRIDc5NCAyNTg2IDUxMiAyNTg2IApMIDM3MSAyNTg2IApMIDM1OCAyNjgyIApMIDEzNTcgMjgyMiAKUSAxMzg5IDI4MjIgMTM4OSAyNzk3IApRIDEzODIgMjc2NSAxMzc2IDI3MzkgCnoKTSAyNDQ1IDIwMDMgClEgMjQ0NSAyMjg1IDIzNTIgMjQxNiAKUSAyMjU5IDI1NDcgMjA0OCAyNTQ3IApRIDE3OTggMjU0NyAxNTQ4IDIzMjkgClEgMTI5OSAyMTEyIDExODQgMTgxOCAKUSAxMDQzIDE0NTMgOTA1IDk1MyAKUSA3NjggNDU0IDc2OCAyOTQgClEgNzY4IDE4NiA4NTQgMTE4IApRIDk0MSA1MSAxMDc1IDUxIApRIDE1NzQgNTEgMjAwMyA2NTkgClEgMjQ0NSAxMjc0IDI0NDUgMjAwMyAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy02YiIgZD0iTSAyOTUwIDI3MzkgCkwgMjk1MCAyNjM3IApRIDI3MjAgMjYyNCAyNDY0IDI0NDggClEgMjIwOCAyMjcyIDE1MTAgMTY1MSAKTCAxNzQ3IDEwODggClEgMjA5OSAyNjIgMjI2NiAyNjIgClEgMjQwMCAyNjIgMjU1NCA1MzEgClEgMjU4NiA1ODIgMjY1MCA2OTggCkwgMjc0NiA2MjcgClEgMjUyMiAyMjQgMjM3NCA3NyAKUSAyMjI3IC03MCAyMDM1IC03MCAKUSAxODk0IC03MCAxNzgyIDQyIApRIDE2NzAgMTU0IDE1MTcgNDU0IApRIDEzMjUgODI2IDExMzMgMTM1NyAKTCA4NzcgMTE1MiAKTCA1NzAgMCAKTCA5MCAwIApMIDk5MiAzMzc5IApRIDEwODIgMzY5OSAxMTA3IDM5NDIgClEgMTA4OCA0MDk2IDc4MSA0MDk2IApMIDY2NiA0MDk2IApMIDY2NiA0MTk4IApRIDExNDYgNDI1NiAxNjcwIDQzNzEgCkwgMTcwOSA0MzMzIApMIDk0MSAxNDE0IApMIDEyMTYgMTYyNiAKUSAyMTMxIDIzMzAgMjEzMSAyNTIyIApRIDIxMzEgMjYzNyAxODk0IDI2MzcgCkwgMTgwNSAyNjM3IApMIDE4MDUgMjczOSAKTCAyOTUwIDI3MzkgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNjkiIGQ9Ik0gMTY5MCAzODM0IApRIDE2OTAgMzY5OSAxNTk3IDM2MDMgClEgMTUwNCAzNTA3IDEzNzYgMzUwNyAKUSAxMjM1IDM1MDcgMTE1MiAzNjAwIApRIDEwNjkgMzY5MyAxMDY5IDM4NDYgClEgMTA2OSAzOTk0IDExNTUgNDA5MCAKUSAxMjQyIDQxODYgMTM3MCA0MTg2IApRIDE0OTggNDE4NiAxNTk0IDQwODAgClEgMTY5MCAzOTc0IDE2OTAgMzgzNCAKegpNIDE0MjEgNzMwIApMIDE1MDQgNjU5IApRIDEyMzUgMjQzIDEwNDkgODYgClEgODY0IC03MCA2MjcgLTcwIApRIDMxNCAtNzAgMzE0IDI4MiAKUSAzMTQgNDY3IDQ1NCA5OTIgCkwgNzYyIDIxMjUgClEgODE5IDIzMzAgODE5IDI0MDYgClEgODE5IDI1MDIgNzQ1IDI1MjggClEgNjcyIDI1NTQgNDEwIDI1NjAgCkwgNDEwIDI2NjIgClEgNzA0IDI2ODggMTQzNCAyODIyIApMIDE0NTkgMjgwMyAKTCA4NTggNjA4IApRIDc5NCAzOTAgNzk0IDMyNiAKUSA3OTQgMjMwIDg4MyAyMzAgClEgMTA0MyAyMzAgMTQyMSA3MzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTNkIiBkPSJNIDQwNzcgMjA0OCAKTCAzMDcgMjA0OCAKTCAzMDcgMjQ3MCAKTCA0MDc3IDI0NzAgCkwgNDA3NyAyMDQ4IAp6Ck0gNDA3NyA3NjggCkwgMzA3IDc2OCAKTCAzMDcgMTE5MCAKTCA0MDc3IDExOTAgCkwgNDA3NyA3NjggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTY1IiBkPSJNIDI2MTEgMTA1MCAKTCAyNzE0IDEwMDUgClEgMjMzMCAtNjQgMTM3NiAtNjQgClEgODEzIC02NCA0ODYgMzI5IApRIDE2MCA3MjMgMTYwIDEzODkgClEgMTYwIDIwNzQgNTI1IDI1MDkgClEgODkwIDI5NDQgMTQ4NSAyOTQ0IApRIDIwNjEgMjk0NCAyMzc0IDI1MDIgClEgMjU2MCAyMjQ2IDI1OTIgMTc3MyAKTCA2MjEgMTc3MyAKUSA2NDYgMTM3MCA3MDAgMTE1OCAKUSA3NTUgOTQ3IDkxNSA3MzAgClEgMTE4NCAzNzggMTYyNiAzNzggClEgMTkzOSAzNzggMjE1MyA1MzEgClEgMjM2OCA2ODUgMjYxMSAxMDUwIAp6Ck0gNjM0IDE5NzggCkwgMTkzOSAxOTc4IApRIDE4ODIgMjM4MSAxNzUwIDI1NDcgClEgMTYxOSAyNzE0IDEzMTIgMjcxNCAKUSAxMDQzIDI3MTQgODY0IDI1MjUgClEgNjg1IDIzMzYgNjM0IDE5NzggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTc4IiBkPSJNIDMwNjYgMCAKTCAxNzc5IDAgCkwgMTc3OSA5NiAKUSAxOTM5IDEwOSAxOTg3IDEzNyAKUSAyMDM1IDE2NiAyMDM1IDI1MCAKUSAyMDM1IDMwNyAxOTk3IDM2NSAKTCAxNDE0IDEyNjEgCkwgOTA5IDQ3NCAKUSA3ODEgMjc1IDc4MSAyMTEgClEgNzgxIDk2IDEwMzcgOTYgCkwgMTAzNyAwIApMIDEwOSAwIApMIDEwOSA5NiAKUSAyNjkgMTA5IDM1NSAxNjkgClEgNDQyIDIzMCA1NzYgNDIyIApMIDEzMDYgMTQ3OCAKTCA3MDQgMjQwMCAKUSA1NTcgMjYyNCA0NTQgMjcwNCAKUSAzNTIgMjc4NCAyMTEgMjc4NCAKTCAxNTQgMjc4NCAKTCAxNTQgMjg4MCAKTCAxNDc4IDI4ODAgCkwgMTQ3OCAyNzg0IApRIDEyMDMgMjc3OCAxMjAzIDI2NDMgClEgMTIwMyAyNTA5IDE0OTggMjA3NCAKUSAxNTgxIDE5NTggMTU4NyAxOTQ2IApRIDE2MTkgMTk5MCAxNzc5IDIyMjcgClEgMTgxMSAyMjg1IDE4NTYgMjM0OSAKUSAxOTAxIDI0MTMgMTkyMyAyNDUxIApRIDE5NDYgMjQ5MCAxOTcxIDI1MjggClEgMTk5NyAyNTY2IDIwMDYgMjU5NSAKUSAyMDE2IDI2MjQgMjAxNiAyNjQzIApRIDIwMTYgMjc2NSAxNzYwIDI3ODQgCkwgMTc2MCAyODgwIApMIDI3NzEgMjg4MCAKTCAyNzcxIDI3ODQgClEgMjQ0NSAyNzcxIDIyNTMgMjUwMiAKTCAxNzIyIDE3MzQgCkwgMjU0MSA0ODAgClEgMjc5MCA5NiAzMDY2IDk2IApMIDMwNjYgMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNzAiIGQ9Ik0gMTAxOCAyOTMxIApMIDEwMTggMjQzOCAKUSAxNDIxIDI5NDQgMTkzOSAyOTQ0IApRIDI0MDYgMjk0NCAyNzA3IDI1NjAgClEgMzAwOCAyMTc2IDMwMDggMTU4MSAKUSAzMDA4IDg4MyAyNjIxIDQwOSAKUSAyMjM0IC02NCAxNjY0IC02NCAKUSAxNDY2IC02NCAxMzI4IC02IApRIDExOTAgNTEgMTAxOCAyMTEgCkwgMTAxOCAtNzk0IApRIDEwMTggLTEwOTQgMTEyMCAtMTE4MCAKUSAxMjIyIC0xMjY3IDE1ODEgLTEyNzQgCkwgMTU4MSAtMTM4OSAKTCAzMiAtMTM4OSAKTCAzMiAtMTI4MCAKUSAzMTQgLTEyNTQgMzk3IC0xMTcxIApRIDQ4MCAtMTA4OCA0ODAgLTgzOCAKTCA0ODAgMjE1NyAKUSA0ODAgMjM4MSA0MjkgMjQ1MSAKUSAzNzggMjUyMiAyMTggMjUyMiAKUSAxMTUgMjUyMiA1OCAyNTE1IApMIDU4IDI2MTggClEgNTA2IDI3NTIgOTc5IDI5NDQgCkwgMTAxOCAyOTMxIAp6Ck0gMTAxOCAyMTM4IApMIDEwMTggNTYzIApRIDEwMTggNDIyIDEyMzggMjgxIApRIDE0NTkgMTQxIDE2ODMgMTQxIApRIDIwMjkgMTQxIDIyNDMgNDY3IApRIDI0NTggNzk0IDI0NTggMTMyNSAKUSAyNDU4IDE4ODggMjI0MyAyMjI0IApRIDIwMjkgMjU2MCAxNjcwIDI1NjAgClEgMTQ0NiAyNTYwIDEyMzIgMjQxOSAKUSAxMDE4IDIyNzggMTAxOCAyMTM4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWFNpemVPbmVTeW0tUmVndWxhci0yOCIgZD0iTSAyNDQ1IC04NTggCkwgMjQ0NSAtMTA1MCAKUSAxNzI4IC0zNzEgMTMwOSA2MzAgClEgODkwIDE2MzIgODkwIDI4ODYgClEgODkwIDQxMjIgMTMwOSA1MTM2IApRIDE3MjggNjE1MCAyNDQ1IDY4MjIgCkwgMjQ0NSA2NjMwIApRIDE0MDggNTM2MyAxNDA4IDI4ODYgClEgMTQwOCA0MTAgMjQ0NSAtODU4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtSXRhbGljLTdhIiBkPSJNIDI0MzIgMjY2OSAKTCA1ODIgNDY3IApRIDg3NyA0MDMgMTAyMSAzMDcgClEgMTE2NSAyMTEgMTM1MCAtNjQgClEgMTU2OCAtMzg0IDE3OTggLTM4NCAKUSAxOTcxIC0zODQgMTk3MSAtMjg4IApRIDE5NzEgLTI1NiAxOTM5IC0xOTIgClEgMTg4OCAtOTAgMTg4OCAtMTMgClEgMTg5NCA3MCAxOTU4IDEzNyAKUSAyMDIyIDIwNSAyMDk5IDIwNSAKUSAyMjAyIDIwNSAyMjYyIDE0MSAKUSAyMzIzIDc3IDIzMjMgLTMyIApRIDIzMjMgLTIzMCAyMTU2IC0zNzQgClEgMTk5MCAtNTE4IDE3MjggLTUxOCAKUSAxNDU5IC01MTggMTAwNSAtMjM3IApRIDU3MCAzMiAzMzMgMzIgClEgMTg2IDMyIDQ1IC04MyAKTCAtMTMgLTI2IApMIDE5NzEgMjM1NSAKTCAxMTAxIDIzNTUgClEgODQ1IDIzNTUgNzI5IDIyODEgClEgNjE0IDIyMDggNTE4IDE5NzEgCkwgNDE2IDE5OTcgCkwgNjIxIDI3MzkgCkwgMjQzMiAyNzM5IApMIDI0MzIgMjY2OSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItMjIxMiIgZD0iTSAzOTc0IDE0MDggCkwgNDEwIDE0MDggCkwgNDEwIDE4MzAgCkwgMzk3NCAxODMwIApMIDM5NzQgMTQwOCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy01NCIgZD0iTSA0MDUxIDQxNzkgCkwgMzc3MCAzMTMwIApMIDM2NjEgMzE0MiAKUSAzNjgwIDMzMDIgMzY4MCAzNDM3IApRIDM2ODAgMzk1NSAzMDM0IDM5NTUgCkwgMjY2MiAzOTU1IApMIDE3ODYgODE5IApRIDE2OTYgNTA2IDE2OTYgMzk3IApRIDE2OTYgMjUwIDE3NjYgMTk1IApRIDE4MzcgMTQxIDIwMzUgMTIyIApMIDIyNTkgMTAyIApMIDIyNTkgMCAKTCA0MTYgMCAKTCA0MTYgMTAyIApRIDc0OSAxMzQgODg5IDIzMCAKUSAxMDMwIDMyNiAxMTAxIDU4MiAKTCAyMDE2IDM5NTUgClEgMTI1NCAzOTU1IDk4OCAzODE3IApRIDcyMyAzNjgwIDQ5MyAzMTYyIApMIDM3OCAzMTg3IApMIDY0NiA0MTc5IApMIDQwNTEgNDE3OSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhTaXplT25lU3ltLVJlZ3VsYXItMjkiIGQ9Ik0gNTUwIDY2MzAgCkwgNTUwIDY4MjIgClEgMTI2NyA2MTQ0IDE2ODYgNTE0MiAKUSAyMTA2IDQxNDEgMjEwNiAyODg2IApRIDIxMDYgMTY1MSAxNjg2IDYzNiAKUSAxMjY3IC0zNzggNTUwIC0xMDUwIApMIDU1MCAtODU4IApRIDE1ODcgNDEwIDE1ODcgMjg4NiAKUSAxNTg3IDUzNjMgNTUwIDY2MzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgPC9kZWZzPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTcwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDUzLjEzNDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTZiIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNS4yNzk5OTYgNDMuODc0Njg4KSBzY2FsZSgwLjQ5KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTcwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0IC0yMy4zMzEyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTY5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzOS4yNzk5OTYgLTMyLjU5MDkzNykgc2NhbGUoMC40OSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItM2QiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg3LjA2MjU1MiAwLjk4NzUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTY1IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzAuMDAyNTMzIDAuOTg3NSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNzgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNC40MDI1MjcgMC45ODc1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci03MCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjY0LjQwMjUxMSAwLjk4NzUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYU2l6ZU9uZVN5bS1SZWd1bGFyLTI4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjYuNDM2MDY3IC0yMi41OTUzMTIpIHNjYWxlKDAuOTQ4ODcyKSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTdhIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNzAuODM3NTcxIDQ4LjU4KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNmIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM5OC4wNjc1NjcgMzkuMzIwMzEyKSBzY2FsZSgwLjQ5KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0yMjEyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MzMuMDE4MTI0IDQ4LjU4KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtN2EiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ5MS4wNzYxMTEgNDguNTgpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy02OSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTE4LjMwNjEwNyAzOS4zMjAzMTIpIHNjYWxlKDAuNDkpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQzMy44Mzc1NzEgLTM4LjE3MzQzOCkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWFNpemVPbmVTeW0tUmVndWxhci0yOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTQ3LjUxNDY2MyAtMjIuNTk1MzEyKSBzY2FsZSgwLjk0ODg3MikiLz4KICAgIDxwYXRoIGQ9Ik0gMCAxMy43ODQzNzUgCkwgMCAyMC4wMzQzNzUgCkwgNjAuMTIyNTU1IDIwLjAzNDM3NSAKTCA2MC4xMjI1NTUgMTMuNzg0Mzc1IApMIDAgMTMuNzg0Mzc1IAp6CiIvPgogICAgPHBhdGggZD0iTSAzNzAuODM3NTcxIDEzLjc4NDM3NSAKTCAzNzAuODM3NTcxIDIwLjAzNDM3NSAKTCA1MzUuMDE0NjYzIDIwLjAzNDM3NSAKTCA1MzUuMDE0NjYzIDEzLjc4NDM3NSAKTCAzNzAuODM3NTcxIDEzLjc4NDM3NSAKegoiLz4KICAgPC9nPgogIDwvZz4KIDwvZz4KPC9zdmc+Cg==",
+                "aspect": 4.830508474576271,
+                "expression": "\\frac{p_k}{p_i} = \\exp\\left(\\frac{z_k - z_i}{T}\\right)",
+                "at": 1.4
+              },
+              {
+                "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjUzOHB0IiBoZWlnaHQ9IjU5cHQiIHZpZXdCb3g9IjAgMCA1MzggNTkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIj4KIDxtZXRhZGF0YT4KICA8cmRmOlJERiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgIDxjYzpXb3JrPgogICAgPGRjOnR5cGUgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIvPgogICAgPGRjOmRhdGU+MjAyNi0wOS0yNlQyMToyMzoxNy4wODE3NDU8L2RjOmRhdGU+CiAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgIDxkYzpjcmVhdG9yPgogICAgIDxjYzpBZ2VudD4KICAgICAgPGRjOnRpdGxlPk1hdHBsb3RsaWIgdjMuMTAuMSwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy88L2RjOnRpdGxlPgogICAgIDwvY2M6QWdlbnQ+CiAgICA8L2RjOmNyZWF0b3I+CiAgIDwvY2M6V29yaz4KICA8L3JkZjpSREY+CiA8L21ldGFkYXRhPgogPGRlZnM+CiAgPHN0eWxlIHR5cGU9InRleHQvY3NzIj4qe3N0cm9rZS1saW5lam9pbjogcm91bmQ7IHN0cm9rZS1saW5lY2FwOiBidXR0fTwvc3R5bGU+CiA8L2RlZnM+CiA8ZyBpZD0iZmlndXJlXzEiPgogIDxnIGlkPSJwYXRjaF8xIj4KICAgPHBhdGggZD0iTSAwIDU5IApMIDUzOCA1OSAKTCA1MzggMCAKTCAwIDAgCkwgMCA1OSAKegoiIHN0eWxlPSJmaWxsOiBub25lIi8+CiAgPC9nPgogIDxnIGlkPSJ0ZXh0XzEiPgogICA8IS0tICRcZnJhY3twX2t9e3BfaX0gXHRvIFxpbmZ0eSBccXVhZCBcbWF0aHJte2FzfVwgVCBcdG8gMF57K30gXHF1YWQgKHpfayAmZ3Q7IHpfaSkkIC0tPgogICA8ZyBzdHlsZT0iZmlsbDogIzNkMzkyOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA0MCkgc2NhbGUoMC40OCAtMC40OCkiPgogICAgPGRlZnM+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy03MCIgZD0iTSAxMzc2IDI3MzkgCkwgMTE5MCAyMDk5IApRIDE2NzAgMjgyMiAyMjg1IDI4MjIgClEgMjYzNyAyODIyIDI4MjkgMjYxMSAKUSAzMDIxIDI0MDAgMzAyMSAyMDIyIApRIDMwMjEgMTIzNSAyNDIyIDU4MiAKUSAxODI0IC03MCAxMTIwIC03MCAKUSA4OTAgLTcwIDY3OCAzOCAKUSA0MjIgLTEwMTggNDIyIC0xMDI0IApRIDQyMiAtMTEyNiA1MDggLTExNjggClEgNTk1IC0xMjEwIDgxOSAtMTIxMCAKTCA4MTkgLTEzMTIgCkwgLTQ4MCAtMTMxMiAKTCAtNDgwIC0xMjEwIApRIC0yNzUgLTEyMDMgLTE4OCAtMTEyMCAKUSAtMTAyIC0xMDM3IC00NSAtODA2IApMIDY5MSAxOTU4IApRIDc5NCAyMzMwIDc5NCAyNDEzIApRIDc5NCAyNTg2IDUxMiAyNTg2IApMIDM3MSAyNTg2IApMIDM1OCAyNjgyIApMIDEzNTcgMjgyMiAKUSAxMzg5IDI4MjIgMTM4OSAyNzk3IApRIDEzODIgMjc2NSAxMzc2IDI3MzkgCnoKTSAyNDQ1IDIwMDMgClEgMjQ0NSAyMjg1IDIzNTIgMjQxNiAKUSAyMjU5IDI1NDcgMjA0OCAyNTQ3IApRIDE3OTggMjU0NyAxNTQ4IDIzMjkgClEgMTI5OSAyMTEyIDExODQgMTgxOCAKUSAxMDQzIDE0NTMgOTA1IDk1MyAKUSA3NjggNDU0IDc2OCAyOTQgClEgNzY4IDE4NiA4NTQgMTE4IApRIDk0MSA1MSAxMDc1IDUxIApRIDE1NzQgNTEgMjAwMyA2NTkgClEgMjQ0NSAxMjc0IDI0NDUgMjAwMyAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy02YiIgZD0iTSAyOTUwIDI3MzkgCkwgMjk1MCAyNjM3IApRIDI3MjAgMjYyNCAyNDY0IDI0NDggClEgMjIwOCAyMjcyIDE1MTAgMTY1MSAKTCAxNzQ3IDEwODggClEgMjA5OSAyNjIgMjI2NiAyNjIgClEgMjQwMCAyNjIgMjU1NCA1MzEgClEgMjU4NiA1ODIgMjY1MCA2OTggCkwgMjc0NiA2MjcgClEgMjUyMiAyMjQgMjM3NCA3NyAKUSAyMjI3IC03MCAyMDM1IC03MCAKUSAxODk0IC03MCAxNzgyIDQyIApRIDE2NzAgMTU0IDE1MTcgNDU0IApRIDEzMjUgODI2IDExMzMgMTM1NyAKTCA4NzcgMTE1MiAKTCA1NzAgMCAKTCA5MCAwIApMIDk5MiAzMzc5IApRIDEwODIgMzY5OSAxMTA3IDM5NDIgClEgMTA4OCA0MDk2IDc4MSA0MDk2IApMIDY2NiA0MDk2IApMIDY2NiA0MTk4IApRIDExNDYgNDI1NiAxNjcwIDQzNzEgCkwgMTcwOSA0MzMzIApMIDk0MSAxNDE0IApMIDEyMTYgMTYyNiAKUSAyMTMxIDIzMzAgMjEzMSAyNTIyIApRIDIxMzEgMjYzNyAxODk0IDI2MzcgCkwgMTgwNSAyNjM3IApMIDE4MDUgMjczOSAKTCAyOTUwIDI3MzkgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNjkiIGQ9Ik0gMTY5MCAzODM0IApRIDE2OTAgMzY5OSAxNTk3IDM2MDMgClEgMTUwNCAzNTA3IDEzNzYgMzUwNyAKUSAxMjM1IDM1MDcgMTE1MiAzNjAwIApRIDEwNjkgMzY5MyAxMDY5IDM4NDYgClEgMTA2OSAzOTk0IDExNTUgNDA5MCAKUSAxMjQyIDQxODYgMTM3MCA0MTg2IApRIDE0OTggNDE4NiAxNTk0IDQwODAgClEgMTY5MCAzOTc0IDE2OTAgMzgzNCAKegpNIDE0MjEgNzMwIApMIDE1MDQgNjU5IApRIDEyMzUgMjQzIDEwNDkgODYgClEgODY0IC03MCA2MjcgLTcwIApRIDMxNCAtNzAgMzE0IDI4MiAKUSAzMTQgNDY3IDQ1NCA5OTIgCkwgNzYyIDIxMjUgClEgODE5IDIzMzAgODE5IDI0MDYgClEgODE5IDI1MDIgNzQ1IDI1MjggClEgNjcyIDI1NTQgNDEwIDI1NjAgCkwgNDEwIDI2NjIgClEgNzA0IDI2ODggMTQzNCAyODIyIApMIDE0NTkgMjgwMyAKTCA4NTggNjA4IApRIDc5NCAzOTAgNzk0IDMyNiAKUSA3OTQgMjMwIDg4MyAyMzAgClEgMTA0MyAyMzAgMTQyMSA3MzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTIxOTIiIGQ9Ik0gNTQ3OCAxNjUxIApMIDU0NzggMTU4NyAKUSA0NzQyIDEyNzQgMzk1NSAzNjUgCkwgMzgyNyA0ODYgClEgNDAwNiA3NDIgNDM1MiAxMTAxIApRIDQ0NDIgMTE5MCA0NDQyIDEyODAgClEgNDQ0MiAxNDA4IDQyNzUgMTQwOCAKTCA0NDggMTQwOCAKTCA0NDggMTgzMCAKTCA0MjgyIDE4MzAgClEgNDMzMyAxODMwIDQzOTAgMTg3OCAKUSA0NDQ4IDE5MjYgNDQ0OCAxOTcxIApRIDQ0NDggMjA0MiA0MzU4IDIxMzEgClEgNDAzMiAyNDQ1IDM4MzQgMjc0NiAKTCAzOTYyIDI4NjcgClEgNDc1NSAxOTUyIDU0NzggMTY1MSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItMjIxZSIgZD0iTSA1NDY2IDE0MjEgClEgNTQ2NiA5MDIgNTExNCA0NTEgClEgNDc2MiAwIDQxOTggMCAKUSAzODI3IDAgMzUyOSAyMjcgClEgMzIzMiA0NTQgMjkxMiA5MjggClEgMjQ1MSAwIDE1NzQgMCAKUSAxMTIwIDAgNzg0IDMyOSAKUSA0NDggNjU5IDQ0OCAxMjgwIApRIDQ0OCAxNjEzIDU0MSAxODgxIApRIDYzNCAyMTUwIDc3MSAyMzA3IApRIDkwOSAyNDY0IDEwODEgMjU2OSAKUSAxMjU0IDI2NzUgMTM5OCAyNzEzIApRIDE1NDIgMjc1MiAxNjcwIDI3NTIgClEgMjA1NCAyNzUyIDIzNDUgMjU2OSAKUSAyNjM3IDIzODcgMzA2NiAxODExIApRIDMzMjggMjI4NSAzNTkzIDI1MTggClEgMzg1OSAyNzUyIDQzMDEgMjc1MiAKUSA0NzY4IDI3NTIgNTExNyAyMzkwIApRIDU0NjYgMjAyOSA1NDY2IDE0MjEgCnoKTSAzMTk0IDE1NjggCkwgMzE5NCAxNTQ5IApRIDM1NjUgOTQxIDM4NDYgNjU5IApRIDQxMjggMzc4IDQ0NDIgMzc4IApRIDQ3MTAgMzc4IDQ4OTYgNjA1IApRIDUwODIgODMyIDUwODIgMTEzOSAKUSA1MDgyIDE1OTQgNDg0MiAxOTA0IApRIDQ2MDIgMjIxNCA0MTkyIDIyMTQgClEgMzk5NCAyMjE0IDM4MzAgMjE2MCAKUSAzNjY3IDIxMDYgMzUzOSAxOTg0IApRIDM0MTEgMTg2MiAzMzUzIDE3OTIgClEgMzI5NiAxNzIyIDMxOTQgMTU2OCAKegpNIDI3NzEgMTE1OCAKTCAyNzcxIDExNzggClEgMjQwNiAxNzc5IDIwOTYgMjA3NiAKUSAxNzg2IDIzNzQgMTQ3MiAyMzc0IApRIDEyMDMgMjM3NCAxMDE3IDIxNDcgClEgODMyIDE5MjAgODMyIDE2MTMgClEgODMyIDExNzggMTA3NSA4NTggClEgMTMxOCA1MzggMTcyMiA1MzggClEgMTkyMCA1MzggMjA5MyA1OTUgClEgMjI2NiA2NTMgMjQwMCA3NjUgClEgMjUzNCA4NzcgMjYwOCA5NTcgClEgMjY4MiAxMDM3IDI3NzEgMTE1OCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNjEiIGQ9Ik0gMjgyOSA0MjIgCkwgMjgyOSAyNDMgClEgMjU4NiAtNjQgMjI1MyAtNjQgClEgMTg4OCAtNjQgMTg0MyA0MDMgCkwgMTgzNyA0MDMgClEgMTQyNyAtNjQgOTA5IC02NCAKUSA2MDggLTY0IDQyMiAxMTIgClEgMjM3IDI4OCAyMzcgNjAyIApRIDIzNyAxMDUwIDY4NSAxMzUwIApRIDk5MiAxNTU1IDE4MzcgMTg2OSAKTCAxODM3IDIyMTQgClEgMTgzNyAyNTAyIDE2OTkgMjY0NiAKUSAxNTYyIDI3OTAgMTMzOCAyNzkwIApRIDExNDYgMjc5MCAxMDE4IDI2OTcgClEgODkwIDI2MDUgODkwIDI0NzcgClEgODkwIDI0MTkgOTA5IDIzNDggClEgOTI4IDIyNzggOTI4IDIyMDggClEgOTI4IDIxMTIgODQxIDIwMjkgClEgNzU1IDE5NDYgNjM0IDE5NDYgClEgNTI1IDE5NDYgNDQxIDIwMjkgClEgMzU4IDIxMTIgMzU4IDIyNDAgClEgMzU4IDI1NDcgNjg1IDI3NTIgClEgOTg2IDI5NDQgMTQyMSAyOTQ0IApRIDE5MzkgMjk0NCAyMTc2IDI2NTYgClEgMjI5MSAyNTIyIDIzMjMgMjM4NCAKUSAyMzU1IDIyNDYgMjM1NSAxOTQ2IApMIDIzNTUgNzIzIApRIDIzNTUgMzAxIDI1NTQgMzAxIApRIDI2ODIgMzAxIDI4MjkgNDIyIAp6Ck0gMTgzNyA4MTMgCkwgMTgzNyAxNzE1IApRIDEyNDggMTUxMCAxMDE4IDEyOTMgClEgODAwIDEwOTQgODAwIDgwMCAKUSA4MDAgNTU3IDkyMSA0MzIgClEgMTA0MyAzMDcgMTI0MiAzMDcgClEgMTQ1MyAzMDcgMTYxMyA0MTAgClEgMTc0NyA1MDYgMTc5MiA1ODkgClEgMTgzNyA2NzIgMTgzNyA4MTMgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTczIiBkPSJNIDk5OCAxOTI2IApMIDE2NjQgMTUyMyAKUSAxOTg0IDEzMzEgMjEwNSAxMTY0IApRIDIyMjcgOTk4IDIyMjcgNzM2IApRIDIyMjcgNDE2IDE5NjEgMTc2IApRIDE2OTYgLTY0IDEzMzEgLTY0IApRIDEwMzAgLTY0IDg2NCAtNiAKUSA2OTEgNTEgNTcwIDUxIApRIDQ2MSA1MSA0MTYgLTI2IApMIDMzMyAtMjYgCkwgMzMzIDk3OSAKTCA0MzUgOTc5IApRIDUzOCA1MTIgNzMwIDI5NCAKUSA5MjIgNzcgMTI0OCA3NyAKUSAxNDg1IDc3IDE2MzIgMjExIApRIDE3NzkgMzQ2IDE3NzkgNTUwIApRIDE3NzkgODQ1IDE0NDAgMTAzMCAKTCAxMDk0IDEyMjIgClEgMzI2IDE2NTEgMzI2IDIxNTAgClEgMzI2IDI1MjIgNTY2IDI3MzAgClEgODA2IDI5MzggMTIxMCAyOTM4IApRIDE0OTEgMjkzOCAxNjM4IDI4NjcgClEgMTc1NCAyODE2IDE4MTggMjgxNiAKUSAxODYyIDI4MTYgMTkyMCAyODgwIApMIDE5OTAgMjg4MCAKTCAyMDIyIDIwMTAgCkwgMTkyNiAyMDEwIApRIDE4MTggMjQ0NSAxNjU0IDI2MjEgClEgMTQ5MSAyNzk3IDEyMDMgMjc5NyAKUSA5ODYgMjc5NyA4NTQgMjY4OCAKUSA3MjMgMjU3OSA3MjMgMjM2MiAKUSA3MjMgMjI1MyA3OTYgMjEyOCAKUSA4NzAgMjAwMyA5OTggMTkyNiAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy01NCIgZD0iTSA0MDUxIDQxNzkgCkwgMzc3MCAzMTMwIApMIDM2NjEgMzE0MiAKUSAzNjgwIDMzMDIgMzY4MCAzNDM3IApRIDM2ODAgMzk1NSAzMDM0IDM5NTUgCkwgMjY2MiAzOTU1IApMIDE3ODYgODE5IApRIDE2OTYgNTA2IDE2OTYgMzk3IApRIDE2OTYgMjUwIDE3NjYgMTk1IApRIDE4MzcgMTQxIDIwMzUgMTIyIApMIDIyNTkgMTAyIApMIDIyNTkgMCAKTCA0MTYgMCAKTCA0MTYgMTAyIApRIDc0OSAxMzQgODg5IDIzMCAKUSAxMDMwIDMyNiAxMTAxIDU4MiAKTCAyMDE2IDM5NTUgClEgMTI1NCAzOTU1IDk4OCAzODE3IApRIDcyMyAzNjgwIDQ5MyAzMTYyIApMIDM3OCAzMTg3IApMIDY0NiA0MTc5IApMIDQwNTEgNDE3OSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItMzAiIGQ9Ik0gMzA0NiAyMTEyIApRIDMwNDYgMTY4MyAyOTYzIDEzMDIgClEgMjg4MCA5MjIgMjcxNyA2MDIgClEgMjU1NCAyODIgMjI2NiA5NiAKUSAxOTc4IC05MCAxNjAwIC05MCAKUSAxMjEwIC05MCA5MTUgMTA4IApRIDYyMSAzMDcgNDYxIDY0MCAKUSAzMDEgOTczIDIyNyAxMzUwIApRIDE1NCAxNzI4IDE1NCAyMTUwIApRIDE1NCAyNzQ2IDMwMSAzMjIyIApRIDQ0OCAzNjk5IDc5MCA0MDEyIApRIDExMzMgNDMyNiAxNjI2IDQzMjYgClEgMjI1MyA0MzI2IDI2NDkgMzcxMiAKUSAzMDQ2IDMwOTggMzA0NiAyMTEyIAp6Ck0gMjQzMiAyMDgwIApRIDI0MzIgMzA5MSAyMjE3IDM2MjUgClEgMjAwMyA0MTYwIDE1ODcgNDE2MCAKUSAxMTkwIDQxNjAgOTc5IDM2MjIgClEgNzY4IDMwODUgNzY4IDIxMDYgClEgNzY4IDExMjAgOTc5IDU5OCAKUSAxMTkwIDc3IDE2MDAgNzcgClEgMjAwMyA3NyAyMjE3IDU5OCAKUSAyNDMyIDExMjAgMjQzMiAyMDgwIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0yYiIgZD0iTSA0MDcwIDE0MDggCkwgMjQwMCAxNDA4IApMIDI0MDAgLTI2MiAKTCAxOTc4IC0yNjIgCkwgMTk3OCAxNDA4IApMIDMwNyAxNDA4IApMIDMwNyAxODMwIApMIDE5NzggMTgzMCAKTCAxOTc4IDM1MDEgCkwgMjQwMCAzNTAxIApMIDI0MDAgMTgzMCAKTCA0MDcwIDE4MzAgCkwgNDA3MCAxNDA4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0yOCIgZD0iTSAxOTQ2IC0xMDMwIApMIDE4NjkgLTExMzMgClEgMTEyNiAtNzEwIDcxNiAzMiAKUSAzMDcgNzc0IDMwNyAxNjEzIApRIDMwNyAzMzg2IDE4ODggNDMyNiAKTCAxOTQ2IDQyMjQgClEgMTI5MyAzNjY3IDEwNzUgMzEyNiAKUSA4NTggMjU4NiA4NTggMTYzMiAKUSA4NTggNjg1IDEwODIgOTYgClEgMTMwNiAtNDkzIDE5NDYgLTEwMzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtN2EiIGQ9Ik0gMjQzMiAyNjY5IApMIDU4MiA0NjcgClEgODc3IDQwMyAxMDIxIDMwNyAKUSAxMTY1IDIxMSAxMzUwIC02NCAKUSAxNTY4IC0zODQgMTc5OCAtMzg0IApRIDE5NzEgLTM4NCAxOTcxIC0yODggClEgMTk3MSAtMjU2IDE5MzkgLTE5MiAKUSAxODg4IC05MCAxODg4IC0xMyAKUSAxODk0IDcwIDE5NTggMTM3IApRIDIwMjIgMjA1IDIwOTkgMjA1IApRIDIyMDIgMjA1IDIyNjIgMTQxIApRIDIzMjMgNzcgMjMyMyAtMzIgClEgMjMyMyAtMjMwIDIxNTYgLTM3NCAKUSAxOTkwIC01MTggMTcyOCAtNTE4IApRIDE0NTkgLTUxOCAxMDA1IC0yMzcgClEgNTcwIDMyIDMzMyAzMiAKUSAxODYgMzIgNDUgLTgzIApMIC0xMyAtMjYgCkwgMTk3MSAyMzU1IApMIDExMDEgMjM1NSAKUSA4NDUgMjM1NSA3MjkgMjI4MSAKUSA2MTQgMjIwOCA1MTggMTk3MSAKTCA0MTYgMTk5NyAKTCA2MjEgMjczOSAKTCAyNDMyIDI3MzkgCkwgMjQzMiAyNjY5IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci0zZSIgZD0iTSAzOTc0IDE1OTQgCkwgMzU4IC0xNTQgCkwgMzU4IDI1MCAKTCAzMTIzIDE2MjYgCkwgMzU4IDMwMDIgCkwgMzU4IDM0MTggCkwgMzk3NCAxNjU4IApMIDM5NzQgMTU5NCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItMjkiIGQ9Ik0gMTg2IDQyMjQgCkwgMjYyIDQzMjYgClEgOTkyIDM4OTEgMTQwOCAzMTQ4IApRIDE4MjQgMjQwNiAxODI0IDE1ODEgClEgMTgyNCAtMTY2IDI0MyAtMTEzMyAKTCAxODYgLTEwMzAgClEgODQ1IC00ODYgMTA1OSA1NCAKUSAxMjc0IDU5NSAxMjc0IDE1NjIgClEgMTI3NCAyNTM0IDEwNTkgMzEyMCAKUSA4NDUgMzcwNiAxODYgNDIyNCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICA8L2RlZnM+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNTMuMTM0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNmIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1LjI3OTk5NiA0My44NzQ2ODgpIHNjYWxlKDAuNDkpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQgLTIzLjMzMTI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM5LjI3OTk5NiAtMzIuNTkwOTM3KSBzY2FsZSgwLjQ5KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0yMTkyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4Ny4wNjI1NTIgMC45ODc1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0yMjFlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOTQuMTAyNTM5IDAuOTg3NSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1OC45MDI1MTEgMC45ODc1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci03MyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDAzLjMwMjUwNSAwLjk4NzUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2Ni4yNjg5MTkgMC45ODc1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0yMTkyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MzYuMzA4OTA2IDAuOTg3NSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY0My4zNDg4OTMgMC45ODc1KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0yYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjk0Ljg5MjE1OSAzNi4yNjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTI4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MTkuNDUxNTA1IDAuOTg3NSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy03YSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODUyLjc1MTQ5MyAwLjk4NzUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNmIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDg5MS42NTE0ODcgLTEyLjI0MDYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0zZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTQxLjU4MDg1NCAwLjk4NzUpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtN2EiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMjQuNTIwODM1IDAuOTg3NSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy02OSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA2My40MjA4MjkgLTEyLjI0MDYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0yOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA4Ny4yOTAxOTYgMC45ODc1KSIvPgogICAgPHBhdGggZD0iTSAwIDEzLjc4NDM3NSAKTCAwIDIwLjAzNDM3NSAKTCA2MC4xMjI1NTUgMjAuMDM0Mzc1IApMIDYwLjEyMjU1NSAxMy43ODQzNzUgCkwgMCAxMy43ODQzNzUgCnoKIi8+CiAgIDwvZz4KICA8L2c+CiA8L2c+Cjwvc3ZnPgo=",
+                "aspect": 9.11864406779661,
+                "expression": "\\frac{p_k}{p_i} \\to \\infty \\quad \\mathrm{as}\\ T \\to 0^{+} \\quad (z_k > z_i)",
+                "at": 3.98
+              }
+            ],
+            "note": "What this doesn't establish: how a real product's temperature-zero setting behaves.",
+            "conditions": "check from demo.py, T = 0.5: 0.8668 / 0.1173 = 7.389 = e²"
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-09-27T06:00:06.674410+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 20,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "remotion:TypesetMath",
+        "at": "2026-09-27T21:05:08"
+      },
+      "actual_duration_s": 34.32,
+      "audio_file": "mp3/beat-B07.mp3",
+      "render_duration_s": 34.333333333333336
+    },
+    {
+      "beat_id": "B08",
+      "act": "NEXT STEPS",
+      "role_note": "HANDOFF LAW — prompt READ aloud AND discussed; greeting 'Your turn.'",
+      "narration_text": "Your turn. Clone the repo, run main.py, then run this: try your own scores at a low temperature, like point-oh-one, and see whether the counts come back identical. They probably will — check whether that's a coincidence of the sample, or the floating-point numbers themselves underflowing to zero. Read the boundary out loud before you conclude anything about a real product from a teaching toy.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "fade",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "command": "python3 -c \"from main import sample; print(sample([<your scores>], count=1000, seed=7, temperature=<your low T>))\"",
+            "topic": "TERMINAL COMMAND · NOT A CLAUDE RESPONSE",
+            "segment": "Low Temperature Is Not Argmax",
+            "greeting": "Your turn.",
+            "runningText": "paste this into your own terminal…",
+            "folderLabel": "",
+            "modelLabel": "",
+            "effortLabel": ""
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-09-28T00:32:56.437965+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 14,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T21:05:08"
+      },
+      "actual_duration_s": 19.54,
+      "audio_file": "mp3/beat-B08.mp3",
+      "render_duration_s": 19.541666666666668
+    },
+    {
+      "beat_id": "B09",
+      "act": "OUTRO",
+      "role_note": "OUTRO — title restate + verdict recap",
+      "narration_text": "Low Temperature Is Not Argmax. Here's what the run actually showed. Temperature zero is refused by the reference implementation, not treated as deterministic. At one-half, one outcome gets about eighty-seven percent of the probability, and the other two still won one hundred fifty-one of a thousand draws. Argmax_select is deterministic by construction; sampling can look that way at lower temperatures. And none of this says how a real product handles temperature zero, or where your own numbers would underflow. Run the code — don't just trust the slogan.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Low Temperature Is Not Argmax",
+            "artifactHeading": "Run the code — don't just trust the slogan.",
+            "artifactLines": [
+              "temperature=0 is refused by the reference implementation, not treated as deterministic",
+              "temperature=0.5 concentrates ~87% of probability on one outcome but still sampled the others 151/1000 times",
+              "argmax_select() is deterministic by construction — sampling isn't, even when a run looks identical",
+              "boundary: this says nothing about a real product's own temperature-zero setting",
+              "at low temperature, sampling can become numerically identical to argmax — but it isn't the same operation by definition"
+            ]
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": "2026-09-27T09:27:44.917465+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B09.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-09-27T21:05:08"
+      },
+      "actual_duration_s": 31.01,
+      "audio_file": "mp3/beat-B09.mp3",
+      "render_duration_s": 31.041666666666668
+    }
+  ]
+}
