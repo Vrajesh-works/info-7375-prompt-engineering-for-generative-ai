@@ -1,0 +1,6 @@
+probs (full)         : [0.09003057317038046, 0.24472847105479764, 0.6652409557748218]
+seed 7 counts        : {0: 102, 1: 268, 2: 630}
+share on outcome 0   : 0.102 (stipulated 'correct' answer; expected ~ 0.09 )
+share on outcome 2   : 0.63
+seed 8  counts        : {0: 76, 1: 239, 2: 685}
+seed 42 counts        : {0: 76, 1: 253, 2: 671}

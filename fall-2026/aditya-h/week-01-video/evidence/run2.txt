@@ -1,0 +1,5 @@
+$ python3 seeded_sampler.py
+scores=[1, 2, 3] temperature=1.0 seed=7 count=1000
+probs = [0.09, 0.245, 0.665]
+counts = {0: 102, 1: 268, 2: 630}
+[exit 0]

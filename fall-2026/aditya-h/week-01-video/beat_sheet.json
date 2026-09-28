@@ -1,0 +1,390 @@
+{
+  "metadata": {
+    "title": "Same Seed, Same Answer. Right Answer?",
+    "slug": "seed-repeatable-not-correct",
+    "topic": "INFO7375 · RANDOMNESS",
+    "register": "Plain, myth-busting (light, snappy, minimal math)",
+    "engine": "kokoro",
+    "voice_kokoro": "af_bella",
+    "palette": "claude",
+    "aspect": "16:9",
+    "target_runtime": "~3 min (duration is an output of measured audio)",
+    "structure_note": "User-specified 5-beat structure for an INFO7375 assignment. Deliberately omits the ai-explainer bookends (ClaudeComposerAsk cold open, hesitant-writer overview, Your Turn handoff, @NikBearBrown outro). Bella chosen: the audio script only accepts af_bella / am_onyx, and Onyx carries the 'Liam, in for Bear' sign-off rule.",
+    "evidence": "evidence/seeded_sampler.py run as two separate processes via evidence/capture.sh -> evidence/run1.txt, evidence/run2.txt (byte-identical); 100 further runs -> evidence/run100.txt (100/100 identical); numbers for narration in evidence/factcheck_probe.txt; environment in evidence/ENV.txt. Scenes read these files at render time.",
+    "constructed_elements": "The answer key ('outcome 0 is correct') is stipulated by the author, not produced by the program; it is styled as a hand-written sticky note and labeled hypothetical. The Beat 4 chat is a mock illustration, labeled as such, not a real transcript.",
+    "free_pipeline": "Kokoro (local) + Manim (local) + ffmpeg. No API keys, no paid generation, no upload.",
+    "visual_style": "Light and snappy: big rounded shapes, bounce/stamp motion, one idea on screen at a time. Cream ground, warm ink, terracotta as the one accent per beat; sticky-note yellow and red-X red are reserved for the Beat 3 reveal. Handwritten font (Noteworthy) only on the sticky note.",
+    "holds": {
+      "B01": [
+        {
+          "tail": 1.8
+        }
+      ],
+      "B02": [
+        {
+          "after": "Identical.",
+          "s": 1.8
+        }
+      ],
+      "B03": [
+        {
+          "after": "Correct?",
+          "s": 1.5
+        },
+        {
+          "tail": 1.8
+        }
+      ],
+      "B04": [
+        {
+          "after": "not the answer.",
+          "s": 1.8
+        }
+      ],
+      "B05": [
+        {
+          "tail": 1.5
+        }
+      ],
+      "B00": [
+        {
+          "tail": 1.0
+        }
+      ]
+    },
+    "holds_note": "Silent holds after reveals (user-approved 2026-09-27), applied by pad_holds.py; originals in mp3/raw/.",
+    "build": {
+      "at": "2026-09-27T19:03:15",
+      "cut": "master",
+      "filled": 6,
+      "of": 6,
+      "slates": [],
+      "skin_warnings": [
+        "B00: palette=claude but the cold open is 'un-annotated' — COLD OPEN LAW wants ClaudeComposerAsk",
+        "B05: palette=claude but the outro is 'un-annotated' — OUTRO LAW wants ClaudeTitleOutro"
+      ]
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "INTRO: what this video explains (user-requested 2026-09-27)",
+      "narration_text": "This video is meant to explain the concept of seeded randomness: why a seed makes a sampling run repeatable, but not necessarily correct. Many AI tools let you set a seed. Same seed, same output, every time. That feels like reliability. So let's test what it actually guarantees.",
+      "estimated_duration_s": 18,
+      "visual_intent": "Opening card stating the concept, then a quick visual of what a seed does (random dots freeze, lock clicks, identical outputs), ending on 'reliable?' as the lead-in to the lottery.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "card + freeze",
+        "manim": {
+          "scene_class": "B00_Intro",
+          "file": "scenes.py"
+        },
+        "show": [
+          {
+            "at": "This video is meant to explain",
+            "event": "Card: small 'This video explains:' above a large 'Seeded randomness', then the subline 'why a seed makes a run repeatable, but not necessarily correct'."
+          },
+          {
+            "at": "Many AI tools let you set a seed",
+            "event": "Card slides up and shrinks; a settings chip 'seed: 7' pops in beside a cloud of randomly jittering dots."
+          },
+          {
+            "at": "Same seed, same output",
+            "event": "The dots freeze into one fixed pattern; a lock clicks shut; two identical mini outputs appear side by side."
+          },
+          {
+            "at": "That feels like reliability",
+            "event": "The word 'reliable?' appears in terracotta (the beat's one accent)."
+          },
+          {
+            "at": "So let's test",
+            "event": "Small tag: 'a quick experiment, with recorded Python runs'. Hold."
+          }
+        ]
+      },
+      "actual_duration_s": 19.67,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 19.708333333333332,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B00.mp4",
+        "filled_by": "manim:B00_Intro",
+        "at": "2026-09-27T19:03:15"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "SETUP: the lopsided lottery + the hook",
+      "narration_text": "Here's a tiny lottery with three boxes: zero, one, and two. It isn't fair. Box two takes up about two thirds of the space, so it wins most draws. Box one gets about a quarter, and box zero barely a tenth. Now, a random draw is, well, random. Unless you give it a seed. A seed pins the randomness down, so the same seed gives you the same draws, every time. Which raises a question that sounds almost too easy. Same seed, same result. Does that mean the result is correct?",
+      "estimated_duration_s": 35,
+      "visual_intent": "Three rounded boxes labeled 0, 1, 2 whose widths are proportional to their probabilities (0.090 / 0.245 / 0.665, from factcheck_probe.txt). Box 2 is huge, box 0 a sliver. Then the hook question typed large.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "bounce-in + type-on",
+        "manim": {
+          "scene_class": "B01_Lottery",
+          "file": "scenes.py"
+        },
+        "show": [
+          {
+            "at": "Here's a tiny lottery",
+            "event": "Three empty rounded boxes pop in (ease-out-back), labeled 0, 1, 2 in big numerals, equal size at first."
+          },
+          {
+            "at": "It isn't fair",
+            "event": "Boxes spring to their real widths (proportional to 0.09 / 0.245 / 0.665). Box 2 fills in terracotta (the beat's one accent)."
+          },
+          {
+            "at": "Box two takes up about two thirds",
+            "event": "Box 2 tag: 'about 2 in 3'."
+          },
+          {
+            "at": "Box one gets about a quarter",
+            "event": "Box 1 tag 'about 1 in 4'; box 0 tag 'about 1 in 10'."
+          },
+          {
+            "at": "a random draw is, well, random",
+            "event": "A marble drops and bounces into a box: box 2, then box 1, then box 2 (a playful illustration of drawing; not the recorded run)."
+          },
+          {
+            "at": "Unless you give it a seed",
+            "event": "A small seed icon with '7' drops onto the lottery; a lock clicks shut beside it."
+          },
+          {
+            "at": "Same seed, same result",
+            "event": "Lottery shrinks up; big text types: 'Same seed → same result.'"
+          },
+          {
+            "at": "Does that mean the result is correct?",
+            "event": "Second line bounces in: 'Does that mean: correct?' with a wobbling '?'. Hold."
+          }
+        ]
+      },
+      "actual_duration_s": 33.88,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 33.916666666666664,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim:B01_Lottery",
+        "at": "2026-09-27T19:03:15"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "RUN IT FOR REAL, TWICE",
+      "narration_text": "So let's actually run it. This is a real Python script. It turns the scores one, two, three into those box sizes, seeds the random generator with seven, and draws a thousand times. First run. Box zero wins one hundred and two times, box one, two hundred sixty eight, and box two, six hundred thirty. Now run the exact same thing again, as a completely fresh process. One hundred two. Two sixty eight. Six thirty. Not close. Identical. The two output files match byte for byte. That's the whole job of a seed, and it's doing it perfectly.",
+      "estimated_duration_s": 45,
+      "visual_intent": "Two terminal panels (run 1 | run 2) showing the verbatim captured output of seeded_sampler.py, each with a mini bar chart of its counts growing from the parsed output. Then a big rubber 'IDENTICAL' stamp slams across both.",
+      "evidence_files": [
+        "evidence/run1.txt",
+        "evidence/run2.txt",
+        "evidence/ENV.txt"
+      ],
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "terminal-typeon + stamp",
+        "manim": {
+          "scene_class": "B02_TwoRuns",
+          "file": "scenes.py"
+        },
+        "show": [
+          {
+            "at": "So let's actually run it",
+            "event": "Left panel 'run 1' slides in. Caption bottom-left, small: 'Recorded output · seeded_sampler.py · Python 3.13.3'."
+          },
+          {
+            "at": "seeds the random generator with seven",
+            "event": "Command and settings line type in verbatim: 'scores=[1, 2, 3] temperature=1.0 seed=7 count=1000'. 'seed=7' underlined in terracotta."
+          },
+          {
+            "at": "First run",
+            "event": "'counts = {0: 102, 1: 268, 2: 630}' reveals; below it three mini bars grow to 102 / 268 / 630 as each number is spoken."
+          },
+          {
+            "at": "Now run the exact same thing again",
+            "event": "Right panel 'run 2' slides in and types the same command as a fresh process."
+          },
+          {
+            "at": "One hundred two. Two sixty eight. Six thirty.",
+            "event": "Run 2's counts reveal number by number; its mini bars grow to the same heights. Matching numbers pulse in pairs across the panels."
+          },
+          {
+            "at": "Identical",
+            "event": "Big rotated rubber stamp 'IDENTICAL' slams down across both panels (scale 1.4 → 1.0 with a small shake)."
+          },
+          {
+            "at": "match byte for byte",
+            "event": "Small line: 'run1.txt == run2.txt (byte-identical)'. Hold."
+          }
+        ]
+      },
+      "actual_duration_s": 37.46,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 37.5,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim:B02_TwoRuns",
+        "at": "2026-09-27T19:03:15"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "THE TWIST: a made-up answer key",
+      "narration_text": "Now for the twist. Let's make up an answer key. I'm declaring, myself, just for this experiment, that box zero is the correct answer. The program didn't decide that. Nothing in the code knows it. It's a sticky note I put on the screen. So how does our perfectly repeatable sampler do? It picks box zero one hundred and two times out of a thousand. The other eight hundred and ninety eight draws miss. And it misses identically, every run. I reran it a hundred times: a hundred identical results. Here's why. The sampler's only inputs are the scores, the temperature, the seed, and the count. There's no answer key anywhere in that list. It never had one. Identical, yes. Correct? That's a different question.",
+      "estimated_duration_s": 55,
+      "visual_intent": "The lottery returns; a yellow, slightly crooked, hand-written sticky note slaps onto box 0 and is labeled hypothetical. A hit/miss tally from the recorded counts. The four real inputs flow into the sampler while a ghost 'answer key' chip is shown not connected. The IDENTICAL stamp gets a red X and becomes 'IDENTICAL ≠ CORRECT'.",
+      "evidence_files": [
+        "evidence/run1.txt",
+        "evidence/run100.txt",
+        "evidence/seeded_sampler.py"
+      ],
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "sticky-slap + tally + stamp-strike",
+        "manim": {
+          "scene_class": "B03_Twist",
+          "file": "scenes.py"
+        },
+        "show": [
+          {
+            "at": "Now for the twist",
+            "event": "The three-box lottery slides back in, small, upper half."
+          },
+          {
+            "at": "I'm declaring, myself",
+            "event": "Yellow sticky note slaps onto box 0 at a slight angle, handwritten (Noteworthy): 'outcome 0 = the correct answer' / '(I'm declaring this myself, for this experiment)'."
+          },
+          {
+            "at": "The program didn't decide that",
+            "event": "Small typed tag pinned under the note: 'HYPOTHETICAL — stipulated by me, not by the program'."
+          },
+          {
+            "at": "It picks box zero one hundred and two times",
+            "event": "Tally row: '102 hits' (small, box-0 colour) beside '898 misses' (large, grey), from run1.txt (1000 − 102). A 1000-dot grid fills: 102 dots terracotta, 898 grey."
+          },
+          {
+            "at": "I reran it a hundred times",
+            "event": "Stack of mini result cards riffles to '100 of 100 runs: identical' (from run100.txt)."
+          },
+          {
+            "at": "The sampler's only inputs",
+            "event": "Diagram: four chips labeled scores, temperature, seed, count (the real constants in seeded_sampler.py) slide into a 'sampler' box."
+          },
+          {
+            "at": "There's no answer key anywhere",
+            "event": "A dashed ghost chip 'answer key?' drifts toward the box, bounces off, and fades; label: 'not an input'."
+          },
+          {
+            "at": "Identical, yes",
+            "event": "The IDENTICAL stamp from B02 re-appears centre-screen."
+          },
+          {
+            "at": "Correct?",
+            "event": "A red hand-drawn X slashes across it; the stamp re-letters to 'IDENTICAL ≠ CORRECT' (the ≠ in terracotta). Hold."
+          }
+        ]
+      },
+      "actual_duration_s": 46.69,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 46.708333333333336,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim:B03_Twist",
+        "at": "2026-09-27T19:03:15"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "WHY IT MATTERS: reproducible is not trustworthy",
+      "narration_text": "Why does this matter outside a toy lottery? Picture an AI assistant giving you a confident answer. Ask again with the same settings, and you get the same answer back. It feels trustworthy. It's stable. It never wavers. But reproducible describes the process, not the answer. A system can repeat the same mistake perfectly. So check an answer against the facts, not against its last run.",
+      "estimated_duration_s": 30,
+      "visual_intent": "A neutral, stylized chat mockup (not a real product UI): a question, a confident wrong answer, the same answer again, a 'reproducible' badge that gets crossed out, then the fact card. Labeled as an illustration.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "motion": "chat-bubbles + badge-strike",
+        "manim": {
+          "scene_class": "B04_Chat",
+          "file": "scenes.py"
+        },
+        "show": [
+          {
+            "at": "Picture an AI assistant",
+            "event": "Chat mock pops in. User bubble: 'What's the capital of Australia?' AI bubble: 'Sydney.' (confident). Caption, small: 'Illustration: mock chat, not a real transcript'."
+          },
+          {
+            "at": "Ask again with the same settings",
+            "event": "The question repeats; the identical AI bubble 'Sydney.' pops in again below."
+          },
+          {
+            "at": "It feels trustworthy",
+            "event": "A green-edged badge '✓ reproducible' snaps onto the conversation."
+          },
+          {
+            "at": "reproducible describes the process, not the answer",
+            "event": "The badge gets a red X; small text under it: 'describes the process, not the answer'."
+          },
+          {
+            "at": "check an answer against the facts",
+            "event": "Fact card slides in beside the chat: 'Actual capital: Canberra', with the terracotta accent. Hold."
+          }
+        ]
+      },
+      "actual_duration_s": 25.84,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 25.875,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim:B04_Chat",
+        "at": "2026-09-27T19:03:15"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "CLOSING CARD: scope of the claim",
+      "narration_text": "This example uses a constructed answer key I assigned myself, not a real fact-check. It shows one thing clearly: repeatability and correctness are answers to different questions. It does not claim seeds are bad, or that this failure happens every time.",
+      "estimated_duration_s": 17,
+      "visual_intent": "Plain boundary card; the three sentences appear as they are read (verbatim, user-specified). Narration read quietly (same voice, no change needed beyond the words).",
+      "shot": {
+        "type": "CARD",
+        "source": "manim",
+        "motion": "line-reveal",
+        "manim": {
+          "scene_class": "B05_Boundary",
+          "file": "scenes.py"
+        },
+        "show": [
+          {
+            "at": "This example uses a constructed answer key",
+            "event": "Sentence 1 fades in, verbatim."
+          },
+          {
+            "at": "It shows one thing clearly",
+            "event": "Sentence 2 fades in, verbatim; 'different questions' in terracotta."
+          },
+          {
+            "at": "It does not claim seeds are bad",
+            "event": "Sentence 3 fades in, verbatim. Small footer: 'Kokoro narration (local) · Manim · evidence in evidence/'. Hold."
+          }
+        ]
+      },
+      "actual_duration_s": 17.99,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 18.0,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B05.mp4",
+        "filled_by": "manim:B05_Boundary",
+        "at": "2026-09-27T19:03:15"
+      }
+    }
+  ]
+}
