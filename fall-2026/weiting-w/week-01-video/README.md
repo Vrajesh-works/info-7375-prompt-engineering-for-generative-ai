@@ -40,7 +40,7 @@ This rebuilds with the Brutalist toolkit's free local pipeline. It assumes a rea
 
 3. **Evidence must be in place.** Beat B03 draws the 24 screenshots `A1`–`D4` from `evidence/run1-normal/screenshots/` and `evidence/run2-incognito/screenshots/`. Confirm all 24 are present before rendering, or B03 will fall back to empty cells.
 
-4. **Audio drives the timing.** Beat durations come from the Kokoro `af_bella` narration, which is generated locally (audio is not shipped in this package). Regenerate the per-beat audio with the toolkit's audio step before rendering; the run then matches `beat_sheet.json`. (If you kept the original per-beat `mp3/` audio, reusing it reproduces the exact 198.5 s runtime.)
+4. **Audio drives the timing.** Beat durations come from the Kokoro `af_bella` narration. The per-beat `mp3/` audio is included in this package; reusing it reproduces the exact 198.5 s runtime without regenerating.
 
 Then, from the toolkit root:
 
