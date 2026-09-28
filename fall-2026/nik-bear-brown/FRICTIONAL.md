@@ -420,3 +420,5 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
   - **Done the same day:** all ten are up, unlisted, native 4K, one caption track each, in both playlists: 16 _-h7rkUej70, 17 YjoIfoOJgsk, 18 hQXXcFHSR04, 19 DnXiQWK8jc4, 20 j_yLifLc38k, 21 tYH92Pqw-MM, 22 zCHGiWw4L1s, 23 z5VC4u2K3gs, 24 urIYFefBWfM, 25 vos_5jXGQUs (youtu.be/…). Twenty-six films in the Figma playlist.
 | 2026-09-28 | docs(fall-2026): log films 16 to 25 going up unlisted |
 | 2026-09-28 | docs(fall-2026): log the Chapter 2 show-tell film and the course mix-up |
+- **2026-09-28: "Do the repo push."** The Figma repo is pushed: one commit (7183cb0) with the twenty reel folders (sources and paperwork; renders stay ignored), the two overnight briefs and reports, the review-notes tool and its tests, the workshop kit, the examples and the call ledgers. Local paths were scrubbed to ~/books in 98 files first; no Figma file keys were added.
+| 2026-09-28 | docs(fall-2026): log the Figma repo push |
