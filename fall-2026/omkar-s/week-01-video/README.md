@@ -26,7 +26,7 @@
 
 | File | Purpose |
 |---|---|
-| `max-subtraction-softmax.mp4` | The rendered video |
+| `max-subtraction-softmax.mp4` | The rendered video. It is in the Canvas zip but not committed to GitHub, because the repo's `.gitignore` keeps generated video out of Git. Rebuild it with the commands below. |
 | `beat_sheet.json` | Reviewed narration + visual plan, with measured audio durations |
 | `scenes.py` | One Manim scene per beat (all on-screen visuals) |
 | `evidence/` | Saved outputs of `main.py`, the lesson tests and `max_shift_evidence.py`, plus that script and the commit hashes |
