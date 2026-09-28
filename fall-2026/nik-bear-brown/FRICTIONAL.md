@@ -277,6 +277,7 @@ Every push to GitHub is listed at the bottom with its date and commit note.
 - **2026-09-27, later:** "What are the next ten set of films?" The answer goes in the Figma repo as FILMS-NEXT-2.md.
 - **2026-09-27, evening: build the next ten overnight.** In my words: "build those overnight, check the new show tell skill to make sure you have it up to date. Use the show tell skill to build those uh, through 25 overnight." Films 16 to 25. Eight of them need me or students, so the overnight builds do the agent's half honestly and say what's pending.
   - **11:40 pm:** four of the five builders died on my account's **session limit** (429, "resets 11:10pm"). Films 16 and 17 finished before that. I said "Try again"; the four are resumed from where they stopped.
+  - **2026-09-28, about 1 am: all ten masters done,** none published. Verdicts: 16 strong (a note on a variant reaches the agent; on a set or a board it doesn't); 21 strong with a hole (tests caught 16 of 16 behaviour breaks and 0 of 2 wrong-reason probes); 24 middle (the review skill agreed on 4 of 6 findings across three runs); 17, 18, 19, 20, 22, 23, 25 pending my half (the token, Codex, a hand drawing, a week, students, the Make run, a class), each strong or settled on the agent's half. 24 Figma calls, about $5.50 of headless builds. Claude Code needs `claude update` before it will run Opus 5.5.
 
 ### 2026-09-26 — The assignment went out, and its first worked recipe
 
@@ -393,3 +394,4 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-27 | docs(fall-2026): log the question about the next ten Figma films |
 | 2026-09-27 | docs(fall-2026): log the order to build Figma films 16 to 25 overnight |
 | 2026-09-27 | docs(fall-2026): log the session-limit stop and the retry on films 18 to 25 |
+| 2026-09-28 | docs(fall-2026): log the ten finished Figma films from the second overnight run |
