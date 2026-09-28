@@ -275,6 +275,7 @@ Every push to GitHub is listed at the bottom with its date and commit note.
 - **2026-09-27: sign-off on the ten re-cut films.** In my words: "Those look good. Those films look good. Publish the unpublished films on the Nick Bear Brown YouTube at 4K." So all ten go up unlisted on @NikBearBrown, in the Claude playlist and the Figma playlist, the same way as the first six.
   - **Done the same afternoon:** all ten are up, unlisted, native 4K, captions attached, in both playlists: films 1 VbICGMmMOak, 2 SKEollgJwTc, 3 vaaGNW3jepY, 4 PTbTHSFbo2U, 6 yq553zEjdBo, 7 HMRFC9AtWEM, 8 DPBrdel-5Bw, 11 pq4ZeONLJlc, 12 pv1ZpweUKcw, 14 9DbslHjLFDs (youtu.be/…). The YouTube API's daily quota ran out after the tenth upload, so the Figma playlist reorder and a caption check on film 2 wait for the reset.
 - **2026-09-27, later:** "What are the next ten set of films?" The answer goes in the Figma repo as FILMS-NEXT-2.md.
+- **2026-09-27, evening: build the next ten overnight.** In my words: "build those overnight, check the new show tell skill to make sure you have it up to date. Use the show tell skill to build those uh, through 25 overnight." Films 16 to 25. Eight of them need me or students, so the overnight builds do the agent's half honestly and say what's pending.
 
 ### 2026-09-26 — The assignment went out, and its first worked recipe
 
@@ -389,3 +390,4 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-27 | docs(fall-2026): log the sign-off on the ten re-cut Figma films |
 | 2026-09-27 | docs(fall-2026): log the ten Figma films going up unlisted |
 | 2026-09-27 | docs(fall-2026): log the question about the next ten Figma films |
+| 2026-09-27 | docs(fall-2026): log the order to build Figma films 16 to 25 overnight |
