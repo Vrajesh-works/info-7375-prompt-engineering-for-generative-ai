@@ -1,0 +1,38 @@
+$ python3 max_shift_evidence.py
+Python 3.14.2
+largest float: 1.7976931348623157e+308
+log(largest float) = 709.7827  (math.exp overflows above this)
+
+== A. the chapter example: scores [1, 2, 3]
+naive   weights [2.718282, 7.389056, 20.085537]  sum 30.192875
+naive   probs   [0.09003057317038045, 0.24472847105479764, 0.6652409557748219]
+shifted max 3  scores-max [-2, -1, 0]
+shifted weights [0.135335, 0.367879, 1.0]  sum 1.503215
+shifted probs   [0.09003057317038046, 0.24472847105479764, 0.6652409557748218]
+lesson probabilities() [0.09003057317038046, 0.24472847105479764, 0.6652409557748218]
+
+== B. same gaps, +1000 offset: scores [1001, 1002, 1003]
+naive   math.exp(1003) -> OverflowError: math range error
+shifted max 1003  scores-max [-2, -1, 0]
+shifted weights [0.135335, 0.367879, 1.0]  sum 1.503215
+shifted probs   [0.09003057317038046, 0.24472847105479764, 0.6652409557748218]
+lesson probabilities() [0.09003057317038046, 0.24472847105479764, 0.6652409557748218]
+
+== C. the lesson test case: scores [1000, 1000]
+naive   math.exp(1000) -> OverflowError: math range error
+shifted max 1000  scores-max [0, 0]
+shifted weights [1.0, 1.0]  sum 2.000000
+shifted probs   [0.5, 0.5]
+lesson probabilities() [0.5, 0.5]
+
+== D. boundary: a huge gap: scores [0, -1000]
+naive   weights [1.0, 0.0]  sum 1.000000
+naive   probs   [1.0, 0.0]
+shifted max 0  scores-max [0, -1000]
+shifted weights [1.0, 0.0]  sum 1.000000
+shifted probs   [1.0, 0.0]
+lesson probabilities() [1.0, 0.0]
+
+A == B exactly: True
+D outcome 1 probability: 0.0 | is exactly zero: True
+smallest positive float: 5e-324 | e^-1000 is about 10^-434.3

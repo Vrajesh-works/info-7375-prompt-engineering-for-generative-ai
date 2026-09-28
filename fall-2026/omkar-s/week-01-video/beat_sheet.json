@@ -1,0 +1,283 @@
+{
+  "metadata": {
+    "title": "Subtract the Max: The Weights Change, the Distribution Doesn't",
+    "slug": "max-subtraction-softmax",
+    "topic": "INFO 7375 WEEK 1 · CHAPTER 1 PART 2",
+    "author": "Omkar Salian",
+    "register": "Plain",
+    "engine": "kokoro",
+    "voice_kokoro": "af_bella",
+    "aspect": "16:9",
+    "palette": "claude",
+    "concept": "Why subtracting the maximum changes the intermediates but not the distribution (Chapter 1, 'The subtraction that changes nothing important').",
+    "evidence": {
+      "course_repo": "https://github.com/nikbearbrown/info-7375-prompt-engineering-for-generative-ai",
+      "course_commit": "e6c6c49dd8b65d7f81dd8e72b89fd6c1f6b23738",
+      "brutalist_commit": "6a8380ae169cca81e0633664a65c958f5c12ab4b",
+      "python": "3.14.2",
+      "run_date": "2026-09-24",
+      "files": [
+        "evidence/main_py_output.txt",
+        "evidence/tests_output.txt",
+        "evidence/max_shift_evidence.py",
+        "evidence/max_shift_output.txt"
+      ]
+    },
+    "constructed_inputs": "All score lists ([1,2,3], [1001,1002,1003], [1000,1000], [0,-1000]) are chosen by hand; no model produced them. Every output number is what the code printed.",
+    "deviations_from_ai_explainer": "No ClaudeComposerAsk cold open, no Your-Turn composer, no Liam/in-for-Bear persona, no @NikBearBrown chip: the assignment forbids fabricated Claude transcripts and the course prerequisite forbids implying the narrator is Bear or an endorsement. The pipeline (Kokoro audio clock, per-beat Manim, compile, QC gates) is Brutalist's."
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "hook",
+      "narration_text": "This line is in the course's softmax function. Before it turns three scores into probabilities, it subtracts the largest score from every one of them. That looks like it should change the answer. It doesn't. Here is why, using only numbers the code actually prints.",
+      "lead_silence_s": 0.6,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "manim": "B00_TheLine",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Real excerpt of probabilities() from main.py appears, file path + commit captioned"
+          },
+          {
+            "at": "subtracts the largest",
+            "event": "peak = max(logits) and (x - peak) lines highlight in terracotta"
+          },
+          {
+            "at": "It doesn't",
+            "event": "Question card: 'Does subtracting the max change the probabilities?'"
+          }
+        ]
+      },
+      "estimated_duration_s": 17,
+      "actual_duration_s": 16.7,
+      "audio_file": "mp3/beat-B00.mp3"
+    },
+    {
+      "beat_id": "B01",
+      "act": "naive route",
+      "narration_text": "Start with three scores: one, two, and three. I chose them; no model produced them. The plain recipe raises e to each score, giving weights of about two point seven, seven point four, and twenty point one. Add them up, about thirty point two, and divide each weight by that total. Outcome two gets about sixty six and a half percent.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "manim": "B01_NaiveRoute",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Scores 1 2 3 appear with a 'constructed input' tag"
+          },
+          {
+            "at": "raises e",
+            "event": "Arrows drop to weights 2.718282, 7.389056, 20.085537"
+          },
+          {
+            "at": "Add them up",
+            "event": "Weights slide into a sum box: 30.192875"
+          },
+          {
+            "at": "divide",
+            "event": "Probability bars grow to 0.0900, 0.2447, 0.6652"
+          }
+        ]
+      },
+      "estimated_duration_s": 22,
+      "actual_duration_s": 20.35,
+      "audio_file": "mp3/beat-B01.mp3"
+    },
+    {
+      "beat_id": "B02",
+      "act": "shifted route",
+      "narration_text": "Now the route the code takes. Subtract the largest score, three, from each one. The scores become minus two, minus one, and zero. The weights get much smaller: about point one three five, point three six eight, and exactly one. The total is about one point five. Divide, and the probabilities come out the same.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "manim": "B02_ShiftedRoute",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Naive row stays on top, dimmed; new row below"
+          },
+          {
+            "at": "Subtract",
+            "event": "'- 3' applies to each score; scores morph to -2 -1 0"
+          },
+          {
+            "at": "weights",
+            "event": "Weights 0.135335, 0.367879, 1.000000; sum 1.503215"
+          },
+          {
+            "at": "the same",
+            "event": "Both probability rows side by side, equality marks light up"
+          }
+        ]
+      },
+      "estimated_duration_s": 21,
+      "actual_duration_s": 19.9,
+      "audio_file": "mp3/beat-B02.mp3"
+    },
+    {
+      "beat_id": "B03",
+      "act": "why it cancels",
+      "narration_text": "Why the same? Compare the two rows of weights. Every shifted weight is the original weight divided by e cubed, about twenty point oh nine. And the total is divided by that same number. A probability is a weight over the total, so the common factor sits on top and on the bottom, and cancels. The intermediates changed. Their ratios did not.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "manim": "B03_WhyItCancels",
+        "show": [
+          {
+            "at": "divided by e cubed",
+            "event": "Each naive weight gets '÷ 20.085537' and morphs into its shifted weight"
+          },
+          {
+            "at": "the total",
+            "event": "30.192875 ÷ 20.085537 = 1.503215"
+          },
+          {
+            "at": "cancels",
+            "event": "Fraction weight/total with ÷ e³ on top and bottom; both struck out"
+          }
+        ]
+      },
+      "estimated_duration_s": 23,
+      "actual_duration_s": 21.29,
+      "audio_file": "mp3/beat-B03.mp3"
+    },
+    {
+      "beat_id": "B04",
+      "act": "why bother",
+      "narration_text": "So why bother? Add one thousand to every score. The gaps are unchanged, so the probabilities should be too. But the plain recipe now needs e to the one thousand and three, and Python refuses with an overflow error. The largest float only reaches about e to the seven hundred and ten. The shifted route never meets that number: subtract the max, and you are back to minus two, minus one, zero, with identical probabilities.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "manim": "B04_Overflow",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Scores 1001 1002 1003 (constructed)"
+          },
+          {
+            "at": "overflow error",
+            "event": "Real traceback line: math.exp(1003) -> OverflowError: math range error"
+          },
+          {
+            "at": "largest float",
+            "event": "Exponent axis with ceiling at 709.78; 1003 lands past it"
+          },
+          {
+            "at": "subtract the max",
+            "event": "Shifted path to -2 -1 0 and the same probabilities; 'A == B exactly: True'"
+          }
+        ]
+      },
+      "estimated_duration_s": 27,
+      "actual_duration_s": 25.24,
+      "audio_file": "mp3/beat-B04.mp3"
+    },
+    {
+      "beat_id": "B05",
+      "act": "the lesson's test",
+      "narration_text": "The lesson's own test uses the extreme case: two scores of one thousand. Shifted, they become zero and zero. The weights are one and one. Divide by two, and each gets one half. The large shared offset never carried any information about which outcome is preferred.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "manim": "B05_LessonTest",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "[1000, 1000] -> [0, 0] -> [1, 1] -> [0.5, 0.5] chain builds step by step"
+          },
+          {
+            "at": "one half",
+            "event": "Real unittest line: test_02 ... ok"
+          }
+        ]
+      },
+      "estimated_duration_s": 17,
+      "actual_duration_s": 17.75,
+      "audio_file": "mp3/beat-B05.mp3"
+    },
+    {
+      "beat_id": "B06",
+      "act": "honest detail",
+      "narration_text": "One honest detail. The cancellation is exact in algebra. On a computer, the two routes agree up to rounding, not bit for bit. For outcome zero they differ in the sixteenth significant digit. So the precise claim is: the same distribution, up to floating point rounding.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "manim": "B06_Rounding",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Naive 0.09003057317038045 above shifted 0.09003057317038046, digits aligned"
+          },
+          {
+            "at": "sixteenth",
+            "event": "Final digits 5 and 6 highlighted"
+          },
+          {
+            "at": "precise claim",
+            "event": "Claim card: same distribution, up to floating-point rounding"
+          }
+        ]
+      },
+      "estimated_duration_s": 17,
+      "actual_duration_s": 17.88,
+      "audio_file": "mp3/beat-B06.mp3"
+    },
+    {
+      "beat_id": "B07",
+      "act": "what this does not establish",
+      "narration_text": "Here is what this does not establish. Subtracting the max stops the largest weight from overflowing. It does nothing for the smallest ones. Take scores zero and minus one thousand. The true probability of the second outcome is e to the minus one thousand, about ten to the minus four hundred thirty four. That is positive, but smaller than any float, so the code returns exactly zero. Max subtraction prevents overflow, not underflow. And one passing test is not proof of numerical stability for every input.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "manim": "B07_Boundary",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Header: 'What this does NOT establish'"
+          },
+          {
+            "at": "zero and minus one thousand",
+            "event": "Scores [0, -1000] (constructed) -> probabilities() -> [1.0, 0.0]"
+          },
+          {
+            "at": "smaller than any float",
+            "event": "Log-scale axis (ticks 1e-400 ... 1): smallest positive float 5e-324 vs exp(-1000) about 5.1e-435, below the floor"
+          },
+          {
+            "at": "exactly zero",
+            "event": "Real output: 'is exactly zero: True'"
+          }
+        ]
+      },
+      "estimated_duration_s": 30,
+      "actual_duration_s": 33.04,
+      "audio_file": "mp3/beat-B07.mp3"
+    },
+    {
+      "beat_id": "B08",
+      "act": "recap",
+      "narration_text": "So: subtracting the maximum changes the numbers in the middle, not the distribution at the end, because one factor divides every weight and the total alike. It keeps the exponentials from overflowing. It does not rescue tiny probabilities from rounding to zero. Every number in this video came from running the course code, and the voice you are hearing is synthetic.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "manim": "B08_Recap",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Three recap lines appear in narration order"
+          },
+          {
+            "at": "Every number",
+            "event": "Sources card: files, Python version, run date, commits, synthetic-voice disclosure, author"
+          }
+        ]
+      },
+      "estimated_duration_s": 22,
+      "actual_duration_s": 21.8,
+      "audio_file": "mp3/beat-B08.mp3"
+    }
+  ]
+}
