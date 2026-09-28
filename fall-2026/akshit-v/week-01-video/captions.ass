@@ -1,0 +1,112 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Lato,40,&H00F5F9FA,&H00F5F9FA,&H2629393D,&H00000000,0,0,0,0,100,100,0.3,0,3,14,0,2,360,360,72,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.17,Default,,0,0,0,,Kia ora, students.
+Dialogue: 0,0:00:01.17,0:00:02.62,Default,,0,0,0,,This video is by Akshit Verma,
+Dialogue: 0,0:00:02.62,0:00:04.79,Default,,0,0,0,,for INFO 7375,
+Dialogue: 0,0:00:04.79,0:00:06.29,Default,,0,0,0,,week one, and the voice you are
+Dialogue: 0,0:00:06.29,0:00:07.66,Default,,0,0,0,,hearing is synthetic.
+Dialogue: 0,0:00:07.83,0:00:09.54,Default,,0,0,0,,One concept from chapter one:
+Dialogue: 0,0:00:09.54,0:00:11.33,Default,,0,0,0,,what pretraining actually targets.
+Dialogue: 0,0:00:11.33,0:00:12.92,Default,,0,0,0,,Not a summary of the chapter.
+Dialogue: 0,0:00:12.92,0:00:15.03,Default,,0,0,0,,One idea, shown end to end.
+Dialogue: 0,0:00:15.21,0:00:16.79,Default,,0,0,0,,Here is the claim in one breath.
+Dialogue: 0,0:00:16.79,0:00:18.33,Default,,0,0,0,,Training does not teach a model what
+Dialogue: 0,0:00:18.33,0:00:20.74,Default,,0,0,0,,is true. It teaches it what followed.
+Dialogue: 0,0:00:20.83,0:00:22.00,Default,,0,0,0,,I am going to show you that
+Dialogue: 0,0:00:22.00,0:00:23.87,Default,,0,0,0,,happening, with numbers you can rerun.
+Dialogue: 0,0:00:24.58,0:00:26.08,Default,,0,0,0,,The chapter states the loop in four
+Dialogue: 0,0:00:26.08,0:00:28.00,Default,,0,0,0,,steps. Take a passage of text.
+Dialogue: 0,0:00:28.00,0:00:29.21,Default,,0,0,0,,Hide the next token.
+Dialogue: 0,0:00:29.21,0:00:31.25,Default,,0,0,0,,Ask the model for its distribution.
+Dialogue: 0,0:00:31.25,0:00:32.96,Default,,0,0,0,,Compare that distribution with the token
+Dialogue: 0,0:00:32.96,0:00:34.42,Default,,0,0,0,,that actually followed.
+Dialogue: 0,0:00:34.42,0:00:36.25,Default,,0,0,0,,Then nudge every parameter so the token
+Dialogue: 0,0:00:36.25,0:00:38.57,Default,,0,0,0,,that followed gets a little more probability.
+Dialogue: 0,0:00:38.62,0:00:39.96,Default,,0,0,0,,Nothing in that loop is told what
+Dialogue: 0,0:00:39.96,0:00:40.82,Default,,0,0,0,,is true.
+Dialogue: 0,0:00:41.08,0:00:42.21,Default,,0,0,0,,So I built a corpus where the
+Dialogue: 0,0:00:42.21,0:00:43.78,Default,,0,0,0,,frequent answer is false.
+Dialogue: 0,0:00:43.83,0:00:45.58,Default,,0,0,0,,This is constructed — I invented it,
+Dialogue: 0,0:00:45.58,0:00:46.46,Default,,0,0,0,,it is not web text,
+Dialogue: 0,0:00:46.46,0:00:48.12,Default,,0,0,0,,and it says so on screen.
+Dialogue: 0,0:00:48.25,0:00:50.50,Default,,0,0,0,,One context: the capital of Australia is.
+Dialogue: 0,0:00:50.50,0:00:52.37,Default,,0,0,0,,Sydney follows seven times.
+Dialogue: 0,0:00:52.37,0:00:53.58,Default,,0,0,0,,Canberra, the true answer,
+Dialogue: 0,0:00:53.58,0:00:56.03,Default,,0,0,0,,follows three. Melbourne never follows.
+Dialogue: 0,0:00:56.46,0:00:58.33,Default,,0,0,0,,Training starts with the weights at zero,
+Dialogue: 0,0:00:58.33,0:01:00.33,Default,,0,0,0,,so every token is equally likely.
+Dialogue: 0,0:01:00.33,0:01:01.96,Default,,0,0,0,,Point three three three each.
+Dialogue: 0,0:01:01.96,0:01:03.58,Default,,0,0,0,,The loss is one point zero nine
+Dialogue: 0,0:01:03.58,0:01:05.29,Default,,0,0,0,,eight six — that is the natural log
+Dialogue: 0,0:01:05.29,0:01:07.54,Default,,0,0,0,,of three, exactly what uniform over three
+Dialogue: 0,0:01:07.54,0:01:09.95,Default,,0,0,0,,options costs. Now run the loop.
+Dialogue: 0,0:01:10.17,0:01:11.08,Default,,0,0,0,,Watch the bars.
+Dialogue: 0,0:01:11.08,0:01:12.96,Default,,0,0,0,,Step one, Sydney is already ahead.
+Dialogue: 0,0:01:12.96,0:01:14.50,Default,,0,0,0,,Step five, point five six.
+Dialogue: 0,0:01:14.50,0:01:16.42,Default,,0,0,0,,Step twenty, point six seven.
+Dialogue: 0,0:01:16.42,0:01:18.25,Default,,0,0,0,,By step six hundred it settles:
+Dialogue: 0,0:01:18.25,0:01:19.75,Default,,0,0,0,,Sydney point six nine nine,
+Dialogue: 0,0:01:19.75,0:01:21.25,Default,,0,0,0,,Canberra point two nine nine,
+Dialogue: 0,0:01:21.25,0:01:23.17,Default,,0,0,0,,Melbourne point zero zero two.
+Dialogue: 0,0:01:23.17,0:01:24.62,Default,,0,0,0,,The loss fell the whole way.
+Dialogue: 0,0:01:24.62,0:01:26.12,Default,,0,0,0,,Nothing checked a fact.
+Dialogue: 0,0:01:26.33,0:01:27.75,Default,,0,0,0,,Here is the whole concept in two
+Dialogue: 0,0:01:27.75,0:01:30.37,Default,,0,0,0,,numbers. Distance from the corpus frequencies:
+Dialogue: 0,0:01:30.37,0:01:32.50,Default,,0,0,0,,zero point zero zero two two.
+Dialogue: 0,0:01:32.50,0:01:33.71,Default,,0,0,0,,Distance from the truth:
+Dialogue: 0,0:01:33.71,0:01:35.83,Default,,0,0,0,,zero point seven zero one one.
+Dialogue: 0,0:01:35.83,0:01:37.67,Default,,0,0,0,,The objective walked the model to within
+Dialogue: 0,0:01:37.67,0:01:39.04,Default,,0,0,0,,two thousandths of the corpus,
+Dialogue: 0,0:01:39.04,0:01:40.83,Default,,0,0,0,,and left it seven tenths away from
+Dialogue: 0,0:01:40.83,0:01:42.00,Default,,0,0,0,,the right answer.
+Dialogue: 0,0:01:42.00,0:01:43.41,Default,,0,0,0,,Argmax is Sydney.
+Dialogue: 0,0:01:43.71,0:01:45.46,Default,,0,0,0,,One more thing the numbers show.
+Dialogue: 0,0:01:45.46,0:01:47.33,Default,,0,0,0,,The loss stops at zero point six
+Dialogue: 0,0:01:47.33,0:01:48.12,Default,,0,0,0,,one three one.
+Dialogue: 0,0:01:48.12,0:01:49.08,Default,,0,0,0,,It cannot reach zero,
+Dialogue: 0,0:01:49.08,0:01:51.08,Default,,0,0,0,,because the corpus contradicts itself about
+Dialogue: 0,0:01:51.08,0:01:53.46,Default,,0,0,0,,this context. The floor is the corpus's
+Dialogue: 0,0:01:53.46,0:01:56.21,Default,,0,0,0,,own entropy, zero point six one zero
+Dialogue: 0,0:01:56.21,0:01:57.67,Default,,0,0,0,,nine. A perfect fit to a wrong
+Dialogue: 0,0:01:57.67,0:01:59.82,Default,,0,0,0,,corpus is still a perfect fit.
+Dialogue: 0,0:02:00.08,0:02:01.50,Default,,0,0,0,,You might think the later training stage
+Dialogue: 0,0:02:01.50,0:02:03.71,Default,,0,0,0,,fixes this. The chapter is blunt:
+Dialogue: 0,0:02:03.71,0:02:05.71,Default,,0,0,0,,neither stage receives an answer key.
+Dialogue: 0,0:02:05.71,0:02:07.83,Default,,0,0,0,,Preference tuning targets what raters approved
+Dialogue: 0,0:02:07.83,0:02:10.08,Default,,0,0,0,,of. Approval and correctness overlap,
+Dialogue: 0,0:02:10.08,0:02:11.79,Default,,0,0,0,,but where they diverge the signal follows
+Dialogue: 0,0:02:11.79,0:02:13.54,Default,,0,0,0,,approval. A confident,
+Dialogue: 0,0:02:13.54,0:02:15.92,Default,,0,0,0,,well organized, wrong answer is exactly what
+Dialogue: 0,0:02:15.92,0:02:16.99,Default,,0,0,0,,gets preferred.
+Dialogue: 0,0:02:17.33,0:02:19.29,Default,,0,0,0,,Here is what this does not establish.
+Dialogue: 0,0:02:19.29,0:02:21.78,Default,,0,0,0,,My corpus is three tokens and invented.
+Dialogue: 0,0:02:21.83,0:02:23.04,Default,,0,0,0,,This does not show that a real
+Dialogue: 0,0:02:23.04,0:02:25.71,Default,,0,0,0,,model's probabilities equal web frequencies —
+Dialogue: 0,0:02:25.71,0:02:27.25,Default,,0,0,0,,real models generalize,
+Dialogue: 0,0:02:27.25,0:02:28.83,Default,,0,0,0,,and the chapter says nobody can read
+Dialogue: 0,0:02:28.83,0:02:30.87,Default,,0,0,0,,off why a given prediction was made.
+Dialogue: 0,0:02:31.04,0:02:32.58,Default,,0,0,0,,It also does not show models are
+Dialogue: 0,0:02:32.58,0:02:34.79,Default,,0,0,0,,usually wrong. Only that truth was never
+Dialogue: 0,0:02:34.79,0:02:35.78,Default,,0,0,0,,the target.
+Dialogue: 0,0:02:36.00,0:02:37.33,Default,,0,0,0,,Your turn. The script is in the
+Dialogue: 0,0:02:37.33,0:02:39.42,Default,,0,0,0,,folder. Change Sydney's count from seven
+Dialogue: 0,0:02:39.42,0:02:41.07,Default,,0,0,0,,to two and rerun it.
+Dialogue: 0,0:02:41.08,0:02:43.42,Default,,0,0,0,,Watch argmax flip to Canberra — not because
+Dialogue: 0,0:02:43.42,0:02:44.75,Default,,0,0,0,,the model learned a fact,
+Dialogue: 0,0:02:44.75,0:02:46.53,Default,,0,0,0,,but because you edited the corpus.
+Dialogue: 0,0:02:47.50,0:02:48.75,Default,,0,0,0,,What pretraining actually targets:
+Dialogue: 0,0:02:48.75,0:02:50.08,Default,,0,0,0,,the token that followed,
+Dialogue: 0,0:02:50.08,0:02:51.00,Default,,0,0,0,,not the truth.
+Dialogue: 0,0:02:51.00,0:02:53.29,Default,,0,0,0,,This video was created by Akshit Verma
+Dialogue: 0,0:02:53.29,0:02:56.04,Default,,0,0,0,,for INFO 7375,
+Dialogue: 0,0:02:56.04,0:02:58.41,Default,,0,0,0,,Prompt Engineering for Generative AI.

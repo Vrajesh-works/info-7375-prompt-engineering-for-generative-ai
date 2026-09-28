@@ -1,0 +1,50 @@
+==================================================================
+WHAT PRETRAINING ACTUALLY TARGETS
+the token that followed, not the truth
+==================================================================
+
+context: "the capital of australia is ___"
+
+CONSTRUCTED corpus (invented for this demo, not real web text):
+   sydney     followed 7 times
+   canberra   followed 3 times  <- TRUE
+   melbourne  followed 0 times
+
+   corpus frequency: sydney=0.70, canberra=0.30, melbourne=0.00
+   external truth  : canberra
+
+------------------------------------------------------------------
+training: hide the next token, compare, nudge. repeat.
+------------------------------------------------------------------
+  step |  P(sydney)  P(canberra)  P(melbourne) |    loss
+     0 |     0.3333       0.3333        0.3333 |  1.0986
+     1 |     0.3963       0.3245        0.2793 |  0.9856
+     5 |     0.5588       0.2833        0.1579 |  0.7858
+    20 |     0.6726       0.2694        0.0580 |  0.6711
+   100 |     0.6936       0.2933        0.0132 |  0.6241
+   600 |     0.6989       0.2989        0.0022 |  0.6131
+
+------------------------------------------------------------------
+where it converged
+------------------------------------------------------------------
+   P(sydney    ) = 0.6989   corpus frequency = 0.7000
+   P(canberra  ) = 0.2989   corpus frequency = 0.3000
+   P(melbourne ) = 0.0022   corpus frequency = 0.0000
+
+   max gap from CORPUS FREQUENCY : 0.0022
+   max gap from TRUTH            : 0.7011
+
+   argmax = sydney   (truth = canberra)
+
+------------------------------------------------------------------
+the loss floor
+------------------------------------------------------------------
+   loss at step 600        = 0.6131
+   entropy of the corpus   = 0.6109
+   the objective bottoms out AT the corpus's own entropy, not at 0.
+   a perfect fit to a contradictory corpus is still a perfect fit.
+
+   full trajectory (601 steps) -> code/trajectory.json
+
+The loop minimized its loss by matching the corpus, and the corpus
+was wrong. Truth never entered the objective.

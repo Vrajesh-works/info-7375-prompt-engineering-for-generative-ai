@@ -29,8 +29,7 @@ Apply them in one step from `toolkit-changes/` (checked against revision `6a8380
 
 ```bash
 git checkout 6a8380ae169cca81e0633664a65c958f5c12ab4b
-git apply youtube/brutalist/week-01-video/toolkit-changes/toolkit.patch
-cp -r youtube/brutalist/week-01-video/toolkit-changes/new-files/runtime/. runtime/
+git apply youtube/brutalist/week-01-video/toolkit-changes/toolkit.patch   # includes the new scene files
 ```
 
 Place this folder at `youtube/brutalist/week-01-video/` inside the checkout.

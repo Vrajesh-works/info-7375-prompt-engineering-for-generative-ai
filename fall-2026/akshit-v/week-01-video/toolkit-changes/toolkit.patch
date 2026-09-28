@@ -1,0 +1,1962 @@
+diff --git a/examples/_smoke/beat_sheet.json b/examples/_smoke/beat_sheet.json
+index 83a4e7e..90b5b78 100644
+--- a/examples/_smoke/beat_sheet.json
++++ b/examples/_smoke/beat_sheet.json
+@@ -1,7 +1,7 @@
+ {
+  "metadata": {
+   "title": "Smoke Test",
+-  "slug": "_smoke",
++  "slug": "smoke",
+   "topic": "PACKAGING SMOKE TEST",
+   "register": "fixture",
+   "engine": "kokoro",
+diff --git a/runtime/remotion/src/Root.tsx b/runtime/remotion/src/Root.tsx
+index b8b80af..37978fa 100644
+--- a/runtime/remotion/src/Root.tsx
++++ b/runtime/remotion/src/Root.tsx
+@@ -155,6 +155,8 @@ import {InYourHandsCosts, inYourHandsCostsSchema} from './scenes/InYourHandsCost
+ import {InYourHandsSubscription, inYourHandsSubscriptionSchema} from './scenes/InYourHandsSubscription';
+ 
+ import {LayerStackPreview, SourceFlowPreview, ChipGridPreview, PredictCardPreview} from './illustrations/previews';
++import {RibosomeTape, CodonTable, ReadingFrame, LayerStackBeat} from './illustrations/molecular';
++import {TrainingLoop, CorpusCard, TokenBars, TwoGaps, LossFloor, TargetStack, BoundaryCard, SubmissionOutro, ReconstructedComposer} from './illustrations/pretraining';
+ // ── claude-liam-claude-science — rhetorical + structural patterns ──
+ import {AttritionChain, ScaleComparison, BinaryBranch, DivergentFates} from './deckPatterns';
+ import {
+@@ -2222,6 +2224,82 @@ export const RemotionRoot: React.FC = () => {
+       <Composition id="Illu-SourceFlow" component={SourceFlowPreview} durationInFrames={180} fps={30} width={1280} height={720} />
+       <Composition id="Illu-ChipGrid" component={ChipGridPreview} durationInFrames={150} fps={30} width={1280} height={720} />
+       <Composition id="Illu-PredictCard" component={PredictCardPreview} durationInFrames={150} fps={30} width={1280} height={720} />
++      {/* ── concept-illustration library (MOLECULAR family) — built for
++           claude-liam-how-ribosomes-read-mrna after GATE L returned a genuine
++           miss for translation subject matter. Props-driven; durationSeconds
++           comes from the beat's measured audio so useP() spans the real clock. ── */}
++      <Composition
++        id="RibosomeTape"
++        component={RibosomeTape}
++        durationInFrames={450}
++        calculateMetadata={({props}) => ({durationInFrames: Math.ceil(((props as any).durationSeconds ?? 15) * 30)})}
++        fps={30}
++        width={1920}
++        height={1080}
++        defaultProps={{phase: 'cycle' as const, tape: 'AUGGCUUCAGAUCCGAAUUAG', spark: 'Dock, bond, eject.', folderLabel: '@NikBearBrown'}}
++      />
++      <Composition
++        id="CodonTable"
++        component={CodonTable}
++        durationInFrames={480}
++        calculateMetadata={({props}) => ({durationInFrames: Math.ceil(((props as any).durationSeconds ?? 16) * 30)})}
++        fps={30}
++        width={1920}
++        height={1080}
++        defaultProps={{spark: 'Sixty-four spellings, twenty words.', caption: 'Redundancy is the error tolerance.', folderLabel: '@NikBearBrown'}}
++      />
++      <Composition
++        id="ReadingFrame"
++        component={ReadingFrame}
++        durationInFrames={450}
++        calculateMetadata={({props}) => ({durationInFrames: Math.ceil(((props as any).durationSeconds ?? 15) * 30)})}
++        fps={30}
++        width={1920}
++        height={1080}
++        defaultProps={{tape: 'AUGGCUUCAGAUCCGAAUUAG', deleteAt: 7, spark: 'Shift one. Lose everything after.', folderLabel: '@NikBearBrown'}}
++      />
++      {/* 1280×720: LayerStack's geometry is authored on the library's native
++          stage; the 16:9 upscale to the reel canvas is exact. */}
++      <Composition
++        id="LayerStackBeat"
++        component={LayerStackBeat}
++        durationInFrames={510}
++        calculateMetadata={({props}) => ({durationInFrames: Math.ceil(((props as any).durationSeconds ?? 17) * 30)})}
++        fps={30}
++        width={1280}
++        height={720}
++        defaultProps={{layers: [], caption: '', spark: '', folderLabel: '@NikBearBrown'}}
++      />
++      {/* ── concept-illustration library (PRETRAINING family) — built for
++           youtube/brutalist/week-01-video (INFO 7375 Wk01) after GATE L missed.
++           Every number rendered comes from that reel's code/OUTPUT.txt. ── */}
++      {([
++        ['TrainingLoop', TrainingLoop, 17],
++        ['CorpusCard', CorpusCard, 16],
++        ['TokenBars', TokenBars, 16],
++        ['TwoGaps', TwoGaps, 18],
++        ['LossFloor', LossFloor, 17],
++        ['TargetStack', TargetStack, 17],
++        ['BoundaryCard', BoundaryCard, 19],
++        ['SubmissionOutro', SubmissionOutro, 9],
++        ['ReconstructedComposer', ReconstructedComposer, 12],
++      ] as const).map(([id, Comp, secs]) => (
++        <Composition
++          key={id}
++          id={id}
++          component={Comp as any}
++          durationInFrames={secs * 30}
++          calculateMetadata={({props}) => ({durationInFrames: Math.ceil(((props as any).durationSeconds ?? secs) * 30)})}
++          fps={30}
++          width={1920}
++          height={1080}
++          defaultProps={{
++            spark: '', folderLabel: 'INFO 7375 · Week 01', phase: 'converge',
++            title: 'What Pretraining Actually Targets', thesis: 'the token that followed, not the truth',
++            author: 'Akshit Verma', course: 'INFO 7375', week: 'Week 01',
++          } as any}
++        />
++      ))}
+       {/* ── claude-liam-claude-science — structural illustrations (parameterized) ── */}
+       <Composition id="ClaudeScienceLayerStack" component={ClaudeScienceLayerStack}
+         durationInFrames={900} fps={30} width={1280} height={720}
+diff --git a/runtime/remotion/src/illustrations/molecular.tsx b/runtime/remotion/src/illustrations/molecular.tsx
+new file mode 100644
+index 0000000..47ed73b
+--- /dev/null
++++ b/runtime/remotion/src/illustrations/molecular.tsx
+@@ -0,0 +1,543 @@
++/**
++ * illustrations/molecular.tsx — the MOLECULAR illustration family.
++ *
++ * WHY THIS FILE EXISTS
++ * --------------------
++ * GATE L (library-first) was run for "ribosome reading mRNA codons building
++ * protein chain" before a single beat of `claude-liam-how-ribosomes-read-mrna`
++ * was authored. It returned 8 leads, all of them METAPHORICAL chains from
++ * unrelated reels (BrandB01ChainFailure, GitHubCallChain, SourcedLaundering…).
++ * Nothing in the library could show a tape being read in triplets. That is a
++ * genuine PUNT, and a punt is a design card — so these components were built
++ * here, parameterized, so the next molecular reel finds them forever.
++ *
++ * CANVAS NOTE (differs from structural.tsx on purpose)
++ * ----------------------------------------------------
++ * structural.tsx assumes a 1280×720 stage. These are authored NATIVELY at
++ * 1920×1080 and positioned from the shared SAFE inset (x 96–1824, y 54–1026),
++ * because FILL-THE-CANVAS LAW and the Gate-V title-safe audit both speak in
++ * 1920×1080 units. Geometry here is in those units; do not rescale it.
++ *
++ * LAWS KEPT (same as every illustration in this folder)
++ *  • Pure function of useP() — no CSS transitions, no timers, no random().
++ *  • ONE terracotta accent (CLAUDE.SPARK) per beat: the MATCH. Everything that
++ *    is merely present is ink; the thing that just locked is terracotta.
++ *  • Wrapped in <IlluStage spark="…"> so the spark-line law is satisfied.
++ *  • LOGO LAW: <BrandBug> puts the channel handle lower-right inside SAFE.
++ *
++ * THE BIOLOGY IS CHECKED, NOT DECORATIVE
++ * --------------------------------------
++ * The default tape AUGGCUUCAGAUCCGAAUUAG reads
++ *   AUG GCU UCA GAU CCG AAU UAG  →  Met Ala Ser Asp Pro Asn STOP
++ * and deleting base index 7 ('C') reframes it to
++ *   AUG GCU UAG                  →  Met Ala STOP   (premature stop)
++ * Both were computed against the standard genetic code before this file was
++ * written; see the reel's SOURCES.md. CODON_TABLE below is the real table —
++ * 64 codons, 21 distinct products. Do not hand-edit a letter of it.
++ *
++ * HOW TO ADAPT: change the props (tape, phase, deleteAt, labels). If you need
++ * different motion, you are building a new component — add it here.
++ */
++import React from 'react';
++import { CLAUDE } from '../tokens/claude';
++import { SAFE } from '../tokens/layout';
++import { SERIF, SANS, MONO, clamp, remap, ease, useP, IlluStage } from './kit';
++import { LayerStack, Layer } from './structural';
++
++/* The standard genetic code, RNA alphabet, ordered UCAG × UCAG × UCAG. */
++const BASES = 'UCAG';
++const AA_STRING =
++  'FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG';
++export const CODON_TABLE: Record<string, string> = (() => {
++  const t: Record<string, string> = {};
++  let i = 0;
++  for (const a of BASES) for (const b of BASES) for (const c of BASES) t[a + b + c] = AA_STRING[i++];
++  return t;
++})();
++const AA_NAME: Record<string, string> = {
++  F: 'Phe', L: 'Leu', S: 'Ser', Y: 'Tyr', C: 'Cys', W: 'Trp', P: 'Pro', H: 'His',
++  Q: 'Gln', R: 'Arg', I: 'Ile', M: 'Met', T: 'Thr', N: 'Asn', K: 'Lys', V: 'Val',
++  A: 'Ala', D: 'Asp', E: 'Glu', G: 'Gly', '*': 'STOP',
++};
++const COMPLEMENT: Record<string, string> = { A: 'U', U: 'A', G: 'C', C: 'G' };
++const anticodon = (c: string) => c.split('').map((b) => COMPLEMENT[b]).join('');
++
++/* ── shared geometry (1920×1080) ─────────────────────────────────────── */
++const CELL = 58;          // letter pitch along the tape
++const TAPE_Y = 660;       // tape baseline
++const BODY_W = CELL * 9;  // the ribosome covers E, P and A = 9 bases
++const BODY_H = 250;
++// The body sits ABOVE the tape and clamps it — it must never cover the letters
++// it is reading. Bottom edge lands 18px clear of the glyph tops. (QC 2026-09-26:
++// the first cut drew the body over the tape and hid the middle of the sequence.)
++const BODY_TOP = TAPE_Y - BODY_H - 18;
++
++const tapeStartX = (n: number) => Math.round((1920 - n * CELL) / 2);
++const triplets = (s: string) => {
++  const out: string[] = [];
++  for (let i = 0; i + 2 < s.length; i += 3) out.push(s.slice(i, i + 3));
++  return out;
++};
++
++/** LOGO LAW — channel handle as a low-opacity wordmark, lower-right, inside SAFE. */
++export const BrandBug: React.FC<{ label?: string }> = ({ label }) =>
++  label ? (
++    <div style={{
++      position: 'absolute', right: 1920 - SAFE.r, bottom: 1080 - SAFE.b,
++      fontFamily: SERIF, fontSize: 26, color: CLAUDE.INK, opacity: 0.28, letterSpacing: 0.5,
++    }}>{label}</div>
++  ) : null;
++
++/* ── small shared parts ──────────────────────────────────────────────── */
++
++const Letter: React.FC<{ ch: string; x: number; y: number; on: number; accent?: boolean; dim?: boolean }> =
++  ({ ch, x, y, on, accent, dim }) => (
++    <div style={{
++      position: 'absolute', left: x, top: y, width: CELL, textAlign: 'center',
++      fontFamily: MONO, fontSize: 46, fontWeight: 600,
++      color: accent ? CLAUDE.SPARK : CLAUDE.INK,
++      opacity: on * (dim ? 0.28 : 1),
++    }}>{ch}</div>
++  );
++
++/** The tape: a run of bases with a hairline rule under it. */
++const Tape: React.FC<{ tape: string; reveal: number; accentRange?: [number, number]; dimFrom?: number }> =
++  ({ tape, reveal, accentRange, dimFrom }) => {
++    const x0 = tapeStartX(tape.length);
++    return (
++      <>
++        <div style={{
++          position: 'absolute', left: x0, top: TAPE_Y + 62, height: 2,
++          width: tape.length * CELL * clamp(reveal * 1.1, 0, 1), background: CLAUDE.BORDER,
++        }} />
++        {tape.split('').map((ch, i) => {
++          const on = clamp(reveal * tape.length - i, 0, 1);
++          const acc = !!accentRange && i >= accentRange[0] && i <= accentRange[1];
++          return <Letter key={i} ch={ch} x={x0 + i * CELL} y={TAPE_Y} on={on} accent={acc}
++            dim={dimFrom !== undefined && i >= dimFrom} />;
++        })}
++      </>
++    );
++  };
++
++/** A codon window: the box that marks what the reader currently holds. */
++const Window: React.FC<{ startIdx: number; n: number; tapeLen: number; o: number; accent?: boolean; label?: string }> =
++  ({ startIdx, n, tapeLen, o, accent, label }) => {
++    const x0 = tapeStartX(tapeLen) + startIdx * CELL;
++    return (
++      <>
++        <div style={{
++          position: 'absolute', left: x0 - 6, top: TAPE_Y - 12, width: n * CELL + 12, height: 78,
++          border: `3px solid ${accent ? CLAUDE.SPARK : CLAUDE.INK}`, borderRadius: 10, opacity: o,
++        }} />
++        {label && (
++          <div style={{
++            position: 'absolute', left: x0 - 60, top: TAPE_Y + 86, width: n * CELL + 120, textAlign: 'center',
++            fontFamily: SANS, fontSize: 24, color: accent ? CLAUDE.SPARK : CLAUDE.INK_SOFT, opacity: o,
++          }}>{label}</div>
++        )}
++      </>
++    );
++  };
++
++/** The ribosome body with its three slots. */
++const Body: React.FC<{ centerX: number; o: number; slots?: boolean; emptyA?: number }> =
++  ({ centerX, o, slots, emptyA = 0 }) => (
++    <>
++      <div style={{
++        position: 'absolute', left: centerX - BODY_W / 2, top: BODY_TOP,
++        width: BODY_W, height: BODY_H, background: '#FFFFFF',
++        border: `2px solid ${CLAUDE.BORDER}`, borderRadius: 28,
++        boxShadow: '0 10px 30px rgba(61,57,41,0.10)', opacity: o,
++      }} />
++      {slots && ['E', 'P', 'A'].map((s, i) => {
++        const sx = centerX - BODY_W / 2 + i * (BODY_W / 3);
++        const isA = s === 'A';
++        return (
++          <div key={s} style={{
++            position: 'absolute', left: sx, top: BODY_TOP, width: BODY_W / 3, height: BODY_H,
++            borderLeft: i ? `1px dashed ${CLAUDE.BORDER}` : 'none', opacity: o,
++            display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: 14,
++            fontFamily: SANS, fontSize: 30, fontWeight: 700,
++            color: isA && emptyA > 0 ? CLAUDE.SPARK : CLAUDE.INK_SOFT,
++          }}>{s}</div>
++        );
++      })}
++    </>
++  );
++
++/** The growing peptide chain — beads above the body. */
++const Chain: React.FC<{ aas: string[]; grown: number; centerX: number; folded?: number }> =
++  ({ aas, grown, centerX, folded = 0 }) => {
++    const n = Math.floor(grown * aas.length);
++    return (
++      <>
++        {aas.slice(0, Math.max(0, n)).map((a, i) => {
++          const curl = folded * 26;
++          const x = centerX - 150 + i * 62 - curl * i * 0.5;
++          const y = BODY_TOP - 86 - (folded ? Math.sin(i * 1.1) * curl : 0);
++          return (
++            <div key={i} style={{
++              position: 'absolute', left: x, top: y, width: 54, height: 54, borderRadius: 27,
++              background: '#FFFFFF', border: `2px solid ${CLAUDE.INK}`,
++              display: 'flex', alignItems: 'center', justifyContent: 'center',
++              fontFamily: SANS, fontSize: 19, fontWeight: 700, color: CLAUDE.INK,
++            }}>{AA_NAME[a] ?? a}</div>
++          );
++        })}
++      </>
++    );
++  };
++
++/** A tRNA adapter: anticodon end + cargo end. */
++const Adapter: React.FC<{ x: number; y: number; codon: string; o: number; accent?: boolean; spent?: boolean }> =
++  ({ x, y, codon, o, accent, spent }) => (
++    <div style={{ position: 'absolute', left: x, top: y, opacity: o }}>
++      <div style={{
++        width: 186, height: 96, border: `3px solid ${accent ? CLAUDE.SPARK : CLAUDE.INK}`,
++        borderRadius: '14px 14px 46px 46px', background: '#FFFFFF',
++        display: 'flex', alignItems: 'center', justifyContent: 'center',
++        fontFamily: MONO, fontSize: 32, fontWeight: 700, color: accent ? CLAUDE.SPARK : CLAUDE.INK,
++      }}>{anticodon(codon)}</div>
++      {!spent && (
++        <div style={{
++          position: 'absolute', left: 66, top: -62, width: 54, height: 54, borderRadius: 27,
++          background: '#FFFFFF', border: `2px solid ${CLAUDE.INK}`,
++          display: 'flex', alignItems: 'center', justifyContent: 'center',
++          fontFamily: SANS, fontSize: 19, fontWeight: 700, color: CLAUDE.INK,
++        }}>{AA_NAME[CODON_TABLE[codon]] ?? '—'}</div>
++      )}
++    </div>
++  );
++
++const Note: React.FC<{ text: string; o: number; y?: number; accent?: boolean; strike?: boolean }> =
++  ({ text, o, y = 250, accent, strike }) => (
++    <div style={{
++      position: 'absolute', left: SAFE.x, top: y, width: SAFE.w, textAlign: 'center',
++      fontFamily: SANS, fontSize: 34, color: accent ? CLAUDE.SPARK : CLAUDE.INK_SOFT, opacity: o,
++      textDecoration: strike ? 'line-through' : 'none',
++    }}>{text}</div>
++  );
++
++/* ==================================================================== *
++ * RibosomeTape — the reading machine, in five phases.                   *
++ * -------------------------------------------------------------------- *
++ * WHEN: the beat is about the MECHANISM of translation.                 *
++ * PROPS:                                                                *
++ *   phase  'frame'       tape + reader clamps; one letter rejected,     *
++ *                        three accepted; the reader steps.              *
++ *          'adapter'     one codon + its tRNA, both ends labelled.      *
++ *          'cycle'       A/P/E worked example: mismatch bounces, match  *
++ *                        docks, bond transfers, spent adapter exits.    *
++ *          'translocate' the +3 ratchet; +2/+4 struck out; chain grows. *
++ *          'startstop'   AUG sets the frame; UAG leaves A empty; a      *
++ *                        release factor takes the slot; chain detaches. *
++ *   tape   the mRNA string (default reads Met-Ala-Ser-Asp-Pro-Asn-STOP) *
++ * ADAPT: change tape/phase. The accent is always the MATCH.             *
++ * ==================================================================== */
++export const RibosomeTape: React.FC<{
++  phase: 'frame' | 'adapter' | 'cycle' | 'translocate' | 'startstop';
++  tape?: string; spark?: string; folderLabel?: string;
++}> = ({ phase, tape = 'AUGGCUUCAGAUCCGAAUUAG', spark = '', folderLabel }) => {
++  const p = useP();
++  const codons = triplets(tape);
++  const aas = codons.map((c) => CODON_TABLE[c]).filter((a) => a !== '*');
++  const cx = 1920 / 2;
++
++  let inner: React.ReactNode = null;
++
++  if (phase === 'frame') {
++    const reveal = ease(remap(p, 0.02, 0.30, 0, 1));
++    const bodyO = ease(remap(p, 0.30, 0.46, 0, 1));
++    const oneO = remap(p, 0.50, 0.56, 0, 1) * (1 - remap(p, 0.64, 0.70, 0, 1));
++    const threeO = ease(remap(p, 0.68, 0.78, 0, 1));
++    const step = Math.floor(remap(p, 0.86, 0.98, 0, 1.999));
++    inner = (
++      <>
++        <Tape tape={tape} reveal={reveal} accentRange={threeO > 0.5 ? [step * 3, step * 3 + 2] : undefined} />
++        <Body centerX={cx} o={bodyO} />
++        <Window startIdx={4} n={1} tapeLen={tape.length} o={oneO} label="one letter?" />
++        <Note text="one letter" o={oneO} strike />
++        <Window startIdx={step * 3} n={3} tapeLen={tape.length} o={threeO} accent label="one codon" />
++        <Note text="three letters, then step" o={threeO} accent />
++      </>
++    );
++  }
++
++  if (phase === 'adapter') {
++    const codon = codons[1] ?? 'GCU';
++    const codonO = ease(remap(p, 0.04, 0.18, 0, 1));
++    const advO = ease(remap(p, 0.26, 0.42, 0, 1));
++    const rotO = ease(remap(p, 0.48, 0.60, 0, 1));
++    const cargoO = ease(remap(p, 0.66, 0.76, 0, 1));
++    const rackO = ease(remap(p, 0.82, 0.94, 0, 1));
++    const ax = cx - 93 + (1 - rotO) * 250;
++    inner = (
++      <>
++        <Tape tape={tape} reveal={1} accentRange={rotO > 0.5 ? [3, 5] : undefined} />
++        <Window startIdx={3} n={3} tapeLen={tape.length} o={codonO} accent={rotO > 0.5} label={`codon ${codon}`} />
++        {[0, 1, 2].map((i) => (
++          <Adapter key={i} x={cx + 230 + i * 195} y={344} codon={codons[(i + 2) % codons.length] ?? 'GAU'} o={rackO * 0.30} />
++        ))}
++        <Adapter x={ax} y={330} codon={codon} o={advO} accent={cargoO > 0.4} />
++        <Note text="anticodon end · amino-acid end" o={advO} y={224} />
++        <Note text="the dictionary is a drawer of two-ended adapters" o={rackO} y={SAFE.b - 120} />
++      </>
++    );
++  }
++
++  if (phase === 'cycle') {
++    const slotsO = ease(remap(p, 0.04, 0.16, 0, 1));
++    const badO = remap(p, 0.22, 0.28, 0, 1) * (1 - remap(p, 0.36, 0.42, 0, 1));
++    const badX = cx + 120 + remap(p, 0.30, 0.42, 0, 220);
++    const goodO = ease(remap(p, 0.40, 0.52, 0, 1));
++    const pHi = remap(p, 0.56, 0.64, 0, 1) * (1 - remap(p, 0.72, 0.78, 0, 1));
++    const bond = ease(remap(p, 0.70, 0.84, 0, 1));
++    const eject = ease(remap(p, 0.86, 0.99, 0, 1));
++    const aSlotX = cx + BODY_W / 6;
++    inner = (
++      <>
++        <Tape tape={tape} reveal={1} accentRange={goodO > 0.6 ? [6, 8] : undefined} />
++        <Body centerX={cx} o={1} slots />
++        <Chain aas={aas} grown={0.34} centerX={cx - 120} />
++        <Adapter x={badX} y={300} codon={codons[4] ?? 'CCG'} o={badO} />
++        <Note text="wrong anticodon — rejected" o={badO} y={224} />
++        <Adapter x={aSlotX - 93} y={300 + (1 - goodO) * 120} codon={codons[2] ?? 'UCA'} o={goodO} accent={goodO > 0.8} />
++        <Note text="match — it docks in A" o={goodO * (1 - bond)} y={224} accent />
++        <div style={{
++          position: 'absolute', left: cx - BODY_W / 6 - 40, top: BODY_TOP + 96, width: 80, height: 80,
++          borderRadius: 40, border: `3px solid ${CLAUDE.SPARK}`, opacity: pHi,
++        }} />
++        <Note text="the bond forms — the chain moves to the newcomer" o={bond} y={224} accent />
++        <Adapter x={cx - BODY_W / 2 - 40 - eject * 260} y={300 + eject * 60} codon={codons[1] ?? 'GCU'} o={eject * (1 - eject * 0.3)} spent />
++        <Note text="spent adapter leaves through E" o={eject} y={SAFE.b - 120} />
++      </>
++    );
++  }
++
++  if (phase === 'translocate') {
++    const stepN = Math.floor(remap(p, 0.06, 0.30, 0, 1.999));
++    const ghosts = remap(p, 0.32, 0.40, 0, 1) * (1 - remap(p, 0.52, 0.58, 0, 1));
++    const lock = ease(remap(p, 0.54, 0.66, 0, 1));
++    const grow = remap(p, 0.68, 0.90, 0.3, 1);
++    const fold = ease(remap(p, 0.90, 1.0, 0, 1));
++    const shift = stepN * 3 * CELL;
++    inner = (
++      <>
++        <Tape tape={tape} reveal={1} accentRange={[stepN * 3, stepN * 3 + 2]} />
++        <Body centerX={cx + shift - 3 * CELL} o={1} slots />
++        <Window startIdx={stepN * 3} n={3} tapeLen={tape.length} o={lock} accent label="still in register" />
++        <Note text={`+3   step ${stepN + 1}`} o={1} y={200} accent />
++        <Note text="+2" o={ghosts} y={272} strike />
++        <Note text="+4" o={ghosts} y={324} strike />
++        <Chain aas={aas} grown={grow} centerX={cx - 150} folded={fold} />
++      </>
++    );
++  }
++
++  if (phase === 'startstop') {
++    const augO = ease(remap(p, 0.04, 0.18, 0, 1));
++    const metO = ease(remap(p, 0.24, 0.34, 0, 1));
++    const moveP = ease(remap(p, 0.40, 0.52, 0, 1));
++    const failO = remap(p, 0.58, 0.66, 0, 1) * (1 - remap(p, 0.76, 0.82, 0, 1));
++    const rfO = ease(remap(p, 0.80, 0.90, 0, 1));
++    const freeO = ease(remap(p, 0.92, 1.0, 0, 1));
++    const stopIdx = (codons.length - 1) * 3;
++    const bodyX = cx - 6 * CELL + moveP * 6 * CELL;
++    inner = (
++      <>
++        <Tape tape={tape} reveal={1} accentRange={moveP < 0.5 ? [0, 2] : [stopIdx, stopIdx + 2]} />
++        <Body centerX={bodyX} o={1} slots emptyA={failO + rfO} />
++        <Window startIdx={0} n={3} tapeLen={tape.length} o={augO * (1 - moveP)} accent label="AUG — sets the frame" />
++        <Chain aas={['M']} grown={metO * (1 - moveP)} centerX={cx - 6 * CELL} />
++        <Note text="AUG starts it — methionine first" o={augO * (1 - moveP)} y={224} />
++        <Window startIdx={stopIdx} n={3} tapeLen={tape.length} o={moveP} accent label="UAG — no adapter exists" />
++        <Adapter x={bodyX + 200} y={300 - failO * 30} codon={codons[3] ?? 'GAU'} o={failO * 0.45} />
++        <Note text="nothing matches a stop codon" o={failO} y={224} accent />
++        <div style={{
++          position: 'absolute', left: bodyX + BODY_W / 6 - 90, top: 300, width: 180, height: 96,
++          border: `3px dashed ${CLAUDE.SPARK}`, borderRadius: 14, opacity: rfO,
++          display: 'flex', alignItems: 'center', justifyContent: 'center',
++          fontFamily: SANS, fontSize: 24, fontWeight: 700, color: CLAUDE.SPARK,
++        }}>release factor</div>
++        <Chain aas={aas} grown={moveP} centerX={cx - 150 + freeO * 40} folded={freeO} />
++        <Note text="the finished chain is cut loose" o={freeO} y={SAFE.b - 120} />
++      </>
++    );
++  }
++
++  return <IlluStage spark={spark} sparkPos="top">{inner}<BrandBug label={folderLabel} /></IlluStage>;
++};
++
++/* ==================================================================== *
++ * CodonTable — 64 spellings collapsing into 21 meanings.                *
++ * -------------------------------------------------------------------- *
++ * WHEN: the beat is about the SHAPE of the genetic code (redundancy).   *
++ * The grid is the real table; the cluster counts are counted from it,   *
++ * never asserted — REBUILD LAW (only numbers verifiable in the source). *
++ * ==================================================================== */
++export const CodonTable: React.FC<{ spark?: string; caption?: string; folderLabel?: string }> =
++  ({ spark = '', caption, folderLabel }) => {
++    const p = useP();
++    const codons = Object.keys(CODON_TABLE);
++    const groups = React.useMemo(() => {
++      const m: Record<string, string[]> = {};
++      for (const c of codons) (m[CODON_TABLE[c]] ??= []).push(c);
++      return Object.entries(m).sort((a, b) => b[1].length - a[1].length);
++    }, []);
++    const build = remap(p, 0.04, 0.40, 0, 1);
++    const merge = ease(remap(p, 0.56, 0.78, 0, 1));
++    const hiO = ease(remap(p, 0.86, 0.96, 0, 1));
++    const shown = Math.floor(build * 64);
++    const COLS = 8, CW = 138, CH = 74;
++    const gx0 = Math.round((1920 - COLS * CW) / 2), gy0 = 250;
++
++    return (
++      <IlluStage spark={spark} sparkPos="top">
++        {codons.map((c, i) => {
++          if (i >= shown) return null;
++          const r = Math.floor(i / COLS), q = i % COLS;
++          const gi = groups.findIndex(([aa]) => aa === CODON_TABLE[c]);
++          const gr = Math.floor(gi / 7), gq = gi % 7;
++          const tx = gx0 + q * CW, ty = gy0 + r * CH;
++          const mx = Math.round((1920 - 7 * 196) / 2) + gq * 196, my = 286 + gr * 152;
++          const x = tx + (mx - tx) * merge, y = ty + (my - ty) * merge;
++          const isHi = CODON_TABLE[c] === 'S';
++          return (
++            <div key={c} style={{
++              position: 'absolute', left: x, top: y, width: CW - 12, height: CH - 12,
++              display: 'flex', alignItems: 'center', justifyContent: 'center',
++              background: '#FFFFFF', borderRadius: 10,
++              border: `2px solid ${isHi && hiO > 0.5 ? CLAUDE.SPARK : CLAUDE.BORDER}`,
++              color: isHi && hiO > 0.5 ? CLAUDE.SPARK : CLAUDE.INK,
++              fontFamily: MONO, fontSize: 26, fontWeight: 600,
++              opacity: 1 - merge * 0.25,
++            }}>{c}</div>
++          );
++        })}
++        {groups.map(([aa, list], gi) => {
++          const gr = Math.floor(gi / 7), gq = gi % 7;
++          return (
++            <div key={aa} style={{
++              position: 'absolute', left: Math.round((1920 - 7 * 196) / 2) + gq * 196, top: 286 + gr * 152 + 76,
++              width: 184, textAlign: 'center', fontFamily: SANS, fontSize: 24, fontWeight: 700,
++              color: aa === 'S' && hiO > 0.5 ? CLAUDE.SPARK : CLAUDE.INK_SOFT, opacity: merge,
++            }}>{AA_NAME[aa]} ×{list.length}</div>
++          );
++        })}
++        <div style={{
++          position: 'absolute', left: SAFE.x, top: 150, width: SAFE.w, textAlign: 'center',
++          fontFamily: SERIF, fontSize: 76, color: CLAUDE.INK,
++        }}>{merge < 0.5 ? `${shown} codons` : `${groups.length} meanings`}</div>
++        {caption && (
++          <div style={{
++            position: 'absolute', left: SAFE.x, top: SAFE.b - 110, width: SAFE.w, textAlign: 'center',
++            fontFamily: SANS, fontSize: 32, color: CLAUDE.INK_SOFT, opacity: hiO,
++          }}>{caption}</div>
++        )}
++        <BrandBug label={folderLabel} />
++      </IlluStage>
++    );
++  };
++
++/* ==================================================================== *
++ * ReadingFrame — the falsifiability beat: delete one base, watch every  *
++ *   downstream word change while upstream words stay identical.         *
++ * -------------------------------------------------------------------- *
++ * PROPS: tape, deleteAt (0-based index of the base removed).            *
++ * The two readings are COMPUTED from CODON_TABLE, never typed by hand.  *
++ * ==================================================================== */
++export const ReadingFrame: React.FC<{
++  tape?: string; deleteAt?: number; spark?: string; folderLabel?: string;
++}> = ({ tape = 'AUGGCUUCAGAUCCGAAUUAG', deleteAt = 7, spark = '', folderLabel }) => {
++    const p = useP();
++    const shifted = tape.slice(0, deleteAt) + tape.slice(deleteAt + 1);
++    const readOf = (s: string) => {
++      const out: string[] = [];
++      for (const c of triplets(s)) { out.push(CODON_TABLE[c]); if (CODON_TABLE[c] === '*') break; }
++      return out;
++    };
++    const intact = readOf(tape), broken = readOf(shifted);
++    const survives = Math.floor(deleteAt / 3);
++
++    const topO = ease(remap(p, 0.02, 0.16, 0, 1));
++    const predO = ease(remap(p, 0.26, 0.38, 0, 1));
++    const cutO = ease(remap(p, 0.44, 0.52, 0, 1));
++    const slideO = ease(remap(p, 0.60, 0.74, 0, 1));
++    const garbleO = ease(remap(p, 0.78, 0.90, 0, 1));
++    const stopO = ease(remap(p, 0.92, 1.0, 0, 1));
++
++    const row = (seq: string, y: number, o: number, cutIdx: number | null, dimFrom: number | null) => {
++      const x0 = tapeStartX(seq.length);
++      return seq.split('').map((ch, i) => (
++        <div key={i} style={{
++          position: 'absolute', left: x0 + i * CELL, top: y, width: CELL, textAlign: 'center',
++          fontFamily: MONO, fontSize: 44, fontWeight: 600, opacity: o * (dimFrom !== null && i >= dimFrom ? 0.34 : 1),
++          color: cutIdx === i ? CLAUDE.SPARK : CLAUDE.INK,
++          textDecoration: cutIdx === i ? 'line-through' : 'none',
++        }}>{ch}</div>
++      ));
++    };
++    const words = (aas: string[], y: number, o: number, splitAt: number, accentAfter: boolean) =>
++      aas.map((a, i) => (
++        <div key={i} style={{
++          position: 'absolute', left: tapeStartX(aas.length * 3) + i * CELL * 3, top: y,
++          width: CELL * 3, textAlign: 'center', fontFamily: SANS, fontSize: 30, fontWeight: 700,
++          opacity: o, color: accentAfter && i >= splitAt ? CLAUDE.SPARK : CLAUDE.INK_SOFT,
++        }}>{AA_NAME[a]}</div>
++      ));
++
++    return (
++      <IlluStage spark={spark} sparkPos="top">
++        <div style={{
++          position: 'absolute', left: SAFE.x, top: 150, width: SAFE.w, textAlign: 'center',
++          fontFamily: SERIF, fontSize: 46, color: CLAUDE.INK, opacity: topO,
++        }}>the intact frame</div>
++        {row(tape, 226, topO, cutO > 0.4 ? deleteAt : null, null)}
++        {words(intact, 300, topO, 99, false)}
++
++        <div style={{
++          position: 'absolute', left: SAFE.x, top: 420, width: SAFE.w, textAlign: 'center',
++          fontFamily: SANS, fontSize: 34, color: CLAUDE.INK_SOFT, opacity: predO,
++        }}>prediction: remove one base and every word AFTER it changes</div>
++
++        <div style={{
++          position: 'absolute', left: SAFE.x, top: 540, width: SAFE.w, textAlign: 'center',
++          fontFamily: SERIF, fontSize: 46, color: CLAUDE.INK, opacity: slideO,
++        }}>the shifted frame</div>
++        {row(shifted, 616, slideO, null, garbleO > 0.4 ? survives * 3 : null)}
++        {words(broken, 690, garbleO, survives, true)}
++
++        <div style={{
++          position: 'absolute', left: SAFE.x, top: 800, width: SAFE.w, textAlign: 'center',
++          fontFamily: SANS, fontSize: 32, color: CLAUDE.INK, opacity: garbleO,
++        }}>
++          {intact.slice(0, survives).map((a) => AA_NAME[a]).join(' · ')} survive — everything after belongs to another protein
++        </div>
++        <div style={{
++          position: 'absolute', left: SAFE.x, top: SAFE.b - 110, width: SAFE.w, textAlign: 'center',
++          fontFamily: SANS, fontSize: 36, fontWeight: 700, color: CLAUDE.SPARK, opacity: stopO,
++        }}>a premature STOP appears at codon {broken.length}</div>
++        <BrandBug label={folderLabel} />
++      </IlluStage>
++    );
++  };
++
++/* ==================================================================== *
++ * LayerStackBeat — props-driven wrapper around the STRUCTURAL          *
++ *   LayerStack so a reel beat can use it directly.                     *
++ * -------------------------------------------------------------------- *
++ * GATE L returned LayerStack as a genuine HIT for the verdict beat     *
++ * (it enumerates the parts of a judgement), so this reel reuses it     *
++ * rather than building a fourth component. This wrapper only adds the  *
++ * stage, the spark line and the brand bug — the motion math is the     *
++ * library's, untouched, per the starter-template contract.             *
++ * ==================================================================== */
++export const LayerStackBeat: React.FC<{
++  layers: Layer[]; caption?: string; spark?: string; folderLabel?: string;
++}> = ({ layers, caption, spark = '', folderLabel }) => (
++  <IlluStage spark={spark} sparkPos="top">
++    <LayerStack layers={layers} caption={caption} />
++    <BrandBug label={folderLabel} />
++  </IlluStage>
++);
+diff --git a/runtime/remotion/src/illustrations/pretraining.tsx b/runtime/remotion/src/illustrations/pretraining.tsx
+new file mode 100644
+index 0000000..e162871
+--- /dev/null
++++ b/runtime/remotion/src/illustrations/pretraining.tsx
+@@ -0,0 +1,576 @@
++/**
++ * illustrations/pretraining.tsx — the PRETRAINING illustration family.
++ *
++ * Built for youtube/brutalist/week-01-video (INFO 7375, Week 01) after GATE L
++ * returned a genuine miss for "probability distribution over next token /
++ * training loss converging to corpus frequency".
++ *
++ * TWO RULES THIS FILE KEEPS
++ * -------------------------
++ * 1. Every number is measured. TRAJ (pretraining_trajectory.ts) is generated
++ *    from code/trajectory.json — all 601 steps of the real run. Bars, readouts
++ *    and the loss curve read TRAJ rows directly. When the animation moves
++ *    between two steps, BAR HEIGHTS ease between adjacent real rows, but every
++ *    DIGIT shown is a real row, never an interpolated value.
++ * 2. Every reveal lands on the spoken word. Beats receive props.cues — the
++ *    fraction of the beat at which each trigger word is spoken, computed from
++ *    mp3/words.json (align.py / faster-whisper) with a short lead-in. The first
++ *    cut used evenly spaced fractions; by B02's fourth step the picture trailed
++ *    the voice by 2.56s. The numbers passed as fallbacks below are used only if
++ *    a beat is rendered without cues.
++ *
++ * 1920×1080 native, positioned from SAFE. One terracotta accent per beat.
++ */
++import React from 'react';
++import { AbsoluteFill, useVideoConfig } from 'remotion';
++import { ClaudeComposerAsk } from '../scenes/ClaudeComposerAsk';
++import { CLAUDE } from '../tokens/claude';
++import { SAFE } from '../tokens/layout';
++import { SERIF, SANS, MONO, clamp, remap, ease, useP, IlluStage } from './kit';
++import { BrandBug } from './molecular';
++import { TRAJ, ENTROPY } from './pretraining_trajectory';
++
++export const TOKENS = ['sydney', 'canberra', 'melbourne'] as const;
++export const TRUTH_IDX = 1;
++export const CORPUS_FREQ = [0.70, 0.30, 0.00];
++export const GAP_CORPUS = 0.0022;   // code/OUTPUT.txt: max gap from CORPUS FREQUENCY
++export const GAP_TRUTH = 0.7011;    // code/OUTPUT.txt: max gap from TRUTH
++const MILESTONES = [0, 1, 5, 20, 100, 600];
++const SRC = 'code/OUTPUT.txt';
++
++type Cues = Record<string, number>;
++type Common = { spark?: string; folderLabel?: string; cues?: Cues };
++
++/* ── timing helpers ───────────────────────────────────────────────────── */
++const useDur = () => { const { durationInFrames, fps } = useVideoConfig(); return durationInFrames / fps; };
++/** reveal curve: 0 → 1 over `secs` seconds, starting at beat fraction t */
++const useReveal = () => {
++  const p = useP(); const dur = useDur();
++  return (t: number, secs = 0.5) => ease(remap(p, t, t + secs / dur, 0, 1));
++};
++const cueOf = (cues: Cues | undefined) => (k: string, d: number) =>
++  cues && typeof cues[k] === 'number' ? cues[k] : d;
++const logX = (s: number, x0: number, w: number) => x0 + (Math.log10(s + 1) / Math.log10(601)) * w;
++
++/* ── shared parts ─────────────────────────────────────────────────────── */
++const Center: React.FC<{ y: number; o?: number; size?: number; font?: string; color?: string; weight?: number; children: React.ReactNode }> =
++  ({ y, o = 1, size = 32, font = SANS, color = CLAUDE.INK_SOFT, weight = 400, children }) => (
++    <div style={{ position: 'absolute', left: SAFE.x, top: y, width: SAFE.w, textAlign: 'center',
++      fontFamily: font, fontSize: size, color, fontWeight: weight, opacity: o }}>{children}</div>
++  );
++
++const Src: React.FC<{ o?: number }> = ({ o = 1 }) => (
++  // Two short lines, not one long one: captions (max 46 chars) never reach left of x~585, and a
++  // single 54-char line ran to x~700 — under the caption box (QC 2026-09-27, B04). This is ~440px.
++  <div style={{ position: 'absolute', left: SAFE.x, bottom: 1080 - SAFE.b, fontFamily: MONO,
++    fontSize: 20, lineHeight: 1.25, color: CLAUDE.INK_SOFT, opacity: 0.75 * o }}>
++    <div>computed from the CONSTRUCTED corpus</div><div>source: {SRC}</div></div>
++);
++
++const ConstructedTag: React.FC<{ o?: number }> = ({ o = 1 }) => (
++  <div style={{
++    // top:120, not 66 — the spark line sits at top:44 in 40px serif and runs to ~y100.
++    position: 'absolute', left: SAFE.x, top: 120, padding: '8px 18px',
++    border: `2px solid ${CLAUDE.SPARK}`, borderRadius: 8, opacity: o,
++    fontFamily: SANS, fontSize: 22, fontWeight: 700, color: CLAUDE.SPARK, letterSpacing: 1,
++  }}>CONSTRUCTED — corpus invented for this demo, not real web text</div>
++);
++
++/** A real TRAJ row at a (possibly fractional) step: heights ease between rows, digits stay integral. */
++const rowAt = (s: number) => {
++  const a = clamp(Math.floor(s), 0, TRAJ.length - 1), b = clamp(a + 1, 0, TRAJ.length - 1), f = s - a;
++  const A = TRAJ[a], B = TRAJ[b];
++  return { step: Math.round(s), smooth: [0, 1, 2].map((i) => A[i] + (B[i] - A[i]) * f),
++           shown: TRAJ[clamp(Math.round(s), 0, TRAJ.length - 1)] };
++};
++
++/* ==================================================================== *
++ * TrainingLoop (B02) — the four steps, each lighting on its spoken verb *
++ * ==================================================================== */
++export const TrainingLoop: React.FC<Common> = ({ spark = '', folderLabel, cues }) => {
++  const c = cueOf(cues); const rv = useReveal(); const p = useP();
++  const steps = [
++    { k: 'step1', n: '1', t: 'take a passage of text', d: '"the capital of australia is ___"' },
++    { k: 'step2', n: '2', t: 'hide the next token', d: 'the answer is covered' },
++    { k: 'step3', n: '3', t: 'ask for its distribution', d: 'one probability per token' },
++    { k: 'step4', n: '4', t: 'compare with what followed', d: 'the corpus token is the target' },
++  ];
++  const fb = [0.10, 0.20, 0.28, 0.40];
++  const nudgeT = c('nudge', 0.60);
++  const nudge = rv(nudgeT, 0.8);
++  const noCheck = rv(c('nocheck', 0.85));
++  return (
++    <IlluStage spark={spark} sparkPos="top">
++      <Center y={140} size={60} font={SERIF} color={CLAUDE.INK}>the pretraining loop</Center>
++      {steps.map((s, i) => {
++        const t = c(s.k, fb[i]); const o = rv(t);
++        const next = i < 3 ? c(steps[i + 1].k, fb[i + 1]) : nudgeT;
++        const active = p >= t && p < next;           // the step being spoken right now
++        return (
++          <div key={i} style={{
++            position: 'absolute', left: SAFE.x + 30 + i * 430, top: 250 + (1 - o) * 30, width: 390, opacity: o,
++            background: '#FFFFFF', border: `1px solid ${CLAUDE.BORDER}`,
++            borderTop: `8px solid ${active ? CLAUDE.SPARK : CLAUDE.INK}`, borderRadius: 14,
++            padding: '24px 26px', minHeight: 300,
++            boxShadow: active ? '0 14px 36px rgba(217,119,87,0.22)' : '0 8px 24px rgba(61,57,41,0.08)',
++            transform: `scale(${active ? 1.03 : 1})`,
++          }}>
++            <div style={{ fontFamily: SANS, fontSize: 24, color: active ? CLAUDE.SPARK : CLAUDE.INK_SOFT }}>step {s.n}</div>
++            <div style={{ fontFamily: SERIF, fontSize: 42, color: CLAUDE.INK, marginTop: 12, lineHeight: 1.15 }}>{s.t}</div>
++            <div style={{ fontFamily: MONO, fontSize: 23, color: CLAUDE.INK_SOFT, marginTop: 20, lineHeight: 1.45 }}>{s.d}</div>
++          </div>
++        );
++      })}
++      <div style={{ position: 'absolute', left: SAFE.x + 30, top: 670, height: 3, background: CLAUDE.SPARK, width: 1690 * nudge }} />
++      <Center y={694} o={nudge} size={32} color={CLAUDE.SPARK}>
++        nudge every parameter so the token that followed gets more probability
++      </Center>
++      <Center y={780} o={noCheck * 0.5} size={50} font={SERIF}>
++        <span style={{ textDecoration: 'line-through' }}>step 5 — check whether it is true</span>
++      </Center>
++      <Center y={858} o={noCheck} size={40} color={CLAUDE.SPARK}>there is no step 5</Center>
++      <BrandBug label={folderLabel} />
++    </IlluStage>
++  );
++};
++
++/* ==================================================================== *
++ * CorpusCard (B03) — the constructed corpus, each row on its word.      *
++ * ==================================================================== */
++export const CorpusCard: React.FC<Common> = ({ spark = '', folderLabel, cues }) => {
++  const c = cueOf(cues); const rv = useReveal(); const p = useP(); const dur = useDur();
++  const counts = [7, 3, 0];
++  const tag = rv(c('tag', 0.18)), ctx = rv(c('ctx', 0.46)), freq = rv(c('freq', 0.93));
++  const rowK = ['r0', 'r1', 'r2'], rowF = [0.60, 0.72, 0.87];
++  return (
++    <IlluStage spark={spark} sparkPos="top">
++      <ConstructedTag o={tag} />
++      <Center y={214} o={ctx} size={44} font={MONO} color={CLAUDE.INK}>"the capital of australia is ___"</Center>
++      {TOKENS.map((tok, i) => {
++        const t = c(rowK[i], rowF[i]); const o = rv(t);
++        const isTruth = i === TRUTH_IDX; const y = 330 + i * 150;
++        return (
++          <React.Fragment key={tok}>
++            <div style={{ position: 'absolute', left: SAFE.x + 120, top: y, width: 300, opacity: o,
++              fontFamily: MONO, fontSize: 40, fontWeight: 600, color: CLAUDE.INK }}>{tok}</div>
++            {Array.from({ length: counts[i] }).map((_, k) => {
++              // tallies stack in one after another, each popping into place
++              const tk = ease(remap(p, t + (k * 0.11) / dur, t + (k * 0.11 + 0.25) / dur, 0, 1));
++              return <div key={k} style={{
++                position: 'absolute', left: SAFE.x + 470 + k * 58, top: y - 6 + (1 - tk) * 20,
++                width: 34, height: 54, borderRadius: 6, opacity: tk,
++                background: isTruth ? CLAUDE.INK : CLAUDE.SPARK, transform: `scale(${0.7 + 0.3 * tk})`,
++              }} />;
++            })}
++            {counts[i] === 0 && (
++              <div style={{ position: 'absolute', left: SAFE.x + 470, top: y, opacity: o,
++                fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT }}>never follows</div>
++            )}
++            {isTruth && (
++              <div style={{ position: 'absolute', left: SAFE.x + 1180, top: y - 2, opacity: o,
++                fontFamily: SANS, fontSize: 26, fontWeight: 700, color: CLAUDE.INK,
++                border: `2px solid ${CLAUDE.INK}`, borderRadius: 8, padding: '4px 14px' }}>TRUE — the actual capital</div>
++            )}
++          </React.Fragment>
++        );
++      })}
++      <Center y={806} o={freq} size={36}>corpus frequency   sydney 0.70   ·   canberra 0.30   ·   melbourne 0.00</Center>
++      <Center y={862} o={freq} size={32} color={CLAUDE.SPARK}>the frequent continuation is the false one — on purpose</Center>
++      <BrandBug label={folderLabel} />
++    </IlluStage>
++  );
++};
++
++/* ==================================================================== *
++ * TokenBars (B04 start, B05 converge) — the distribution being fitted.  *
++ * ==================================================================== */
++const BASE = 812, MAXH = 470, BW = 230;
++const barX = (i: number) => 560 + i * (BW + 160);   // pitch 390: a corpus label (~130px) clears the next bar
++
++export const TokenBars: React.FC<Common & { phase: 'start' | 'converge' }> = ({ phase, spark = '', folderLabel, cues }) => {
++  const c = cueOf(cues); const rv = useReveal(); const p = useP();
++
++  // ── the step schedule: each milestone lands on the word that names it ──
++  let s = 0;
++  if (phase === 'converge') {
++    const keys: [number, number][] = [
++      [0, 0], [c('step1', 0.07), 1], [c('step5', 0.19), 5], [c('step20', 0.29), 20], [c('step600', 0.43), 600],
++    ];
++    for (let k = 0; k < keys.length - 1; k++) {
++      const [t0, s0] = keys[k], [t1, s1] = keys[k + 1];
++      if (p >= t0 && p < t1) {
++        const u = ease((p - t0) / Math.max(1e-6, t1 - t0));
++        s = Math.exp(Math.log(s0 + 1) + (Math.log(s1 + 1) - Math.log(s0 + 1)) * u) - 1;
++      } else if (p >= t1) s = s1;
++    }
++  }
++  const r = rowAt(s);
++  const grow = phase === 'start' ? rv(c('bars', 0.14), 0.8) : 1;
++  const valsO = phase === 'start' ? rv(c('vals', 0.28)) : 1;
++  const lossO = phase === 'start' ? rv(c('loss', 0.40)) : 1;
++  const lnO = phase === 'start' ? rv(c('ln', 0.60)) : 0;
++  const runO = phase === 'start' ? rv(c('run', 0.90)) : 0;
++  const targetsO = phase === 'converge' ? rv(c('step1', 0.07), 0.8) : 0;
++  const truthO = phase === 'converge' ? rv(c('nothing', 0.93), 0.6) : 0;
++  const lossHi = phase === 'converge' ? rv(c('lossword', 0.85), 0.4) : 0;
++  // which value the narrator is reading after "settles"
++  const readT = [c('read0', 0.52), c('read1', 0.62), c('read2', 0.71), c('lossword', 0.85)];
++  const reading = phase === 'converge' ? [0, 1, 2].findIndex((i) => p >= readT[i] && p < readT[i + 1]) : -1;
++
++  // left panel geometry: progress track + live loss sparkline
++  const TX = SAFE.x + 20, TW = 400;
++  const lossY = (l: number) => 930 - ((l - 0.6) / 0.5) * 130;   // loss 0.6..1.1 → y 930..800
++
++  return (
++    <IlluStage spark={spark} sparkPos="top">
++      <Center y={136} size={34} font={MONO}>"the capital of australia is ___"</Center>
++
++      <div style={{ position: 'absolute', left: TX, top: 246, fontFamily: SANS, fontSize: 28, color: CLAUDE.INK_SOFT }}>step</div>
++      <div style={{ position: 'absolute', left: TX, top: 280, fontFamily: MONO, fontSize: 96, fontWeight: 700, color: CLAUDE.INK }}>{r.step}</div>
++      <div style={{ position: 'absolute', left: TX, top: 408, width: TW, height: 4, background: CLAUDE.BORDER, borderRadius: 2 }} />
++      <div style={{ position: 'absolute', left: TX, top: 408, height: 4, borderRadius: 2, background: CLAUDE.INK, width: logX(s, 0, TW) }} />
++      {MILESTONES.map((m) => {
++        const hit = phase === 'converge' ? s >= m - 1e-6 : m === 0;
++        const x = logX(m, TX, TW);
++        const pop = phase === 'converge' && m > 0 && Math.abs(s - m) < Math.max(0.5, m * 0.06) ? 1 : 0;
++        return (
++          <React.Fragment key={m}>
++            <div style={{ position: 'absolute', left: x - 8, top: 402, width: 16, height: 16, borderRadius: 8,
++              background: hit ? CLAUDE.INK : CLAUDE.PAGE, border: `2px solid ${CLAUDE.INK}`,
++              transform: `scale(${1 + pop * 0.6})`, boxShadow: pop ? '0 0 16px rgba(217,119,87,0.6)' : 'none' }} />
++            <div style={{ position: 'absolute', left: x - 30, top: 426, width: 60, textAlign: 'center',
++              fontFamily: MONO, fontSize: 18, color: hit ? CLAUDE.INK : CLAUDE.INK_SOFT }}>{m}</div>
++          </React.Fragment>
++        );
++      })}
++      <div style={{ position: 'absolute', left: TX, top: 486, fontFamily: SANS, fontSize: 28, color: CLAUDE.INK_SOFT, opacity: lossO }}>loss</div>
++      <div style={{ position: 'absolute', left: TX, top: 520, fontFamily: MONO, fontSize: 72, fontWeight: 700, opacity: lossO,
++        color: lossHi > 0.5 ? CLAUDE.SPARK : CLAUDE.INK }}>{r.shown[3].toFixed(4)}</div>
++      {phase === 'start' && (
++        <>
++          <div style={{ position: 'absolute', left: TX, top: 612, fontFamily: SANS, fontSize: 30, color: CLAUDE.SPARK, opacity: lnO }}>= ln 3</div>
++          <div style={{ position: 'absolute', left: TX, top: 652, fontFamily: SANS, fontSize: 24, color: CLAUDE.INK_SOFT, opacity: lnO }}>uniform over three options</div>
++          <div style={{ position: 'absolute', left: TX, top: 740, padding: '10px 22px', borderRadius: 10, opacity: runO,
++            border: `2px solid ${CLAUDE.INK}`, fontFamily: SANS, fontSize: 30, color: CLAUDE.INK }}>run the loop  →</div>
++        </>
++      )}
++      {phase === 'converge' && (
++        <svg style={{ position: 'absolute', left: 0, top: 0 }} width={1920} height={1080}>
++          <line x1={TX} x2={TX + TW} y1={lossY(0.6109)} y2={lossY(0.6109)} stroke={CLAUDE.BORDER} strokeWidth={2} strokeDasharray="6 5" />
++          <polyline fill="none" stroke={lossHi > 0.5 ? CLAUDE.SPARK : CLAUDE.INK} strokeWidth={4} strokeLinejoin="round"
++            points={TRAJ.slice(0, Math.max(2, Math.floor(s) + 1)).map((row, k) =>
++              `${logX(k, TX, TW).toFixed(1)},${lossY(row[3]).toFixed(1)}`).join(' ')} />
++          <text x={TX} y={770} fontFamily={SANS} fontSize={20} fill={CLAUDE.INK_SOFT}>loss at every real step (log x)</text>
++        </svg>
++      )}
++
++      {TOKENS.map((tok, i) => {
++        const v = r.smooth[i] * grow; const h = v * MAXH; const x = barX(i);
++        const isTruth = i === TRUTH_IDX; const lead = i === 0 && phase === 'converge';
++        const glow = lead ? clamp((r.smooth[0] - 0.34) / 0.36, 0, 1) : 0;
++        const read = reading === i;
++        const ty = BASE - CORPUS_FREQ[i] * MAXH;
++        return (
++          <React.Fragment key={tok}>
++            {/* dashed corpus-frequency target the bar converges onto */}
++            <div style={{ position: 'absolute', left: x - 16, top: ty, width: BW + 32,
++              borderTop: `3px dashed ${CLAUDE.INK_SOFT}`, opacity: targetsO * 0.85 }} />
++            <div style={{ position: 'absolute', left: x + BW + 22, top: ty - 13, fontFamily: MONO, fontSize: 20,
++              color: CLAUDE.INK_SOFT, opacity: targetsO, whiteSpace: 'nowrap' }}>corpus {CORPUS_FREQ[i].toFixed(2)}</div>
++            {isTruth && (
++              <>
++                <div style={{ position: 'absolute', left: x, top: BASE - MAXH, width: BW, height: MAXH,
++                  border: `3px dotted ${CLAUDE.INK}`, borderRadius: '8px 8px 0 0', opacity: truthO * 0.6 }} />
++                <div style={{ position: 'absolute', left: x - 80, top: BASE - MAXH - 46, width: BW + 160, textAlign: 'center',
++                  fontFamily: SANS, fontSize: 24, color: CLAUDE.INK, opacity: truthO }}>if the target were truth: 1.00</div>
++              </>
++            )}
++            <div style={{
++              position: 'absolute', left: x, top: BASE - h, width: BW, height: Math.max(3, h),
++              background: isTruth ? CLAUDE.INK : CLAUDE.SPARK, borderRadius: '8px 8px 0 0',
++              opacity: isTruth ? 0.86 : 1,
++              boxShadow: glow > 0 ? `0 0 ${24 + 40 * glow}px rgba(217,119,87,${(0.25 + 0.35 * glow).toFixed(3)})` : 'none',
++            }} />
++            <div style={{
++              position: 'absolute', left: x - 30, top: BASE - h - 66, width: BW + 60, textAlign: 'center',
++              fontFamily: MONO, fontSize: 42, fontWeight: 700, opacity: valsO,
++              color: isTruth ? CLAUDE.INK : CLAUDE.SPARK,
++              transform: `scale(${read ? 1.18 : 1})`, textDecoration: read ? 'underline' : 'none',
++            }}>{r.shown[i].toFixed(4)}</div>
++            <div style={{ position: 'absolute', left: x - 30, top: BASE + 16, width: BW + 60, textAlign: 'center',
++              fontFamily: SANS, fontSize: 30, color: CLAUDE.INK }}>{tok}</div>
++            {isTruth && (
++              <div style={{ position: 'absolute', left: x - 30, top: BASE + 56, width: BW + 60, textAlign: 'center',
++                fontFamily: SANS, fontSize: 22, color: CLAUDE.INK_SOFT }}>TRUE</div>
++            )}
++          </React.Fragment>
++        );
++      })}
++      <div style={{ position: 'absolute', left: 530, top: BASE + 2, width: 1070, height: 2, background: CLAUDE.BORDER }} />
++      <Src />
++      <BrandBug label={folderLabel} />
++    </IlluStage>
++  );
++};
++
++/* ==================================================================== *
++ * TwoGaps (B06) — the payoff, in the two measured distances.            *
++ * ==================================================================== */
++export const TwoGaps: React.FC<Common> = ({ spark = '', folderLabel, cues }) => {
++  const c = cueOf(cues); const rv = useReveal();
++  const left = rv(c('left', 0.16), 0.7), leftV = rv(c('leftVal', 0.23));
++  const right = rv(c('right', 0.39), 0.9), rightV = rv(c('rightVal', 0.43));
++  const foot = rv(c('foot', 0.58)), arg = rv(c('argmax', 0.90));
++  const gauges = [
++    { lab: 'distance from the CORPUS', val: GAP_CORPUS, o: left, vo: leftV, ink: true, x: SAFE.x + 70 },
++    { lab: 'distance from the TRUTH', val: GAP_TRUTH, o: right, vo: rightV, ink: false, x: SAFE.x + 930 },
++  ];
++  return (
++    <IlluStage spark={spark} sparkPos="top">
++      <Center y={140} size={34} font={MONO}>converged at step 600 · 0.6989 / 0.2989 / 0.0022</Center>
++      {gauges.map((g, i) => (
++        <React.Fragment key={i}>
++          <div style={{ position: 'absolute', left: g.x, top: 250, width: 760, opacity: g.o,
++            fontFamily: SANS, fontSize: 30, color: CLAUDE.INK_SOFT, letterSpacing: 1 }}>{g.lab}</div>
++          <div style={{ position: 'absolute', left: g.x, top: 310, width: 700, height: 34,
++            border: `2px solid ${CLAUDE.BORDER}`, borderRadius: 6, opacity: g.o }} />
++          <div style={{ position: 'absolute', left: g.x + 2, top: 312, height: 30, borderRadius: 4,
++            width: Math.max(4, g.val * 696 * g.o), background: g.ink ? CLAUDE.INK : CLAUDE.SPARK }} />
++          <div style={{ position: 'absolute', left: g.x, top: 376 + (1 - g.vo) * 24, width: 760, opacity: g.vo,
++            fontFamily: MONO, fontSize: 118, fontWeight: 700, color: g.ink ? CLAUDE.INK : CLAUDE.SPARK }}>{g.val.toFixed(4)}</div>
++        </React.Fragment>
++      ))}
++      <Center y={600} o={foot} size={34}>the objective landed two thousandths from the corpus — and seven tenths from the right answer</Center>
++      <Center y={690} o={arg} size={46} font={MONO} color={CLAUDE.INK}>
++        argmax = <span style={{ color: CLAUDE.SPARK, fontWeight: 700 }}>sydney</span>
++        <span style={{ color: CLAUDE.INK_SOFT }}>   ·   truth = canberra</span>
++      </Center>
++      <Src o={left} />
++      <BrandBug label={folderLabel} />
++    </IlluStage>
++  );
++};
++
++/* ==================================================================== *
++ * LossFloor (B07) — the real 601-step loss curve, log-scale x.          *
++ *   First cut plotted 6 points joined by straight lines on an evenly    *
++ *   spaced (misleading) x-axis with no y ticks, and drew all at once.   *
++ * ==================================================================== */
++export const LossFloor: React.FC<Common> = ({ spark = '', folderLabel, cues }) => {
++  const c = cueOf(cues); const rv = useReveal(); const dur = useDur(); const p = useP();
++  const X0 = 300, W = 1180, Y0 = 250, H = 470;             // plot box
++  const ymax = 1.2;
++  const px = (step: number) => logX(step, X0, W);
++  const py = (l: number) => Y0 + H - (l / ymax) * H;
++  const axesO = rv(c('axes', 0.02), 0.6);
++  const drawT = c('draw', 0.10), drawEnd = c('drawEnd', 0.27);
++  const draw = ease(remap(p, drawT, Math.max(drawT + 0.5 / dur, drawEnd), 0, 1));
++  const endO = rv(drawEnd, 0.4);
++  const zeroO = rv(c('zero', 0.28));
++  const floorD = rv(c('floor', 0.53), 1.0), floorLab = rv(c('entropy', 0.61));
++  const perfect = rv(c('perfect', 0.79));
++  const path = TRAJ.map((row, k) => `${k ? 'L' : 'M'}${px(k).toFixed(1)},${py(row[3]).toFixed(1)}`).join(' ');
++  // zoom inset: steps 100..600, loss 0.605..0.630
++  const IX = 1090, IY = 236, IW = 380, IH = 168, zl = 0.605, zh = 0.630;   // bottom 404: clears the step-100 label
++  const ix = (k: number) => IX + ((k - 100) / 500) * IW;
++  const iy = (l: number) => IY + IH - ((l - zl) / (zh - zl)) * IH;
++  const ipath = TRAJ.slice(100).map((row, k) => `${k ? 'L' : 'M'}${ix(k + 100).toFixed(1)},${iy(row[3]).toFixed(1)}`).join(' ');
++  return (
++    <IlluStage spark={spark} sparkPos="top">
++      <Center y={134} size={56} font={SERIF} color={CLAUDE.INK}>the loss never reaches zero</Center>
++      <svg style={{ position: 'absolute', left: 0, top: 0 }} width={1920} height={1080}>
++        <g opacity={axesO}>
++          {[0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2].map((v) => (
++            <g key={v}>
++              <line x1={X0} x2={X0 + W} y1={py(v)} y2={py(v)} stroke={CLAUDE.BORDER} strokeWidth={v === 0 ? 3 : 1.5} />
++              <text x={X0 - 18} y={py(v) + 8} textAnchor="end" fontFamily={MONO} fontSize={22} fill={CLAUDE.INK_SOFT}>{v.toFixed(1)}</text>
++            </g>
++          ))}
++          {MILESTONES.map((m) => (
++            <g key={m}>
++              <line x1={px(m)} x2={px(m)} y1={Y0 + H} y2={Y0 + H + 10} stroke={CLAUDE.INK_SOFT} strokeWidth={2} />
++              <text x={px(m)} y={Y0 + H + 40} textAnchor="middle" fontFamily={MONO} fontSize={22} fill={CLAUDE.INK_SOFT}>{m}</text>
++            </g>
++          ))}
++          <text x={X0 + W / 2} y={Y0 + H + 80} textAnchor="middle" fontFamily={SANS} fontSize={24} fill={CLAUDE.INK_SOFT}>training step (log scale)</text>
++          <text x={X0 - 96} y={Y0 + H / 2} textAnchor="middle" fontFamily={SANS} fontSize={24} fill={CLAUDE.INK_SOFT}
++            transform={`rotate(-90 ${X0 - 96} ${Y0 + H / 2})`}>cross-entropy loss</text>
++        </g>
++        {/* the floor, and the region below it that the objective can never enter */}
++        <rect x={X0} y={py(ENTROPY)} width={W * floorD} height={py(0) - py(ENTROPY)} fill={CLAUDE.SPARK} opacity={0.07 * floorD} />
++        <line x1={X0} x2={X0 + W * floorD} y1={py(ENTROPY)} y2={py(ENTROPY)} stroke={CLAUDE.SPARK} strokeWidth={3} strokeDasharray="12 8" />
++        <text x={X0 + 24} y={py(ENTROPY) + 44} fontFamily={SANS} fontSize={28} fontWeight={700} fill={CLAUDE.SPARK} opacity={floorLab}>
++          corpus entropy = {ENTROPY.toFixed(4)} — the floor</text>
++        <text x={X0 + 24} y={py(ENTROPY) + 82} fontFamily={SANS} fontSize={24} fill={CLAUDE.SPARK} opacity={floorLab}>
++          below it is unreachable: the corpus disagrees with itself</text>
++        <text x={X0 + W - 8} y={py(0) - 14} textAnchor="end" fontFamily={SANS} fontSize={24} fill={CLAUDE.INK} opacity={zeroO}>
++          0 — never reached</text>
++        {/* the real curve, drawn progressively */}
++        <path d={path} fill="none" stroke={CLAUDE.INK} strokeWidth={5} strokeLinejoin="round" strokeLinecap="round"
++          pathLength={1} strokeDasharray={1} strokeDashoffset={1 - draw} />
++        {MILESTONES.map((m) => {
++          const shown = draw >= Math.log10(m + 1) / Math.log10(601) - 0.001;
++          return shown ? (
++            <g key={m}>
++              <circle cx={px(m)} cy={py(TRAJ[m][3])} r={8} fill={CLAUDE.INK} />
++              <text x={m === 0 ? px(m) + 16 : px(m)} y={py(TRAJ[m][3]) - (m === 0 ? 14 : 20)} textAnchor={m === 0 ? 'start' : 'middle'}
++                fontFamily={MONO} fontSize={22} fill={CLAUDE.INK}>
++                {TRAJ[m][3].toFixed(4)}</text>
++            </g>) : null;
++        })}
++        {/* zoom inset — the last 500 steps, where 0.6131 creeps toward 0.6109 */}
++        <g opacity={floorLab}>
++          <rect x={IX} y={IY} width={IW} height={IH} fill="#FFFFFF" stroke={CLAUDE.BORDER} strokeWidth={2} rx={8} />
++          <line x1={IX} x2={IX + IW} y1={iy(ENTROPY)} y2={iy(ENTROPY)} stroke={CLAUDE.SPARK} strokeWidth={2} strokeDasharray="8 6" />
++          <path d={ipath} fill="none" stroke={CLAUDE.INK} strokeWidth={3} />
++          <text x={IX + 12} y={IY + 28} fontFamily={SANS} fontSize={20} fill={CLAUDE.INK_SOFT}>zoom · steps 100–600</text>
++          <text x={IX + IW - 10} y={iy(TRAJ[600][3]) - 10} textAnchor="end" fontFamily={MONO} fontSize={20} fill={CLAUDE.INK}>
++            {TRAJ[600][3].toFixed(4)}</text>
++          <text x={IX + IW - 10} y={iy(ENTROPY) + 26} textAnchor="end" fontFamily={MONO} fontSize={20} fill={CLAUDE.SPARK}>
++            {ENTROPY.toFixed(4)}</text>
++        </g>
++      </svg>
++      <div style={{ position: 'absolute', left: px(600) - 70, top: py(TRAJ[600][3]) - 96, width: 140, textAlign: 'center',
++        fontFamily: SANS, fontSize: 22, color: CLAUDE.INK, opacity: endO * (1 - floorLab) }}>stops here</div>
++      <Center y={850} o={perfect} size={38}>a perfect fit to a wrong corpus is still a perfect fit</Center>
++      <Src o={axesO} />
++      <BrandBug label={folderLabel} />
++    </IlluStage>
++  );
++};
++
++/* ==================================================================== *
++ * TargetStack (B08) — two stages, two targets, no answer key.           *
++ *   Replaces the library LayerStack for this beat: LayerStack has fixed *
++ *   reveal timing (it cannot follow the voice) and 1280×720 geometry.   *
++ * ==================================================================== */
++export const TargetStack: React.FC<Common> = ({ spark = '', folderLabel, cues }) => {
++  const c = cueOf(cues); const rv = useReveal();
++  const a = rv(c('a', 0.0)), b = rv(c('b', 0.04)), bT = rv(c('bTarget', 0.44));
++  const key = rv(c('key', 0.21)), div = rv(c('diverge', 0.62)), conf = rv(c('confident', 0.78));
++  const rows = [
++    { o: a, stage: 'pretraining', target: 'the token that followed', to: a },
++    { o: b, stage: 'preference tuning', target: 'rater approval', to: bT },
++  ];
++  return (
++    <IlluStage spark={spark} sparkPos="top">
++      <Center y={136} size={56} font={SERIF} color={CLAUDE.INK}>two stages, two targets</Center>
++      {rows.map((r, i) => (
++        <div key={i} style={{ position: 'absolute', left: SAFE.x + 90, top: 240 + i * 150 + (1 - r.o) * 24, width: SAFE.w - 180,
++          height: 118, opacity: r.o, background: '#FFFFFF', border: `1px solid ${CLAUDE.BORDER}`,
++          borderLeft: `10px solid ${CLAUDE.INK}`, borderRadius: 14, boxShadow: '0 8px 24px rgba(61,57,41,0.08)' }}>
++          <div style={{ position: 'absolute', left: 36, top: 14, fontFamily: SANS, fontSize: 20, color: CLAUDE.INK_SOFT }}>stage {i + 1}</div>
++          <div style={{ position: 'absolute', left: 36, top: 42, fontFamily: SERIF, fontSize: 46, color: CLAUDE.INK }}>{r.stage}</div>
++          <div style={{ position: 'absolute', left: 560, top: 50, fontFamily: SANS, fontSize: 40, color: CLAUDE.INK_SOFT }}>→</div>
++          <div style={{ position: 'absolute', left: 640, top: 14, fontFamily: SANS, fontSize: 20, color: CLAUDE.INK_SOFT }}>target</div>
++          <div style={{ position: 'absolute', left: 640, top: 42, fontFamily: SERIF, fontSize: 46, color: CLAUDE.INK, opacity: r.to }}>{r.target}</div>
++          {r.to < 0.5 && <div style={{ position: 'absolute', left: 640, top: 42, fontFamily: SERIF, fontSize: 46,
++            color: CLAUDE.INK_SOFT, opacity: 1 - r.to }}>?</div>}
++          <div style={{ position: 'absolute', right: 32, top: 38, padding: '6px 16px', borderRadius: 8, opacity: key,
++            border: `2px solid ${CLAUDE.INK_SOFT}`, fontFamily: SANS, fontSize: 24, color: CLAUDE.INK_SOFT }}>checks truth: no</div>
++        </div>
++      ))}
++      <div style={{ position: 'absolute', left: SAFE.x + 90, top: 556 + (1 - key) * 20, width: SAFE.w - 180, opacity: key,
++        border: `3px solid ${CLAUDE.SPARK}`, borderRadius: 14, padding: '18px 0', textAlign: 'center',
++        fontFamily: SERIF, fontSize: 48, color: CLAUDE.INK, background: '#FFFFFF' }}>
++        neither stage receives an <span style={{ color: CLAUDE.SPARK }}>answer key</span></div>
++      <Center y={690} o={div} size={32}>where approval and correctness diverge, the training signal follows approval</Center>
++      <Center y={760} o={conf} size={34} font={MONO} color={CLAUDE.INK}>
++        confident + well organized + wrong  →  <span style={{ color: CLAUDE.SPARK, fontWeight: 700 }}>preferred</span>
++      </Center>
++      <BrandBug label={folderLabel} />
++    </IlluStage>
++  );
++};
++
++/* ==================================================================== *
++ * BoundaryCard (B09) — what the explanation does NOT establish.         *
++ * ==================================================================== */
++export const BoundaryCard: React.FC<Common> = ({ spark = '', folderLabel, cues }) => {
++  const c = cueOf(cues); const rv = useReveal();
++  const limits = [
++    ['a three-token toy is not a language model', 'one context, one layer, no generalization — the mechanism scales, this demo does not'],
++    ['real output probabilities are not web frequencies', 'real models generalize, and are preference-tuned afterwards'],
++    ['this is not a claim that models are usually wrong', 'corpora are mostly right; the point is that being right was never what was optimized'],
++  ];
++  const lk = ['l1', 'l2', 'l3'], lf = [0.10, 0.29, 0.73];
++  const head = rv(c('head', 0.0)), keep = rv(c('keep', 0.86));
++  return (
++    <IlluStage spark={spark} sparkPos="top">
++      <Center y={138} o={head} size={56} font={SERIF} color={CLAUDE.INK}>
++        what this does <span style={{ textDecoration: 'underline' }}>not</span> establish</Center>
++      {limits.map((l, i) => {
++        const o = rv(c(lk[i], lf[i]));
++        return (
++          <div key={i} style={{ position: 'absolute', left: SAFE.x + 90, top: 262 + i * 152 + (1 - o) * 24, width: SAFE.w - 180,
++            opacity: o, background: '#FFFFFF', border: `1px solid ${CLAUDE.BORDER}`,
++            borderLeft: `10px solid ${CLAUDE.INK_SOFT}`, borderRadius: 12, padding: '20px 28px' }}>
++            <div style={{ fontFamily: SERIF, fontSize: 38, color: CLAUDE.INK }}>{l[0]}</div>
++            <div style={{ fontFamily: SANS, fontSize: 24, color: CLAUDE.INK_SOFT, marginTop: 8 }}>{l[1]}</div>
++          </div>
++        );
++      })}
++      <div style={{ position: 'absolute', left: SAFE.x + 90, top: 770 + (1 - keep) * 20, width: SAFE.w - 180, opacity: keep,
++        background: '#FFFFFF', border: `2px solid ${CLAUDE.SPARK}`, borderRadius: 12, padding: '18px 28px', textAlign: 'center' }}>
++        <div style={{ fontFamily: SANS, fontSize: 22, color: CLAUDE.SPARK, letterSpacing: 1 }}>WHAT SURVIVES</div>
++        <div style={{ fontFamily: SERIF, fontSize: 42, color: CLAUDE.INK, marginTop: 6 }}>truth was never the target</div>
++      </div>
++      <BrandBug label={folderLabel} />
++    </IlluStage>
++  );
++};
++
++/* ==================================================================== *
++ * SubmissionOutro (B11) — author credit for a student submission.       *
++ *   Deliberately NOT ClaudeTitleOutro, which hardcodes @NikBearBrown.   *
++ * ==================================================================== */
++export const SubmissionOutro: React.FC<{
++  title: string; thesis: string; creditLead?: string; author: string; course: string; week: string; cues?: Cues;
++}> = ({ title, thesis, creditLead = 'a video created by', author, course, week, cues }) => {
++  const c = cueOf(cues); const rv = useReveal();
++  const t = rv(c('title', 0.04), 0.7), th = rv(c('thesis', 0.16), 0.7);
++  const cr = rv(c('credit', 0.40), 0.7), co = rv(c('course', 0.53), 0.7), wk = rv(c('week', 0.75), 0.7);
++  return (
++    <IlluStage spark="" sparkPos="top">
++      <Center y={236 + (1 - t) * 20} o={t} size={92} font={SERIF} color={CLAUDE.INK}>{title}</Center>
++      <Center y={370} o={th} size={48} font={SERIF} color={CLAUDE.SPARK}>{thesis}</Center>
++      <div style={{ position: 'absolute', left: SAFE.x + 360, top: 478, width: SAFE.w - 720, height: 2, background: CLAUDE.BORDER, opacity: cr }} />
++      <Center y={510} o={cr} size={28}>{creditLead}</Center>
++      <Center y={552} o={cr} size={60} font={SERIF} color={CLAUDE.INK}>{author}</Center>
++      <Center y={654} o={co} size={34} color={CLAUDE.INK}>{course}</Center>
++      <Center y={708} o={wk} size={28}>{week}</Center>
++      <Center y={800} o={wk} size={24}>narration: synthetic voice (Kokoro am_onyx), not the author · built with the brutalist.art toolkit</Center>
++    </IlluStage>
++  );
++};
++
++/* ==================================================================== *
++ * ReconstructedComposer (B00, B10) — the toolkit's Claude composer,     *
++ *   LABELLED as reconstructed UI.                                        *
++ * -------------------------------------------------------------------- *
++ * The assignment: "If you show a Claude response, it must be a real one *
++ * you actually got, with the date." The course video guide: "label     *
++ * fixtures and reconstructed UI." Nothing in these beats was sent to or  *
++ * returned by Claude, so: no reply lines, no model chip, and a visible   *
++ * tag saying what the viewer is looking at.                              *
++ * ==================================================================== */
++export const ReconstructedComposer: React.FC<{
++  command: string; topic: string; segment: string; greeting: string; folderLabel: string;
++  tagLines: string[]; durationSeconds?: number;
++}> = ({ command, topic, segment, greeting, folderLabel, tagLines }) => {
++  const rv = useReveal(); const o = rv(0.02, 0.6);
++  return (
++    <AbsoluteFill>
++      <ClaudeComposerAsk command={command} topic={topic} segment={segment} greeting={greeting}
++        runningText="" output={[]} folderLabel={folderLabel} modelLabel="" effortLabel=""
++        placeholder="" />
++      <div style={{ position: 'absolute', right: 1920 - SAFE.r, top: SAFE.y + 6, maxWidth: 700, opacity: o,
++        border: `2px solid ${CLAUDE.SPARK}`, borderRadius: 10, padding: '12px 20px', background: '#FFFFFF' }}>
++        <div style={{ fontFamily: SANS, fontSize: 22, fontWeight: 700, color: CLAUDE.SPARK, letterSpacing: 1 }}>RECONSTRUCTED UI</div>
++        {tagLines.map((t, i) => (
++          <div key={i} style={{ fontFamily: SANS, fontSize: 21, color: CLAUDE.INK, marginTop: 4, lineHeight: 1.3 }}>{t}</div>
++        ))}
++      </div>
++    </AbsoluteFill>
++  );
++};
+diff --git a/runtime/remotion/src/illustrations/pretraining_trajectory.ts b/runtime/remotion/src/illustrations/pretraining_trajectory.ts
+new file mode 100644
+index 0000000..b9c6de9
+--- /dev/null
++++ b/runtime/remotion/src/illustrations/pretraining_trajectory.ts
+@@ -0,0 +1,612 @@
++/**
++ * GENERATED from youtube/brutalist/week-01-video/code/trajectory.json — do not edit.
++ * Regenerate by re-running code/pretraining_target.py, then this generator.
++ *
++ * Every step of the real training run: [P(sydney), P(canberra), P(melbourne), loss].
++ * TRAJ[k] is step k (0..600). Nothing here is interpolated or designed —
++ * the video's bars and loss curve read these rows directly.
++ */
++export const ENTROPY = 0.610864;
++export const TRAJ: ReadonlyArray<readonly [number, number, number, number]> = [
++  [0.333333, 0.333333, 0.333333, 1.098612],
++  [0.396288, 0.324453, 0.279259, 0.985615],
++  [0.450178, 0.312799, 0.237023, 0.907337],
++  [0.494539, 0.301338, 0.204122, 0.852746],
++  [0.530281, 0.291376, 0.178343, 0.813986],
++  [0.558800, 0.283284, 0.157916, 0.785766],
++  [0.581496, 0.277001, 0.141502, 0.764625],
++  [0.599584, 0.272299, 0.128117, 0.748320],
++  [0.614049, 0.268911, 0.117040, 0.735389],
++  [0.625669, 0.266586, 0.107745, 0.724871],
++  [0.635051, 0.265104, 0.099844, 0.716124],
++  [0.642667, 0.264282, 0.093050, 0.708711],
++  [0.648884, 0.263971, 0.087145, 0.702326],
++  [0.653988, 0.264048, 0.081964, 0.696754],
++  [0.658204, 0.264417, 0.077379, 0.691837],
++  [0.661709, 0.265000, 0.073291, 0.687458],
++  [0.664642, 0.265737, 0.069621, 0.683530],
++  [0.667114, 0.266579, 0.066307, 0.679981],
++  [0.669213, 0.267490, 0.063297, 0.676759],
++  [0.671010, 0.268439, 0.060551, 0.673819],
++  [0.672561, 0.269406, 0.058033, 0.671125],
++  [0.673910, 0.270372, 0.055717, 0.668647],
++  [0.675095, 0.271327, 0.053578, 0.666360],
++  [0.676143, 0.272261, 0.051596, 0.664244],
++  [0.677078, 0.273167, 0.049755, 0.662279],
++  [0.677919, 0.274042, 0.048039, 0.660451],
++  [0.678682, 0.274882, 0.046436, 0.658746],
++  [0.679377, 0.275687, 0.044935, 0.657151],
++  [0.680017, 0.276456, 0.043527, 0.655657],
++  [0.680607, 0.277190, 0.042203, 0.654255],
++  [0.681156, 0.277888, 0.040956, 0.652936],
++  [0.681669, 0.278552, 0.039780, 0.651694],
++  [0.682150, 0.279183, 0.038668, 0.650521],
++  [0.682602, 0.279783, 0.037615, 0.649413],
++  [0.683030, 0.280353, 0.036618, 0.648364],
++  [0.683435, 0.280895, 0.035671, 0.647370],
++  [0.683819, 0.281410, 0.034771, 0.646426],
++  [0.684186, 0.281900, 0.033914, 0.645529],
++  [0.684535, 0.282367, 0.033098, 0.644675],
++  [0.684869, 0.282811, 0.032320, 0.643862],
++  [0.685189, 0.283234, 0.031577, 0.643087],
++  [0.685495, 0.283638, 0.030867, 0.642347],
++  [0.685789, 0.284023, 0.030187, 0.641639],
++  [0.686072, 0.284391, 0.029537, 0.640962],
++  [0.686344, 0.284743, 0.028913, 0.640314],
++  [0.686605, 0.285080, 0.028315, 0.639693],
++  [0.686857, 0.285402, 0.027741, 0.639097],
++  [0.687100, 0.285711, 0.027189, 0.638525],
++  [0.687335, 0.286007, 0.026659, 0.637976],
++  [0.687561, 0.286291, 0.026148, 0.637447],
++  [0.687779, 0.286564, 0.025657, 0.636939],
++  [0.687991, 0.286826, 0.025183, 0.636450],
++  [0.688195, 0.287078, 0.024726, 0.635978],
++  [0.688393, 0.287321, 0.024286, 0.635523],
++  [0.688584, 0.287555, 0.023861, 0.635084],
++  [0.688770, 0.287781, 0.023450, 0.634661],
++  [0.688949, 0.287998, 0.023053, 0.634252],
++  [0.689123, 0.288208, 0.022669, 0.633856],
++  [0.689292, 0.288411, 0.022297, 0.633474],
++  [0.689456, 0.288606, 0.021937, 0.633104],
++  [0.689615, 0.288796, 0.021589, 0.632746],
++  [0.689770, 0.288979, 0.021251, 0.632399],
++  [0.689920, 0.289156, 0.020924, 0.632062],
++  [0.690066, 0.289328, 0.020606, 0.631736],
++  [0.690208, 0.289494, 0.020298, 0.631420],
++  [0.690346, 0.289655, 0.019999, 0.631113],
++  [0.690480, 0.289812, 0.019709, 0.630815],
++  [0.690610, 0.289963, 0.019426, 0.630526],
++  [0.690738, 0.290110, 0.019152, 0.630245],
++  [0.690861, 0.290253, 0.018885, 0.629972],
++  [0.690982, 0.290392, 0.018626, 0.629706],
++  [0.691099, 0.290527, 0.018373, 0.629447],
++  [0.691214, 0.290659, 0.018127, 0.629196],
++  [0.691326, 0.290786, 0.017888, 0.628951],
++  [0.691435, 0.290911, 0.017655, 0.628712],
++  [0.691541, 0.291032, 0.017427, 0.628480],
++  [0.691645, 0.291149, 0.017206, 0.628254],
++  [0.691746, 0.291264, 0.016990, 0.628033],
++  [0.691845, 0.291376, 0.016779, 0.627818],
++  [0.691941, 0.291485, 0.016574, 0.627608],
++  [0.692036, 0.291591, 0.016373, 0.627403],
++  [0.692128, 0.291695, 0.016177, 0.627203],
++  [0.692218, 0.291796, 0.015986, 0.627008],
++  [0.692306, 0.291895, 0.015799, 0.626817],
++  [0.692392, 0.291991, 0.015616, 0.626631],
++  [0.692477, 0.292085, 0.015438, 0.626449],
++  [0.692559, 0.292177, 0.015264, 0.626272],
++  [0.692640, 0.292267, 0.015093, 0.626098],
++  [0.692719, 0.292355, 0.014926, 0.625928],
++  [0.692796, 0.292441, 0.014763, 0.625762],
++  [0.692872, 0.292525, 0.014603, 0.625599],
++  [0.692946, 0.292607, 0.014447, 0.625440],
++  [0.693019, 0.292687, 0.014294, 0.625284],
++  [0.693090, 0.292766, 0.014144, 0.625132],
++  [0.693160, 0.292843, 0.013998, 0.624982],
++  [0.693228, 0.292918, 0.013854, 0.624836],
++  [0.693295, 0.292992, 0.013713, 0.624693],
++  [0.693361, 0.293064, 0.013575, 0.624553],
++  [0.693425, 0.293135, 0.013440, 0.624415],
++  [0.693489, 0.293204, 0.013307, 0.624280],
++  [0.693551, 0.293272, 0.013177, 0.624148],
++  [0.693612, 0.293339, 0.013050, 0.624018],
++  [0.693671, 0.293404, 0.012925, 0.623891],
++  [0.693730, 0.293468, 0.012802, 0.623767],
++  [0.693788, 0.293531, 0.012681, 0.623644],
++  [0.693844, 0.293593, 0.012563, 0.623524],
++  [0.693900, 0.293653, 0.012447, 0.623406],
++  [0.693954, 0.293712, 0.012333, 0.623291],
++  [0.694008, 0.293771, 0.012221, 0.623177],
++  [0.694061, 0.293828, 0.012112, 0.623066],
++  [0.694113, 0.293884, 0.012004, 0.622956],
++  [0.694163, 0.293939, 0.011898, 0.622848],
++  [0.694213, 0.293993, 0.011793, 0.622743],
++  [0.694263, 0.294046, 0.011691, 0.622639],
++  [0.694311, 0.294099, 0.011590, 0.622537],
++  [0.694359, 0.294150, 0.011491, 0.622436],
++  [0.694405, 0.294201, 0.011394, 0.622338],
++  [0.694451, 0.294250, 0.011299, 0.622241],
++  [0.694497, 0.294299, 0.011205, 0.622145],
++  [0.694541, 0.294347, 0.011112, 0.622052],
++  [0.694585, 0.294394, 0.011021, 0.621959],
++  [0.694628, 0.294440, 0.010932, 0.621869],
++  [0.694671, 0.294486, 0.010843, 0.621779],
++  [0.694712, 0.294531, 0.010757, 0.621692],
++  [0.694753, 0.294575, 0.010671, 0.621605],
++  [0.694794, 0.294619, 0.010587, 0.621520],
++  [0.694834, 0.294661, 0.010505, 0.621436],
++  [0.694873, 0.294703, 0.010423, 0.621354],
++  [0.694912, 0.294745, 0.010343, 0.621273],
++  [0.694950, 0.294786, 0.010264, 0.621193],
++  [0.694988, 0.294826, 0.010187, 0.621114],
++  [0.695025, 0.294865, 0.010110, 0.621036],
++  [0.695061, 0.294904, 0.010035, 0.620960],
++  [0.695097, 0.294943, 0.009960, 0.620885],
++  [0.695133, 0.294981, 0.009887, 0.620811],
++  [0.695167, 0.295018, 0.009815, 0.620738],
++  [0.695202, 0.295054, 0.009744, 0.620666],
++  [0.695236, 0.295091, 0.009674, 0.620595],
++  [0.695269, 0.295126, 0.009604, 0.620525],
++  [0.695302, 0.295161, 0.009536, 0.620456],
++  [0.695335, 0.295196, 0.009469, 0.620388],
++  [0.695367, 0.295230, 0.009403, 0.620321],
++  [0.695399, 0.295264, 0.009337, 0.620255],
++  [0.695430, 0.295297, 0.009273, 0.620190],
++  [0.695461, 0.295330, 0.009210, 0.620125],
++  [0.695491, 0.295362, 0.009147, 0.620062],
++  [0.695521, 0.295394, 0.009085, 0.619999],
++  [0.695551, 0.295425, 0.009024, 0.619938],
++  [0.695580, 0.295456, 0.008964, 0.619877],
++  [0.695609, 0.295487, 0.008904, 0.619817],
++  [0.695637, 0.295517, 0.008846, 0.619757],
++  [0.695666, 0.295547, 0.008788, 0.619699],
++  [0.695693, 0.295576, 0.008731, 0.619641],
++  [0.695721, 0.295605, 0.008674, 0.619584],
++  [0.695748, 0.295634, 0.008619, 0.619528],
++  [0.695774, 0.295662, 0.008564, 0.619472],
++  [0.695801, 0.295690, 0.008509, 0.619418],
++  [0.695827, 0.295717, 0.008456, 0.619363],
++  [0.695853, 0.295744, 0.008403, 0.619310],
++  [0.695878, 0.295771, 0.008351, 0.619257],
++  [0.695903, 0.295798, 0.008299, 0.619205],
++  [0.695928, 0.295824, 0.008248, 0.619154],
++  [0.695953, 0.295850, 0.008198, 0.619103],
++  [0.695977, 0.295875, 0.008148, 0.619052],
++  [0.696001, 0.295900, 0.008099, 0.619003],
++  [0.696024, 0.295925, 0.008050, 0.618954],
++  [0.696048, 0.295950, 0.008002, 0.618905],
++  [0.696071, 0.295974, 0.007955, 0.618857],
++  [0.696094, 0.295998, 0.007908, 0.618810],
++  [0.696116, 0.296022, 0.007862, 0.618763],
++  [0.696139, 0.296045, 0.007816, 0.618717],
++  [0.696161, 0.296069, 0.007771, 0.618671],
++  [0.696183, 0.296092, 0.007726, 0.618626],
++  [0.696204, 0.296114, 0.007682, 0.618582],
++  [0.696225, 0.296137, 0.007638, 0.618538],
++  [0.696247, 0.296159, 0.007595, 0.618494],
++  [0.696267, 0.296181, 0.007552, 0.618451],
++  [0.696288, 0.296202, 0.007510, 0.618408],
++  [0.696308, 0.296224, 0.007468, 0.618366],
++  [0.696329, 0.296245, 0.007427, 0.618324],
++  [0.696349, 0.296266, 0.007386, 0.618283],
++  [0.696368, 0.296286, 0.007345, 0.618242],
++  [0.696388, 0.296307, 0.007305, 0.618202],
++  [0.696407, 0.296327, 0.007266, 0.618162],
++  [0.696426, 0.296347, 0.007227, 0.618122],
++  [0.696445, 0.296367, 0.007188, 0.618083],
++  [0.696464, 0.296386, 0.007149, 0.618045],
++  [0.696483, 0.296406, 0.007112, 0.618006],
++  [0.696501, 0.296425, 0.007074, 0.617969],
++  [0.696519, 0.296444, 0.007037, 0.617931],
++  [0.696537, 0.296463, 0.007000, 0.617894],
++  [0.696555, 0.296481, 0.006964, 0.617857],
++  [0.696572, 0.296500, 0.006928, 0.617821],
++  [0.696590, 0.296518, 0.006892, 0.617785],
++  [0.696607, 0.296536, 0.006857, 0.617750],
++  [0.696624, 0.296554, 0.006822, 0.617715],
++  [0.696641, 0.296571, 0.006788, 0.617680],
++  [0.696658, 0.296589, 0.006753, 0.617645],
++  [0.696674, 0.296606, 0.006720, 0.617611],
++  [0.696691, 0.296623, 0.006686, 0.617577],
++  [0.696707, 0.296640, 0.006653, 0.617544],
++  [0.696723, 0.296657, 0.006620, 0.617511],
++  [0.696739, 0.296673, 0.006588, 0.617478],
++  [0.696755, 0.296690, 0.006555, 0.617446],
++  [0.696770, 0.296706, 0.006523, 0.617413],
++  [0.696786, 0.296722, 0.006492, 0.617382],
++  [0.696801, 0.296738, 0.006461, 0.617350],
++  [0.696816, 0.296754, 0.006430, 0.617319],
++  [0.696831, 0.296770, 0.006399, 0.617288],
++  [0.696846, 0.296785, 0.006368, 0.617257],
++  [0.696861, 0.296801, 0.006338, 0.617227],
++  [0.696876, 0.296816, 0.006309, 0.617197],
++  [0.696890, 0.296831, 0.006279, 0.617167],
++  [0.696905, 0.296846, 0.006250, 0.617138],
++  [0.696919, 0.296861, 0.006221, 0.617108],
++  [0.696933, 0.296875, 0.006192, 0.617079],
++  [0.696947, 0.296890, 0.006163, 0.617051],
++  [0.696961, 0.296904, 0.006135, 0.617022],
++  [0.696974, 0.296918, 0.006107, 0.616994],
++  [0.696988, 0.296932, 0.006080, 0.616966],
++  [0.697001, 0.296946, 0.006052, 0.616939],
++  [0.697015, 0.296960, 0.006025, 0.616911],
++  [0.697028, 0.296974, 0.005998, 0.616884],
++  [0.697041, 0.296988, 0.005971, 0.616857],
++  [0.697054, 0.297001, 0.005945, 0.616830],
++  [0.697067, 0.297014, 0.005918, 0.616804],
++  [0.697080, 0.297028, 0.005892, 0.616778],
++  [0.697092, 0.297041, 0.005867, 0.616752],
++  [0.697105, 0.297054, 0.005841, 0.616726],
++  [0.697117, 0.297067, 0.005816, 0.616700],
++  [0.697130, 0.297080, 0.005791, 0.616675],
++  [0.697142, 0.297092, 0.005766, 0.616650],
++  [0.697154, 0.297105, 0.005741, 0.616625],
++  [0.697166, 0.297117, 0.005716, 0.616600],
++  [0.697178, 0.297130, 0.005692, 0.616576],
++  [0.697190, 0.297142, 0.005668, 0.616552],
++  [0.697202, 0.297154, 0.005644, 0.616528],
++  [0.697213, 0.297166, 0.005621, 0.616504],
++  [0.697225, 0.297178, 0.005597, 0.616480],
++  [0.697236, 0.297190, 0.005574, 0.616457],
++  [0.697248, 0.297202, 0.005551, 0.616434],
++  [0.697259, 0.297213, 0.005528, 0.616410],
++  [0.697270, 0.297225, 0.005505, 0.616388],
++  [0.697281, 0.297236, 0.005482, 0.616365],
++  [0.697292, 0.297248, 0.005460, 0.616342],
++  [0.697303, 0.297259, 0.005438, 0.616320],
++  [0.697314, 0.297270, 0.005416, 0.616298],
++  [0.697325, 0.297281, 0.005394, 0.616276],
++  [0.697335, 0.297292, 0.005373, 0.616254],
++  [0.697346, 0.297303, 0.005351, 0.616233],
++  [0.697356, 0.297314, 0.005330, 0.616211],
++  [0.697367, 0.297325, 0.005309, 0.616190],
++  [0.697377, 0.297335, 0.005288, 0.616169],
++  [0.697387, 0.297346, 0.005267, 0.616148],
++  [0.697397, 0.297356, 0.005246, 0.616127],
++  [0.697407, 0.297367, 0.005226, 0.616107],
++  [0.697417, 0.297377, 0.005205, 0.616086],
++  [0.697427, 0.297387, 0.005185, 0.616066],
++  [0.697437, 0.297397, 0.005165, 0.616046],
++  [0.697447, 0.297408, 0.005145, 0.616026],
++  [0.697457, 0.297418, 0.005126, 0.616006],
++  [0.697466, 0.297427, 0.005106, 0.615986],
++  [0.697476, 0.297437, 0.005087, 0.615967],
++  [0.697485, 0.297447, 0.005068, 0.615947],
++  [0.697495, 0.297457, 0.005048, 0.615928],
++  [0.697504, 0.297466, 0.005029, 0.615909],
++  [0.697513, 0.297476, 0.005011, 0.615890],
++  [0.697523, 0.297485, 0.004992, 0.615871],
++  [0.697532, 0.297495, 0.004973, 0.615853],
++  [0.697541, 0.297504, 0.004955, 0.615834],
++  [0.697550, 0.297513, 0.004937, 0.615816],
++  [0.697559, 0.297523, 0.004919, 0.615797],
++  [0.697568, 0.297532, 0.004901, 0.615779],
++  [0.697576, 0.297541, 0.004883, 0.615761],
++  [0.697585, 0.297550, 0.004865, 0.615744],
++  [0.697594, 0.297559, 0.004847, 0.615726],
++  [0.697602, 0.297568, 0.004830, 0.615708],
++  [0.697611, 0.297577, 0.004813, 0.615691],
++  [0.697619, 0.297585, 0.004795, 0.615673],
++  [0.697628, 0.297594, 0.004778, 0.615656],
++  [0.697636, 0.297603, 0.004761, 0.615639],
++  [0.697645, 0.297611, 0.004744, 0.615622],
++  [0.697653, 0.297620, 0.004728, 0.615605],
++  [0.697661, 0.297628, 0.004711, 0.615589],
++  [0.697669, 0.297636, 0.004694, 0.615572],
++  [0.697677, 0.297645, 0.004678, 0.615555],
++  [0.697685, 0.297653, 0.004662, 0.615539],
++  [0.697693, 0.297661, 0.004646, 0.615523],
++  [0.697701, 0.297669, 0.004629, 0.615507],
++  [0.697709, 0.297677, 0.004613, 0.615491],
++  [0.697717, 0.297685, 0.004598, 0.615475],
++  [0.697725, 0.297693, 0.004582, 0.615459],
++  [0.697732, 0.297701, 0.004566, 0.615443],
++  [0.697740, 0.297709, 0.004551, 0.615427],
++  [0.697748, 0.297717, 0.004535, 0.615412],
++  [0.697755, 0.297725, 0.004520, 0.615397],
++  [0.697763, 0.297733, 0.004505, 0.615381],
++  [0.697770, 0.297740, 0.004490, 0.615366],
++  [0.697778, 0.297748, 0.004475, 0.615351],
++  [0.697785, 0.297755, 0.004460, 0.615336],
++  [0.697792, 0.297763, 0.004445, 0.615321],
++  [0.697799, 0.297770, 0.004430, 0.615306],
++  [0.697807, 0.297778, 0.004416, 0.615292],
++  [0.697814, 0.297785, 0.004401, 0.615277],
++  [0.697821, 0.297792, 0.004387, 0.615263],
++  [0.697828, 0.297800, 0.004372, 0.615248],
++  [0.697835, 0.297807, 0.004358, 0.615234],
++  [0.697842, 0.297814, 0.004344, 0.615220],
++  [0.697849, 0.297821, 0.004330, 0.615205],
++  [0.697856, 0.297828, 0.004316, 0.615191],
++  [0.697863, 0.297835, 0.004302, 0.615177],
++  [0.697869, 0.297842, 0.004288, 0.615164],
++  [0.697876, 0.297849, 0.004275, 0.615150],
++  [0.697883, 0.297856, 0.004261, 0.615136],
++  [0.697890, 0.297863, 0.004247, 0.615123],
++  [0.697896, 0.297870, 0.004234, 0.615109],
++  [0.697903, 0.297877, 0.004221, 0.615096],
++  [0.697909, 0.297883, 0.004207, 0.615082],
++  [0.697916, 0.297890, 0.004194, 0.615069],
++  [0.697922, 0.297897, 0.004181, 0.615056],
++  [0.697929, 0.297903, 0.004168, 0.615043],
++  [0.697935, 0.297910, 0.004155, 0.615030],
++  [0.697942, 0.297916, 0.004142, 0.615017],
++  [0.697948, 0.297923, 0.004129, 0.615004],
++  [0.697954, 0.297929, 0.004117, 0.614991],
++  [0.697960, 0.297936, 0.004104, 0.614979],
++  [0.697967, 0.297942, 0.004092, 0.614966],
++  [0.697973, 0.297948, 0.004079, 0.614953],
++  [0.697979, 0.297954, 0.004067, 0.614941],
++  [0.697985, 0.297961, 0.004054, 0.614929],
++  [0.697991, 0.297967, 0.004042, 0.614916],
++  [0.697997, 0.297973, 0.004030, 0.614904],
++  [0.698003, 0.297979, 0.004018, 0.614892],
++  [0.698009, 0.297985, 0.004006, 0.614880],
++  [0.698015, 0.297991, 0.003994, 0.614868],
++  [0.698021, 0.297997, 0.003982, 0.614856],
++  [0.698027, 0.298003, 0.003970, 0.614844],
++  [0.698032, 0.298009, 0.003958, 0.614832],
++  [0.698038, 0.298015, 0.003947, 0.614820],
++  [0.698044, 0.298021, 0.003935, 0.614809],
++  [0.698050, 0.298027, 0.003924, 0.614797],
++  [0.698055, 0.298033, 0.003912, 0.614786],
++  [0.698061, 0.298038, 0.003901, 0.614774],
++  [0.698066, 0.298044, 0.003889, 0.614763],
++  [0.698072, 0.298050, 0.003878, 0.614751],
++  [0.698078, 0.298056, 0.003867, 0.614740],
++  [0.698083, 0.298061, 0.003856, 0.614729],
++  [0.698089, 0.298067, 0.003845, 0.614718],
++  [0.698094, 0.298072, 0.003834, 0.614707],
++  [0.698099, 0.298078, 0.003823, 0.614696],
++  [0.698105, 0.298083, 0.003812, 0.614685],
++  [0.698110, 0.298089, 0.003801, 0.614674],
++  [0.698116, 0.298094, 0.003790, 0.614663],
++  [0.698121, 0.298100, 0.003779, 0.614652],
++  [0.698126, 0.298105, 0.003769, 0.614642],
++  [0.698131, 0.298111, 0.003758, 0.614631],
++  [0.698137, 0.298116, 0.003748, 0.614620],
++  [0.698142, 0.298121, 0.003737, 0.614610],
++  [0.698147, 0.298126, 0.003727, 0.614599],
++  [0.698152, 0.298132, 0.003716, 0.614589],
++  [0.698157, 0.298137, 0.003706, 0.614579],
++  [0.698162, 0.298142, 0.003696, 0.614568],
++  [0.698167, 0.298147, 0.003686, 0.614558],
++  [0.698172, 0.298152, 0.003676, 0.614548],
++  [0.698177, 0.298157, 0.003665, 0.614538],
++  [0.698182, 0.298162, 0.003655, 0.614528],
++  [0.698187, 0.298167, 0.003646, 0.614518],
++  [0.698192, 0.298172, 0.003636, 0.614508],
++  [0.698197, 0.298177, 0.003626, 0.614498],
++  [0.698202, 0.298182, 0.003616, 0.614488],
++  [0.698206, 0.298187, 0.003606, 0.614478],
++  [0.698211, 0.298192, 0.003596, 0.614469],
++  [0.698216, 0.298197, 0.003587, 0.614459],
++  [0.698221, 0.298202, 0.003577, 0.614449],
++  [0.698226, 0.298207, 0.003568, 0.614440],
++  [0.698230, 0.298212, 0.003558, 0.614430],
++  [0.698235, 0.298216, 0.003549, 0.614421],
++  [0.698240, 0.298221, 0.003539, 0.614411],
++  [0.698244, 0.298226, 0.003530, 0.614402],
++  [0.698249, 0.298231, 0.003521, 0.614392],
++  [0.698253, 0.298235, 0.003511, 0.614383],
++  [0.698258, 0.298240, 0.003502, 0.614374],
++  [0.698262, 0.298244, 0.003493, 0.614365],
++  [0.698267, 0.298249, 0.003484, 0.614356],
++  [0.698271, 0.298254, 0.003475, 0.614347],
++  [0.698276, 0.298258, 0.003466, 0.614337],
++  [0.698280, 0.298263, 0.003457, 0.614328],
++  [0.698285, 0.298267, 0.003448, 0.614320],
++  [0.698289, 0.298272, 0.003439, 0.614311],
++  [0.698293, 0.298276, 0.003430, 0.614302],
++  [0.698298, 0.298281, 0.003422, 0.614293],
++  [0.698302, 0.298285, 0.003413, 0.614284],
++  [0.698306, 0.298289, 0.003404, 0.614275],
++  [0.698311, 0.298294, 0.003396, 0.614267],
++  [0.698315, 0.298298, 0.003387, 0.614258],
++  [0.698319, 0.298302, 0.003378, 0.614250],
++  [0.698323, 0.298307, 0.003370, 0.614241],
++  [0.698328, 0.298311, 0.003361, 0.614232],
++  [0.698332, 0.298315, 0.003353, 0.614224],
++  [0.698336, 0.298319, 0.003345, 0.614216],
++  [0.698340, 0.298324, 0.003336, 0.614207],
++  [0.698344, 0.298328, 0.003328, 0.614199],
++  [0.698348, 0.298332, 0.003320, 0.614191],
++  [0.698352, 0.298336, 0.003311, 0.614182],
++  [0.698356, 0.298340, 0.003303, 0.614174],
++  [0.698360, 0.298344, 0.003295, 0.614166],
++  [0.698364, 0.298349, 0.003287, 0.614158],
++  [0.698368, 0.298353, 0.003279, 0.614150],
++  [0.698372, 0.298357, 0.003271, 0.614142],
++  [0.698376, 0.298361, 0.003263, 0.614134],
++  [0.698380, 0.298365, 0.003255, 0.614126],
++  [0.698384, 0.298369, 0.003247, 0.614118],
++  [0.698388, 0.298373, 0.003239, 0.614110],
++  [0.698392, 0.298377, 0.003231, 0.614102],
++  [0.698396, 0.298381, 0.003224, 0.614094],
++  [0.698400, 0.298384, 0.003216, 0.614086],
++  [0.698403, 0.298388, 0.003208, 0.614079],
++  [0.698407, 0.298392, 0.003200, 0.614071],
++  [0.698411, 0.298396, 0.003193, 0.614063],
++  [0.698415, 0.298400, 0.003185, 0.614056],
++  [0.698419, 0.298404, 0.003178, 0.614048],
++  [0.698422, 0.298408, 0.003170, 0.614040],
++  [0.698426, 0.298411, 0.003163, 0.614033],
++  [0.698430, 0.298415, 0.003155, 0.614025],
++  [0.698433, 0.298419, 0.003148, 0.614018],
++  [0.698437, 0.298423, 0.003140, 0.614011],
++  [0.698441, 0.298426, 0.003133, 0.614003],
++  [0.698444, 0.298430, 0.003126, 0.613996],
++  [0.698448, 0.298434, 0.003118, 0.613988],
++  [0.698452, 0.298437, 0.003111, 0.613981],
++  [0.698455, 0.298441, 0.003104, 0.613974],
++  [0.698459, 0.298445, 0.003097, 0.613967],
++  [0.698462, 0.298448, 0.003090, 0.613960],
++  [0.698466, 0.298452, 0.003082, 0.613952],
++  [0.698469, 0.298455, 0.003075, 0.613945],
++  [0.698473, 0.298459, 0.003068, 0.613938],
++  [0.698476, 0.298463, 0.003061, 0.613931],
++  [0.698480, 0.298466, 0.003054, 0.613924],
++  [0.698483, 0.298470, 0.003047, 0.613917],
++  [0.698487, 0.298473, 0.003040, 0.613910],
++  [0.698490, 0.298477, 0.003033, 0.613903],
++  [0.698493, 0.298480, 0.003027, 0.613896],
++  [0.698497, 0.298483, 0.003020, 0.613889],
++  [0.698500, 0.298487, 0.003013, 0.613883],
++  [0.698504, 0.298490, 0.003006, 0.613876],
++  [0.698507, 0.298494, 0.002999, 0.613869],
++  [0.698510, 0.298497, 0.002993, 0.613862],
++  [0.698514, 0.298500, 0.002986, 0.613856],
++  [0.698517, 0.298504, 0.002979, 0.613849],
++  [0.698520, 0.298507, 0.002973, 0.613842],
++  [0.698523, 0.298511, 0.002966, 0.613836],
++  [0.698527, 0.298514, 0.002960, 0.613829],
++  [0.698530, 0.298517, 0.002953, 0.613823],
++  [0.698533, 0.298520, 0.002947, 0.613816],
++  [0.698536, 0.298524, 0.002940, 0.613810],
++  [0.698540, 0.298527, 0.002934, 0.613803],
++  [0.698543, 0.298530, 0.002927, 0.613797],
++  [0.698546, 0.298533, 0.002921, 0.613790],
++  [0.698549, 0.298537, 0.002914, 0.613784],
++  [0.698552, 0.298540, 0.002908, 0.613777],
++  [0.698555, 0.298543, 0.002902, 0.613771],
++  [0.698558, 0.298546, 0.002895, 0.613765],
++  [0.698562, 0.298549, 0.002889, 0.613758],
++  [0.698565, 0.298552, 0.002883, 0.613752],
++  [0.698568, 0.298556, 0.002877, 0.613746],
++  [0.698571, 0.298559, 0.002871, 0.613740],
++  [0.698574, 0.298562, 0.002864, 0.613734],
++  [0.698577, 0.298565, 0.002858, 0.613727],
++  [0.698580, 0.298568, 0.002852, 0.613721],
++  [0.698583, 0.298571, 0.002846, 0.613715],
++  [0.698586, 0.298574, 0.002840, 0.613709],
++  [0.698589, 0.298577, 0.002834, 0.613703],
++  [0.698592, 0.298580, 0.002828, 0.613697],
++  [0.698595, 0.298583, 0.002822, 0.613691],
++  [0.698598, 0.298586, 0.002816, 0.613685],
++  [0.698601, 0.298589, 0.002810, 0.613679],
++  [0.698604, 0.298592, 0.002804, 0.613673],
++  [0.698607, 0.298595, 0.002798, 0.613667],
++  [0.698609, 0.298598, 0.002793, 0.613662],
++  [0.698612, 0.298601, 0.002787, 0.613656],
++  [0.698615, 0.298604, 0.002781, 0.613650],
++  [0.698618, 0.298607, 0.002775, 0.613644],
++  [0.698621, 0.298610, 0.002769, 0.613638],
++  [0.698624, 0.298613, 0.002764, 0.613633],
++  [0.698627, 0.298615, 0.002758, 0.613627],
++  [0.698629, 0.298618, 0.002752, 0.613621],
++  [0.698632, 0.298621, 0.002747, 0.613615],
++  [0.698635, 0.298624, 0.002741, 0.613610],
++  [0.698638, 0.298627, 0.002735, 0.613604],
++  [0.698641, 0.298630, 0.002730, 0.613599],
++  [0.698643, 0.298632, 0.002724, 0.613593],
++  [0.698646, 0.298635, 0.002719, 0.613587],
++  [0.698649, 0.298638, 0.002713, 0.613582],
++  [0.698651, 0.298641, 0.002708, 0.613576],
++  [0.698654, 0.298644, 0.002702, 0.613571],
++  [0.698657, 0.298646, 0.002697, 0.613565],
++  [0.698660, 0.298649, 0.002691, 0.613560],
++  [0.698662, 0.298652, 0.002686, 0.613555],
++  [0.698665, 0.298654, 0.002681, 0.613549],
++  [0.698668, 0.298657, 0.002675, 0.613544],
++  [0.698670, 0.298660, 0.002670, 0.613538],
++  [0.698673, 0.298663, 0.002665, 0.613533],
++  [0.698676, 0.298665, 0.002659, 0.613528],
++  [0.698678, 0.298668, 0.002654, 0.613522],
++  [0.698681, 0.298671, 0.002649, 0.613517],
++  [0.698683, 0.298673, 0.002643, 0.613512],
++  [0.698686, 0.298676, 0.002638, 0.613507],
++  [0.698689, 0.298678, 0.002633, 0.613501],
++  [0.698691, 0.298681, 0.002628, 0.613496],
++  [0.698694, 0.298684, 0.002623, 0.613491],
++  [0.698696, 0.298686, 0.002618, 0.613486],
++  [0.698699, 0.298689, 0.002612, 0.613481],
++  [0.698701, 0.298691, 0.002607, 0.613476],
++  [0.698704, 0.298694, 0.002602, 0.613471],
++  [0.698706, 0.298696, 0.002597, 0.613466],
++  [0.698709, 0.298699, 0.002592, 0.613460],
++  [0.698711, 0.298702, 0.002587, 0.613455],
++  [0.698714, 0.298704, 0.002582, 0.613450],
++  [0.698716, 0.298707, 0.002577, 0.613445],
++  [0.698719, 0.298709, 0.002572, 0.613440],
++  [0.698721, 0.298712, 0.002567, 0.613435],
++  [0.698724, 0.298714, 0.002562, 0.613431],
++  [0.698726, 0.298717, 0.002557, 0.613426],
++  [0.698728, 0.298719, 0.002553, 0.613421],
++  [0.698731, 0.298721, 0.002548, 0.613416],
++  [0.698733, 0.298724, 0.002543, 0.613411],
++  [0.698736, 0.298726, 0.002538, 0.613406],
++  [0.698738, 0.298729, 0.002533, 0.613401],
++  [0.698740, 0.298731, 0.002528, 0.613397],
++  [0.698743, 0.298734, 0.002524, 0.613392],
++  [0.698745, 0.298736, 0.002519, 0.613387],
++  [0.698748, 0.298738, 0.002514, 0.613382],
++  [0.698750, 0.298741, 0.002509, 0.613377],
++  [0.698752, 0.298743, 0.002505, 0.613373],
++  [0.698755, 0.298745, 0.002500, 0.613368],
++  [0.698757, 0.298748, 0.002495, 0.613363],
++  [0.698759, 0.298750, 0.002491, 0.613359],
++  [0.698761, 0.298752, 0.002486, 0.613354],
++  [0.698764, 0.298755, 0.002481, 0.613349],
++  [0.698766, 0.298757, 0.002477, 0.613345],
++  [0.698768, 0.298759, 0.002472, 0.613340],
++  [0.698771, 0.298762, 0.002468, 0.613336],
++  [0.698773, 0.298764, 0.002463, 0.613331],
++  [0.698775, 0.298766, 0.002459, 0.613327],
++  [0.698777, 0.298769, 0.002454, 0.613322],
++  [0.698780, 0.298771, 0.002450, 0.613317],
++  [0.698782, 0.298773, 0.002445, 0.613313],
++  [0.698784, 0.298775, 0.002441, 0.613308],
++  [0.698786, 0.298778, 0.002436, 0.613304],
++  [0.698788, 0.298780, 0.002432, 0.613300],
++  [0.698791, 0.298782, 0.002427, 0.613295],
++  [0.698793, 0.298784, 0.002423, 0.613291],
++  [0.698795, 0.298786, 0.002419, 0.613286],
++  [0.698797, 0.298789, 0.002414, 0.613282],
++  [0.698799, 0.298791, 0.002410, 0.613278],
++  [0.698801, 0.298793, 0.002405, 0.613273],
++  [0.698804, 0.298795, 0.002401, 0.613269],
++  [0.698806, 0.298797, 0.002397, 0.613265],
++  [0.698808, 0.298800, 0.002393, 0.613260],
++  [0.698810, 0.298802, 0.002388, 0.613256],
++  [0.698812, 0.298804, 0.002384, 0.613252],
++  [0.698814, 0.298806, 0.002380, 0.613247],
++  [0.698816, 0.298808, 0.002376, 0.613243],
++  [0.698818, 0.298810, 0.002371, 0.613239],
++  [0.698821, 0.298812, 0.002367, 0.613235],
++  [0.698823, 0.298814, 0.002363, 0.613231],
++  [0.698825, 0.298817, 0.002359, 0.613226],
++  [0.698827, 0.298819, 0.002355, 0.613222],
++  [0.698829, 0.298821, 0.002350, 0.613218],
++  [0.698831, 0.298823, 0.002346, 0.613214],
++  [0.698833, 0.298825, 0.002342, 0.613210],
++  [0.698835, 0.298827, 0.002338, 0.613206],
++  [0.698837, 0.298829, 0.002334, 0.613202],
++  [0.698839, 0.298831, 0.002330, 0.613198],
++  [0.698841, 0.298833, 0.002326, 0.613193],
++  [0.698843, 0.298835, 0.002322, 0.613189],
++  [0.698845, 0.298837, 0.002318, 0.613185],
++  [0.698847, 0.298839, 0.002314, 0.613181],
++  [0.698849, 0.298841, 0.002310, 0.613177],
++  [0.698851, 0.298843, 0.002306, 0.613173],
++  [0.698853, 0.298845, 0.002302, 0.613169],
++  [0.698855, 0.298847, 0.002298, 0.613165],
++  [0.698857, 0.298849, 0.002294, 0.613161],
++  [0.698859, 0.298851, 0.002290, 0.613157],
++  [0.698861, 0.298853, 0.002286, 0.613154],
++  [0.698863, 0.298855, 0.002282, 0.613150],
++  [0.698865, 0.298857, 0.002278, 0.613146],
++  [0.698867, 0.298859, 0.002274, 0.613142],
++  [0.698868, 0.298861, 0.002271, 0.613138],
++  [0.698870, 0.298863, 0.002267, 0.613134],
++  [0.698872, 0.298865, 0.002263, 0.613130],
++  [0.698874, 0.298867, 0.002259, 0.613126],
++  [0.698876, 0.298869, 0.002255, 0.613123],
++  [0.698878, 0.298871, 0.002251, 0.613119],
++  [0.698880, 0.298873, 0.002248, 0.613115],
++  [0.698882, 0.298874, 0.002244, 0.613111],
++  [0.698884, 0.298876, 0.002240, 0.613107],
++  [0.698885, 0.298878, 0.002236, 0.613104],
++  [0.698887, 0.298880, 0.002233, 0.613100],
++  [0.698889, 0.298882, 0.002229, 0.613096],
++  [0.698891, 0.298884, 0.002225, 0.613092],
++];
+diff --git a/runtime/scripts/compile.py b/runtime/scripts/compile.py
+index f085271..91bf8c4 100644
+--- a/runtime/scripts/compile.py
++++ b/runtime/scripts/compile.py
+@@ -34,6 +34,11 @@ from build_safety import (BuildError, ApprovalError, atomic_json, file_digest,
+                           require_paperwork, validate_approvals, validate_project,
+                           writable_path, record_failure, require_short_duration)
+ 
++# ART_BURNIN=0 keeps a --review cut (GATE F still applies) but omits the review
++# burn-ins: the per-beat "B00 GRAPHIC VIDEO 0.0s +9.9s" chips and the running
++# timecode. Default 1 = unchanged behaviour. Opt-in, for cuts meant to be watched.
++BURN_IN = os.environ.get("ART_BURNIN", "1") != "0"
++
+ FFMPEG = shutil.which("ffmpeg") or "ffmpeg"
+ FFPROBE = shutil.which("ffprobe") or "ffprobe"
+ INK_RGB = (47, 42, 38)        # #2F2A26
+@@ -738,7 +743,7 @@ def compile_reel(a):
+     meta_flags = sheet.get("metadata", {})
+     keep_labels = bool(meta_flags.get("keep_review_labels"))
+     label_pngs = []   # list of (png_path, ts, dur)
+-    if a.review:
++    if a.review and BURN_IN:
+         for bid, ts, dur, status, stype in report:
+             png = work / f"lbl-{bid}.png"
+             make_label_png(png, f"{bid} {stype} {status} {ts:6.1f}s +{dur:.1f}s",
+@@ -785,8 +790,13 @@ def compile_reel(a):
+                       f"overlay=(W-w)/2:H-h-40"
+                       f":enable='between(t,0,{first_beat_dur:.3f})'[vtitle]")
+             prev = "vtitle"
+-        if a.review and drawtext:
+-            fc.append(f"[{prev}]drawtext=fontfile={font}:text='%{{pts\\:hms}}'"
++        if a.review and drawtext and BURN_IN:
++            # ffmpeg filtergraphs treat ':' as the option separator and '\' as
++            # the escape char, so a raw Windows path (C:\Users\...) is parsed to
++            # pieces. Forward slashes + an escaped drive colon + quoting survive
++            # both passes; on POSIX paths this is a no-op.
++            font_arg = str(font).replace("\\", "/").replace(":", r"\:")
++            fc.append(f"[{prev}]drawtext=fontfile='{font_arg}':text='%{{pts\\:hms}}'"
+                       f":fontcolor=white:fontsize={int(h*0.04)}:box=1"
+                       f":boxcolor=black@0.55:boxborderw=8:x=w-text_w-16:y=16[vout]")
+         else:
+diff --git a/runtime/scripts/remotion_scenes.py b/runtime/scripts/remotion_scenes.py
+index db4b386..8f1225e 100644
+--- a/runtime/scripts/remotion_scenes.py
++++ b/runtime/scripts/remotion_scenes.py
+@@ -22,6 +22,9 @@ from build_safety import BuildError, atomic_json, validate_project, validate_app
+ HERE = Path(__file__).resolve().parents[1]                       # runtime/
+ PROJECT = HERE / "remotion"        # the Remotion project
+ ENTRY = "src/index.ts"
++# On Windows npx is npx.CMD; subprocess without shell=True does not apply PATHEXT,
++# so a bare "npx" raises WinError 2. Resolve it once, here. No-op on POSIX.
++NPX = shutil.which("npx") or "npx"
+ CONSUMERS = HERE / "remotion" / "_bench" / "consumers.json"
+ FFMPEG = os.environ.get("FFMPEG", "ffmpeg")
+ 
+@@ -87,7 +90,7 @@ def render_beat(folder: Path, beat: dict, force: bool) -> str:
+             candidate = Path(scratch) / 'render.mp4'
+             props_path = Path(scratch) / 'props.json'
+             atomic_json(props_path, rem.get('props', {}))
+-            cmd = ["npx", "remotion", "render", ENTRY, pattern, str(candidate),
++            cmd = [NPX, "remotion", "render", ENTRY, pattern, str(candidate),
+                    f"--props={props_path}", "--concurrency=1",
+                    "--scale=2", "--image-format=png", "--crf=16"] + browser_flags()
+             r = subprocess.run(cmd, cwd=PROJECT, capture_output=True, text=True)
+diff --git a/runtime/scripts/smoke_test.sh b/runtime/scripts/smoke_test.sh
+index 2c4d631..4aa9d56 100755
+--- a/runtime/scripts/smoke_test.sh
++++ b/runtime/scripts/smoke_test.sh
+@@ -57,7 +57,7 @@ if ! ART_FACTS=0 ART_QC=1 ART_STRICT=0 bash "$ROOT/scripts/run.sh" "$WORK" 2>&1
+   fail "run.sh exited non-zero — see $WORK/.run.log"
+ fi
+ 
+-OUT="$WORK/_smoke-slate.mp4"
++OUT="$WORK/smoke-slate.mp4"
+ [ -f "$OUT" ] || fail "no compiled slate cut at $OUT — run.sh reported success but produced nothing"
+ 
+ echo "[smoke] --- GATE SIZE: non-zero, non-truncated mp4 on disk ---"
+diff --git a/setup b/setup
+index 7209959..e42381a 100755
+--- a/setup
++++ b/setup
+@@ -102,15 +102,20 @@ fi
+ # ── ElevenLabs guard ─────────────────────────────────────────────────
+ # Functional ElevenLabs references are bugs; prose documentation mentioning the
+ # name is allowed. setup is excluded because it contains this guard.
++# youtube/ is excluded too: it holds video scripts that quote these very
++# patterns on screen, plus brand_variant.py "before" fixtures whose metadata
++# this toolkit rewrites to kokoro. Neither is a functional reference.
+ EL_PAT="ELEVEN""LABS_API_KEY|elevenlabs""\.io|\"engine\"[^\"]*\"elevenlabs\"|xi-api-key"
+ if grep -rqiE "$EL_PAT" \
+     --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=__pycache__ \
+-    --exclude-dir='.claude' --exclude='CHANGELOG*' --exclude=setup .; then
++    --exclude-dir='.claude' --exclude-dir=youtube \
++    --exclude='CHANGELOG*' --exclude=setup .; then
+   r "ElevenLabs reference found — this toolkit is Kokoro-only for narration."; echo
+   echo "  Files with hits:"
+   grep -rliE "$EL_PAT" \
+     --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=__pycache__ \
+-    --exclude-dir='.claude' --exclude='CHANGELOG*' --exclude=setup . | sed 's/^/    /'
++    --exclude-dir='.claude' --exclude-dir=youtube \
++    --exclude='CHANGELOG*' --exclude=setup . | sed 's/^/    /'
+   exit 1
+ fi
+ 
