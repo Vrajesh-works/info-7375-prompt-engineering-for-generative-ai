@@ -1,0 +1,614 @@
+{
+  "metadata": {
+    "title": "The Unit Is a Token, Not a Word.",
+    "slug": "the-unit-is-token-not-word",
+    "topic": "TOKENIZATION",
+    "register": "Teardown",
+    "brand": "claude-liam",
+    "persona": "Isaac (in for Bear)",
+    "voice": "am_puck",
+    "engine": "kokoro",
+    "voice_kokoro": "am_puck",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "greeting": "Konnichiwa, Isaac",
+    "folderLabel": "@NikBearBrown",
+    "in_for_bear": true,
+    "note": "INFO7375 assignment — real topic, 18 beats, review cut only. Token counts verified live against tiktoken cl100k_base before authoring; see conversation log for the raw run.",
+    "build": {
+      "at": "2026-09-27T23:51:12",
+      "cut": "review",
+      "filled": 17,
+      "of": 17,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "cold open",
+      "narration_text": "Konnichiwa — this is Isaac from Taiwan. Ask a language model to count the r's in strawberry, and it will probably get it wrong. Not because it's dumb — because of what it's actually reading. Let's find out what that is.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 13,
+      "shot": {
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Konnichiwa, Isaac",
+            "topic": "TOKENIZATION",
+            "segment": "The Unit Is a Token, Not a Word.",
+            "command": "Why does an LLM get 'how many r's in strawberry' wrong?",
+            "runningText": "loading tokenizer…",
+            "output": [
+              "The model never reads letters.",
+              "It reads tokens — and 'strawberry' isn't one."
+            ],
+            "folderLabel": "@NikBearBrown"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-28T02:03:15.667725+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 13.08,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 13.083333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "narration_text": "Here is the big picture. Language models do not see letters or words. They only see tokens — which are just pre-packaged text chunks. When an entire word is glued together into a single token, the AI can no longer see the letters trapped inside it. That is why letter-counting breaks down.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 20,
+      "shot": {
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "The unit is a word.\nWait — no.\nThe unit is a token.\nNot a letter. Not a word.\nJust a frequent chunk\nof characters.",
+            "face": "serif",
+            "align": "center"
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-09-28T02:04:21.085606+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 16.45,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 16.458333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "myth",
+      "narration_text": "Here's the myth. You type 'strawberry,' and somewhere inside the model, it sees s, t, r, a, w, b, e, r, r, y — ten separate letters, ready to count. It doesn't.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 10,
+      "actual_duration_s": 11.29,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 11.291666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T23:51:12"
+      },
+      "shot": {
+        "remotion": {
+          "pattern": "SLATE",
+          "props": {}
+        }
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "why tokens",
+      "narration_text": "You might wonder: why not just build the AI to read letter by letter? It comes down to computation speed. If the model had to process text one letter at a time, reading a paragraph would take forever, and it would quickly forget the beginning of a sentence. Tokens are a mathematical compromise: they compress text so the AI can process huge amounts of data quickly, but at the cost of character-level precision.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 15,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B03.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T23:51:12"
+      },
+      "actual_duration_s": 18.97,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 19.0,
+      "shot": {
+        "remotion": {
+          "pattern": "SLATE",
+          "props": {}
+        }
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "define",
+      "narration_text": "So what does it read instead? It uses Byte Pair Encoding. Imagine an algorithm scanning millions of books. It finds letters that sit together—like t and h—and glues them into th. Then it sees th and e sit together, and glues them into the. It repeats this until common words become single, solid blocks. Now, the AI can process the entire word the in one lightning-fast step, instead of three slow letters. That is the speed advantage.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 14,
+      "actual_duration_s": 20.35,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 20.375,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B04.mp4",
+        "filled_by": "remotion:ExecutedData",
+        "at": "2026-09-27T23:51:12"
+      },
+      "shot": {
+        "remotion": {
+          "pattern": "ExecutedData",
+          "props": {
+            "title": "BPE: Merging Letters",
+            "mode": "table",
+            "columnLabels": [
+              "Process",
+              "Chunk"
+            ],
+            "rows": [
+              {
+                "label": "t + h",
+                "value": "th",
+                "at": 0
+              },
+              {
+                "label": "th + e",
+                "value": "the",
+                "at": 1
+              }
+            ],
+            "note": "Common words become solid blocks."
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": "2026-09-28T02:05:09.802225+00:00"
+          }
+        }
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "not linguistic",
+      "narration_text": "Here is the difference it makes. If an AI read the sentence \"the strawberry is red\" letter by letter, it would take twenty-one separate processing steps. By using tokens, it takes exactly four. That is the double-edged sword: the AI reads lightning fast, but because \"strawberry\" is fused into a single solid block, the model becomes completely blind to the letters trapped inside it.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 12,
+      "actual_duration_s": 18.9,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 18.916666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B05.mp4",
+        "filled_by": "remotion:ExecutedData",
+        "at": "2026-09-27T23:51:12"
+      },
+      "shot": {
+        "remotion": {
+          "pattern": "ExecutedData",
+          "props": {
+            "title": "\"the strawberry is red\"",
+            "mode": "table",
+            "columnLabels": [
+              "Unit",
+              "Steps needed"
+            ],
+            "rows": [
+              {
+                "label": "Letters (t-h-e-...)",
+                "value": 21,
+                "at": 0
+              },
+              {
+                "label": "Tokens (the-straw-...)",
+                "value": 4,
+                "at": 1
+              }
+            ],
+            "note": "21 steps vs 4 steps"
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-09-28T02:05:58.703887+00:00"
+          }
+        }
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "demo intro",
+      "narration_text": "Let's not take my word for it. This is the real tokenizer GPT-4 uses, cl100k base, and I'm running it live against the exact word from the question.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 10,
+      "shot": {
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "tokenize.py",
+            "language": "python",
+            "code": "import tiktoken\nenc = tiktoken.get_encoding(\"cl100k_base\")\n\nfor w in [\"strawberry\", \" strawberry\"]:\n    ids = enc.encode(w)\n    print(w, \"->\", [enc.decode([i]) for i in ids])",
+            "sparkLine": "No screenshots — this actually ran."
+          },
+          "rendered": {
+            "out": "media/B06.mp4",
+            "at": "2026-09-28T02:06:33.136616+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 11.29,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 11.291666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B06.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "demo — alone",
+      "narration_text": "Type just the word 'strawberry' by itself: ten characters, and the tokenizer cuts it into three pieces — str, aw, berry.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 10,
+      "shot": {
+        "remotion": {
+          "pattern": "ExecutedData",
+          "props": {
+            "title": "'strawberry' — alone",
+            "mode": "table",
+            "columnLabels": [
+              "Metric",
+              "Count"
+            ],
+            "rows": [
+              {
+                "label": "characters",
+                "value": 10,
+                "at": 0
+              },
+              {
+                "label": "tokens",
+                "value": 3,
+                "at": 0.8
+              }
+            ],
+            "note": "str · aw · berry"
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-09-28T02:07:14.005178+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 8.15,
+      "audio_file": "mp3/beat-B07.mp3",
+      "render_duration_s": 8.166666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "remotion:ExecutedData",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "demo — the reveal",
+      "narration_text": "Now put a single space in front of it, the way it actually appears mid-sentence. Eleven characters — and the tokenizer no longer splits it at all. The whole word collapses into one opaque token.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 12,
+      "shot": {
+        "remotion": {
+          "pattern": "ExecutedData",
+          "props": {
+            "title": "' strawberry' — mid-sentence",
+            "mode": "table",
+            "columnLabels": [
+              "Metric",
+              "Count"
+            ],
+            "rows": [
+              {
+                "label": "characters",
+                "value": 11,
+                "at": 0
+              },
+              {
+                "label": "tokens",
+                "value": 1,
+                "at": 0.8
+              }
+            ],
+            "note": "one token: ' strawberry' — no letters exposed"
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-09-28T02:07:56.286271+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 12.16,
+      "audio_file": "mp3/beat-B08.mp3",
+      "render_duration_s": 12.166666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "remotion:ExecutedData",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "demo — full prompt",
+      "narration_text": "Feed it the whole question, 'how many r's are in strawberry,' and it comes back as eight tokens total. Strawberry isn't spelled out anywhere in there. It's just one of those eight pieces, sitting next to 'r' and apostrophe-s as equally opaque neighbors.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 14,
+      "shot": {
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "tokenize.py — full prompt",
+            "language": "python",
+            "code": "enc.encode(\"How many r's are in strawberry?\")\n# 8 tokens:\n# ['How', ' many', ' r', \"'s\", ' are', ' in', ' strawberry', '?']",
+            "sparkLine": "8 tokens. 'strawberry' is just one of them."
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": "2026-09-28T02:08:31.434269+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.14,
+      "audio_file": "mp3/beat-B09.mp3",
+      "render_duration_s": 14.166666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B09.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "demo — case",
+      "narration_text": "Capitalize it, and the count is still three tokens. But remember: to an AI, every token is just a numerical ID. Lowercase 'str' and capital 'Str' are assigned completely different, unrelated ID numbers. To a human, it's obviously the same word. To the model, they are just two different numbers.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 13,
+      "shot": {
+        "remotion": {
+          "pattern": "ExecutedData",
+          "props": {
+            "title": "Same word, different tokens",
+            "mode": "table",
+            "columnLabels": [
+              "Form",
+              "Tokens"
+            ],
+            "rows": [
+              {
+                "label": "'strawberry'",
+                "value": 3,
+                "at": 0
+              },
+              {
+                "label": "'Strawberry'",
+                "value": 3,
+                "at": 0.7
+              }
+            ],
+            "note": "same count, different IDs — str ≠ Str"
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": "2026-09-28T02:09:14.869187+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 17.73,
+      "audio_file": "mp3/beat-B10.mp3",
+      "render_duration_s": 17.75,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B10.mp4",
+        "filled_by": "remotion:ExecutedData",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "mechanism",
+      "narration_text": "Here is the root of the problem. Because a token is just an ID number, it acts like a sealed box. The AI is never taught how to open that box and look at the letters inside. So when you ask 'how many r's are in strawberry', the AI has no way to actually count. It can only blindly guess based on whatever answer it saw most often during its training.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "actual_duration_s": 18.13,
+      "audio_file": "mp3/beat-B11.mp3",
+      "render_duration_s": 18.166666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B11.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T23:51:12"
+      },
+      "shot": {
+        "remotion": {
+          "pattern": "SLATE",
+          "props": {}
+        }
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "boundary",
+      "narration_text": "To be clear, this explains why the model fails at letter-counting. What this does NOT establish is whether future AI architectures will abandon tokens entirely. For now, this is the reality we build in.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 10,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B12.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T23:51:12"
+      },
+      "shot": {
+        "remotion": {
+          "pattern": "SLATE",
+          "props": {}
+        }
+      },
+      "actual_duration_s": 13.16,
+      "audio_file": "mp3/beat-B12.mp3",
+      "render_duration_s": 13.166666666666666
+    },
+    {
+      "beat_id": "B13",
+      "act": "fix",
+      "narration_text": "Or skip asking the model to eyeball it at all. Hand the counting to code, word dot count 'r', and you get an exact answer instantly — for the same reason a calculator beats mental math. The model doesn't need to solve character-level problems it was never built to solve.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 14,
+      "shot": {
+        "remotion": {
+          "pattern": "SLATE",
+          "props": {}
+        }
+      },
+      "actual_duration_s": 16.21,
+      "audio_file": "mp3/beat-B13.mp3",
+      "render_duration_s": 16.25,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B13.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "recap",
+      "narration_text": "So: the unit is a token, not a word. Whenever a task lives at the letter level — counting, reversing, spelling — assume the model can't see it directly, and hand that part to something that can.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 11,
+      "shot": {
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "The unit is a token,",
+              "not a word.",
+              "Design your prompts",
+              "around that."
+            ],
+            "meta": [
+              "tiktoken · cl100k_base"
+            ],
+            "dark": false
+          },
+          "rendered": {
+            "out": "media/B15.mp4",
+            "at": "2026-09-28T02:12:09.557075+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 11.95,
+      "audio_file": "mp3/beat-B14.mp3",
+      "render_duration_s": 11.958333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B14.mp4",
+        "filled_by": "remotion:FormACard",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "your turn",
+      "narration_text": "Your turn. Go to OpenAI's Tokenizer website. Pick a word you use constantly, and guess how it will split before you check. It's the fastest way to understand this, instead of just hearing about it.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 11,
+      "shot": {
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "TOKENIZATION",
+            "segment": "The Unit Is a Token, Not a Word.",
+            "command": "Go to: platform.openai.com/tokenizer",
+            "folderLabel": "@NikBearBrown"
+          },
+          "rendered": {
+            "out": "media/B16.mp4",
+            "at": "2026-09-28T02:13:28.119004+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 11.9,
+      "audio_file": "mp3/beat-B15.mp3",
+      "render_duration_s": 11.916666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B15.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T23:51:12"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "outro",
+      "narration_text": "Brutalist dot art. Isaac, in for Bear.",
+      "voice": "am_puck",
+      "engine": "kokoro",
+      "estimated_duration_s": 5,
+      "shot": {
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "The Unit Is a Token, Not a Word.",
+            "slug": "the-unit-is-token-not-word"
+          },
+          "rendered": {
+            "out": "media/B16.mp4",
+            "at": "2026-09-28T03:48:16.085929+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 2.41,
+      "audio_file": "mp3/beat-B16.mp3",
+      "render_duration_s": 2.4166666666666665,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B16.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-09-27T23:51:12"
+      }
+    }
+  ]
+}

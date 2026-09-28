@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+
+# Caches and Temporary Build Files
+__pycache__/
+*.pyc
+node_modules/
+.cache/
+build-state.json
+.*-candidate-*
+
+# Credentials & Secrets
+.env
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Private conversation transcripts
+*transcript*.json
+*transcript*.txt
+*transcript*.jsonl
+*transcript*.md
+*chat_history*
+
+# Brutalist/Build Caches (Intermediate media files)
+mp3/
+mp4/
+clips/
+media/
+images/
+manim/
+pantry/
+_qc/
