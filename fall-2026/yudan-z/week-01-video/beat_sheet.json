@@ -1,0 +1,835 @@
+{
+  "metadata": {
+    "title": "What Subtracting the Maximum Changes",
+    "slug": "week01-max-subtraction-yudan-z",
+    "topic": "INFO 7375 · WEEK 1",
+    "author": "Yudan Zhou",
+    "brand": "student-neutral",
+    "folderLabel": "Yudan Zhou · INFO 7375",
+    "register": "Teardown",
+    "engine": "kokoro",
+    "voice_kokoro": "af_bella",
+    "palette": "claude",
+    "aspect": "16:9",
+    "skill": "ai-explainer (free path)",
+    "typography": {
+      "serif": "EB Garamond",
+      "ui": "system sans",
+      "mono": "system mono"
+    },
+    "evidence": {
+      "path": "C:\\Users\\zyud0\\info-7375\\fall-2026\\yudan-z\\week-01-video\\evidence\\evidence_output.json",
+      "sha256": "a7a9cc36ec18c2e1b11c228f97a1c63371caa4f1fe338ac92e7ef04cbdb3168b",
+      "environment": {
+        "python": "3.14.2",
+        "implementation": "CPython",
+        "platform": "Windows-11-10.0.26200-SP0"
+      }
+    },
+    "decisions": [
+      "Neutral student variant: no in-for-Bear line, no channel handle or logo; corner text is the author label.",
+      "Outro is a plain FormACard title card, not the locked ClaudeTitleOutro (@NikBearBrown only).",
+      "Full JSON precision on screen; rounding only in spoken narration.",
+      "Bookends trimmed to target ~3:30; beats A–F unchanged from SCRIPT.md except noted edits."
+    ],
+    "build": {
+      "at": "2026-09-27T20:36:46",
+      "cut": "master",
+      "filled": 11,
+      "of": 11,
+      "slates": [],
+      "skin_warnings": [
+        "B10: palette=claude but the outro is 'FormACard' — OUTRO LAW wants ClaudeTitleOutro"
+      ]
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "cold open",
+      "narration_text": "Hello. This is Yudan Zhou's Week 1 explainer for INFO seven three seven five, narrated by a synthetic Kokoro voice — not Yudan, not the instructor, not an endorsement. Why does the reference implementation subtract the largest score before exponentiating?",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 15.4,
+      "shot": {
+        "lane": "bookend",
+        "class": "SHOW",
+        "scene_type": "ClaudeComposerAsk",
+        "show": [
+          {
+            "at": "start",
+            "event": "composer types the question"
+          },
+          {
+            "at": "after typing",
+            "event": "running line, then three result lines from evidence_output.json"
+          },
+          {
+            "at": "overlay",
+            "event": "bottom line: Styled after the Claude app; not affiliated with or endorsed by Anthropic."
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hello.",
+            "topic": "INFO 7375 · WEEK 1 · SYNTHETIC NARRATION",
+            "segment": "What Subtracting the Maximum Changes",
+            "command": "Why does probabilities() subtract max(logits) before exp?",
+            "runningText": "running max_subtraction_evidence.py…",
+            "output": [
+              "case A · max_abs_difference 1.1102230246251565e-16",
+              "case B · direct_unshifted: OverflowError: math range error",
+              "case C · reference_shifted [1.0, 0.0]"
+            ],
+            "folderLabel": "Yudan Zhou · INFO 7375",
+            "modelLabel": "",
+            "effortLabel": "",
+            "placeholder": "",
+            "durationSeconds": 17.34
+          }
+        }
+      },
+      "actual_duration_s": 17.34,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 17.375,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "overview (BLUF)",
+      "narration_text": "Subtracting the largest score changes the weights, not the distribution. It stops overflow at the top; it does nothing about underflow at the bottom. Here is the evidence, from real code.",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 11.9,
+      "shot": {
+        "lane": "bookend",
+        "class": "SHOW",
+        "scene_type": "BrutalistHesitantWriter",
+        "show": [
+          {
+            "at": "start",
+            "event": "writer types the question"
+          },
+          {
+            "at": "line 2",
+            "event": "types 'distribution', stops, deletes it, types 'weights — not the distribution'"
+          },
+          {
+            "at": "line 3",
+            "event": "types 'It stops overflow.'"
+          }
+        ],
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Why subtract the max first?\nIt changes the distribution.\nIt stops overflow.",
+            "triggerWords": "distribution",
+            "replacementWords": "weights — not the distribution",
+            "seed": "week01-max-subtraction-yudan-z",
+            "fontSize": 80,
+            "brandLabel": "Yudan Zhou · INFO 7375",
+            "charMs": 25,
+            "mistakeRate": 0,
+            "hesitateWithin": 0,
+            "hesitateBetween": 0,
+            "durationSeconds": 11.88
+          }
+        }
+      },
+      "lead_silence_s": 0.8,
+      "actual_duration_s": 11.88,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 11.916666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "A · the move",
+      "narration_text": "The course's reference implementation does not exponentiate your scores. It finds the largest one and subtracts it from all of them first. Scores one, two, three become minus two, minus one, zero. That is the whole of this video: what did that subtraction change?",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 16.9,
+      "shot": {
+        "lane": "remotion",
+        "class": "SHOW",
+        "scene_type": "ArrayPipeline",
+        "show": [
+          {
+            "at": "start",
+            "event": "scores [1, 2, 3]"
+          },
+          {
+            "at": "It finds the largest one",
+            "event": "peak = 3"
+          },
+          {
+            "at": "Scores one, two, three",
+            "event": "shifted [-2, -1, 0], terracotta"
+          }
+        ],
+        "remotion": {
+          "pattern": "ArrayPipeline",
+          "props": {
+            "title": "The Move Nobody Explains",
+            "sparkLine": "Subtract the peak.",
+            "footnote": "Recorded output · evidence_output.json · case A · Windows 11 · Python 3.14.2",
+            "brandLabel": "Yudan Zhou · INFO 7375",
+            "lanes": [
+              {
+                "stages": [
+                  {
+                    "label": "scores",
+                    "cells": [
+                      "1",
+                      "2",
+                      "3"
+                    ],
+                    "at": 0.3
+                  },
+                  {
+                    "label": "peak = max(scores)",
+                    "cells": [
+                      "3"
+                    ],
+                    "at": 4.36
+                  },
+                  {
+                    "label": "scores − peak",
+                    "cells": [
+                      "-2",
+                      "-1",
+                      "0"
+                    ],
+                    "at": 8.33,
+                    "accent": true
+                  }
+                ]
+              }
+            ],
+            "durationSeconds": 16.81
+          },
+          "rendered": {
+            "out": "media/B02.mp4",
+            "at": "2026-09-28T00:23:46.704989+00:00"
+          }
+        }
+      },
+      "cue_phrases": {
+        "peak": "It finds the largest one",
+        "shift": "Scores one, two, three"
+      },
+      "actual_duration_s": 16.81,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 16.833333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B02.mp4",
+        "filled_by": "remotion:ArrayPipeline",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "B · the numbers move",
+      "narration_text": "Each shifted score goes through the exponential. The largest score is now exactly zero, so its weight is exactly one. Every other weight is smaller than one. Add them: one point five oh three two. Divide each weight by that total, and those are the probabilities.",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 17.7,
+      "shot": {
+        "lane": "remotion",
+        "class": "SHOW",
+        "scene_type": "ArrayPipeline",
+        "show": [
+          {
+            "at": "Each shifted score",
+            "event": "weights row"
+          },
+          {
+            "at": "Add them",
+            "event": "total"
+          },
+          {
+            "at": "Divide each weight",
+            "event": "probabilities row, terracotta"
+          }
+        ],
+        "remotion": {
+          "pattern": "ArrayPipeline",
+          "props": {
+            "title": "Watch the Numbers Move",
+            "sparkLine": "Weights, then ratios.",
+            "footnote": "Recorded output · evidence_output.json · case A · Windows 11 · Python 3.14.2",
+            "brandLabel": "Yudan Zhou · INFO 7375",
+            "lanes": [
+              {
+                "stages": [
+                  {
+                    "label": "shifted",
+                    "cells": [
+                      "-2",
+                      "-1",
+                      "0"
+                    ],
+                    "at": 0.3
+                  },
+                  {
+                    "label": "exp(shifted)",
+                    "cells": [
+                      "0.1353352832366127",
+                      "0.36787944117144233",
+                      "1.0"
+                    ],
+                    "at": 1.25
+                  },
+                  {
+                    "label": "total",
+                    "cells": [
+                      "1.5032147244080551"
+                    ],
+                    "at": 10.76
+                  },
+                  {
+                    "label": "weight ÷ total",
+                    "cells": [
+                      "0.09003057317038046",
+                      "0.24472847105479764",
+                      "0.6652409557748218"
+                    ],
+                    "at": 13.27,
+                    "accent": true
+                  }
+                ]
+              }
+            ],
+            "durationSeconds": 17.26
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-09-28T00:25:00.535276+00:00"
+          }
+        }
+      },
+      "cue_phrases": {
+        "weights": "goes through the exponential",
+        "total": "Add them",
+        "probs": "Divide each weight"
+      },
+      "actual_duration_s": 17.26,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 17.291666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B03.mp4",
+        "filled_by": "remotion:ArrayPipeline",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "C · why it is allowed",
+      "narration_text": "Here is the reason it is safe. Exponentiating a difference splits into a product: e to the z-i over T, times e to the minus m over T. That second factor is the same in every numerator — and it is in every term of the denominator too. It cancels. The intermediate weights changed. The ratio between any two of them did not, and the ratio is the whole distribution.",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 26.9,
+      "shot": {
+        "lane": "remotion",
+        "class": "SHOW",
+        "scene_type": "TypesetMath",
+        "show": [
+          {
+            "at": "Exponentiating a difference",
+            "event": "row 1: shifted form"
+          },
+          {
+            "at": "That second factor",
+            "event": "row 2: common factor exp(-m/T) top and bottom, terracotta"
+          },
+          {
+            "at": "It cancels",
+            "event": "row 3: unshifted form (the factor is gone)"
+          },
+          {
+            "at": "overlay",
+            "event": "corner label Yudan Zhou · INFO 7375"
+          }
+        ],
+        "remotion": {
+          "pattern": "TypesetMath",
+          "props": {
+            "title": "Why It Is Allowed",
+            "rows": [
+              {
+                "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjI1MHB0IiBoZWlnaHQ9IjEwMXB0IiB2aWV3Qm94PSIwIDAgMjUwIDEwMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPgogPG1ldGFkYXRhPgogIDxyZGY6UkRGIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgPGNjOldvcms+CiAgICA8ZGM6dHlwZSByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIi8+CiAgICA8ZGM6ZGF0ZT4yMDI2LTA5LTI3VDIwOjIyOjIwLjg2MDUwNTwvZGM6ZGF0ZT4KICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgPGRjOmNyZWF0b3I+CiAgICAgPGNjOkFnZW50PgogICAgICA8ZGM6dGl0bGU+TWF0cGxvdGxpYiB2My4xMS4yLCBodHRwczovL21hdHBsb3RsaWIub3JnLzwvZGM6dGl0bGU+CiAgICAgPC9jYzpBZ2VudD4KICAgIDwvZGM6Y3JlYXRvcj4KICAgPC9jYzpXb3JrPgogIDwvcmRmOlJERj4KIDwvbWV0YWRhdGE+CiA8ZGVmcz4KICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPip7c3Ryb2tlLWxpbmVqb2luOiByb3VuZDsgc3Ryb2tlLWxpbmVjYXA6IGJ1dHR9PC9zdHlsZT4KIDwvZGVmcz4KIDxnIGlkPSJmaWd1cmVfMSI+CiAgPGcgaWQ9InBhdGNoXzEiPgogICA8cGF0aCBkPSJNIDAgMTAxIApMIDI1MCAxMDEgCkwgMjUwIDAgCkwgMCAwIApMIDAgMTAxIAp6CiIgc3R5bGU9ImZpbGw6IG5vbmUiLz4KICA8L2c+CiAgPGcgaWQ9InRleHRfMSI+CiAgIDwhLS0gJFxmcmFje1xleHBcbGVmdCgoel9pIC0gbSkvVFxyaWdodCl9e1xzdW1falwsIFxleHBcbGVmdCgoel9qIC0gbSkvVFxyaWdodCl9JCAtLT4KICAgPGcgc3R5bGU9ImZpbGw6ICMzZDM5MjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNDcpIHNjYWxlKDAuNDggLTAuNDgpIj4KICAgIDxkZWZzPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTQ4IiBkPSJNIDI2MTEgMTA1MCAKTCAyNzE0IDEwMDUgClEgMjMzMCAtNjQgMTM3NiAtNjQgClEgODEzIC02NCA0ODYgMzI5IApRIDE2MCA3MjMgMTYwIDEzODkgClEgMTYwIDIwNzQgNTI1IDI1MDkgClEgODkwIDI5NDQgMTQ4NSAyOTQ0IApRIDIwNjEgMjk0NCAyMzc0IDI1MDIgClEgMjU2MCAyMjQ2IDI1OTIgMTc3MyAKTCA2MjEgMTc3MyAKUSA2NDYgMTM3MCA3MDAgMTE1OCAKUSA3NTUgOTQ3IDkxNSA3MzAgClEgMTE4NCAzNzggMTYyNiAzNzggClEgMTkzOSAzNzggMjE1MyA1MzEgClEgMjM2OCA2ODUgMjYxMSAxMDUwIAp6Ck0gNjM0IDE5NzggCkwgMTkzOSAxOTc4IApRIDE4ODIgMjM4MSAxNzUwIDI1NDcgClEgMTYxOSAyNzE0IDEzMTIgMjcxNCAKUSAxMDQzIDI3MTQgODY0IDI1MjUgClEgNjg1IDIzMzYgNjM0IDE5NzggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTViIiBkPSJNIDMwNjYgMCAKTCAxNzc5IDAgCkwgMTc3OSA5NiAKUSAxOTM5IDEwOSAxOTg3IDEzNyAKUSAyMDM1IDE2NiAyMDM1IDI1MCAKUSAyMDM1IDMwNyAxOTk3IDM2NSAKTCAxNDE0IDEyNjEgCkwgOTA5IDQ3NCAKUSA3ODEgMjc1IDc4MSAyMTEgClEgNzgxIDk2IDEwMzcgOTYgCkwgMTAzNyAwIApMIDEwOSAwIApMIDEwOSA5NiAKUSAyNjkgMTA5IDM1NSAxNjkgClEgNDQyIDIzMCA1NzYgNDIyIApMIDEzMDYgMTQ3OCAKTCA3MDQgMjQwMCAKUSA1NTcgMjYyNCA0NTQgMjcwNCAKUSAzNTIgMjc4NCAyMTEgMjc4NCAKTCAxNTQgMjc4NCAKTCAxNTQgMjg4MCAKTCAxNDc4IDI4ODAgCkwgMTQ3OCAyNzg0IApRIDEyMDMgMjc3OCAxMjAzIDI2NDMgClEgMTIwMyAyNTA5IDE0OTggMjA3NCAKUSAxNTgxIDE5NTggMTU4NyAxOTQ2IApRIDE2MTkgMTk5MCAxNzc5IDIyMjcgClEgMTgxMSAyMjg1IDE4NTYgMjM0OSAKUSAxOTAxIDI0MTMgMTkyMyAyNDUxIApRIDE5NDYgMjQ5MCAxOTcxIDI1MjggClEgMTk5NyAyNTY2IDIwMDYgMjU5NSAKUSAyMDE2IDI2MjQgMjAxNiAyNjQzIApRIDIwMTYgMjc2NSAxNzYwIDI3ODQgCkwgMTc2MCAyODgwIApMIDI3NzEgMjg4MCAKTCAyNzcxIDI3ODQgClEgMjQ0NSAyNzcxIDIyNTMgMjUwMiAKTCAxNzIyIDE3MzQgCkwgMjU0MSA0ODAgClEgMjc5MCA5NiAzMDY2IDk2IApMIDMwNjYgMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNTMiIGQ9Ik0gMTAxOCAyOTMxIApMIDEwMTggMjQzOCAKUSAxNDIxIDI5NDQgMTkzOSAyOTQ0IApRIDI0MDYgMjk0NCAyNzA3IDI1NjAgClEgMzAwOCAyMTc2IDMwMDggMTU4MSAKUSAzMDA4IDg4MyAyNjIxIDQwOSAKUSAyMjM0IC02NCAxNjY0IC02NCAKUSAxNDY2IC02NCAxMzI4IC02IApRIDExOTAgNTEgMTAxOCAyMTEgCkwgMTAxOCAtNzk0IApRIDEwMTggLTEwOTQgMTEyMCAtMTE4MCAKUSAxMjIyIC0xMjY3IDE1ODEgLTEyNzQgCkwgMTU4MSAtMTM4OSAKTCAzMiAtMTM4OSAKTCAzMiAtMTI4MCAKUSAzMTQgLTEyNTQgMzk3IC0xMTcxIApRIDQ4MCAtMTA4OCA0ODAgLTgzOCAKTCA0ODAgMjE1NyAKUSA0ODAgMjM4MSA0MjkgMjQ1MSAKUSAzNzggMjUyMiAyMTggMjUyMiAKUSAxMTUgMjUyMiA1OCAyNTE1IApMIDU4IDI2MTggClEgNTA2IDI3NTIgOTc5IDI5NDQgCkwgMTAxOCAyOTMxIAp6Ck0gMTAxOCAyMTM4IApMIDEwMTggNTYzIApRIDEwMTggNDIyIDEyMzggMjgxIApRIDE0NTkgMTQxIDE2ODMgMTQxIApRIDIwMjkgMTQxIDIyNDMgNDY3IApRIDI0NTggNzk0IDI0NTggMTMyNSAKUSAyNDU4IDE4ODggMjI0MyAyMjI0IApRIDIwMjkgMjU2MCAxNjcwIDI1NjAgClEgMTQ0NiAyNTYwIDEyMzIgMjQxOSAKUSAxMDE4IDIyNzggMTAxOCAyMTM4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci1iIiBkPSJNIDE5NDYgLTEwMzAgCkwgMTg2OSAtMTEzMyAKUSAxMTI2IC03MTAgNzE2IDMyIApRIDMwNyA3NzQgMzA3IDE2MTMgClEgMzA3IDMzODYgMTg4OCA0MzI2IApMIDE5NDYgNDIyNCAKUSAxMjkzIDM2NjcgMTA3NSAzMTI2IApRIDg1OCAyNTg2IDg1OCAxNjMyIApRIDg1OCA2ODUgMTA4MiA5NiAKUSAxMzA2IC00OTMgMTk0NiAtMTAzMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy01ZCIgZD0iTSAyNDMyIDI2NjkgCkwgNTgyIDQ2NyAKUSA4NzcgNDAzIDEwMjEgMzA3IApRIDExNjUgMjExIDEzNTAgLTY0IApRIDE1NjggLTM4NCAxNzk4IC0zODQgClEgMTk3MSAtMzg0IDE5NzEgLTI4OCAKUSAxOTcxIC0yNTYgMTkzOSAtMTkyIApRIDE4ODggLTkwIDE4ODggLTEzIApRIDE4OTQgNzAgMTk1OCAxMzcgClEgMjAyMiAyMDUgMjA5OSAyMDUgClEgMjIwMiAyMDUgMjI2MiAxNDEgClEgMjMyMyA3NyAyMzIzIC0zMiAKUSAyMzIzIC0yMzAgMjE1NiAtMzc0IApRIDE5OTAgLTUxOCAxNzI4IC01MTggClEgMTQ1OSAtNTE4IDEwMDUgLTIzNyAKUSA1NzAgMzIgMzMzIDMyIApRIDE4NiAzMiA0NSAtODMgCkwgLTEzIC0yNiAKTCAxOTcxIDIzNTUgCkwgMTEwMSAyMzU1IApRIDg0NSAyMzU1IDcyOSAyMjgxIApRIDYxNCAyMjA4IDUxOCAxOTcxIApMIDQxNiAxOTk3IApMIDYyMSAyNzM5IApMIDI0MzIgMjczOSAKTCAyNDMyIDI2NjkgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNGMiIGQ9Ik0gMTY5MCAzODM0IApRIDE2OTAgMzY5OSAxNTk3IDM2MDMgClEgMTUwNCAzNTA3IDEzNzYgMzUwNyAKUSAxMjM1IDM1MDcgMTE1MiAzNjAwIApRIDEwNjkgMzY5MyAxMDY5IDM4NDYgClEgMTA2OSAzOTk0IDExNTUgNDA5MCAKUSAxMjQyIDQxODYgMTM3MCA0MTg2IApRIDE0OTggNDE4NiAxNTk0IDQwODAgClEgMTY5MCAzOTc0IDE2OTAgMzgzNCAKegpNIDE0MjEgNzMwIApMIDE1MDQgNjU5IApRIDEyMzUgMjQzIDEwNDkgODYgClEgODY0IC03MCA2MjcgLTcwIApRIDMxNCAtNzAgMzE0IDI4MiAKUSAzMTQgNDY3IDQ1NCA5OTIgCkwgNzYyIDIxMjUgClEgODE5IDIzMzAgODE5IDI0MDYgClEgODE5IDI1MDIgNzQ1IDI1MjggClEgNjcyIDI1NTQgNDEwIDI1NjAgCkwgNDEwIDI2NjIgClEgNzA0IDI2ODggMTQzNCAyODIyIApMIDE0NTkgMjgwMyAKTCA4NTggNjA4IApRIDc5NCAzOTAgNzk0IDMyNiAKUSA3OTQgMjMwIDg4MyAyMzAgClEgMTA0MyAyMzAgMTQyMSA3MzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTQyNSIgZD0iTSAzOTc0IDE0MDggCkwgNDEwIDE0MDggCkwgNDEwIDE4MzAgCkwgMzk3NCAxODMwIApMIDM5NzQgMTQwOCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy01MCIgZD0iTSA0NTA2IDY3MiAKTCA0NDc0IDYyNyAKUSAzOTgxIC01OCAzNTUyIC01OCAKUSAzMjk2IC01OCAzMjk2IDIzNyAKUSAzMjk2IDMzMyAzMzc5IDY1OSAKTCAzNzUwIDIxMTIgClEgMzc5NSAyMjkxIDM3OTUgMjM1NSAKUSAzNzk1IDI0MTMgMzc1NiAyNDUxIApRIDM3MTggMjQ5MCAzNjY3IDI0OTAgClEgMzM2NiAyNDkwIDI4MjkgMTc0MSAKUSAyNTkyIDE0MDggMjQ1NyAxMDcyIApRIDIzMjMgNzM2IDIxMzggMCAKTCAxNjU4IDAgCkwgMTgzMCA1OTUgClEgMjI2NiAyMDk5IDIyNjYgMjMzMCAKUSAyMjY2IDI0OTAgMjEyNSAyNDkwIApRIDE5NjUgMjQ5MCAxNzAyIDIyMzcgClEgMTQ0MCAxOTg0IDExNzEgMTU3NCAKUSAxMDExIDEzMjUgODk5IDEwNDMgClEgNzg3IDc2MiA1NTcgMCAKTCA3NyAwIApMIDM1MiA5MjIgClEgNzA0IDIwOTMgNzA0IDIzODEgClEgNzA0IDI1MjIgNDQyIDI1MjIgCkwgMjgyIDI1MjIgCkwgMjgyIDI2MjQgCkwgMTMxOCAyODIyIApMIDEzMzggMjgxMCAKTCA5NjYgMTQ3MiAKUSAxNzk4IDI4MjIgMjM3NCAyODIyIApRIDI1NjAgMjgyMiAyNjU5IDI3MjAgClEgMjc1OCAyNjE4IDI3NTggMjQzOCAKUSAyNzU4IDIxOTUgMjUwMiAxNDY2IApRIDI4NDIgMjAwMyAzMDY5IDIyNzUgClEgMzI5NiAyNTQ3IDM1MjYgMjY5NCAKUSAzNzMxIDI4MjIgMzkzMCAyODIyIApRIDQxMDIgMjgyMiA0MjAxIDI3MTAgClEgNDMwMSAyNTk4IDQzMDEgMjQxOSAKUSA0MzAxIDIzMzYgNDI4MiAyMjQwIApMIDM4NDYgNjM0IApRIDM3ODIgMzkwIDM3ODIgMzQ2IApRIDM3ODIgMjQzIDM4NTkgMjQzIApRIDQwMDAgMjQzIDQyNzUgNTgyIApMIDQ0MTAgNzQ5IApMIDQ1MDYgNjcyIAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci1jIiBkPSJNIDE4NiA0MjI0IApMIDI2MiA0MzI2IApRIDk5MiAzODkxIDE0MDggMzE0OCAKUSAxODI0IDI0MDYgMTgyNCAxNTgxIApRIDE4MjQgLTE2NiAyNDMgLTExMzMgCkwgMTg2IC0xMDMwIApRIDg0NSAtNDg2IDEwNTkgNTQgClEgMTI3NCA1OTUgMTI3NCAxNTYyIApRIDEyNzQgMjUzNCAxMDU5IDMxMjAgClEgODQ1IDM3MDYgMTg2IDQyMjQgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTEyIiBkPSJNIDE4MzcgNDMyNiAKTCAzNzggLTkwIApMIC01OCAtOTAgCkwgMTQwOCA0MzI2IApMIDE4MzcgNDMyNiAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy0zNyIgZD0iTSA0MDUxIDQxNzkgCkwgMzc3MCAzMTMwIApMIDM2NjEgMzE0MiAKUSAzNjgwIDMzMDIgMzY4MCAzNDM3IApRIDM2ODAgMzk1NSAzMDM0IDM5NTUgCkwgMjY2MiAzOTU1IApMIDE3ODYgODE5IApRIDE2OTYgNTA2IDE2OTYgMzk3IApRIDE2OTYgMjUwIDE3NjYgMTk1IApRIDE4MzcgMTQxIDIwMzUgMTIyIApMIDIyNTkgMTAyIApMIDIyNTkgMCAKTCA0MTYgMCAKTCA0MTYgMTAyIApRIDc0OSAxMzQgODg5IDIzMCAKUSAxMDMwIDMyNiAxMTAxIDU4MiAKTCAyMDE2IDM5NTUgClEgMTI1NCAzOTU1IDk4OCAzODE3IApRIDcyMyAzNjgwIDQ5MyAzMTYyIApMIDM3OCAzMTg3IApMIDY0NiA0MTc5IApMIDQwNTEgNDE3OSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNDI0IiBkPSJNIDU0NzggMjU2IApMIDUxMzkgLTE2NTggCkwgMzcxIC0xNjU4IApMIDI4ODAgMTYwNiAKTCA1MzEgNDg4MyAKTCA1MzEyIDQ4ODMgCkwgNTMxMiAzMjc3IApMIDUxMjAgMzI3NyAKUSA1MDE4IDM5NDkgNDc2NSA0MjA1IApRIDQ1MTIgNDQ2MSAzODkxIDQ0NjEgCkwgMTg0MyA0NDYxIApMIDM2OTkgMTk1OCAKTCAxNTQ5IC04MTkgCkwgNDE5OCAtODE5IApRIDQ2OTggLTgxOSA0OTM0IC01NTAgClEgNTE3MSAtMjgyIDUyODYgMjU2IApMIDU0NzggMjU2IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtSXRhbGljLTRkIiBkPSJNIDE3ODYgMzgyNyAKUSAxNzg2IDM2OTkgMTY5MCAzNjAzIApRIDE1OTQgMzUwNyAxNDY2IDM1MDcgClEgMTMxOCAzNTA3IDEyMTkgMzYwMCAKUSAxMTIwIDM2OTMgMTEyMCAzODQwIApRIDExMjAgMzk4MSAxMjIyIDQwNzcgClEgMTMyNSA0MTczIDE0NTkgNDE3MyAKUSAxNTg3IDQxNzMgMTY4NiA0MDY3IApRIDE3ODYgMzk2MiAxNzg2IDM4MjcgCnoKTSAxNTc0IDI4MDMgCkwgOTA5IDE3OSAKUSA3MTAgLTU5NSA0MTkgLTk2MCAKUSAxMjggLTEzMjUgLTI4OCAtMTMyNSAKUSAtNTEyIC0xMzI1IC02NTMgLTEyMTYgClEgLTc5NCAtMTEwNyAtNzk0IC05MzQgClEgLTc5NCAtODE5IC03MTcgLTczNiAKUSAtNjQwIC02NTMgLTUzMSAtNjUzIApRIC0yODIgLTY1MyAtMjgyIC04OTAgClEgLTI4MiAtOTY2IC0zMjAgLTEwMTQgClEgLTM1OCAtMTA2MiAtMzU4IC0xMTA3IApRIC0zNTggLTExODQgLTI0MyAtMTE4NCAKUSAtNTEgLTExODQgODAgLTkzNCAKUSAyMTEgLTY4NSAzNzggLTE5IApMIDgzOCAxODUwIApRIDk0MSAyMjY2IDk0MSAyMzYyIApRIDk0MSAyNDcwIDg3MyAyNTE1IApRIDgwNiAyNTYwIDYzNCAyNTYwIApMIDQ2NyAyNTYwIApMIDQ2NyAyNjYyIApRIDc1NSAyNjgyIDE1NDkgMjgyMiAKTCAxNTc0IDI4MDMgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYU2l6ZU9uZVN5bS1SZWd1bGFyLTQiIGQ9Ik0gMjQ0NSAtODU4IApMIDI0NDUgLTEwNTAgClEgMTcyOCAtMzcxIDEzMDkgNjMwIApRIDg5MCAxNjMyIDg5MCAyODg2IApRIDg5MCA0MTIyIDEzMDkgNTEzNiAKUSAxNzI4IDYxNTAgMjQ0NSA2ODIyIApMIDI0NDUgNjYzMCAKUSAxNDA4IDUzNjMgMTQwOCAyODg2IApRIDE0MDggNDEwIDI0NDUgLTg1OCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhTaXplT25lU3ltLVJlZ3VsYXItNSIgZD0iTSA1NTAgNjYzMCAKTCA1NTAgNjgyMiAKUSAxMjY3IDYxNDQgMTY4NiA1MTQyIApRIDIxMDYgNDE0MSAyMTA2IDI4ODYgClEgMjEwNiAxNjUxIDE2ODYgNjM2IApRIDEyNjcgLTM3OCA1NTAgLTEwNTAgCkwgNTUwIC04NTggClEgMTU4NyA0MTAgMTU4NyAyODg2IApRIDE1ODcgNTM2MyA1NTAgNjYzMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICA8L2RlZnM+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQ4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0Mi4yNSA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDczLjMyOTk3NCA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwOC4zMjk5NDIgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE1NC45OTY4MSA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTc4LjMwNjc5MSA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy01ZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAxLjYxNjc3MiA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy00YyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjI4Ljg0Njc0NiAzOS4xODQzNzUpIHNjYWxlKDAuNDkpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQyNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjU5LjYxODczMyA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy01MCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzIxLjU2ODY5IDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1jIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNzIuMTA4NjQ1IDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzk1LjQxODYyNiA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy0zNyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDE0Ljg3ODYwNyA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItYyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDUzLjc5ODU2OCA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNDI0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2LjI1IC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy00ZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQuMjUgLTEwMC44NzQ1MzEpIHNjYWxlKDAuNDkpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQ4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3My43NzQ3MTIgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci01YiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA0Ljg1NDY4NyAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTUzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzkuODU0NjU1IC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhTaXplT25lU3ltLVJlZ3VsYXItNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTg2LjUyMTUyMyAtNDkuMjUzOTA2KSBzY2FsZSgwLjU1MjUyMikiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjEyLjM3NjI5OSAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNWQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzNS42ODYyOCAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI2Mi45MTYyNTQgLTQ4LjE2NTYyNSkgc2NhbGUoMC40OSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNDI1IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyOTMuNjg4MjQgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTUwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNTUuNjM4MTk4IC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItYyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDA2LjE3ODE1MyAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTEyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MjkuNDg4MTM0IC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy0zNyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDQ4Ljk0ODExNCAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYU2l6ZU9uZVN5bS1SZWd1bGFyLTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4Ny44NjgwNzYgLTQ5LjI1MzkwNikgc2NhbGUoMC41NTI1MjIpIi8+CiAgICA8cGF0aCBkPSJNIDYuMjUgMjEuOTkyMTg4IApMIDYuMjUgMjguMjQyMTg4IApMIDUxMy43MjI4NTIgMjguMjQyMTg4IApMIDUxMy43MjI4NTIgMjEuOTkyMTg4IApMIDYuMjUgMjEuOTkyMTg4IAp6CiIvPgogICA8L2c+CiAgPC9nPgogPC9nPgo8L3N2Zz4K",
+                "aspect": 2.4752475247524752,
+                "expression": "\\frac{\\exp\\left((z_i - m)/T\\right)}{\\sum_j\\, \\exp\\left((z_j - m)/T\\right)}",
+                "at": 1.57
+              },
+              {
+                "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjM2M3B0IiBoZWlnaHQ9IjEwMXB0IiB2aWV3Qm94PSIwIDAgMzYzIDEwMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPgogPG1ldGFkYXRhPgogIDxyZGY6UkRGIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgPGNjOldvcms+CiAgICA8ZGM6dHlwZSByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIi8+CiAgICA8ZGM6ZGF0ZT4yMDI2LTA5LTI3VDIwOjIyOjIwLjg5NTA3NjwvZGM6ZGF0ZT4KICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgPGRjOmNyZWF0b3I+CiAgICAgPGNjOkFnZW50PgogICAgICA8ZGM6dGl0bGU+TWF0cGxvdGxpYiB2My4xMS4yLCBodHRwczovL21hdHBsb3RsaWIub3JnLzwvZGM6dGl0bGU+CiAgICAgPC9jYzpBZ2VudD4KICAgIDwvZGM6Y3JlYXRvcj4KICAgPC9jYzpXb3JrPgogIDwvcmRmOlJERj4KIDwvbWV0YWRhdGE+CiA8ZGVmcz4KICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPip7c3Ryb2tlLWxpbmVqb2luOiByb3VuZDsgc3Ryb2tlLWxpbmVjYXA6IGJ1dHR9PC9zdHlsZT4KIDwvZGVmcz4KIDxnIGlkPSJmaWd1cmVfMSI+CiAgPGcgaWQ9InBhdGNoXzEiPgogICA8cGF0aCBkPSJNIDAgMTAxIApMIDM2MyAxMDEgCkwgMzYzIDAgCkwgMCAwIApMIDAgMTAxIAp6CiIgc3R5bGU9ImZpbGw6IG5vbmUiLz4KICA8L2c+CiAgPGcgaWQ9InRleHRfMSI+CiAgIDwhLS0gJD1cZnJhY3tcZXhwKHpfaS9UKVwsXGV4cCgtbS9UKX17XGV4cCgtbS9UKVwsXHN1bV9qXCwgXGV4cCh6X2ovVCl9JCAtLT4KICAgPGcgc3R5bGU9ImZpbGw6ICNkOTc3NTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNDcpIHNjYWxlKDAuNDggLTAuNDgpIj4KICAgIDxkZWZzPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTIwIiBkPSJNIDQwNzcgMjA0OCAKTCAzMDcgMjA0OCAKTCAzMDcgMjQ3MCAKTCA0MDc3IDI0NzAgCkwgNDA3NyAyMDQ4IAp6Ck0gNDA3NyA3NjggCkwgMzA3IDc2OCAKTCAzMDcgMTE5MCAKTCA0MDc3IDExOTAgCkwgNDA3NyA3NjggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTQ4IiBkPSJNIDI2MTEgMTA1MCAKTCAyNzE0IDEwMDUgClEgMjMzMCAtNjQgMTM3NiAtNjQgClEgODEzIC02NCA0ODYgMzI5IApRIDE2MCA3MjMgMTYwIDEzODkgClEgMTYwIDIwNzQgNTI1IDI1MDkgClEgODkwIDI5NDQgMTQ4NSAyOTQ0IApRIDIwNjEgMjk0NCAyMzc0IDI1MDIgClEgMjU2MCAyMjQ2IDI1OTIgMTc3MyAKTCA2MjEgMTc3MyAKUSA2NDYgMTM3MCA3MDAgMTE1OCAKUSA3NTUgOTQ3IDkxNSA3MzAgClEgMTE4NCAzNzggMTYyNiAzNzggClEgMTkzOSAzNzggMjE1MyA1MzEgClEgMjM2OCA2ODUgMjYxMSAxMDUwIAp6Ck0gNjM0IDE5NzggCkwgMTkzOSAxOTc4IApRIDE4ODIgMjM4MSAxNzUwIDI1NDcgClEgMTYxOSAyNzE0IDEzMTIgMjcxNCAKUSAxMDQzIDI3MTQgODY0IDI1MjUgClEgNjg1IDIzMzYgNjM0IDE5NzggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTViIiBkPSJNIDMwNjYgMCAKTCAxNzc5IDAgCkwgMTc3OSA5NiAKUSAxOTM5IDEwOSAxOTg3IDEzNyAKUSAyMDM1IDE2NiAyMDM1IDI1MCAKUSAyMDM1IDMwNyAxOTk3IDM2NSAKTCAxNDE0IDEyNjEgCkwgOTA5IDQ3NCAKUSA3ODEgMjc1IDc4MSAyMTEgClEgNzgxIDk2IDEwMzcgOTYgCkwgMTAzNyAwIApMIDEwOSAwIApMIDEwOSA5NiAKUSAyNjkgMTA5IDM1NSAxNjkgClEgNDQyIDIzMCA1NzYgNDIyIApMIDEzMDYgMTQ3OCAKTCA3MDQgMjQwMCAKUSA1NTcgMjYyNCA0NTQgMjcwNCAKUSAzNTIgMjc4NCAyMTEgMjc4NCAKTCAxNTQgMjc4NCAKTCAxNTQgMjg4MCAKTCAxNDc4IDI4ODAgCkwgMTQ3OCAyNzg0IApRIDEyMDMgMjc3OCAxMjAzIDI2NDMgClEgMTIwMyAyNTA5IDE0OTggMjA3NCAKUSAxNTgxIDE5NTggMTU4NyAxOTQ2IApRIDE2MTkgMTk5MCAxNzc5IDIyMjcgClEgMTgxMSAyMjg1IDE4NTYgMjM0OSAKUSAxOTAxIDI0MTMgMTkyMyAyNDUxIApRIDE5NDYgMjQ5MCAxOTcxIDI1MjggClEgMTk5NyAyNTY2IDIwMDYgMjU5NSAKUSAyMDE2IDI2MjQgMjAxNiAyNjQzIApRIDIwMTYgMjc2NSAxNzYwIDI3ODQgCkwgMTc2MCAyODgwIApMIDI3NzEgMjg4MCAKTCAyNzcxIDI3ODQgClEgMjQ0NSAyNzcxIDIyNTMgMjUwMiAKTCAxNzIyIDE3MzQgCkwgMjU0MSA0ODAgClEgMjc5MCA5NiAzMDY2IDk2IApMIDMwNjYgMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNTMiIGQ9Ik0gMTAxOCAyOTMxIApMIDEwMTggMjQzOCAKUSAxNDIxIDI5NDQgMTkzOSAyOTQ0IApRIDI0MDYgMjk0NCAyNzA3IDI1NjAgClEgMzAwOCAyMTc2IDMwMDggMTU4MSAKUSAzMDA4IDg4MyAyNjIxIDQwOSAKUSAyMjM0IC02NCAxNjY0IC02NCAKUSAxNDY2IC02NCAxMzI4IC02IApRIDExOTAgNTEgMTAxOCAyMTEgCkwgMTAxOCAtNzk0IApRIDEwMTggLTEwOTQgMTEyMCAtMTE4MCAKUSAxMjIyIC0xMjY3IDE1ODEgLTEyNzQgCkwgMTU4MSAtMTM4OSAKTCAzMiAtMTM4OSAKTCAzMiAtMTI4MCAKUSAzMTQgLTEyNTQgMzk3IC0xMTcxIApRIDQ4MCAtMTA4OCA0ODAgLTgzOCAKTCA0ODAgMjE1NyAKUSA0ODAgMjM4MSA0MjkgMjQ1MSAKUSAzNzggMjUyMiAyMTggMjUyMiAKUSAxMTUgMjUyMiA1OCAyNTE1IApMIDU4IDI2MTggClEgNTA2IDI3NTIgOTc5IDI5NDQgCkwgMTAxOCAyOTMxIAp6Ck0gMTAxOCAyMTM4IApMIDEwMTggNTYzIApRIDEwMTggNDIyIDEyMzggMjgxIApRIDE0NTkgMTQxIDE2ODMgMTQxIApRIDIwMjkgMTQxIDIyNDMgNDY3IApRIDI0NTggNzk0IDI0NTggMTMyNSAKUSAyNDU4IDE4ODggMjI0MyAyMjI0IApRIDIwMjkgMjU2MCAxNjcwIDI1NjAgClEgMTQ0NiAyNTYwIDEyMzIgMjQxOSAKUSAxMDE4IDIyNzggMTAxOCAyMTM4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci1iIiBkPSJNIDE5NDYgLTEwMzAgCkwgMTg2OSAtMTEzMyAKUSAxMTI2IC03MTAgNzE2IDMyIApRIDMwNyA3NzQgMzA3IDE2MTMgClEgMzA3IDMzODYgMTg4OCA0MzI2IApMIDE5NDYgNDIyNCAKUSAxMjkzIDM2NjcgMTA3NSAzMTI2IApRIDg1OCAyNTg2IDg1OCAxNjMyIApRIDg1OCA2ODUgMTA4MiA5NiAKUSAxMzA2IC00OTMgMTk0NiAtMTAzMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy01ZCIgZD0iTSAyNDMyIDI2NjkgCkwgNTgyIDQ2NyAKUSA4NzcgNDAzIDEwMjEgMzA3IApRIDExNjUgMjExIDEzNTAgLTY0IApRIDE1NjggLTM4NCAxNzk4IC0zODQgClEgMTk3MSAtMzg0IDE5NzEgLTI4OCAKUSAxOTcxIC0yNTYgMTkzOSAtMTkyIApRIDE4ODggLTkwIDE4ODggLTEzIApRIDE4OTQgNzAgMTk1OCAxMzcgClEgMjAyMiAyMDUgMjA5OSAyMDUgClEgMjIwMiAyMDUgMjI2MiAxNDEgClEgMjMyMyA3NyAyMzIzIC0zMiAKUSAyMzIzIC0yMzAgMjE1NiAtMzc0IApRIDE5OTAgLTUxOCAxNzI4IC01MTggClEgMTQ1OSAtNTE4IDEwMDUgLTIzNyAKUSA1NzAgMzIgMzMzIDMyIApRIDE4NiAzMiA0NSAtODMgCkwgLTEzIC0yNiAKTCAxOTcxIDIzNTUgCkwgMTEwMSAyMzU1IApRIDg0NSAyMzU1IDcyOSAyMjgxIApRIDYxNCAyMjA4IDUxOCAxOTcxIApMIDQxNiAxOTk3IApMIDYyMSAyNzM5IApMIDI0MzIgMjczOSAKTCAyNDMyIDI2NjkgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNGMiIGQ9Ik0gMTY5MCAzODM0IApRIDE2OTAgMzY5OSAxNTk3IDM2MDMgClEgMTUwNCAzNTA3IDEzNzYgMzUwNyAKUSAxMjM1IDM1MDcgMTE1MiAzNjAwIApRIDEwNjkgMzY5MyAxMDY5IDM4NDYgClEgMTA2OSAzOTk0IDExNTUgNDA5MCAKUSAxMjQyIDQxODYgMTM3MCA0MTg2IApRIDE0OTggNDE4NiAxNTk0IDQwODAgClEgMTY5MCAzOTc0IDE2OTAgMzgzNCAKegpNIDE0MjEgNzMwIApMIDE1MDQgNjU5IApRIDEyMzUgMjQzIDEwNDkgODYgClEgODY0IC03MCA2MjcgLTcwIApRIDMxNCAtNzAgMzE0IDI4MiAKUSAzMTQgNDY3IDQ1NCA5OTIgCkwgNzYyIDIxMjUgClEgODE5IDIzMzAgODE5IDI0MDYgClEgODE5IDI1MDIgNzQ1IDI1MjggClEgNjcyIDI1NTQgNDEwIDI1NjAgCkwgNDEwIDI2NjIgClEgNzA0IDI2ODggMTQzNCAyODIyIApMIDE0NTkgMjgwMyAKTCA4NTggNjA4IApRIDc5NCAzOTAgNzk0IDMyNiAKUSA3OTQgMjMwIDg4MyAyMzAgClEgMTA0MyAyMzAgMTQyMSA3MzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTEyIiBkPSJNIDE4MzcgNDMyNiAKTCAzNzggLTkwIApMIC01OCAtOTAgCkwgMTQwOCA0MzI2IApMIDE4MzcgNDMyNiAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy0zNyIgZD0iTSA0MDUxIDQxNzkgCkwgMzc3MCAzMTMwIApMIDM2NjEgMzE0MiAKUSAzNjgwIDMzMDIgMzY4MCAzNDM3IApRIDM2ODAgMzk1NSAzMDM0IDM5NTUgCkwgMjY2MiAzOTU1IApMIDE3ODYgODE5IApRIDE2OTYgNTA2IDE2OTYgMzk3IApRIDE2OTYgMjUwIDE3NjYgMTk1IApRIDE4MzcgMTQxIDIwMzUgMTIyIApMIDIyNTkgMTAyIApMIDIyNTkgMCAKTCA0MTYgMCAKTCA0MTYgMTAyIApRIDc0OSAxMzQgODg5IDIzMCAKUSAxMDMwIDMyNiAxMTAxIDU4MiAKTCAyMDE2IDM5NTUgClEgMTI1NCAzOTU1IDk4OCAzODE3IApRIDcyMyAzNjgwIDQ5MyAzMTYyIApMIDM3OCAzMTg3IApMIDY0NiA0MTc5IApMIDQwNTEgNDE3OSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItYyIgZD0iTSAxODYgNDIyNCAKTCAyNjIgNDMyNiAKUSA5OTIgMzg5MSAxNDA4IDMxNDggClEgMTgyNCAyNDA2IDE4MjQgMTU4MSAKUSAxODI0IC0xNjYgMjQzIC0xMTMzIApMIDE4NiAtMTAzMCAKUSA4NDUgLTQ4NiAxMDU5IDU0IApRIDEyNzQgNTk1IDEyNzQgMTU2MiAKUSAxMjc0IDI1MzQgMTA1OSAzMTIwIApRIDg0NSAzNzA2IDE4NiA0MjI0IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci00MjUiIGQ9Ik0gMzk3NCAxNDA4IApMIDQxMCAxNDA4IApMIDQxMCAxODMwIApMIDM5NzQgMTgzMCAKTCAzOTc0IDE0MDggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNTAiIGQ9Ik0gNDUwNiA2NzIgCkwgNDQ3NCA2MjcgClEgMzk4MSAtNTggMzU1MiAtNTggClEgMzI5NiAtNTggMzI5NiAyMzcgClEgMzI5NiAzMzMgMzM3OSA2NTkgCkwgMzc1MCAyMTEyIApRIDM3OTUgMjI5MSAzNzk1IDIzNTUgClEgMzc5NSAyNDEzIDM3NTYgMjQ1MSAKUSAzNzE4IDI0OTAgMzY2NyAyNDkwIApRIDMzNjYgMjQ5MCAyODI5IDE3NDEgClEgMjU5MiAxNDA4IDI0NTcgMTA3MiAKUSAyMzIzIDczNiAyMTM4IDAgCkwgMTY1OCAwIApMIDE4MzAgNTk1IApRIDIyNjYgMjA5OSAyMjY2IDIzMzAgClEgMjI2NiAyNDkwIDIxMjUgMjQ5MCAKUSAxOTY1IDI0OTAgMTcwMiAyMjM3IApRIDE0NDAgMTk4NCAxMTcxIDE1NzQgClEgMTAxMSAxMzI1IDg5OSAxMDQzIApRIDc4NyA3NjIgNTU3IDAgCkwgNzcgMCAKTCAzNTIgOTIyIApRIDcwNCAyMDkzIDcwNCAyMzgxIApRIDcwNCAyNTIyIDQ0MiAyNTIyIApMIDI4MiAyNTIyIApMIDI4MiAyNjI0IApMIDEzMTggMjgyMiAKTCAxMzM4IDI4MTAgCkwgOTY2IDE0NzIgClEgMTc5OCAyODIyIDIzNzQgMjgyMiAKUSAyNTYwIDI4MjIgMjY1OSAyNzIwIApRIDI3NTggMjYxOCAyNzU4IDI0MzggClEgMjc1OCAyMTk1IDI1MDIgMTQ2NiAKUSAyODQyIDIwMDMgMzA2OSAyMjc1IApRIDMyOTYgMjU0NyAzNTI2IDI2OTQgClEgMzczMSAyODIyIDM5MzAgMjgyMiAKUSA0MTAyIDI4MjIgNDIwMSAyNzEwIApRIDQzMDEgMjU5OCA0MzAxIDI0MTkgClEgNDMwMSAyMzM2IDQyODIgMjI0MCAKTCAzODQ2IDYzNCAKUSAzNzgyIDM5MCAzNzgyIDM0NiAKUSAzNzgyIDI0MyAzODU5IDI0MyAKUSA0MDAwIDI0MyA0Mjc1IDU4MiAKTCA0NDEwIDc0OSAKTCA0NTA2IDY3MiAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNDI0IiBkPSJNIDU0NzggMjU2IApMIDUxMzkgLTE2NTggCkwgMzcxIC0xNjU4IApMIDI4ODAgMTYwNiAKTCA1MzEgNDg4MyAKTCA1MzEyIDQ4ODMgCkwgNTMxMiAzMjc3IApMIDUxMjAgMzI3NyAKUSA1MDE4IDM5NDkgNDc2NSA0MjA1IApRIDQ1MTIgNDQ2MSAzODkxIDQ0NjEgCkwgMTg0MyA0NDYxIApMIDM2OTkgMTk1OCAKTCAxNTQ5IC04MTkgCkwgNDE5OCAtODE5IApRIDQ2OTggLTgxOSA0OTM0IC01NTAgClEgNTE3MSAtMjgyIDUyODYgMjU2IApMIDU0NzggMjU2IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtSXRhbGljLTRkIiBkPSJNIDE3ODYgMzgyNyAKUSAxNzg2IDM2OTkgMTY5MCAzNjAzIApRIDE1OTQgMzUwNyAxNDY2IDM1MDcgClEgMTMxOCAzNTA3IDEyMTkgMzYwMCAKUSAxMTIwIDM2OTMgMTEyMCAzODQwIApRIDExMjAgMzk4MSAxMjIyIDQwNzcgClEgMTMyNSA0MTczIDE0NTkgNDE3MyAKUSAxNTg3IDQxNzMgMTY4NiA0MDY3IApRIDE3ODYgMzk2MiAxNzg2IDM4MjcgCnoKTSAxNTc0IDI4MDMgCkwgOTA5IDE3OSAKUSA3MTAgLTU5NSA0MTkgLTk2MCAKUSAxMjggLTEzMjUgLTI4OCAtMTMyNSAKUSAtNTEyIC0xMzI1IC02NTMgLTEyMTYgClEgLTc5NCAtMTEwNyAtNzk0IC05MzQgClEgLTc5NCAtODE5IC03MTcgLTczNiAKUSAtNjQwIC02NTMgLTUzMSAtNjUzIApRIC0yODIgLTY1MyAtMjgyIC04OTAgClEgLTI4MiAtOTY2IC0zMjAgLTEwMTQgClEgLTM1OCAtMTA2MiAtMzU4IC0xMTA3IApRIC0zNTggLTExODQgLTI0MyAtMTE4NCAKUSAtNTEgLTExODQgODAgLTkzNCAKUSAyMTEgLTY4NSAzNzggLTE5IApMIDgzOCAxODUwIApRIDk0MSAyMjY2IDk0MSAyMzYyIApRIDk0MSAyNDcwIDg3MyAyNTE1IApRIDgwNiAyNTYwIDYzNCAyNTYwIApMIDQ2NyAyNTYwIApMIDQ2NyAyNjYyIApRIDc1NSAyNjgyIDE1NDkgMjgyMiAKTCAxNTc0IDI4MDMgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgPC9kZWZzPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0yMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAgMC4xMTcxODgpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQ4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDguNzQ5OTM5IDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci01YiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTc5LjgyOTkxMyA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNC44Mjk4ODEgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI0OS44Mjk4NDkgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNWQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI3My4xMzk4MyA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy00YyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzAwLjM2OTgwNCAzOS4xODQzNzUpIHNjYWxlKDAuNDkpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTEyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMTcuMTQxNzkxIDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTM3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMzYuNjAxNzcyIDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1jIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNzUuNTIxNzMzIDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci00OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDEwLjQ5ODYxNCA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ0MS41Nzg1ODggNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTUzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NzYuNTc4NTU2IDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MTEuNTc4NTI0IDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci00MjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzNC44ODg1MDUgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNTAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU4Mi44Mzg0NjIgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTEyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2MzMuMzc4NDE3IDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTM3IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NTIuODM4Mzk4IDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1jIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2OTEuNzU4MzYgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQ4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTQuNzQ5OTM5IC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0NS44Mjk5MTMgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci01MyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTgwLjgyOTg4MSAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNS44Mjk4NDkgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci00MjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzOS4xMzk4MyAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNTAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI4Ny4wODk3ODcgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzM3LjYyOTc0MiAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtMzciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1Ny4wODk3MjMgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1jIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzOTYuMDA5Njg1IC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNDI0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MzAuOTg2NTY2IC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy00ZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDQ4Ljk4NjU2NiAtMTAwLjg3NDUzMSkgc2NhbGUoMC40OSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNDgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ5OC41MTEyNzggLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci01YiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTI5LjU5MTI1MiAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTUzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1NjQuNTkxMjIgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OTkuNTkxMTg4IC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy01ZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjIyLjkwMTE2OSAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY1MC4xMzExNDMgLTQ4LjE2NTYyNSkgc2NhbGUoMC40OSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY2Ni45MDMxMyAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtMzciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY4Ni4zNjMxMTEgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1jIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MjUuMjgzMDcyIC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDxwYXRoIGQ9Ik0gMTE0Ljc0OTkzOSAyMS45OTIxODggCkwgMTE0Ljc0OTkzOSAyOC4yNDIxODggCkwgNzQ4LjU5MzA1MyAyOC4yNDIxODggCkwgNzQ4LjU5MzA1MyAyMS45OTIxODggCkwgMTE0Ljc0OTkzOSAyMS45OTIxODggCnoKIi8+CiAgIDwvZz4KICA8L2c+CiA8L2c+Cjwvc3ZnPgo=",
+                "aspect": 3.594059405940594,
+                "expression": "=\\frac{\\exp(z_i/T)\\,\\exp(-m/T)}{\\exp(-m/T)\\,\\sum_j\\, \\exp(z_j/T)}",
+                "at": 9.12
+              },
+              {
+                "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgd2lkdGg9IjIxMXB0IiBoZWlnaHQ9IjEwMXB0IiB2aWV3Qm94PSIwIDAgMjExIDEwMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPgogPG1ldGFkYXRhPgogIDxyZGY6UkRGIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgPGNjOldvcms+CiAgICA8ZGM6dHlwZSByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIi8+CiAgICA8ZGM6ZGF0ZT4yMDI2LTA5LTI3VDIwOjIyOjIwLjkyMzc4ODwvZGM6ZGF0ZT4KICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgPGRjOmNyZWF0b3I+CiAgICAgPGNjOkFnZW50PgogICAgICA8ZGM6dGl0bGU+TWF0cGxvdGxpYiB2My4xMS4yLCBodHRwczovL21hdHBsb3RsaWIub3JnLzwvZGM6dGl0bGU+CiAgICAgPC9jYzpBZ2VudD4KICAgIDwvZGM6Y3JlYXRvcj4KICAgPC9jYzpXb3JrPgogIDwvcmRmOlJERj4KIDwvbWV0YWRhdGE+CiA8ZGVmcz4KICA8c3R5bGUgdHlwZT0idGV4dC9jc3MiPip7c3Ryb2tlLWxpbmVqb2luOiByb3VuZDsgc3Ryb2tlLWxpbmVjYXA6IGJ1dHR9PC9zdHlsZT4KIDwvZGVmcz4KIDxnIGlkPSJmaWd1cmVfMSI+CiAgPGcgaWQ9InBhdGNoXzEiPgogICA8cGF0aCBkPSJNIDAgMTAxIApMIDIxMSAxMDEgCkwgMjExIDAgCkwgMCAwIApMIDAgMTAxIAp6CiIgc3R5bGU9ImZpbGw6IG5vbmUiLz4KICA8L2c+CiAgPGcgaWQ9InRleHRfMSI+CiAgIDwhLS0gJD1cZnJhY3tcZXhwKHpfaS9UKX17XHN1bV9qXCwgXGV4cCh6X2ovVCl9JCAtLT4KICAgPGcgc3R5bGU9ImZpbGw6ICMzZDM5MjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNDcpIHNjYWxlKDAuNDggLTAuNDgpIj4KICAgIDxkZWZzPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTIwIiBkPSJNIDQwNzcgMjA0OCAKTCAzMDcgMjA0OCAKTCAzMDcgMjQ3MCAKTCA0MDc3IDI0NzAgCkwgNDA3NyAyMDQ4IAp6Ck0gNDA3NyA3NjggCkwgMzA3IDc2OCAKTCAzMDcgMTE5MCAKTCA0MDc3IDExOTAgCkwgNDA3NyA3NjggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTQ4IiBkPSJNIDI2MTEgMTA1MCAKTCAyNzE0IDEwMDUgClEgMjMzMCAtNjQgMTM3NiAtNjQgClEgODEzIC02NCA0ODYgMzI5IApRIDE2MCA3MjMgMTYwIDEzODkgClEgMTYwIDIwNzQgNTI1IDI1MDkgClEgODkwIDI5NDQgMTQ4NSAyOTQ0IApRIDIwNjEgMjk0NCAyMzc0IDI1MDIgClEgMjU2MCAyMjQ2IDI1OTIgMTc3MyAKTCA2MjEgMTc3MyAKUSA2NDYgMTM3MCA3MDAgMTE1OCAKUSA3NTUgOTQ3IDkxNSA3MzAgClEgMTE4NCAzNzggMTYyNiAzNzggClEgMTkzOSAzNzggMjE1MyA1MzEgClEgMjM2OCA2ODUgMjYxMSAxMDUwIAp6Ck0gNjM0IDE5NzggCkwgMTkzOSAxOTc4IApRIDE4ODIgMjM4MSAxNzUwIDI1NDcgClEgMTYxOSAyNzE0IDEzMTIgMjcxNCAKUSAxMDQzIDI3MTQgODY0IDI1MjUgClEgNjg1IDIzMzYgNjM0IDE5NzggCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTViIiBkPSJNIDMwNjYgMCAKTCAxNzc5IDAgCkwgMTc3OSA5NiAKUSAxOTM5IDEwOSAxOTg3IDEzNyAKUSAyMDM1IDE2NiAyMDM1IDI1MCAKUSAyMDM1IDMwNyAxOTk3IDM2NSAKTCAxNDE0IDEyNjEgCkwgOTA5IDQ3NCAKUSA3ODEgMjc1IDc4MSAyMTEgClEgNzgxIDk2IDEwMzcgOTYgCkwgMTAzNyAwIApMIDEwOSAwIApMIDEwOSA5NiAKUSAyNjkgMTA5IDM1NSAxNjkgClEgNDQyIDIzMCA1NzYgNDIyIApMIDEzMDYgMTQ3OCAKTCA3MDQgMjQwMCAKUSA1NTcgMjYyNCA0NTQgMjcwNCAKUSAzNTIgMjc4NCAyMTEgMjc4NCAKTCAxNTQgMjc4NCAKTCAxNTQgMjg4MCAKTCAxNDc4IDI4ODAgCkwgMTQ3OCAyNzg0IApRIDEyMDMgMjc3OCAxMjAzIDI2NDMgClEgMTIwMyAyNTA5IDE0OTggMjA3NCAKUSAxNTgxIDE5NTggMTU4NyAxOTQ2IApRIDE2MTkgMTk5MCAxNzc5IDIyMjcgClEgMTgxMSAyMjg1IDE4NTYgMjM0OSAKUSAxOTAxIDI0MTMgMTkyMyAyNDUxIApRIDE5NDYgMjQ5MCAxOTcxIDI1MjggClEgMTk5NyAyNTY2IDIwMDYgMjU5NSAKUSAyMDE2IDI2MjQgMjAxNiAyNjQzIApRIDIwMTYgMjc2NSAxNzYwIDI3ODQgCkwgMTc2MCAyODgwIApMIDI3NzEgMjg4MCAKTCAyNzcxIDI3ODQgClEgMjQ0NSAyNzcxIDIyNTMgMjUwMiAKTCAxNzIyIDE3MzQgCkwgMjU0MSA0ODAgClEgMjc5MCA5NiAzMDY2IDk2IApMIDMwNjYgMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItNTMiIGQ9Ik0gMTAxOCAyOTMxIApMIDEwMTggMjQzOCAKUSAxNDIxIDI5NDQgMTkzOSAyOTQ0IApRIDI0MDYgMjk0NCAyNzA3IDI1NjAgClEgMzAwOCAyMTc2IDMwMDggMTU4MSAKUSAzMDA4IDg4MyAyNjIxIDQwOSAKUSAyMjM0IC02NCAxNjY0IC02NCAKUSAxNDY2IC02NCAxMzI4IC02IApRIDExOTAgNTEgMTAxOCAyMTEgCkwgMTAxOCAtNzk0IApRIDEwMTggLTEwOTQgMTEyMCAtMTE4MCAKUSAxMjIyIC0xMjY3IDE1ODEgLTEyNzQgCkwgMTU4MSAtMTM4OSAKTCAzMiAtMTM4OSAKTCAzMiAtMTI4MCAKUSAzMTQgLTEyNTQgMzk3IC0xMTcxIApRIDQ4MCAtMTA4OCA0ODAgLTgzOCAKTCA0ODAgMjE1NyAKUSA0ODAgMjM4MSA0MjkgMjQ1MSAKUSAzNzggMjUyMiAyMTggMjUyMiAKUSAxMTUgMjUyMiA1OCAyNTE1IApMIDU4IDI2MTggClEgNTA2IDI3NTIgOTc5IDI5NDQgCkwgMTAxOCAyOTMxIAp6Ck0gMTAxOCAyMTM4IApMIDEwMTggNTYzIApRIDEwMTggNDIyIDEyMzggMjgxIApRIDE0NTkgMTQxIDE2ODMgMTQxIApRIDIwMjkgMTQxIDIyNDMgNDY3IApRIDI0NTggNzk0IDI0NTggMTMyNSAKUSAyNDU4IDE4ODggMjI0MyAyMjI0IApRIDIwMjkgMjU2MCAxNjcwIDI1NjAgClEgMTQ0NiAyNTYwIDEyMzIgMjQxOSAKUSAxMDE4IDIyNzggMTAxOCAyMTM4IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci1iIiBkPSJNIDE5NDYgLTEwMzAgCkwgMTg2OSAtMTEzMyAKUSAxMTI2IC03MTAgNzE2IDMyIApRIDMwNyA3NzQgMzA3IDE2MTMgClEgMzA3IDMzODYgMTg4OCA0MzI2IApMIDE5NDYgNDIyNCAKUSAxMjkzIDM2NjcgMTA3NSAzMTI2IApRIDg1OCAyNTg2IDg1OCAxNjMyIApRIDg1OCA2ODUgMTA4MiA5NiAKUSAxMzA2IC00OTMgMTk0NiAtMTAzMCAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy01ZCIgZD0iTSAyNDMyIDI2NjkgCkwgNTgyIDQ2NyAKUSA4NzcgNDAzIDEwMjEgMzA3IApRIDExNjUgMjExIDEzNTAgLTY0IApRIDE1NjggLTM4NCAxNzk4IC0zODQgClEgMTk3MSAtMzg0IDE5NzEgLTI4OCAKUSAxOTcxIC0yNTYgMTkzOSAtMTkyIApRIDE4ODggLTkwIDE4ODggLTEzIApRIDE4OTQgNzAgMTk1OCAxMzcgClEgMjAyMiAyMDUgMjA5OSAyMDUgClEgMjIwMiAyMDUgMjI2MiAxNDEgClEgMjMyMyA3NyAyMzIzIC0zMiAKUSAyMzIzIC0yMzAgMjE1NiAtMzc0IApRIDE5OTAgLTUxOCAxNzI4IC01MTggClEgMTQ1OSAtNTE4IDEwMDUgLTIzNyAKUSA1NzAgMzIgMzMzIDMyIApRIDE4NiAzMiA0NSAtODMgCkwgLTEzIC0yNiAKTCAxOTcxIDIzNTUgCkwgMTEwMSAyMzU1IApRIDg0NSAyMzU1IDcyOSAyMjgxIApRIDYxNCAyMjA4IDUxOCAxOTcxIApMIDQxNiAxOTk3IApMIDYyMSAyNzM5IApMIDI0MzIgMjczOSAKTCAyNDMyIDI2NjkgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNGMiIGQ9Ik0gMTY5MCAzODM0IApRIDE2OTAgMzY5OSAxNTk3IDM2MDMgClEgMTUwNCAzNTA3IDEzNzYgMzUwNyAKUSAxMjM1IDM1MDcgMTE1MiAzNjAwIApRIDEwNjkgMzY5MyAxMDY5IDM4NDYgClEgMTA2OSAzOTk0IDExNTUgNDA5MCAKUSAxMjQyIDQxODYgMTM3MCA0MTg2IApRIDE0OTggNDE4NiAxNTk0IDQwODAgClEgMTY5MCAzOTc0IDE2OTAgMzgzNCAKegpNIDE0MjEgNzMwIApMIDE1MDQgNjU5IApRIDEyMzUgMjQzIDEwNDkgODYgClEgODY0IC03MCA2MjcgLTcwIApRIDMxNCAtNzAgMzE0IDI4MiAKUSAzMTQgNDY3IDQ1NCA5OTIgCkwgNzYyIDIxMjUgClEgODE5IDIzMzAgODE5IDI0MDYgClEgODE5IDI1MDIgNzQ1IDI1MjggClEgNjcyIDI1NTQgNDEwIDI1NjAgCkwgNDEwIDI2NjIgClEgNzA0IDI2ODggMTQzNCAyODIyIApMIDE0NTkgMjgwMyAKTCA4NTggNjA4IApRIDc5NCAzOTAgNzk0IDMyNiAKUSA3OTQgMjMwIDg4MyAyMzAgClEgMTA0MyAyMzAgMTQyMSA3MzAgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1SZWd1bGFyLTEyIiBkPSJNIDE4MzcgNDMyNiAKTCAzNzggLTkwIApMIC01OCAtOTAgCkwgMTQwOCA0MzI2IApMIDE4MzcgNDMyNiAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLUl0YWxpYy0zNyIgZD0iTSA0MDUxIDQxNzkgCkwgMzc3MCAzMTMwIApMIDM2NjEgMzE0MiAKUSAzNjgwIDMzMDIgMzY4MCAzNDM3IApRIDM2ODAgMzk1NSAzMDM0IDM5NTUgCkwgMjY2MiAzOTU1IApMIDE3ODYgODE5IApRIDE2OTYgNTA2IDE2OTYgMzk3IApRIDE2OTYgMjUwIDE3NjYgMTk1IApRIDE4MzcgMTQxIDIwMzUgMTIyIApMIDIyNTkgMTAyIApMIDIyNTkgMCAKTCA0MTYgMCAKTCA0MTYgMTAyIApRIDc0OSAxMzQgODg5IDIzMCAKUSAxMDMwIDMyNiAxMTAxIDU4MiAKTCAyMDE2IDM5NTUgClEgMTI1NCAzOTU1IDk4OCAzODE3IApRIDcyMyAzNjgwIDQ5MyAzMTYyIApMIDM3OCAzMTg3IApMIDY0NiA0MTc5IApMIDQwNTEgNDE3OSAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICAgPHBhdGggaWQ9IlNUSVhHZW5lcmFsLVJlZ3VsYXItYyIgZD0iTSAxODYgNDIyNCAKTCAyNjIgNDMyNiAKUSA5OTIgMzg5MSAxNDA4IDMxNDggClEgMTgyNCAyNDA2IDE4MjQgMTU4MSAKUSAxODI0IC0xNjYgMjQzIC0xMTMzIApMIDE4NiAtMTAzMCAKUSA4NDUgLTQ4NiAxMDU5IDU0IApRIDEyNzQgNTk1IDEyNzQgMTU2MiAKUSAxMjc0IDI1MzQgMTA1OSAzMTIwIApRIDg0NSAzNzA2IDE4NiA0MjI0IAp6CiIgdHJhbnNmb3JtPSJzY2FsZSgwLjAxNTYyNSkiLz4KICAgICA8cGF0aCBpZD0iU1RJWEdlbmVyYWwtUmVndWxhci00MjQiIGQ9Ik0gNTQ3OCAyNTYgCkwgNTEzOSAtMTY1OCAKTCAzNzEgLTE2NTggCkwgMjg4MCAxNjA2IApMIDUzMSA0ODgzIApMIDUzMTIgNDg4MyAKTCA1MzEyIDMyNzcgCkwgNTEyMCAzMjc3IApRIDUwMTggMzk0OSA0NzY1IDQyMDUgClEgNDUxMiA0NDYxIDM4OTEgNDQ2MSAKTCAxODQzIDQ0NjEgCkwgMzY5OSAxOTU4IApMIDE1NDkgLTgxOSAKTCA0MTk4IC04MTkgClEgNDY5OCAtODE5IDQ5MzQgLTU1MCAKUSA1MTcxIC0yODIgNTI4NiAyNTYgCkwgNTQ3OCAyNTYgCnoKIiB0cmFuc2Zvcm09InNjYWxlKDAuMDE1NjI1KSIvPgogICAgIDxwYXRoIGlkPSJTVElYR2VuZXJhbC1JdGFsaWMtNGQiIGQ9Ik0gMTc4NiAzODI3IApRIDE3ODYgMzY5OSAxNjkwIDM2MDMgClEgMTU5NCAzNTA3IDE0NjYgMzUwNyAKUSAxMzE4IDM1MDcgMTIxOSAzNjAwIApRIDExMjAgMzY5MyAxMTIwIDM4NDAgClEgMTEyMCAzOTgxIDEyMjIgNDA3NyAKUSAxMzI1IDQxNzMgMTQ1OSA0MTczIApRIDE1ODcgNDE3MyAxNjg2IDQwNjcgClEgMTc4NiAzOTYyIDE3ODYgMzgyNyAKegpNIDE1NzQgMjgwMyAKTCA5MDkgMTc5IApRIDcxMCAtNTk1IDQxOSAtOTYwIApRIDEyOCAtMTMyNSAtMjg4IC0xMzI1IApRIC01MTIgLTEzMjUgLTY1MyAtMTIxNiAKUSAtNzk0IC0xMTA3IC03OTQgLTkzNCAKUSAtNzk0IC04MTkgLTcxNyAtNzM2IApRIC02NDAgLTY1MyAtNTMxIC02NTMgClEgLTI4MiAtNjUzIC0yODIgLTg5MCAKUSAtMjgyIC05NjYgLTMyMCAtMTAxNCAKUSAtMzU4IC0xMDYyIC0zNTggLTExMDcgClEgLTM1OCAtMTE4NCAtMjQzIC0xMTg0IApRIC01MSAtMTE4NCA4MCAtOTM0IApRIDIxMSAtNjg1IDM3OCAtMTkgCkwgODM4IDE4NTAgClEgOTQxIDIyNjYgOTQxIDIzNjIgClEgOTQxIDI0NzAgODczIDI1MTUgClEgODA2IDI1NjAgNjM0IDI1NjAgCkwgNDY3IDI1NjAgCkwgNDY3IDI2NjIgClEgNzU1IDI2ODIgMTU0OSAyODIyIApMIDE1NzQgMjgwMyAKegoiIHRyYW5zZm9ybT0ic2NhbGUoMC4wMTU2MjUpIi8+CiAgICA8L2RlZnM+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTIwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMCAwLjExNzE4OCkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNDgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0OC43NDk5MzkgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTViIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzkuODI5OTEzIDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci01MyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjE0LjgyOTg4MSA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQ5LjgyOTg0OSA0OS42ODQzNzUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy01ZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjczLjEzOTgzIDQ5LjY4NDM3NSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTRjIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMDAuMzY5ODA0IDM5LjE4NDM3NSkgc2NhbGUoMC40OSkiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItMTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxNy4xNDE3OTEgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtMzciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMzNi42MDE3NzIgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLWMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM3NS41MjE3MzMgNDkuNjg0Mzc1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQyNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTE0Ljc0OTkzOSAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtNGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMi43NDk5MzkgLTEwMC44NzQ1MzEpIHNjYWxlKDAuNDkpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLTQ4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxODIuMjc0NjUxIC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLVJlZ3VsYXItNWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxMy4zNTQ2MjYgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci01MyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQ4LjM1NDU5NCAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1SZWd1bGFyLWIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI4My4zNTQ1NjIgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtSXRhbGljLTVkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMDYuNjY0NTQzIC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI1NUSVhHZW5lcmFsLUl0YWxpYy00ZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzMzLjg5NDUxNyAtNDguMTY1NjI1KSBzY2FsZSgwLjQ5KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci0xMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzUwLjY2NjUwMyAtMzcuNjY1NjI1KSBzY2FsZSgwLjcpIi8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNTVElYR2VuZXJhbC1JdGFsaWMtMzciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM3MC4xMjY0ODQgLTM3LjY2NTYyNSkgc2NhbGUoMC43KSIvPgogICAgPHVzZSB4bGluazpocmVmPSIjU1RJWEdlbmVyYWwtUmVndWxhci1jIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0MDkuMDQ2NDQ2IC0zNy42NjU2MjUpIHNjYWxlKDAuNykiLz4KICAgIDxwYXRoIGQ9Ik0gMTE0Ljc0OTkzOSAyMS45OTIxODggCkwgMTE0Ljc0OTkzOSAyOC4yNDIxODggCkwgNDMyLjM1NjQyNyAyOC4yNDIxODggCkwgNDMyLjM1NjQyNyAyMS45OTIxODggCkwgMTE0Ljc0OTkzOSAyMS45OTIxODggCnoKIi8+CiAgIDwvZz4KICA8L2c+CiA8L2c+Cjwvc3ZnPgo=",
+                "aspect": 2.089108910891089,
+                "expression": "=\\frac{\\exp(z_i/T)}{\\sum_j\\, \\exp(z_j/T)}",
+                "at": 14.5
+              }
+            ],
+            "note": "The common factor exp(−m/T) cancels.",
+            "conditions": "m = maxⱼ zⱼ · T > 0 · identity from Chapter 1, Part 2"
+          }
+        }
+      },
+      "cue_phrases": {
+        "row0": "Exponentiating a difference",
+        "row1": "That second factor",
+        "row2": "It cancels"
+      },
+      "actual_duration_s": 23.45,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 23.458333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B04.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "D · both routes",
+      "narration_text": "That is the algebra. Here is the run. The evidence script computed the same distribution twice for scores one, two, three — once the shifted way, once straight from the original scores. Largest absolute difference between them: one point one one times ten to the minus sixteen. That is floating-point noise, not a different distribution.",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 21.2,
+      "shot": {
+        "lane": "skin",
+        "class": "SHOW",
+        "scene_type": "ClaudeCodeBeat",
+        "show": [
+          {
+            "at": "start",
+            "event": "recorded case A output: reference_shifted, direct_unshifted, max_abs_difference"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "evidence_output.json",
+            "code": "{\n  \"reference_shifted\": [\n    0.09003057317038046,\n    0.24472847105479764,\n    0.6652409557748218\n  ],\n  \"direct_unshifted\": {\n    \"ok\": true,\n    \"value\": [\n      0.09003057317038045,\n      0.24472847105479764,\n      0.6652409557748219\n    ]\n  },\n  \"max_abs_difference\": 1.1102230246251565e-16\n}",
+            "language": "json",
+            "sparkLine": "Recorded output, case A.",
+            "durationSeconds": 21.42
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-09-28T00:26:32.364312+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 21.42,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 21.458333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B05.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "E · direct route stops",
+      "narration_text": "Now the case the shift is actually for. Two equal scores of one thousand. Straight exponentiation does not return a wrong answer — it does not return at all. OverflowError, math range error. Subtract the maximum and the same input becomes zero, zero; weights one, one; total two; one half and one half. The thousand was in both entries. It never carried any information about which outcome is preferred, and it never needed to reach the exponential.",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 29.6,
+      "shot": {
+        "lane": "remotion",
+        "class": "SHOW",
+        "scene_type": "ArrayPipeline",
+        "show": [
+          {
+            "at": "OverflowError",
+            "event": "left lane: OverflowError, terracotta"
+          },
+          {
+            "at": "Subtract the maximum",
+            "event": "right lane builds to [0.5, 0.5] on each spoken value"
+          }
+        ],
+        "remotion": {
+          "pattern": "ArrayPipeline",
+          "props": {
+            "title": "Where the Direct Route Stops Existing",
+            "sparkLine": "Raise, or one half.",
+            "brandLabel": "Yudan Zhou · INFO 7375",
+            "footnote": "Recorded output · evidence_output.json · case B · Windows 11 · Python 3.14.2",
+            "lanes": [
+              {
+                "heading": "Without the shift",
+                "stages": [
+                  {
+                    "label": "input",
+                    "cells": [
+                      "1000",
+                      "1000"
+                    ],
+                    "at": 2.08
+                  },
+                  {
+                    "label": "direct_probabilities",
+                    "error": "OverflowError: math range error",
+                    "at": 9.35,
+                    "accent": true
+                  }
+                ]
+              },
+              {
+                "heading": "With the shift",
+                "stages": [
+                  {
+                    "label": "input",
+                    "cells": [
+                      "1000",
+                      "1000"
+                    ],
+                    "at": 11.39
+                  },
+                  {
+                    "label": "− peak",
+                    "cells": [
+                      "0",
+                      "0"
+                    ],
+                    "at": 11.99
+                  },
+                  {
+                    "label": "weights",
+                    "cells": [
+                      "1.0",
+                      "1.0"
+                    ],
+                    "at": 15.34
+                  },
+                  {
+                    "label": "total",
+                    "cells": [
+                      "2.0"
+                    ],
+                    "at": 16.42
+                  },
+                  {
+                    "label": "probabilities",
+                    "cells": [
+                      "0.5",
+                      "0.5"
+                    ],
+                    "at": 17.19
+                  }
+                ]
+              }
+            ],
+            "durationSeconds": 27.14
+          },
+          "rendered": {
+            "out": "media/B06.mp4",
+            "at": "2026-09-28T00:28:21.679327+00:00"
+          }
+        }
+      },
+      "cue_phrases": {
+        "input": "Two equal scores",
+        "error": "OverflowError",
+        "shifted": "Subtract the maximum",
+        "weights": "weights one, one",
+        "total": "total two",
+        "probs": "one half and one half"
+      },
+      "actual_duration_s": 27.14,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 27.166666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B06.mp4",
+        "filled_by": "remotion:ArrayPipeline",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "F · what this does not establish",
+      "narration_text": "One boundary, and the chapter names it: keep the claim narrower than \"numerically stable.\" Take scores zero and minus one thousand. The maximum is already zero, so subtracting it changes nothing, and e to the minus one thousand underflows to exactly zero point zero. The function returns one and zero. The real second probability is about five point oh eight times ten to the minus four hundred thirty-five — vanishingly small, but not zero. Subtracting the maximum removes overflow at the top. It does nothing about underflow at the bottom, and it does not tell you it happened.",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 37.7,
+      "shot": {
+        "lane": "remotion",
+        "class": "SHOW",
+        "scene_type": "ArrayPipeline",
+        "show": [
+          {
+            "at": "The maximum is already zero",
+            "event": "shift changes nothing"
+          },
+          {
+            "at": "underflows",
+            "event": "float exp row shows 0.0"
+          },
+          {
+            "at": "The function returns",
+            "event": "probabilities [1.0, 0.0], the 0.0 terracotta"
+          },
+          {
+            "at": "The real second probability",
+            "event": "decimal exp(-1000) = 5.07595889755E-435"
+          }
+        ],
+        "remotion": {
+          "pattern": "ArrayPipeline",
+          "props": {
+            "title": "What This Does Not Establish",
+            "sparkLine": "Underflow stays silent.",
+            "brandLabel": "Yudan Zhou · INFO 7375",
+            "footnote": "Chapter 1: “Keep the tested claim narrower than the slogan ‘numerically stable.’” · evidence_output.json · case C · Windows 11 · Python 3.14.2",
+            "lanes": [
+              {
+                "heading": "What the code returns",
+                "stages": [
+                  {
+                    "label": "input",
+                    "cells": [
+                      "0",
+                      "-1000"
+                    ],
+                    "at": 5.09
+                  },
+                  {
+                    "label": "− peak",
+                    "cells": [
+                      "0",
+                      "-1000"
+                    ],
+                    "at": 7.63
+                  },
+                  {
+                    "label": "float exp",
+                    "cells": [
+                      "1.0",
+                      "0.0"
+                    ],
+                    "at": 11.41
+                  },
+                  {
+                    "label": "probabilities",
+                    "cells": [
+                      "1.0",
+                      "0.0"
+                    ],
+                    "at": 16.29,
+                    "accentCells": [
+                      1
+                    ]
+                  }
+                ]
+              },
+              {
+                "heading": "The value it stands for",
+                "stages": [
+                  {
+                    "label": "float exp(-1000)",
+                    "cells": [
+                      "0.0"
+                    ],
+                    "at": 11.41
+                  },
+                  {
+                    "label": "decimal exp(-1000)",
+                    "cells": [
+                      "5.07595889755E-435"
+                    ],
+                    "at": 18.14
+                  }
+                ]
+              }
+            ],
+            "durationSeconds": 35.03
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-09-28T00:30:39.012707+00:00"
+          }
+        }
+      },
+      "cue_phrases": {
+        "input": "Take scores zero",
+        "shifted": "The maximum is already zero",
+        "float": "and e to the minus one thousand",
+        "probs": "The function returns",
+        "decimal": "The real second probability"
+      },
+      "actual_duration_s": 35.03,
+      "audio_file": "mp3/beat-B07.mp3",
+      "render_duration_s": 35.041666666666664,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B07.mp4",
+        "filled_by": "remotion:ArrayPipeline",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "verdict",
+      "narration_text": "The verdict. Subtracting the maximum changes the intermediate weights, not the distribution, because e to the minus m over T cancels. It turns an overflow on one thousand, one thousand into one half, one half. It is not numerical stability: zero, minus one thousand still underflows to exactly zero.",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 18.8,
+      "shot": {
+        "lane": "bookend",
+        "class": "SHOW",
+        "scene_type": "ClaudeVerdictArtifact",
+        "show": [
+          {
+            "at": "start",
+            "event": "verdict: the claim, then one line per evidence case"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "What Subtracting the Maximum Changes",
+            "brandLabel": "Yudan Zhou · INFO 7375",
+            "artifactLines": [
+              "Changes the weights, not the distribution: the factor exp(−m/T) cancels.",
+              "Case A: the two routes differ by at most 1.1102230246251565e-16.",
+              "Case B: OverflowError: math range error on [1000, 1000] becomes [0.5, 0.5].",
+              "Case C: [0, -1000] still returns [1.0, 0.0] — not numerical stability."
+            ],
+            "durationSeconds": 20.74
+          }
+        }
+      },
+      "actual_duration_s": 20.74,
+      "audio_file": "mp3/beat-B08.mp3",
+      "render_duration_s": 20.75,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B08.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "your turn",
+      "narration_text": "Your turn. Paste this into Claude: Here is my softmax function. Find one input where subtracting the maximum prevents an error, and one where underflow still makes the result wrong. Run both and compare against Python's decimal module. Then check: did it run the code, did the overflow really raise, and was underflow checked against decimal?",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 21.5,
+      "shot": {
+        "lane": "bookend",
+        "class": "SHOW",
+        "scene_type": "ClaudeComposerAsk",
+        "show": [
+          {
+            "at": "start",
+            "event": "prompt types into the composer"
+          },
+          {
+            "at": "Then check",
+            "event": "three checks listed"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "INFO 7375 · WEEK 1",
+            "segment": "Try It on Your Own Code",
+            "command": "Here is my softmax function. Find one input where subtracting the maximum prevents an error, and one where underflow still makes the result wrong. Run both and compare against Python's decimal module.",
+            "runningText": "paste this into Claude…",
+            "output": [
+              "Check 1 · did it run the code, not describe it?",
+              "Check 2 · did the overflow really raise without the shift?",
+              "Check 3 · was underflow checked against decimal?"
+            ],
+            "folderLabel": "Yudan Zhou · INFO 7375",
+            "modelLabel": "",
+            "effortLabel": "",
+            "placeholder": "",
+            "durationSeconds": 21.82
+          }
+        }
+      },
+      "actual_duration_s": 21.82,
+      "audio_file": "mp3/beat-B09.mp3",
+      "render_duration_s": 21.833333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B09.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T20:36:46"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "outro",
+      "narration_text": "What Subtracting the Maximum Changes. A Week 1 explainer by Yudan Zhou.",
+      "voice": "af_bella",
+      "engine": "kokoro",
+      "estimated_duration_s": 4.6,
+      "shot": {
+        "lane": "bookend",
+        "class": "CARD",
+        "scene_type": "FormACard",
+        "show": [
+          {
+            "at": "start",
+            "event": "title restated; author, synthetic-narration and affiliation disclosures beneath"
+          },
+          {
+            "at": "overlay",
+            "event": "corner label Yudan Zhou · INFO 7375"
+          }
+        ],
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "What Subtracting the Maximum Changes."
+            ],
+            "meta": [
+              "Yudan Zhou · INFO 7375 · Week 1",
+              "Narration: synthetic voice (Kokoro af_bella), generated locally.",
+              "Styled after the Claude app; not affiliated with or endorsed by Anthropic."
+            ]
+          }
+        }
+      },
+      "actual_duration_s": 4.78,
+      "audio_file": "mp3/beat-B10.mp3",
+      "render_duration_s": 4.791666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B10.mp4",
+        "filled_by": "media",
+        "at": "2026-09-27T20:36:46"
+      }
+    }
+  ]
+}

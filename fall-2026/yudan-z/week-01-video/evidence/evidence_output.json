@@ -1,0 +1,124 @@
+{
+  "environment": {
+    "python": "3.14.2",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "cases": {
+    "A_moderate_scores": {
+      "input": [
+        1,
+        2,
+        3
+      ],
+      "temperature": 1.0,
+      "intermediates": {
+        "scores": [
+          1,
+          2,
+          3
+        ],
+        "peak": 3,
+        "shifted": [
+          -2,
+          -1,
+          0
+        ],
+        "weights": [
+          0.1353352832366127,
+          0.36787944117144233,
+          1.0
+        ],
+        "total": 1.5032147244080551,
+        "probabilities": [
+          0.09003057317038046,
+          0.24472847105479764,
+          0.6652409557748218
+        ]
+      },
+      "reference_shifted": [
+        0.09003057317038046,
+        0.24472847105479764,
+        0.6652409557748218
+      ],
+      "direct_unshifted": {
+        "ok": true,
+        "value": [
+          0.09003057317038045,
+          0.24472847105479764,
+          0.6652409557748219
+        ]
+      },
+      "max_abs_difference": 1.1102230246251565e-16
+    },
+    "B_equal_large_scores": {
+      "input": [
+        1000,
+        1000
+      ],
+      "temperature": 1.0,
+      "intermediates": {
+        "scores": [
+          1000,
+          1000
+        ],
+        "peak": 1000,
+        "shifted": [
+          0,
+          0
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "total": 2.0,
+        "probabilities": [
+          0.5,
+          0.5
+        ]
+      },
+      "reference_shifted": [
+        0.5,
+        0.5
+      ],
+      "direct_unshifted": {
+        "ok": false,
+        "error": "OverflowError: math range error"
+      }
+    },
+    "C_underflow_boundary": {
+      "input": [
+        0,
+        -1000
+      ],
+      "temperature": 1.0,
+      "intermediates": {
+        "scores": [
+          0,
+          -1000
+        ],
+        "peak": 0,
+        "shifted": [
+          0,
+          -1000
+        ],
+        "weights": [
+          1.0,
+          0.0
+        ],
+        "total": 1.0,
+        "probabilities": [
+          1.0,
+          0.0
+        ]
+      },
+      "reference_shifted": [
+        1.0,
+        0.0
+      ],
+      "float_exp_minus_1000": 0.0,
+      "decimal_exp_minus_1000": "5.07595889755E-435",
+      "note": "Subtracting the maximum removes the overflow in case B. It does not remove underflow here: the second probability is reported as exactly 0.0, which is a floating-point result, not the value of the mathematical expression."
+    }
+  }
+}
