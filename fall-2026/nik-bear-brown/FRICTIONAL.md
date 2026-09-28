@@ -422,3 +422,5 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-28 | docs(fall-2026): log the Chapter 2 show-tell film and the course mix-up |
 - **2026-09-28: "Do the repo push."** The Figma repo is pushed: one commit (7183cb0) with the twenty reel folders (sources and paperwork; renders stay ignored), the two overnight briefs and reports, the review-notes tool and its tests, the workshop kit, the examples and the call ledgers. Local paths were scrubbed to ~/books in 98 files first; no Figma file keys were added.
 | 2026-09-28 | docs(fall-2026): log the Figma repo push |
+- **2026-09-28: "next 10 films?"** The answer goes in the Figma repo as FILMS-NEXT-3.md (films 26 to 35).
+| 2026-09-28 | docs(fall-2026): log the question about Figma films 26 to 35 |
