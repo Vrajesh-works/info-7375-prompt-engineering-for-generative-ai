@@ -1,0 +1,459 @@
+import React from 'react';
+import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
+import { z } from 'zod';
+import { CLAUDE, CLAUDE_FONT } from '../tokens/claude';
+import { SAFE } from '../tokens/layout';
+
+/**
+ * DerivationScenes — illustrations for "do the arithmetic" beats: a slogan
+ * restated as a division, the unstated input named, and the spread shown.
+ *
+ * Built for claude-liam-hidden-parameter (INFO 7375 ch.1), but deliberately
+ * domain-neutral: every figure is a prop, so any chapter that turns a headline
+ * number into a derivation can reuse these.
+ *
+ * WHY THESE EXIST (GATE L punt record)
+ * `./art scenes` returned only reel-specific figures (sleeper-agents bars,
+ * values axes, economic-index scatters) for every derivation query. A genuine
+ * miss is a design card, never a licence to slate.
+ *
+ * CONTRACT
+ *  • Pure function of the beat clock; no timers, no random, seek-identical.
+ *  • ONE terracotta accent per beat — reserved for THE HIDDEN INPUT.
+ *  • All ink inside SAFE (GATE V treats outside-SAFE ink as a BLOCKER).
+ *  • Motion settles by p ~= 0.70 so the freeze-pad holds a completed frame.
+ *    Registered at 240 frames / 30fps.
+ */
+
+const SERIF = CLAUDE_FONT.serif;
+const SANS = CLAUDE_FONT.ui;
+const MONO = CLAUDE_FONT.mono;
+const STAGE = '#F2F0E9';
+
+const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
+const remap = (x: number, x0: number, x1: number, y0: number, y1: number) => {
+  const t = clamp((x - x0) / (x1 - x0 || 1), 0, 1);
+  return y0 + (y1 - y0) * t;
+};
+const ease = (t: number) => 1 - Math.pow(1 - clamp(t, 0, 1), 3);
+const useP = () => {
+  const frame = useCurrentFrame();
+  const { durationInFrames } = useVideoConfig();
+  return clamp(frame / Math.max(1, durationInFrames - 1), 0, 1);
+};
+
+/** Cream stage + the one serif spark line, kept inside SAFE. */
+const DerivStage: React.FC<{ spark: string; children: React.ReactNode }> = ({ spark, children }) => {
+  const p = useP();
+  return (
+    <AbsoluteFill style={{ background: STAGE }}>
+      {children}
+      <div style={{
+        position: 'absolute', top: 70, left: SAFE.x, width: SAFE.w, textAlign: 'center',
+        fontFamily: SERIF, fontSize: 46, color: CLAUDE.INK, opacity: remap(p, 0, 0.06, 0, 1),
+      }}>{spark}</div>
+    </AbsoluteFill>
+  );
+};
+
+/** Full-width header row — also guarantees the ink bbox spans SAFE. */
+const HeadRow: React.FC<{ left: string; right?: string; p: number; rightFrom?: number }> = ({ left, right, p, rightFrom = 0.4 }) => (
+  <div style={{
+    position: 'absolute', left: SAFE.x, top: 150, width: SAFE.w, display: 'flex',
+    justifyContent: 'space-between', fontFamily: SANS, fontSize: 28, fontWeight: 700, color: CLAUDE.INK_SOFT,
+  }}>
+    <div>{left}</div>
+    {right ? <div style={{ opacity: remap(p, rightFrom, rightFrom + 0.1, 0, 1) }}>{right}</div> : null}
+  </div>
+);
+
+const Closer: React.FC<{ text: string; p: number; from?: number; top?: number }> = ({ text, p, from = 0.62, top = 944 }) => (
+  <div style={{
+    position: 'absolute', left: SAFE.x, top, width: SAFE.w, textAlign: 'center',
+    fontFamily: SERIF, fontSize: 42, color: CLAUDE.INK, opacity: remap(p, from, from + 0.09, 0, 1),
+  }}>{text}</div>
+);
+
+/* ==================================================================== *
+ * ScaleAnchorCard — B02. The published figures an argument may stand on, *
+ *   with the source named. The ONE figure the derivation consumes is     *
+ *   the accent; the others are context.                                 *
+ * PROPS: sparkLine, figures ("label|value" csv), accentIndex, citation   *
+ * ==================================================================== */
+export const scaleAnchorCardSchema = z.object({
+  sparkLine: z.string().default('Published, therefore checkable.'),
+  figures: z.string().default('parameters|175 billion;;training tokens|300 billion;;training compute|3.14 × 10²³ FLOP'),
+  accentIndex: z.number().default(1),
+  citation: z.string().default('Brown et al., Language Models are Few-Shot Learners, arXiv:2005.14165 (2020)'),
+  note: z.string().default('GPT-3 — the anchor, because its details were published'),
+  noteRight: z.string().default(''),
+});
+export type ScaleAnchorCardProps = z.infer<typeof scaleAnchorCardSchema>;
+
+export const ScaleAnchorCard: React.FC<ScaleAnchorCardProps> = ({ sparkLine, figures, accentIndex, citation, note, noteRight }) => {
+  const p = useP();
+  const items = figures.split(';;').map((s) => s.split('|'));
+  const gap = 40;
+  const cw = (SAFE.w - gap * (items.length - 1)) / items.length;
+  return (
+    <DerivStage spark={sparkLine}>
+      <HeadRow left={note} right={noteRight} p={p} rightFrom={0.55} />
+      {items.map(([label, value], i) => {
+        const a = ease(remap(p, 0.1 + i * 0.12, 0.28 + i * 0.12, 0, 1));
+        const hot = i === accentIndex;
+        return (
+          <div key={i} style={{
+            position: 'absolute', left: SAFE.x + i * (cw + gap), top: 300 + (1 - a) * 30, width: cw, height: 400,
+            opacity: a, background: '#FFFFFF', border: `5px solid ${hot ? CLAUDE.SPARK : CLAUDE.BORDER}`,
+            borderRadius: 20, display: 'flex', flexDirection: 'column', alignItems: 'center',
+            justifyContent: 'center', gap: 26, padding: 24, boxSizing: 'border-box',
+          }}>
+            <div style={{ fontFamily: SANS, fontSize: 30, fontWeight: 700, color: CLAUDE.INK_SOFT, textAlign: 'center' }}>{label}</div>
+            <div style={{ fontFamily: MONO, fontSize: hot ? 62 : 54, fontWeight: 700, color: hot ? CLAUDE.SPARK : CLAUDE.INK, textAlign: 'center', lineHeight: 1.15 }}>{value}</div>
+            {hot && <div style={{ fontFamily: SANS, fontSize: 25, fontWeight: 700, color: CLAUDE.SPARK }}>the one we divide</div>}
+          </div>
+        );
+      })}
+      <div style={{
+        position: 'absolute', left: SAFE.x, top: 748, width: SAFE.w, textAlign: 'center',
+        fontFamily: MONO, fontSize: 24, color: CLAUDE.GHOST, opacity: remap(p, 0.5, 0.6, 0, 1),
+      }}>Source: {citation}</div>
+      <Closer text="A measurement you can look up. Everything after this is arithmetic." p={p} from={0.66} top={850} />
+    </DerivStage>
+  );
+};
+
+/* ==================================================================== *
+ * DerivationLadder — B03 / B06 / B08. A headline restated as a chain of  *
+ *   operations, one row at a time, ending in the number people quote.    *
+ *   The row marked `hiddenIndex` is the input nobody stated.            *
+ * PROPS: sparkLine, claim, rows ("expr|note" csv), result, resultLabel,  *
+ *        hiddenIndex, headLeft, headRight, closer                        *
+ * ==================================================================== */
+export const derivationLadderSchema = z.object({
+  sparkLine: z.string().default('Do the division.'),
+  claim: z.string().default('“it would take a person thousands of years to read that much text”'),
+  rows: z.string().default('300,000,000,000 tokens|the published figure;;× 0.75 words per token|an assumption;;= 225,000,000,000 words|derived;;÷ 250 words per minute|an assumption nobody stated'),
+  result: z.string().default('1,711 years'),
+  resultLabel: z.string().default('the headline'),
+  hiddenIndex: z.number().default(3),
+  headLeft: z.string().default('THE READING COMPARISON'),
+  headRight: z.string().default('every step is checkable'),
+  closer: z.string().default('Not a measurement. A division.'),
+  // The last line is normally the division's answer ("= 1,711 years"). For a
+  // method/instruction line, drop the "=" and set it as a serif sentence instead.
+  resultPrefix: z.string().default('= '),
+  resultSerif: z.boolean().default(false),
+  resultSize: z.number().default(68),
+});
+export type DerivationLadderProps = z.infer<typeof derivationLadderSchema>;
+
+export const DerivationLadder: React.FC<DerivationLadderProps> = ({
+  sparkLine, claim, rows, result, resultLabel, hiddenIndex, headLeft, headRight, closer,
+  resultPrefix, resultSerif, resultSize,
+}) => {
+  const p = useP();
+  const items = rows.split(';;').map((s) => s.split('|'));
+  const top = 318;
+  const rh = 96;
+  return (
+    <DerivStage spark={sparkLine}>
+      <HeadRow left={headLeft} right={headRight} p={p} rightFrom={0.6} />
+      <div style={{
+        position: 'absolute', left: SAFE.x, top: 208, width: SAFE.w, textAlign: 'center',
+        fontFamily: SERIF, fontSize: 40, fontStyle: 'italic', color: CLAUDE.INK_SOFT,
+        opacity: remap(p, 0.04, 0.12, 0, 1),
+      }}>{claim}</div>
+
+      {items.map(([expr, note], i) => {
+        const a = ease(remap(p, 0.14 + i * 0.1, 0.3 + i * 0.1, 0, 1));
+        const hot = i === hiddenIndex;
+        return (
+          <div key={i} style={{
+            position: 'absolute', left: SAFE.x, top: top + i * rh, width: SAFE.w, height: rh - 12,
+            opacity: a, display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            borderBottom: `2px solid ${CLAUDE.BORDER}`,
+          }}>
+            <div style={{ fontFamily: MONO, fontSize: 46, fontWeight: 700, color: hot ? CLAUDE.SPARK : CLAUDE.INK }}>{expr}</div>
+            <div style={{ fontFamily: SANS, fontSize: 27, fontWeight: hot ? 800 : 400, color: hot ? CLAUDE.SPARK : CLAUDE.GHOST }}>
+              {hot ? `▲ ${note}` : note}
+            </div>
+          </div>
+        );
+      })}
+
+      <div style={{
+        position: 'absolute', left: SAFE.x, top: top + items.length * rh + 16, width: SAFE.w,
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        opacity: ease(remap(p, 0.58, 0.7, 0, 1)),
+      }}>
+        <div style={{
+          fontFamily: resultSerif ? SERIF : MONO, fontSize: resultSize,
+          fontWeight: resultSerif ? 600 : 800, color: CLAUDE.INK,
+        }}>{resultPrefix}{result}</div>
+        <div style={{ fontFamily: SANS, fontSize: 30, fontWeight: 700, color: CLAUDE.INK_SOFT }}>{resultLabel}</div>
+      </div>
+      <Closer text={closer} p={p} from={0.72} top={944} />
+    </DerivStage>
+  );
+};
+
+/* ==================================================================== *
+ * AssumptionFan — B04. One quantity, one unstated input set three ways,  *
+ *   three different headlines, and the spread between them named.       *
+ * PROPS: sparkLine, quantity, quantityLabel, branches ("input|answer"),  *
+ *        accentIndex, spread, headLeft, closer                           *
+ * ==================================================================== */
+export const assumptionFanSchema = z.object({
+  sparkLine: z.string().default('Nobody stated the rate.'),
+  quantity: z.string().default('225,000,000,000 words'),
+  quantityLabel: z.string().default('the same quantity, every time'),
+  branches: z.string().default('250 words per minute|1,711 years;;200 words per minute|2,139 years;;150 words per minute|2,852 years'),
+  accentIndex: z.number().default(0),
+  spread: z.string().default('1,141 years of spread — from an input nobody supplied'),
+  headLeft: z.string().default('THE HIDDEN PARAMETER'),
+  closer: z.string().default('The answer moves by more than a thousand years.'),
+});
+export type AssumptionFanProps = z.infer<typeof assumptionFanSchema>;
+
+export const AssumptionFan: React.FC<AssumptionFanProps> = ({
+  sparkLine, quantity, quantityLabel, branches, accentIndex, spread, headLeft, closer,
+}) => {
+  const p = useP();
+  const items = branches.split(';;').map((s) => s.split('|'));
+  const boxW = 560;
+  const qx = SAFE.x;
+  const qy = 470;
+  const bx = SAFE.r - boxW;
+  const n = items.length;
+  const bTop = 300;
+  const bGap = 200;
+
+  return (
+    <DerivStage spark={sparkLine}>
+      <HeadRow left={headLeft} right="same numerator, three answers" p={p} rightFrom={0.5} />
+
+      {/* the quantity — fixed, on the left */}
+      <div style={{
+        position: 'absolute', left: qx, top: qy, width: 620, padding: '34px 26px', boxSizing: 'border-box',
+        background: '#FFFFFF', border: `5px solid ${CLAUDE.INK}`, borderRadius: 18, textAlign: 'center',
+        opacity: ease(remap(p, 0.06, 0.18, 0, 1)),
+      }}>
+        <div style={{ fontFamily: MONO, fontSize: 40, fontWeight: 700, color: CLAUDE.INK }}>{quantity}</div>
+        <div style={{ fontFamily: SANS, fontSize: 25, color: CLAUDE.INK_SOFT, marginTop: 12 }}>{quantityLabel}</div>
+      </div>
+
+      {/* fan lines */}
+      <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+        {items.map((_, i) => {
+          const a = ease(remap(p, 0.22 + i * 0.12, 0.4 + i * 0.12, 0, 1));
+          const y2 = bTop + i * bGap + 78;
+          const x1 = qx + 620, y1 = qy + 66;
+          return (
+            <path key={i}
+              d={`M ${x1} ${y1} C ${x1 + 130} ${y1}, ${bx - 130} ${y2}, ${bx - 10} ${y2}`}
+              stroke={i === accentIndex ? CLAUDE.SPARK : CLAUDE.INK_SOFT} strokeWidth={i === accentIndex ? 7 : 4}
+              fill="none" strokeLinecap="round"
+              strokeDasharray={820} strokeDashoffset={820 * (1 - a)} />
+          );
+        })}
+      </svg>
+
+      {/* the three answers */}
+      {items.map(([input, answer], i) => {
+        const a = ease(remap(p, 0.3 + i * 0.12, 0.46 + i * 0.12, 0, 1));
+        const hot = i === accentIndex;
+        return (
+          <div key={i} style={{
+            position: 'absolute', left: bx, top: bTop + i * bGap, width: boxW, opacity: a,
+            background: '#FFFFFF', border: `5px solid ${hot ? CLAUDE.SPARK : CLAUDE.BORDER}`,
+            borderRadius: 16, padding: '20px 24px', boxSizing: 'border-box',
+          }}>
+            <div style={{ fontFamily: SANS, fontSize: 26, color: hot ? CLAUDE.SPARK : CLAUDE.INK_SOFT, fontWeight: 700 }}>÷ {input}</div>
+            <div style={{ fontFamily: MONO, fontSize: 52, fontWeight: 800, color: CLAUDE.INK, marginTop: 8 }}>{answer}</div>
+          </div>
+        );
+      })}
+
+      <div style={{
+        position: 'absolute', left: SAFE.x, top: 866, width: SAFE.w, textAlign: 'center',
+        fontFamily: SANS, fontSize: 30, fontWeight: 800, color: CLAUDE.SPARK,
+        opacity: remap(p, 0.64, 0.74, 0, 1),
+      }}>{spread}</div>
+      <Closer text={closer} p={p} from={0.74} top={932} />
+    </DerivStage>
+  );
+};
+
+/* ==================================================================== *
+ * SurvivingClaim — B05. Three conflicting precise answers collapse into  *
+ *   the one statement all of them support. What dies is the decimal;     *
+ *   what survives is the point.                                         *
+ * PROPS: sparkLine, discarded (csv), survives, headLeft, closer          *
+ * ==================================================================== */
+export const survivingClaimSchema = z.object({
+  sparkLine: z.string().default('What survives the spread.'),
+  discarded: z.string().default('1,711 years;;2,139 years;;2,852 years'),
+  survives: z.string().default('“more text than a person could read in many lifetimes”'),
+  headLeft: z.string().default('WHAT THE COMPARISON STILL BUYS'),
+  closer: z.string().default('The point survives. The precision never existed.'),
+});
+export type SurvivingClaimProps = z.infer<typeof survivingClaimSchema>;
+
+export const SurvivingClaim: React.FC<SurvivingClaimProps> = ({ sparkLine, discarded, survives, headLeft, closer }) => {
+  const p = useP();
+  const items = discarded.split(';;');
+  const gap = 46;
+  const cw = (SAFE.w - gap * (items.length - 1)) / items.length;
+  const strike = remap(p, 0.34, 0.5, 0, 1);
+  const land = ease(remap(p, 0.5, 0.68, 0, 1));
+
+  return (
+    <DerivStage spark={sparkLine}>
+      <HeadRow left={headLeft} right="all three, one claim" p={p} rightFrom={0.52} />
+      {items.map((t, i) => {
+        const a = ease(remap(p, 0.08 + i * 0.07, 0.22 + i * 0.07, 0, 1));
+        return (
+          <div key={i} style={{
+            position: 'absolute', left: SAFE.x + i * (cw + gap), top: 260, width: cw, height: 130,
+            opacity: a * (1 - strike * 0.55), background: '#FFFFFF',
+            border: `4px solid ${CLAUDE.BORDER}`, borderRadius: 14,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontFamily: MONO, fontSize: 48, fontWeight: 700, color: CLAUDE.INK,
+            textDecoration: strike > 0.5 ? 'line-through' : 'none',
+          }}>{t}</div>
+        );
+      })}
+
+      {/* converging arrows */}
+      <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+        {items.map((_, i) => {
+          const x1 = SAFE.x + i * (cw + gap) + cw / 2;
+          const a = ease(remap(p, 0.42 + i * 0.04, 0.58 + i * 0.04, 0, 1));
+          return (
+            <path key={i} d={`M ${x1} ${400} C ${x1} ${470}, ${960} ${480}, ${960} ${556}`}
+              stroke={CLAUDE.SPARK} strokeWidth={5} fill="none" strokeLinecap="round"
+              strokeDasharray={760} strokeDashoffset={760 * (1 - a)} />
+          );
+        })}
+      </svg>
+
+      <div style={{
+        position: 'absolute', left: SAFE.x, top: 588, width: SAFE.w, padding: '48px 40px', boxSizing: 'border-box',
+        background: '#FFFFFF', border: `6px solid ${CLAUDE.SPARK}`, borderRadius: 20, textAlign: 'center',
+        opacity: land, transform: `translateY(${(1 - land) * 24}px)`,
+      }}>
+        <div style={{ fontFamily: SERIF, fontSize: 52, color: CLAUDE.INK, lineHeight: 1.28 }}>{survives}</div>
+        <div style={{ fontFamily: SANS, fontSize: 26, fontWeight: 700, color: CLAUDE.SPARK, marginTop: 18 }}>
+          true at every reading rate
+        </div>
+      </div>
+      <Closer text={closer} p={p} from={0.76} top={904} />
+    </DerivStage>
+  );
+};
+
+/* ==================================================================== *
+ * ClaimAudit — B07. Two sentences that sound interchangeable, the input  *
+ *   each one actually requires, and the gap between them.               *
+ * PROPS: sparkLine, claims ("claim|requires|verdict" csv), gapLabel      *
+ * ==================================================================== */
+export const claimAuditSchema = z.object({
+  sparkLine: z.string().default('Two sentences. Two budgets.'),
+  claims: z.string().default('“about 9.95 million years”|3.14 × 10²³ operations|GPT-3, as published;;“over 100 million years”|3.2 × 10²⁴ operations|a different, larger model'),
+  accentIndex: z.number().default(1),
+  gapLabel: z.string().default('≈ 10× the compute — not a rounding difference'),
+  headLeft: z.string().default('ONE BILLION OPERATIONS PER SECOND, BY HAND'),
+  closer: z.string().default('Both can be true. They are not the same sentence.'),
+});
+export type ClaimAuditProps = z.infer<typeof claimAuditSchema>;
+
+export const ClaimAudit: React.FC<ClaimAuditProps> = ({ sparkLine, claims, accentIndex, gapLabel, headLeft, closer }) => {
+  const p = useP();
+  const items = claims.split(';;').map((s) => s.split('|'));
+  const rowTop = 268;
+  const rowH = 250;
+  return (
+    <DerivStage spark={sparkLine}>
+      <HeadRow left={headLeft} right="audit the input, not the adjective" p={p} rightFrom={0.6} />
+      {items.map(([claim, requires, verdict], i) => {
+        const a = ease(remap(p, 0.1 + i * 0.18, 0.3 + i * 0.18, 0, 1));
+        const hot = i === accentIndex;
+        return (
+          <div key={i} style={{
+            position: 'absolute', left: SAFE.x, top: rowTop + i * rowH, width: SAFE.w, height: rowH - 40,
+            opacity: a, background: '#FFFFFF', border: `5px solid ${hot ? CLAUDE.SPARK : CLAUDE.INK}`,
+            borderRadius: 18, display: 'flex', alignItems: 'center', boxSizing: 'border-box', padding: '0 34px', gap: 30,
+          }}>
+            <div style={{ flex: 1.45, fontFamily: SERIF, fontSize: 44, color: CLAUDE.INK, lineHeight: 1.2 }}>{claim}</div>
+            <div style={{ width: 4, height: '62%', background: CLAUDE.BORDER }} />
+            <div style={{ flex: 1, textAlign: 'center' }}>
+              <div style={{ fontFamily: SANS, fontSize: 22, color: CLAUDE.GHOST, fontWeight: 700 }}>REQUIRES</div>
+              <div style={{ fontFamily: MONO, fontSize: 40, fontWeight: 800, color: hot ? CLAUDE.SPARK : CLAUDE.INK, marginTop: 6 }}>{requires}</div>
+            </div>
+            <div style={{ width: 4, height: '62%', background: CLAUDE.BORDER }} />
+            <div style={{ flex: 0.85, fontFamily: SANS, fontSize: 26, fontWeight: 700, color: CLAUDE.INK_SOFT, textAlign: 'right' }}>{verdict}</div>
+          </div>
+        );
+      })}
+      <div style={{
+        position: 'absolute', left: SAFE.x, top: rowTop + items.length * rowH - 10, width: SAFE.w,
+        textAlign: 'center', fontFamily: SANS, fontSize: 32, fontWeight: 800, color: CLAUDE.SPARK,
+        opacity: remap(p, 0.6, 0.7, 0, 1),
+      }}>{gapLabel}</div>
+      <Closer text={closer} p={p} from={0.74} top={932} />
+    </DerivStage>
+  );
+};
+
+/* ==================================================================== *
+ * BoundaryCard — the "what this does not establish" beat. Two columns:   *
+ *   what the explanation actually showed, and what it did not — so the   *
+ *   limit of the claim is SHOWN as a contrast, not read over a slide.    *
+ * PROPS: sparkLine, headLeft, shown ("a;;b"), notShown ("a;;b"), closer   *
+ * ==================================================================== */
+export const boundaryCardSchema = z.object({
+  sparkLine: z.string().default('Where this stops.'),
+  headLeft: z.string().default('WHAT THIS VIDEO DOES NOT ESTABLISH'),
+  shownTitle: z.string().default('SHOWN'),
+  notShownTitle: z.string().default('NOT SHOWN'),
+  shown: z.string().default('how far the headline moves when an unstated input changes;;1,711 → 2,852 years from the reading rate alone'),
+  notShown: z.string().default('that 0.75 words per token is the right value;;that any reading rate is the right value;;that GPT-3’s published figures are accurate — taken on trust'),
+  closer: z.string().default('Sensitivity is not accuracy.'),
+});
+export type BoundaryCardProps = z.infer<typeof boundaryCardSchema>;
+
+export const BoundaryCard: React.FC<BoundaryCardProps> = ({ sparkLine, headLeft, shownTitle, notShownTitle, shown, notShown, closer }) => {
+  const p = useP();
+  const L = shown.split(';;');
+  const R = notShown.split(';;');
+  const gap = 48;
+  const colW = (SAFE.w - gap) / 2;
+  const top = 230;
+  const Col: React.FC<{ x: number; title: string; items: string[]; hot: boolean; from: number }> = ({ x, title, items, hot, from }) => (
+    <div style={{
+      position: 'absolute', left: x, top, width: colW, height: 560, boxSizing: 'border-box',
+      background: '#FFFFFF', border: `5px solid ${hot ? CLAUDE.SPARK : CLAUDE.INK}`, borderRadius: 20,
+      padding: '34px 40px', opacity: ease(remap(p, from, from + 0.1, 0, 1)),
+    }}>
+      <div style={{ fontFamily: SANS, fontSize: 32, fontWeight: 800, letterSpacing: '0.06em', color: hot ? CLAUDE.SPARK : CLAUDE.INK }}>{title}</div>
+      {items.map((t, i) => (
+        <div key={i} style={{
+          display: 'flex', gap: 18, marginTop: 34, fontFamily: SERIF, fontSize: 38, lineHeight: 1.25, color: CLAUDE.INK,
+          opacity: ease(remap(p, from + 0.06 + i * 0.07, from + 0.14 + i * 0.07, 0, 1)),
+        }}>
+          <div style={{ fontFamily: SANS, fontWeight: 800, color: hot ? CLAUDE.SPARK : CLAUDE.INK, minWidth: 30 }}>{hot ? '✗' : '✓'}</div>
+          <div>{t}</div>
+        </div>
+      ))}
+    </div>
+  );
+  return (
+    <DerivStage spark={sparkLine}>
+      <HeadRow left={headLeft} p={p} />
+      <Col x={SAFE.x} title={shownTitle} items={L} hot={false} from={0.06} />
+      <Col x={SAFE.x + colW + gap} title={notShownTitle} items={R} hot from={0.3} />
+      <Closer text={closer} p={p} from={0.62} top={880} />
+    </DerivStage>
+  );
+};

@@ -22,8 +22,7 @@ and the reading rate is never stated — which is why the same sentence supports
 
 ## Why this one
 
-It is the smallest idea in Chapter 1 that can be shown completely in three minutes:
-four lines of arithmetic, every input checkable against a published source, and a
+Four lines of arithmetic, every input checkable against a published source, and a
 point that lands the moment one unstated number changes and the answer moves by
 over a thousand years.
 
@@ -117,6 +116,12 @@ paste-ready prompt, with the QC gates and the two traps specific to this video.
 
 **1. Get the toolkit and add this video's components.** A fresh clone doesn't have
 the six scene components this video uses or the patched last-slide scene.
+
+> **On GitHub** the two scene files are stored as `DerivationScenes.tsx.txt` and
+> `ClaudeComposerAsk.tsx.txt`, because the course repo's CI rejects TypeScript
+> files. Same contents; drop the `.txt` when copying them into the toolkit. The
+> Canvas zip has them as plain `.tsx`. The video file itself is only in the Canvas
+> zip.
 
 ```bash
 git clone https://github.com/nikbearbrown/brutalist.art

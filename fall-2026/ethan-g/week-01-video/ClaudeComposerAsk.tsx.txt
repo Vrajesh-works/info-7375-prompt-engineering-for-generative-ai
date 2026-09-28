@@ -1,0 +1,318 @@
+import React from 'react';
+import {AbsoluteFill, useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
+import {z} from 'zod';
+import {FONT, SPRING_SMOOTH} from '../tokens/vox';
+import {CLAUDE, CLAUDE_FONT} from '../tokens/claude';
+
+/**
+ * ClaudeComposerAsk — the ASK beat rendered as the Claude desktop composer.
+ * THE REQUIRED intro/ask scene for NikBearBrown + claude-brand beat sheets
+ * going forward (replaces the dark NikBearBrownTerminalAsk, which stays
+ * registered only so historical reels re-render identically).
+ *
+ * Same prop contract as NikBearBrownTerminalAsk — beat sheets swap the scene
+ * name without touching props. The command types itself into the cream
+ * composer card (frame-keyed cursor, no timers); a leading /skill token gets
+ * the terracotta accent; the send button arms when typing completes; then the
+ * running indicator and optional output lines appear below the card.
+ * Duration-agnostic — vox_compile.py conforms to actual audio length.
+ */
+export const claudeComposerAskSchema = z.object({
+  command:     z.string().default('claude "write a Manim scene: photoelectric effect"'),
+  topic:       z.string().default('CLAUDE CODE · MANIM'),
+  /** Serif title under the eyebrow. Title Case — never all caps. */
+  segment:     z.string().default('Photoelectric Effect'),
+  /** The app-style greeting above the composer: "<cue>, <persona>". The cue
+   * DEFAULTS to a world-language hello (Hola · Bonjour · Jambo · Namaste ·
+   * Sawubona …) — rotate languages across reels so viewers passively learn
+   * to say hello; Bear gets "Wagwan" ~10% of the time. Word budget: persona
+   * "Bear" leaves room for a two-word cue; "Medhavy"/"Musinique" take one;
+   * HAI takes only short forms (Hi · Ola · Hej). An arc cue ("The ask," /
+   * "Watch this," — Bear only) may replace the hello when it earns the slot.
+   * Set at beat-sheet authoring time (renders stay deterministic).
+   * Empty = spark only. */
+  greeting:    z.string().default('Hola, Bear'),
+  runningText: z.string().default('running simulation…'),
+  output:      z.array(z.string()).optional(),
+  /** Footer folder chip. The brand default — change only for off-brand one-offs. */
+  folderLabel: z.string().default('@NikBearBrown'),
+  /** Model chip label. */
+  modelLabel:  z.string().default('Fable 5'),
+  /** Effort label next to the model. */
+  effortLabel: z.string().default('High'),
+  /** Ghost text shown before typing starts. */
+  placeholder: z.string().default('Type / for skills'),
+  /** Optional author line centred at the bottom of the frame. Empty = none. */
+  credit:      z.string().default(''),
+});
+export type ClaudeComposerAskProps = z.infer<typeof claudeComposerAskSchema>;
+
+
+export const ClaudeComposerAsk: React.FC<ClaudeComposerAskProps> = ({
+  command, topic, segment, greeting, runningText, output, folderLabel,
+  modelLabel, effortLabel, placeholder, credit,
+}) => {
+  const frame = useCurrentFrame();
+  const {fps, width, height} = useVideoConfig();
+  const portrait = height > width;
+
+  const PAD_X = width * 0.08;
+  const UI = height * (portrait ? 0.016 : 0.022);   // base UI font size
+  const CMD = UI * 1.25;                            // typed-command size
+
+  const topicIn = spring({frame,            fps, config: SPRING_SMOOTH});
+  const segIn   = spring({frame: frame - 4, fps, config: SPRING_SMOOTH});
+  const cardIn  = spring({frame: frame - 8, fps, config: SPRING_SMOOTH});
+
+  const TYPE_START = 18;
+  const TYPE_DUR   = 45;
+  const charsShown = Math.min(
+    command.length,
+    Math.max(0, Math.floor(((frame - TYPE_START) / TYPE_DUR) * command.length)),
+  );
+  const isTyping = charsShown < command.length;
+  const done = charsShown >= command.length && command.length > 0;
+  const blinkOn = Math.floor(frame / 11) % 2 === 0;
+
+  const typed = command.slice(0, charsShown);
+  const slashMatch = typed.match(/^(\/\S*)([\s\S]*)$/);
+
+  const RUN_START = TYPE_START + TYPE_DUR + 8;
+  const runningOpacity = interpolate(frame, [RUN_START + 6, RUN_START + 12], [0, 1], {
+    extrapolateLeft: 'clamp', extrapolateRight: 'clamp',
+  });
+
+  const caret = (
+    <span style={{
+      display: (isTyping || charsShown === 0) && blinkOn ? 'inline-block' : 'none',
+      width: Math.max(2, UI * 0.1),
+      height: CMD,
+      background: CLAUDE.INK,
+      verticalAlign: 'text-bottom',
+      marginLeft: 2,
+      borderRadius: 2,
+    }} />
+  );
+
+  return (
+    <AbsoluteFill style={{backgroundColor: CLAUDE.PAGE, overflow: 'hidden'}}>
+
+      {/* Topic eyebrow — same grid as the other NBB ask scenes */}
+      <div style={{
+        position: 'absolute',
+        left: PAD_X,
+        top: height * 0.10,
+        fontFamily: FONT.display,
+        fontSize: height * 0.016,
+        fontWeight: 700,
+        letterSpacing: 3,
+        textTransform: 'uppercase',
+        color: CLAUDE.INK_SOFT,
+        opacity: topicIn * 0.75,
+        transform: `translateY(${(1 - topicIn) * 8}px)`,
+      }}>
+        {topic}
+      </div>
+
+      {/* Segment title — Claude serif, sentence case. Calm, not shouty. */}
+      <div style={{
+        position: 'absolute',
+        left: PAD_X,
+        top: height * 0.15,
+        fontFamily: CLAUDE_FONT.serif,
+        fontSize: height * 0.038,
+        fontWeight: 600,
+        color: CLAUDE.INK,
+        letterSpacing: '-0.01em',
+        opacity: segIn,
+        transform: `translateY(${(1 - segIn) * 10}px)`,
+      }}>
+        {segment}
+      </div>
+
+      {/* Greeting — spark + app-style serif salutation carrying the beat cue */}
+      <div style={{
+        position: 'absolute',
+        left: 0, right: 0,
+        top: height * 0.285,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: height * 0.018,
+        opacity: cardIn,
+      }}>
+        {greeting !== '' ? (
+          <>
+            <span style={{
+              fontFamily: CLAUDE_FONT.serif,
+              fontSize: height * 0.05,
+              color: CLAUDE.INK,
+              letterSpacing: '-0.01em',
+              whiteSpace: 'nowrap',
+            }}>
+              {greeting}
+            </span>
+          </>
+        ) : null}
+      </div>
+
+      {/* Composer card */}
+      <div style={{
+        position: 'absolute',
+        left: PAD_X,
+        right: PAD_X,
+        top: height * 0.40,
+        fontFamily: CLAUDE_FONT.ui,
+        opacity: cardIn,
+        transform: `translateY(${(1 - cardIn) * 18}px)`,
+      }}>
+        <div style={{
+          background: CLAUDE.CARD,
+          border: `1px solid ${CLAUDE.BORDER}`,
+          borderRadius: UI * 1.2,
+          boxShadow: '0 6px 32px rgba(61,57,41,0.08), 0 1px 3px rgba(61,57,41,0.05)',
+          padding: `${UI * 1.0}px ${UI * 1.15}px ${UI * 0.85}px`,
+        }}>
+          {/* Input area — the ask types itself here */}
+          <div style={{
+            minHeight: CMD * 2.9,
+            fontSize: CMD,
+            lineHeight: 1.45,
+            color: CLAUDE.INK,
+            whiteSpace: 'pre-wrap',
+            overflowWrap: 'break-word',
+          }}>
+            {charsShown === 0 ? (
+              <span style={{color: CLAUDE.GHOST}}>
+                {placeholder}
+                {frame >= TYPE_START - 8 && caret}
+              </span>
+            ) : (
+              <>
+                {slashMatch ? (
+                  <>
+                    <span style={{color: CLAUDE.SPARK, fontWeight: 500}}>{slashMatch[1]}</span>
+                    <span>{slashMatch[2]}</span>
+                  </>
+                ) : (
+                  <span>{typed}</span>
+                )}
+                {isTyping && caret}
+              </>
+            )}
+          </div>
+
+          {/* Bottom row: + · model chip · mic · send */}
+          <div style={{display: 'flex', alignItems: 'center', gap: UI * 0.6, marginTop: UI * 0.6}}>
+            <div style={{
+              width: UI * 1.5, height: UI * 1.5,
+              borderRadius: 999,
+              border: `1px solid ${CLAUDE.BORDER}`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: CLAUDE.INK_SOFT, fontSize: UI * 1.05, lineHeight: 1,
+            }}>+</div>
+            <div style={{flex: 1}} />
+            <span style={{fontSize: UI * 0.85, color: CLAUDE.INK, fontWeight: 500}}>{modelLabel}</span>
+            <span style={{fontSize: UI * 0.85, color: CLAUDE.GHOST}}>{effortLabel}</span>
+            <svg width={UI * 0.8} height={UI * 0.8} viewBox="0 0 24 24" fill="none" style={{display: 'block'}}>
+              <path d="m7 10 5 5 5-5" stroke={CLAUDE.GHOST} strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <svg width={UI * 1.05} height={UI * 1.05} viewBox="0 0 24 24" fill="none" style={{display: 'block'}}>
+              <rect x={9} y={3} width={6} height={11} rx={3} stroke={CLAUDE.INK_SOFT} strokeWidth={2} />
+              <path d="M5 11a7 7 0 0 0 14 0" stroke={CLAUDE.INK_SOFT} strokeWidth={2} strokeLinecap="round" />
+              <line x1={12} y1={18} x2={12} y2={21} stroke={CLAUDE.INK_SOFT} strokeWidth={2} strokeLinecap="round" />
+            </svg>
+            <div style={{
+              width: UI * 1.5, height: UI * 1.5,
+              borderRadius: UI * 0.45,
+              background: CLAUDE.SEND,
+              opacity: done ? 1 : 0.45,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <svg width={UI * 0.85} height={UI * 0.85} viewBox="0 0 24 24" fill="none">
+                <path d="M12 20V5m0 0-6 6m6-6 6 6" stroke="#FFFFFF" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer strip: folder chip · running indicator · output lines */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: UI * 0.5,
+          padding: `${UI * 0.6}px ${UI * 0.3}px`,
+          color: CLAUDE.INK_SOFT,
+          fontSize: UI * 0.85,
+          fontWeight: 500,
+        }}>
+          <svg width={UI} height={UI} viewBox="0 0 24 24" fill="none" style={{display: 'block'}}>
+            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"
+              stroke={CLAUDE.INK_SOFT} strokeWidth={2} strokeLinejoin="round" />
+          </svg>
+          <span>{folderLabel}</span>
+        </div>
+
+        {/* Running indicator — the "it's working" beat, spark-colored */}
+        <div style={{
+          fontFamily: CLAUDE_FONT.mono,
+          fontSize: UI * 0.9,
+          color: CLAUDE.SPARK,
+          padding: `0 ${UI * 0.3}px`,
+          opacity: runningOpacity,
+        }}>
+          {`✳ ${runningText}`}
+        </div>
+
+        {/* Optional output lines */}
+        {output && output.map((line, i) => {
+          const lineStart = RUN_START + 18 + i * 10;
+          const lineOpacity = interpolate(frame, [lineStart, lineStart + 6], [0, 1], {
+            extrapolateLeft: 'clamp', extrapolateRight: 'clamp',
+          });
+          return (
+            <div key={i} style={{
+              fontFamily: CLAUDE_FONT.mono,
+              fontSize: UI * 0.85,
+              color: CLAUDE.INK_SOFT,
+              padding: `${UI * 0.15}px ${UI * 0.3}px 0`,
+              whiteSpace: 'pre-wrap',
+              overflowWrap: 'break-word',
+              opacity: lineOpacity,
+            }}>
+              {line}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Bottom terracotta rule — the brand's one-accent signature */}
+      <div style={{
+        position: 'absolute',
+        left: PAD_X,
+        bottom: height * 0.07,
+        width: width * 0.08,
+        height: 2,
+        backgroundColor: CLAUDE.SPARK,
+        opacity: topicIn,
+      }} />
+
+      {credit ? (
+        <div style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: height * 0.07,
+          textAlign: 'center',
+          fontFamily: CLAUDE_FONT.serif,
+          fontSize: UI * 1.6,
+          color: CLAUDE.INK_SOFT,
+          opacity: topicIn,
+        }}>
+          {credit}
+        </div>
+      ) : null}
+
+    </AbsoluteFill>
+  );
+};

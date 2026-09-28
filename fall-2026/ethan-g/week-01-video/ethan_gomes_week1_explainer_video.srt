@@ -1,0 +1,353 @@
+1
+00:00:00,000 --> 00:00:02,085
+Hello, students. You have heard this one.
+
+2
+00:00:02,125 --> 00:00:06,293
+It would take a person thousands of years
+just to read what the model was trained on.
+
+3
+00:00:06,333 --> 00:00:08,168
+That sentence is not a measurement.
+
+4
+00:00:08,208 --> 00:00:11,392
+It is a division, and somebody
+left one of the numbers out.
+
+5
+00:00:11,500 --> 00:00:13,418
+Here is the whole thing in one breath.
+
+6
+00:00:13,458 --> 00:00:16,043
+A scale slogan is not a
+measurement, it is a division —
+
+7
+00:00:16,083 --> 00:00:20,850
+and the input that moves the answer
+most is usually the one nobody states.
+
+8
+00:00:21,083 --> 00:00:22,918
+Start where the numbers are real.
+
+9
+00:00:22,958 --> 00:00:26,710
+GPT-3 is the anchor here, because its
+details were actually published —
+
+10
+00:00:26,750 --> 00:00:28,918
+a hundred seventy-five billion parameters,
+
+11
+00:00:28,958 --> 00:00:31,168
+roughly three hundred
+billion training tokens,
+
+12
+00:00:31,208 --> 00:00:35,433
+and a reported three point one four times
+ten to the twenty-third operations.
+
+13
+00:00:35,667 --> 00:00:39,350
+Everything you have heard about years of
+reading is built on that middle number.
+
+14
+00:00:39,417 --> 00:00:40,418
+So run it yourself.
+
+15
+00:00:40,458 --> 00:00:44,460
+Three hundred billion tokens, at about
+zero point seven five words per token,
+
+16
+00:00:44,500 --> 00:00:47,043
+is two hundred twenty-five billion words.
+
+17
+00:00:47,083 --> 00:00:49,168
+Read nonstop at two hundred
+fifty words a minute,
+
+18
+00:00:49,208 --> 00:00:51,585
+and you get one thousand
+seven hundred eleven years.
+
+19
+00:00:51,625 --> 00:00:52,877
+There is the headline.
+
+20
+00:00:52,917 --> 00:00:55,918
+Now notice what just happened — two
+of those lines were assumptions,
+
+21
+00:00:55,958 --> 00:00:57,017
+not measurements.
+
+22
+00:00:57,250 --> 00:00:59,210
+Now move the one nobody stated.
+
+23
+00:00:59,250 --> 00:01:00,460
+At two hundred words a minute,
+
+24
+00:01:00,500 --> 00:01:03,835
+the same pile of text takes two
+thousand one hundred thirty-nine years.
+
+25
+00:01:03,875 --> 00:01:06,627
+At a hundred fifty, two thousand
+eight hundred fifty-two.
+
+26
+00:01:06,667 --> 00:01:09,210
+Same numerator, same
+model, same sentence —
+
+27
+00:01:09,250 --> 00:01:11,085
+and eleven hundred
+forty-one years of spread,
+
+28
+00:01:11,125 --> 00:01:14,433
+entirely from a reading
+speed no one ever supplied.
+
+29
+00:01:14,583 --> 00:01:16,543
+Here is where the cynical read goes wrong.
+
+30
+00:01:16,583 --> 00:01:18,460
+The comparison is not useless.
+
+31
+00:01:18,500 --> 00:01:20,543
+Every version of it says
+the same true thing —
+
+32
+00:01:20,583 --> 00:01:23,460
+more text than a person could
+read in many lifetimes.
+
+33
+00:01:23,500 --> 00:01:25,793
+That claim survives
+whichever rate you pick.
+
+34
+00:01:25,833 --> 00:01:28,127
+What does not survive
+is the decimal place.
+
+35
+00:01:28,167 --> 00:01:31,558
+It is an illustration with a
+hidden parameter, not a finding.
+
+36
+00:01:31,792 --> 00:01:34,752
+The compute figure behaves
+exactly the same way.
+
+37
+00:01:34,792 --> 00:01:37,960
+Suppose you could do a billion
+operations per second, by hand.
+
+38
+00:01:37,000 --> 00:01:42,835
+GPT-3's reported training budget would take
+you about nine point nine five million years.
+
+39
+00:01:42,875 --> 00:01:47,085
+Same shape as before — a published number
+on top, an invented human underneath,
+
+40
+00:01:47,125 --> 00:01:49,350
+and a headline falling
+out of the division.
+
+41
+00:01:49,625 --> 00:01:51,585
+And this is why the habit earns its keep.
+
+42
+00:01:51,625 --> 00:01:53,710
+You may have heard over a
+hundred million years instead.
+
+43
+00:01:53,750 --> 00:01:58,085
+That claim needs about three point two
+times ten to the twenty-fourth operations —
+
+44
+00:01:58,125 --> 00:02:00,502
+roughly ten times GPT-3's budget.
+
+45
+00:02:00,542 --> 00:02:02,210
+Plausible for a later system.
+
+46
+00:02:02,250 --> 00:02:04,127
+But it is a different claim
+about a different model,
+
+47
+00:02:04,167 --> 00:02:07,850
+and a reader who cannot tell them
+apart cannot audit either one.
+
+48
+00:02:07,958 --> 00:02:10,293
+So here is the move,
+stripped of this example.
+
+49
+00:02:10,333 --> 00:02:11,585
+Take the impressive number.
+
+50
+00:02:11,625 --> 00:02:13,918
+Write it out as the
+division it actually is.
+
+51
+00:02:13,958 --> 00:02:17,002
+Mark every line that is an assumption
+rather than a measurement.
+
+52
+00:02:17,042 --> 00:02:19,085
+Then change the one that was never stated.
+
+53
+00:02:19,125 --> 00:02:21,960
+If the answer moves a lot, you
+are holding an illustration,
+
+54
+00:02:21,000 --> 00:02:23,183
+not a finding.
+
+55
+00:02:23,458 --> 00:02:27,085
+Verdict. What this chapter gets right is
+refusing to let a slogan stand in for
+
+56
+00:02:27,125 --> 00:02:29,960
+arithmetic — it hands you the
+script and the recorded output,
+
+57
+00:02:29,000 --> 00:02:32,543
+so you can re-run the
+whole thing yourself.
+
+58
+00:02:32,583 --> 00:02:35,293
+Where it bites is that this
+is a habit, not a fact.
+
+59
+00:02:35,333 --> 00:02:37,585
+Nobody can hand you the
+list of hidden parameters.
+
+60
+00:02:37,625 --> 00:02:39,517
+You go looking, every time.
+
+61
+00:02:39,583 --> 00:02:42,543
+Before you go, here is what
+this video does not establish.
+
+62
+00:02:42,583 --> 00:02:46,335
+Nothing here shows that zero point seven
+five, or any particular reading rate,
+
+63
+00:02:46,375 --> 00:02:47,793
+is the right value.
+
+64
+00:02:47,833 --> 00:02:50,543
+I took GPT-3's published figures on trust.
+
+65
+00:02:50,583 --> 00:02:55,168
+All I showed you is how far the answer
+moves when an input nobody stated changes.
+
+66
+00:02:55,208 --> 00:02:57,183
+Sensitivity is not accuracy.
+
+67
+00:02:57,417 --> 00:02:58,835
+Your turn. Here is the prompt.
+
+68
+00:02:58,875 --> 00:03:02,210
+Take an impressive number from my own
+field and restate it as the division it
+
+69
+00:03:02,250 --> 00:03:06,793
+actually is. List every input, mark which
+ones are measured and which are assumed,
+
+70
+00:03:06,833 --> 00:03:11,252
+then show me how far the answer moves across
+a reasonable range for each assumption.
+
+71
+00:03:11,292 --> 00:03:13,558
+That last clause is the whole thing.
+
+72
+00:03:13,792 --> 00:03:16,960
+Do not ask whether the number is
+right — ask how far it can move.
+
+73
+00:03:16,000 --> 00:03:20,460
+If it swings by a factor of two, you
+have found the hidden parameter.
+
+74
+00:03:20,500 --> 00:03:22,752
+Run it on a number you
+have repeated in public.
+
+75
+00:03:22,792 --> 00:03:26,002
+This video was created by
+Ethan Gomes from INFO 7375.
+
+76
+00:03:26,042 --> 00:03:28,725
+Thanks for watching, students.
