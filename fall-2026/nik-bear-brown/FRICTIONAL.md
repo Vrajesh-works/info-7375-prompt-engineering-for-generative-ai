@@ -429,3 +429,5 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-28 | docs(fall-2026): log the question about Figma films 26 to 35 |
 - **2026-09-28: "prompt to hand to codex to finish these films."** Films 26 to 35 go to my Codex account, the parallel track. The prompt is `figma-for-educational-ai/CODEX-BUILD-PROMPT.md`.
 | 2026-09-28 | docs(fall-2026): log the Codex hand-off for Figma films 26 to 35 |
+- **2026-09-28: "can claude make the films? create a filmloop like these for the show-tells in Liam persona?"** Yes: a shell loop, one fresh Claude session per film, like `anthropics/filmloop.sh` and `engineloop.sh`. The new loop is `anthropics/showtellloop.sh` with `SHOWTELL-LOOP-PROMPT.md`, queued from the Figma repo's FILMS-NEXT-3.md.
+| 2026-09-28 | docs(fall-2026): log the show-tell film loop request |
