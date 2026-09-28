@@ -1,0 +1,170 @@
+{
+  "run": {
+    "date": "2026-09-27",
+    "python": "3.13.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "main_py_sha256": "df9940caec2494c132277a43f93de9f65983597c1be18f77961b88cd11743e5d"
+  },
+  "cases": {
+    "chapter": {
+      "logits": [
+        1,
+        2,
+        3
+      ],
+      "direct": {
+        "ok": true,
+        "weights": [
+          2.718281828459045,
+          7.38905609893065,
+          20.085536923187668
+        ],
+        "total": 30.192874850577365,
+        "probs": [
+          0.09003057317038045,
+          0.24472847105479764,
+          0.6652409557748219
+        ]
+      },
+      "shifted": {
+        "peak": 3,
+        "shifted": [
+          -2,
+          -1,
+          0
+        ],
+        "weights": [
+          0.1353352832366127,
+          0.36787944117144233,
+          1.0
+        ],
+        "total": 1.5032147244080551,
+        "probs": [
+          0.09003057317038046,
+          0.24472847105479764,
+          0.6652409557748218
+        ]
+      }
+    },
+    "offset": {
+      "logits": [
+        1001,
+        1002,
+        1003
+      ],
+      "direct": {
+        "ok": false,
+        "error": "OverflowError: math range error"
+      },
+      "shifted": {
+        "peak": 1003,
+        "shifted": [
+          -2,
+          -1,
+          0
+        ],
+        "weights": [
+          0.1353352832366127,
+          0.36787944117144233,
+          1.0
+        ],
+        "total": 1.5032147244080551,
+        "probs": [
+          0.09003057317038046,
+          0.24472847105479764,
+          0.6652409557748218
+        ]
+      }
+    },
+    "test_02": {
+      "logits": [
+        1000,
+        1000
+      ],
+      "direct": {
+        "ok": false,
+        "error": "OverflowError: math range error"
+      },
+      "shifted": {
+        "peak": 1000,
+        "shifted": [
+          0,
+          0
+        ],
+        "weights": [
+          1.0,
+          1.0
+        ],
+        "total": 2.0,
+        "probs": [
+          0.5,
+          0.5
+        ]
+      }
+    },
+    "boundary": {
+      "logits": [
+        0,
+        -1000
+      ],
+      "direct": {
+        "ok": true,
+        "weights": [
+          1.0,
+          0.0
+        ],
+        "total": 1.0,
+        "probs": [
+          1.0,
+          0.0
+        ]
+      },
+      "shifted": {
+        "peak": 0,
+        "shifted": [
+          0,
+          -1000
+        ],
+        "weights": [
+          1.0,
+          0.0
+        ],
+        "total": 1.0,
+        "probs": [
+          1.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "factor_exp_minus_3": 0.049787068367863944,
+  "chapter_direct_minus_shifted": [
+    -1.3877787807814457e-17,
+    0.0,
+    1.1102230246251565e-16
+  ],
+  "exp_709": 8.218407461554972e+307,
+  "exp_710": "OverflowError: math range error",
+  "exp_1000_traceback_last_line": "OverflowError: math range error",
+  "exp_minus_745": 5e-324,
+  "exp_minus_746": 0.0,
+  "true_exp_minus_1000": "5.0760E-435",
+  "main_demo": {
+    "probabilities": [
+      0.09003057317038046,
+      0.24472847105479764,
+      0.6652409557748218
+    ],
+    "counts": {
+      "1": 268,
+      "2": 630,
+      "0": 102
+    }
+  },
+  "lesson_tests": {
+    "ran": 6,
+    "failures": 0,
+    "errors": 0,
+    "ok": true
+  }
+}

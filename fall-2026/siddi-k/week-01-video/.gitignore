@@ -1,0 +1,28 @@
+# regenerable build intermediates and caches (rebuild with BUILD-PROMPT.md)
+_manim/
+_manim_preview/
+_math/
+_qc/peek/
+__pycache__/
+clips/
+mp3/
+media/
+manim/
+mp4/
+pantry/
+images/
+final/
+*.log
+_e.txt
+_prev_err_*.txt
+build-state.json
+*-slate.mp4
+
+# QC frames are regenerable; keep only the written report
+_qc/*
+!_qc/REPORT.md
+qc-sheet.png
+!_qc/kerning-false-positive.png
+
+# the video goes to Canvas; the course repo keeps generated media out of Git
+*.mp4

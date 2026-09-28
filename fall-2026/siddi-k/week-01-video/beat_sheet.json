@@ -1,0 +1,449 @@
+{
+  "metadata": {
+    "title": "Subtract the Max",
+    "slug": "subtract-the-max",
+    "topic": "INFO 7375 · WEEK 1",
+    "author": "Siddi Kommuri",
+    "course": "INFO 7375, Chapter 1 — Randomness and first prompts",
+    "concept": "Why subtracting the maximum changes the intermediate weights but not the distribution",
+    "register": "Plain",
+    "audience": "INFO 7375 classmates",
+    "brand": "claude",
+    "palette": "claude",
+    "engine": "kokoro",
+    "voice_kokoro": "am_onyx",
+    "greeting": "Namaste",
+    "greeting_note": "hello lexicon: Hindi. Siddi's revision (2026-09-27): greeting shortened from 'Namaste, Siddi' to 'Namaste'. The Liam/@NikBearBrown persona is deliberately not used (student submission; see FRICTIONAL.md).",
+    "evidence": "code/evidence.py -> code/evidence.json (Python 3.13.2, Windows 11, 2026-09-26). Every number on screen is read from evidence.json by scenes/subtract_max.py.",
+    "note": "Body beats B02-B06 are Manim (scenes/subtract_max.py) with equations typeset by matplotlib mathtext (no LaTeX). Bookends B00, B01, BVDT, BHTF are Brutalist Remotion scenes. BOUT is a Manim title card because ClaudeTitleOutro hardcodes the @NikBearBrown handle.",
+    "build": {
+      "at": "2026-09-27T21:41:27",
+      "cut": "master",
+      "filled": 10,
+      "of": 10,
+      "slates": [],
+      "skin_warnings": [
+        "BOUT: palette=claude but the outro is 'un-annotated' — OUTRO LAW wants ClaudeTitleOutro"
+      ]
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "COLD OPEN",
+      "narration_text": "One line in the Chapter 1 code subtracts the largest score before it calls exp. Does that change the answer? I'm Siddi Kommuri. The voice is Kokoro, a local text-to-speech model reading my script, and every number you'll see was printed by Python, running the course's own code.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Composer types the question (the student's question, not a Claude reply)"
+          },
+          {
+            "at": 0.6,
+            "event": "Footer shows the real command and its real printed output: $ python main.py -> [0.0900, 0.2447, 0.6652]"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Namaste",
+            "topic": "INFO 7375 · WEEK 1",
+            "segment": "Subtract the Max",
+            "command": "main.py subtracts the largest score before calling exp. Does that change the probabilities?",
+            "runningText": "no Claude reply shown · program output below",
+            "folderLabel": "Siddi Kommuri · INFO 7375",
+            "output": [
+              "$ python main.py   (Python 3.13.2)",
+              "probabilities: [0.09003057, 0.24472847, 0.66524096]"
+            ],
+            "modelLabel": "Mock composer",
+            "effortLabel": "not a real session"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-28T01:40:43.078109+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 17,
+      "actual_duration_s": 15.49,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 15.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T21:41:27"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "lead_silence_s": 0.8,
+      "narration_text": "The code subtracts the top score before exp. That changes the weights, not the answer, and it keeps exp from overflowing. That is the whole idea. Now let's watch the numbers do it.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Writer types the three-line overview"
+          },
+          {
+            "at": 0.4,
+            "event": "Writer first types the misconception 'It changes the answer', deletes 'answer', types 'weights but not the answer'"
+          }
+        ],
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Code subtracts the top score before exp.\nIt changes the answer.\nIt keeps exp from overflowing.",
+            "triggerWords": "answer",
+            "replacementWords": "weights but not the answer",
+            "seed": "subtract-the-max-siddi",
+            "fontSize": 88,
+            "brandLabel": "Siddi Kommuri · INFO 7375",
+            "charMs": 30,
+            "mistakeRate": 0,
+            "hesitateBetween": 0,
+            "hesitateWithin": 0,
+            "jitter": 0,
+            "lineSpacing": 1.8
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-09-27T05:08:15.986272+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 12,
+      "actual_duration_s": 9.92,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 9.933333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-09-27T21:41:27"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "WORKED EXAMPLE",
+      "narration_text": "Start with the chapter's constructed scores: one, two, three. Left route, straight into exp: two point seven, seven point four, twenty point one. Right route, subtract three first: minus two, minus one, zero, which become point one four, point three seven, and one. Different weights, different totals. Now divide each column by its own total. Both columns land on the same three probabilities.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Scores [1, 2, 3] appear, tagged 'constructed input (Chapter 1)'"
+          },
+          {
+            "at": 0.15,
+            "event": "Left column: each score flows through exp to 2.718, 7.389, 20.086; total 30.193"
+          },
+          {
+            "at": 0.4,
+            "event": "Right column: each score drops by 3 to -2, -1, 0, then exp to 0.135, 0.368, 1.000; total 1.503"
+          },
+          {
+            "at": 0.7,
+            "event": "Each column divides by its total; both morph into 0.0900, 0.2447, 0.6652 and a terracotta '=' joins them"
+          }
+        ],
+        "manim": {
+          "scene_class": "B02TwoRoutes",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 25,
+      "actual_duration_s": 20.14,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 20.166666666666668,
+      "build": {
+        "status": "MANIM",
+        "src": "manim\\B02.mp4",
+        "filled_by": "manim:B02TwoRoutes",
+        "at": "2026-09-27T21:41:27"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "MECHANISM",
+      "narration_text": "Why do they agree? Subtracting three multiplies every weight by the same number, e to the minus three, about point zero five. Twenty point one times that is exactly one. The top of the fraction and the bottom both pick up the same factor, so it cancels. The ratios between the weights never moved, and a probability here is only a ratio.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Typeset identity exp(z_i - m) = exp(z_i) exp(-m)"
+          },
+          {
+            "at": 0.25,
+            "event": "Direct weights multiply by exp(-3) = 0.0498 and visibly become the shifted weights (20.086 -> 1.000)"
+          },
+          {
+            "at": 0.55,
+            "event": "Full fraction appears; exp(-m) in numerator and denominator is struck through in terracotta"
+          },
+          {
+            "at": 0.8,
+            "event": "Ratio bars: 20.086/7.389 and 1.000/0.368 both show 2.718"
+          }
+        ],
+        "manim": {
+          "scene_class": "B03Cancel",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 22,
+      "actual_duration_s": 17.96,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 17.966666666666665,
+      "build": {
+        "status": "MANIM",
+        "src": "manim\\B03.mp4",
+        "filled_by": "manim:B03Cancel",
+        "at": "2026-09-27T21:41:27"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "WHERE IT MATTERS",
+      "narration_text": "So why bother? Try the lesson's own test input: a thousand and a thousand. Direct route: math dot exp of a thousand raises an OverflowError. On this machine, e to the seven hundred nine still fits in a float; seven hundred ten does not. Shifted route: zero and zero, then one and one, then one half each. That is exactly what the lesson's test asserts, and the test passes.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "[1000, 1000] tagged 'lesson test input (test_02)'"
+          },
+          {
+            "at": 0.15,
+            "event": "Left: math.exp(1000) -> real error line 'OverflowError: math range error' stamps in"
+          },
+          {
+            "at": 0.35,
+            "event": "A float ceiling line: exp(709) = 8.218e+307 fits, exp(710) OverflowError"
+          },
+          {
+            "at": 0.6,
+            "event": "Right: [0, 0] -> [1, 1] -> [0.5, 0.5]"
+          },
+          {
+            "at": 0.85,
+            "event": "Real unittest output: 'Ran 6 tests ... OK'"
+          }
+        ],
+        "manim": {
+          "scene_class": "B04Overflow",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 24,
+      "actual_duration_s": 19.11,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 19.133333333333333,
+      "build": {
+        "status": "MANIM",
+        "src": "manim\\B04.mp4",
+        "filled_by": "manim:B04Overflow",
+        "at": "2026-09-27T21:41:27"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "WHY IT WORKS",
+      "narration_text": "Here is the deeper reason. Add a thousand to every score: one thousand one, one thousand two, one thousand three. The direct route crashes. The shifted route produces minus two, minus one, zero, the very same intermediates as before, so the very same distribution. An offset shared by every score says nothing about which one is preferred. Softmax only listens to the gaps.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "[1, 2, 3] and [1001, 1002, 1003] stacked, tagged 'constructed input'"
+          },
+          {
+            "at": 0.25,
+            "event": "Direct route on the second row stamps OverflowError"
+          },
+          {
+            "at": 0.45,
+            "event": "Both rows slide down by their max and collapse onto the same [-2, -1, 0]"
+          },
+          {
+            "at": 0.7,
+            "event": "Gap brackets of 1 and 1 highlighted in terracotta; the 1000 offset fades as 'carries no preference'"
+          }
+        ],
+        "manim": {
+          "scene_class": "B05Offset",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 22,
+      "actual_duration_s": 19.61,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 19.633333333333333,
+      "build": {
+        "status": "MANIM",
+        "src": "manim\\B05.mp4",
+        "filled_by": "manim:B05Offset",
+        "at": "2026-09-27T21:41:27"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "BOUNDARY",
+      "narration_text": "Here is what this does not establish. It is not protection against every extreme input. Constructed case: zero and minus a thousand. The true second probability is about five times ten to the minus four hundred thirty five. Python returns exactly zero, by either route. Subtracting the max protects the top from overflow, not the bottom from underflow. And even for one, two, three, the routes differ in the sixteenth decimal place: equal in algebra, not bit for bit.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Header 'What this does not establish'"
+          },
+          {
+            "at": 0.15,
+            "event": "[0, -1000] tagged 'constructed input'; true value 5.0760e-435 (Decimal) vs Python 0.0 for both routes"
+          },
+          {
+            "at": 0.45,
+            "event": "Underflow floor: exp(-745) = 5e-324, exp(-746) = 0.0"
+          },
+          {
+            "at": 0.75,
+            "event": "Direct minus shifted for [1,2,3]: -1.39e-17, 0.0, 1.11e-16"
+          }
+        ],
+        "manim": {
+          "scene_class": "B06Boundary",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 28,
+      "actual_duration_s": 27.19,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 27.2,
+      "build": {
+        "status": "MANIM",
+        "src": "manim\\B06.mp4",
+        "filled_by": "manim:B06Boundary",
+        "at": "2026-09-27T21:41:27"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "verdict recap",
+      "lane": "BOOKEND",
+      "narration_text": "Three findings. Subtracting the max changes the weights, not the distribution. It removes overflow at the top. It does nothing for underflow at the bottom.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Subtract the Max",
+            "artifactHeading": "What the numbers showed",
+            "brandLabel": "Siddi Kommuri · INFO 7375",
+            "artifactLines": [
+              "Changes the weights, not the distribution",
+              "Stops overflow: [1000, 1000] gives [0.5, 0.5]",
+              "Does not stop underflow: [0, -1000] gives [1.0, 0.0]"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": "2026-09-27T03:57:15.944252+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 11,
+      "actual_duration_s": 9.02,
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "render_duration_s": 9.033333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BVDT.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-09-27T21:41:27"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "your turn",
+      "lane": "BOOKEND",
+      "narration_text": "Your turn. Paste this: Here is a softmax that subtracts the max before exp. Before running anything, predict its output for zero and minus seven hundred, and for zero and minus eight hundred. Then run it, show me the exact printed values, and tell me which of my predictions the output contradicts. It makes you commit before you look, and it asks for printed values you can check against your own run. Look for whether the answer separates what the algebra says from what the float returns.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "YOUR TURN · INFO 7375",
+            "segment": "Subtract the Max",
+            "command": "Here is a softmax that subtracts the max before exp. Before running anything, predict its output for [0, -700] and for [0, -800]. Then run it, show me the exact printed values, and tell me which of my predictions the output contradicts.",
+            "runningText": "paste this into Claude and run it yourself…",
+            "output": [],
+            "folderLabel": "Siddi Kommuri · INFO 7375",
+            "modelLabel": "Mock composer",
+            "effortLabel": "not a real session"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": "2026-09-27T04:12:24.913029+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 28,
+      "actual_duration_s": 26.51,
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "render_duration_s": 26.533333333333335,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\BHTF.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T21:41:27"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "outro",
+      "lane": "BOOKEND",
+      "narration_text": "Subtract the max. It changes the weights, not the answer.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "manim",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Title restate 'Subtract the Max.' with terracotta period; author and course line beneath"
+          }
+        ],
+        "manim": {
+          "scene_class": "BOUTTitle",
+          "file": "scenes.py"
+        }
+      },
+      "estimated_duration_s": 5,
+      "actual_duration_s": 3.8,
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "render_duration_s": 3.8,
+      "build": {
+        "status": "MANIM",
+        "src": "manim\\BOUT.mp4",
+        "filled_by": "manim:BOUTTitle",
+        "at": "2026-09-27T21:41:27"
+      }
+    }
+  ]
+}
