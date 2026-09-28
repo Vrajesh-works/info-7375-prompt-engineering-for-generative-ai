@@ -427,3 +427,5 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-28 | docs(fall-2026): log the Figma repo push |
 - **2026-09-28: "next 10 films?"** The answer goes in the Figma repo as FILMS-NEXT-3.md (films 26 to 35).
 | 2026-09-28 | docs(fall-2026): log the question about Figma films 26 to 35 |
+- **2026-09-28: "prompt to hand to codex to finish these films."** Films 26 to 35 go to my Codex account, the parallel track. The prompt is `figma-for-educational-ai/CODEX-BUILD-PROMPT.md`.
+| 2026-09-28 | docs(fall-2026): log the Codex hand-off for Figma films 26 to 35 |
