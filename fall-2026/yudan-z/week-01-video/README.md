@@ -4,7 +4,7 @@
 **Assignment:** Week 1 Explainer Video — Explain One Concept from Chapter 1 (25 points)
 **Canvas file:** `Zhou_Yudan_INFO7375_Week01_Video.zip`
 **GitHub folder:** `fall-2026/yudan-z/week-01-video/`
-**Final commit hash:** _(fill in after the last push; put the same hash in Canvas)_
+**Final commit hash:** `528cda94fc5dd448a6d07508687c44f6beb49d63`
 
 ## The concept
 
