@@ -1,0 +1,717 @@
+{
+  "metadata": {
+    "title": "A training-scale slogan restated as a division with a hidden assumption",
+    "slug": "claude-liam-hidden-parameter",
+    "topic": "PROMPT ENGINEERING · CH.1 — SCALE SLOGANS",
+    "register": "Teardown",
+    "audience": "Claude",
+    "brand": "claude",
+    "persona": "Ethan Gomes",
+    "voice": "am_onyx",
+    "engine": "kokoro",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "greeting": "Konnichiwa, Students",
+    "folderLabel": "@EthanGomes14",
+    "in_for_bear": false,
+    "aspect_ratio": "16:9",
+    "content_type": "data",
+    "build": {
+      "at": "2026-09-27T19:45:20",
+      "cut": "master",
+      "filled": 12,
+      "of": 12,
+      "slates": [],
+      "skin_warnings": [
+        "B11: palette=claude but the outro is 'ClaudeComposerAsk' — OUTRO LAW wants ClaudeTitleOutro"
+      ]
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "lane": "ask",
+      "narration_text": "Hello, students. You have heard this one. It would take a person thousands of years just to read what the model was trained on. That sentence is not a measurement. It is a division, and somebody left one of the numbers out.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "motion": "type-on",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "composer fades up on cream, greeting 'Konnichiwa, Students' in serif"
+          },
+          {
+            "at": 0.3,
+            "event": "the ask types itself in"
+          },
+          {
+            "at": 0.72,
+            "event": "send arms terracotta, running indicator reads 'doing the arithmetic…'"
+          },
+          {
+            "at": 0.85,
+            "event": "the real reply lands beneath, headed 'Claude Opus 5 · 2026-09-27 · verbatim excerpt'"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Konnichiwa, Students",
+            "topic": "PROMPT ENGINEERING · CH.1",
+            "segment": "A training-scale slogan restated as a division with a hidden assumption",
+            "command": "Where does \"thousands of years to read the training data\" actually come from? Show me the arithmetic, and name every input the sentence doesn't state.",
+            "runningText": "doing the arithmetic…",
+            "folderLabel": "@EthanGomes14",
+            "modelLabel": "Claude Opus 5",
+            "effortLabel": "2026-09-27",
+            "output": [
+              "▼ REAL REPLY · Claude Opus 5 · 2026-09-27 · verbatim excerpt",
+              "It comes from a division, not a measurement.",
+              "× 0.75 words per token = 225,000,000,000 words",
+              "÷ 250 words per minute = 1,711 years",
+              "The reading rate … moves the answer by 1,141 years"
+            ]
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-27T23:14:41.446966+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 16,
+      "actual_duration_s": 11.48,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 11.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "lane": "bookend",
+      "lead_silence_s": 0.8,
+      "narration_text": "Here is the whole thing in one breath. A scale slogan is not a measurement, it is a division — and the input that moves the answer most is usually the one nobody states.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "type-on",
+        "show": [
+          {
+            "at": 0.08,
+            "event": "the writer types the framing a reader arrives with"
+          },
+          {
+            "at": 0.3,
+            "event": "'measurement' turns terracotta — it is about to go"
+          },
+          {
+            "at": 0.4,
+            "event": "'measurement' is deleted and 'division' types in its place"
+          },
+          {
+            "at": 0.55,
+            "event": "the corrected overview completes and holds"
+          }
+        ],
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "A scale slogan is a\nmeasurement with one\ninput nobody states.",
+            "triggerWords": "measurement",
+            "replacementWords": "division",
+            "fontSize": 205,
+            "lineSpacing": 1.25,
+            "align": "center",
+            "charMs": 8,
+            "jitter": 20,
+            "mistakeRate": 0,
+            "hesitateWithin": 0,
+            "hesitateBetween": 0,
+            "seed": "hidden-parameter-b01"
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-09-27T03:28:40.963142+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 12,
+      "actual_duration_s": 9.58,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 9.583333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "FRAMEWORK",
+      "narration_text": "Start where the numbers are real. GPT-3 is the anchor here, because its details were actually published — a hundred seventy-five billion parameters, roughly three hundred billion training tokens, and a reported three point one four times ten to the twenty-third operations. Everything you have heard about years of reading is built on that middle number.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "illustrate",
+        "new_visual_element": "three published anchor figures with the source line",
+        "show": [
+          {
+            "at": 0.12,
+            "event": "parameters card lands"
+          },
+          {
+            "at": 0.25,
+            "event": "training tokens card lands in terracotta — the one the derivation consumes"
+          },
+          {
+            "at": 0.38,
+            "event": "compute card lands"
+          },
+          {
+            "at": 0.55,
+            "event": "the Brown et al. citation appears beneath"
+          }
+        ],
+        "remotion": {
+          "pattern": "ScaleAnchorCard",
+          "props": {
+            "sparkLine": "Published, therefore checkable.",
+            "figures": "parameters|175 billion;;training tokens|300 billion;;training compute|3.14 × 10²³ FLOP",
+            "accentIndex": 1,
+            "citation": "Brown et al., Language Models are Few-Shot Learners, arXiv:2005.14165 (2020)",
+            "note": "GPT-3 — the anchor, because its details were published"
+          },
+          "rendered": {
+            "out": "media/B02.mp4",
+            "at": "2026-09-27T19:45:47.997418+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 19,
+      "actual_duration_s": 18.3,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 18.333333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "remotion:ScaleAnchorCard",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "WORKED-EXAMPLE",
+      "narration_text": "So run it yourself. Three hundred billion tokens, at about zero point seven five words per token, is two hundred twenty-five billion words. Read nonstop at two hundred fifty words a minute, and you get one thousand seven hundred eleven years. There is the headline. Now notice what just happened — two of those lines were assumptions, not measurements.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "illustrate",
+        "new_visual_element": "the slogan restated as a four-line division",
+        "show": [
+          {
+            "at": 0.06,
+            "event": "the slogan sits at the top in italic serif"
+          },
+          {
+            "at": 0.2,
+            "event": "rows land one at a time: tokens, words-per-token, words"
+          },
+          {
+            "at": 0.5,
+            "event": "the reading-rate row lands in terracotta, flagged 'an assumption nobody stated'"
+          },
+          {
+            "at": 0.66,
+            "event": "the result resolves: 1,711 years"
+          }
+        ],
+        "remotion": {
+          "pattern": "DerivationLadder",
+          "props": {
+            "sparkLine": "Do the division.",
+            "claim": "“it would take a person thousands of years to read that much text”",
+            "rows": "300,000,000,000 tokens|the published figure;;× 0.75 words per token|an assumption;;= 225,000,000,000 words|derived;;÷ 250 words per minute|an assumption nobody stated",
+            "result": "1,711 years",
+            "resultLabel": "the headline",
+            "hiddenIndex": 3,
+            "headLeft": "THE READING COMPARISON",
+            "headRight": "every step is checkable",
+            "closer": "Not a measurement. A division."
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-09-27T03:29:42.520139+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 20,
+      "actual_duration_s": 17.79,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 17.791666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B03.mp4",
+        "filled_by": "remotion:DerivationLadder",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "FALSIFY",
+      "narration_text": "Now move the one nobody stated. At two hundred words a minute, the same pile of text takes two thousand one hundred thirty-nine years. At a hundred fifty, two thousand eight hundred fifty-two. Same numerator, same model, same sentence — and eleven hundred forty-one years of spread, entirely from a reading speed no one ever supplied.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "illustrate",
+        "new_visual_element": "one quantity fanning to three answers at three rates",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "the fixed quantity sits left: 225 billion words"
+          },
+          {
+            "at": 0.3,
+            "event": "terracotta branch draws to 1,711 years"
+          },
+          {
+            "at": 0.45,
+            "event": "second branch draws to 2,139"
+          },
+          {
+            "at": 0.58,
+            "event": "third branch draws to 2,852"
+          },
+          {
+            "at": 0.68,
+            "event": "the spread lands: 1,141 years, from an input nobody supplied"
+          }
+        ],
+        "remotion": {
+          "pattern": "AssumptionFan",
+          "props": {
+            "sparkLine": "Nobody stated the rate.",
+            "quantity": "225,000,000,000 words",
+            "quantityLabel": "the same quantity, every time",
+            "branches": "250 words per minute|1,711 years;;200 words per minute|2,139 years;;150 words per minute|2,852 years",
+            "accentIndex": 0,
+            "spread": "1,141 years of spread — from an input nobody supplied",
+            "headLeft": "THE HIDDEN PARAMETER",
+            "closer": "The answer moves by more than a thousand years."
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": "2026-09-27T03:30:13.731075+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 20,
+      "actual_duration_s": 17.32,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 17.333333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B04.mp4",
+        "filled_by": "remotion:AssumptionFan",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "STEELMAN",
+      "narration_text": "Here is where the cynical read goes wrong. The comparison is not useless. Every version of it says the same true thing — more text than a person could read in many lifetimes. That claim survives whichever rate you pick. What does not survive is the decimal place. It is an illustration with a hidden parameter, not a finding.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "illustrate",
+        "new_visual_element": "three precise answers struck through, converging on the claim that survives",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "the three answers sit across the top"
+          },
+          {
+            "at": 0.4,
+            "event": "all three strike through together — the precision dies"
+          },
+          {
+            "at": 0.5,
+            "event": "terracotta arrows converge downward"
+          },
+          {
+            "at": 0.62,
+            "event": "the surviving claim lands boxed: 'more text than a person could read in many lifetimes'"
+          }
+        ],
+        "remotion": {
+          "pattern": "SurvivingClaim",
+          "props": {
+            "sparkLine": "What survives the spread.",
+            "discarded": "1,711 years;;2,139 years;;2,852 years",
+            "survives": "“more text than a person could read in many lifetimes”",
+            "headLeft": "WHAT THE COMPARISON STILL BUYS",
+            "closer": "The point survives. The precision never existed."
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-09-27T03:30:46.213479+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 20,
+      "actual_duration_s": 17.13,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 17.166666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B05.mp4",
+        "filled_by": "remotion:SurvivingClaim",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "WORKED-EXAMPLE",
+      "narration_text": "The compute figure behaves exactly the same way. Suppose you could do a billion operations per second, by hand. GPT-3's reported training budget would take you about nine point nine five million years. Same shape as before — a published number on top, an invented human underneath, and a headline falling out of the division.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": 0.06,
+            "event": "the compute slogan sits at the top"
+          },
+          {
+            "at": 0.2,
+            "event": "the published operations count lands"
+          },
+          {
+            "at": 0.4,
+            "event": "the per-second rate lands in terracotta — the invented human"
+          },
+          {
+            "at": 0.55,
+            "event": "seconds-per-year lands as plain calendar arithmetic"
+          },
+          {
+            "at": 0.66,
+            "event": "the result resolves: 9.95 million years"
+          }
+        ],
+        "remotion": {
+          "pattern": "DerivationLadder",
+          "props": {
+            "sparkLine": "Same move, new units.",
+            "claim": "“it would take you millions of years to do that by hand”",
+            "rows": "3.14 × 10²³ operations|the published figure;;÷ 1,000,000,000 per second|a human nobody could be;;÷ 31,557,600 seconds per year|the calendar",
+            "result": "9.95 million years",
+            "resultLabel": "the headline",
+            "hiddenIndex": 1,
+            "headLeft": "THE COMPUTE COMPARISON",
+            "headRight": "same shape, different units",
+            "closer": "The impressive part was never the arithmetic."
+          },
+          "rendered": {
+            "out": "media/B06.mp4",
+            "at": "2026-09-27T03:31:17.571724+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 19,
+      "actual_duration_s": 17.77,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 17.791666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B06.mp4",
+        "filled_by": "remotion:DerivationLadder",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "AUDIT",
+      "narration_text": "And this is why the habit earns its keep. You may have heard over a hundred million years instead. That claim needs about three point two times ten to the twenty-fourth operations — roughly ten times GPT-3's budget. Plausible for a later system. But it is a different claim about a different model, and a reader who cannot tell them apart cannot audit either one.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "illustrate",
+        "new_visual_element": "two near-identical claims and the compute each one actually requires",
+        "show": [
+          {
+            "at": 0.15,
+            "event": "the 9.95 million year claim lands with its required operations"
+          },
+          {
+            "at": 0.4,
+            "event": "the 'over 100 million' claim lands in terracotta with a ten-times-larger budget"
+          },
+          {
+            "at": 0.65,
+            "event": "the gap lands: ≈ 10× the compute, not a rounding difference"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaimAudit",
+          "props": {
+            "sparkLine": "Two sentences. Two budgets.",
+            "claims": "“about 9.95 million years”|3.14 × 10²³ operations|GPT-3, as published;;“over 100 million years”|3.2 × 10²⁴ operations|a different, larger model",
+            "accentIndex": 1,
+            "gapLabel": "≈ 10× the compute — not a rounding difference",
+            "headLeft": "ONE BILLION OPERATIONS PER SECOND, BY HAND",
+            "closer": "Both can be true. They are not the same sentence."
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-09-27T03:31:49.535613+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 21,
+      "actual_duration_s": 18.26,
+      "audio_file": "mp3/beat-B07.mp3",
+      "render_duration_s": 18.291666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "remotion:ClaimAudit",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "METHOD",
+      "narration_text": "So here is the move, stripped of this example. Take the impressive number. Write it out as the division it actually is. Mark every line that is an assumption rather than a measurement. Then change the one that was never stated. If the answer moves a lot, you are holding an illustration, not a finding.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "illustrate",
+        "new_visual_element": "the same ladder with the specifics removed — the method itself",
+        "show": [
+          {
+            "at": 0.06,
+            "event": "a generic slogan sits at the top, bracketed"
+          },
+          {
+            "at": 0.22,
+            "event": "the published quantity row lands"
+          },
+          {
+            "at": 0.4,
+            "event": "the conversion row lands, flagged as an assumption"
+          },
+          {
+            "at": 0.52,
+            "event": "the unstated rate row lands in terracotta"
+          },
+          {
+            "at": 0.68,
+            "event": "the instruction resolves: try other values for the rate and see how far the answer moves"
+          }
+        ],
+        "remotion": {
+          "pattern": "DerivationLadder",
+          "props": {
+            "sparkLine": "The move, without the example.",
+            "claim": "“[impressive number] — [the unit nobody questions]”",
+            "rows": "a published quantity|look it up;;× a conversion you did not choose|an assumption;;÷ a rate|usually never stated;;= the number people repeat|the headline",
+            "result": "Now try other values for the rate",
+            "resultLabel": "and see how far the answer moves",
+            "hiddenIndex": 2,
+            "headLeft": "THE MOVE, WITHOUT THE EXAMPLE",
+            "headRight": "works on any scale slogan",
+            "closer": "The hidden parameter is almost always a rate.",
+            "resultPrefix": "→ ",
+            "resultSerif": true,
+            "resultSize": 58
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-09-27T23:29:56.666429+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 19,
+      "actual_duration_s": 15.47,
+      "audio_file": "mp3/beat-B08.mp3",
+      "render_duration_s": 15.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "remotion:DerivationLadder",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "VERDICT",
+      "lane": "bookend",
+      "narration_text": "Verdict. What this chapter gets right is refusing to let a slogan stand in for arithmetic — it hands you the script and the recorded output, so you can re-run the whole thing yourself. Where it bites is that this is a habit, not a fact. Nobody can hand you the list of hidden parameters. You go looking, every time.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "motion": "fade",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "the artifact page opens"
+          },
+          {
+            "at": 0.3,
+            "event": "the gets-right lines stagger in"
+          },
+          {
+            "at": 0.65,
+            "event": "the where-it-bites lines land and hold"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "A training-scale slogan restated as a division with a hidden assumption",
+            "artifactHeading": "The verdict",
+            "artifactLines": [
+              "GETS RIGHT — the anchor is a published model, so every step can be checked against a citation rather than a vibe.",
+              "GETS RIGHT — the derivation ships as a script with recorded output; you can re-run it instead of trusting the sentence.",
+              "GETS RIGHT — naming the spread is more honest than naming any single answer inside it.",
+              "GETS RIGHT — it keeps what survives: more text than a person could read in many lifetimes is true at every rate.",
+              "WHERE IT BITES — this is a habit, not a fact. No list of hidden parameters can be handed to you.",
+              "WHERE IT BITES — a derivation only moves the question: every input still needs a source of its own.",
+              "WHERE IT BITES — the same arithmetic that deflates a slogan can manufacture one, if you pick the flattering rate."
+            ]
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": "2026-09-27T23:16:29.059177+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 21,
+      "actual_duration_s": 16.09,
+      "audio_file": "mp3/beat-B09.mp3",
+      "render_duration_s": 16.125,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B09.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-09-27T19:45:20"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "BOUNDARY",
+      "narration_text": "Before you go, here is what this video does not establish. Nothing here shows that zero point seven five, or any particular reading rate, is the right value. I took GPT-3's published figures on trust. All I showed you is how far the answer moves when an input nobody stated changes. Sensitivity is not accuracy.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "illustrate",
+        "new_visual_element": "shown vs not-shown columns — the limit of the claim as a contrast",
+        "show": [
+          {
+            "at": 0.08,
+            "event": "SHOWN column lands: how far the headline moves; 1,711 → 2,852"
+          },
+          {
+            "at": 0.32,
+            "event": "NOT SHOWN column lands in terracotta, one ✗ per unverified input"
+          },
+          {
+            "at": 0.65,
+            "event": "closer resolves: Sensitivity is not accuracy."
+          }
+        ],
+        "remotion": {
+          "pattern": "BoundaryCard",
+          "props": {
+            "sparkLine": "Where this stops.",
+            "headLeft": "WHAT THIS VIDEO DOES NOT ESTABLISH",
+            "shown": "how far the headline moves when an unstated input changes;;1,711 → 2,852 years from the reading rate alone",
+            "notShown": "that 0.75 words per token is the right value;;that any reading rate is the right value;;that GPT-3’s published figures are accurate — taken on trust",
+            "closer": "Sensitivity is not accuracy."
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": "2026-09-27T20:20:03.502196+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 17,
+      "render_duration_s": 17.833333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B10.mp4",
+        "filled_by": "remotion:BoundaryCard",
+        "at": "2026-09-27T19:45:20"
+      },
+      "actual_duration_s": 17.83,
+      "audio_file": "mp3/beat-B10.mp3"
+    },
+    {
+      "beat_id": "B11",
+      "act": "HANDOFF",
+      "lane": "bookend",
+      "narration_text": "Your turn. Here is the prompt. Take an impressive number from my own field and restate it as the division it actually is. List every input, mark which ones are measured and which are assumed, then show me how far the answer moves across a reasonable range for each assumption. That last clause is the whole thing. Do not ask whether the number is right — ask how far it can move. If it swings by a factor of two, you have found the hidden parameter. Run it on a number you have repeated in public. This video was created by Ethan Gomes from Info seven three seven five. Thanks for watching, students.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "motion": "type-on",
+        "show": [
+          {
+            "at": 0.1,
+            "event": "composer returns, greeting fixed to 'Your turn.'"
+          },
+          {
+            "at": 0.25,
+            "event": "the suggested prompt types itself in as the voice reads it verbatim"
+          },
+          {
+            "at": 0.78,
+            "event": "running indicator reads 'paste this into Claude…'"
+          },
+          {
+            "at": 0.1,
+            "event": "'Created by Ethan Gomes' sits centred at the bottom of the frame"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "PROMPT ENGINEERING · CH.1",
+            "segment": "A training-scale slogan restated as a division with a hidden assumption",
+            "command": "Take an impressive number from my own field and restate it as the division it actually is. List every input, mark which ones are measured and which are assumed, then show me how far the answer moves across a reasonable range for each assumption.",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "@EthanGomes14",
+            "modelLabel": "Claude Opus 5",
+            "effortLabel": "",
+            "credit": "Created by Ethan Gomes"
+          },
+          "rendered": {
+            "out": "media/B11.mp4",
+            "at": "2026-09-27T23:44:28.689092+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 30,
+      "render_duration_s": 31.583333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B11.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T19:45:20"
+      },
+      "actual_duration_s": 31.55,
+      "audio_file": "mp3/beat-B11.mp3",
+      "narration_note": "The course number is spelled out digit by digit ('Info seven three seven five') at the author's request; written as 7375, Kokoro reads 'seven thousand three hundred seventy-five'. Captions display it as 'INFO 7375'."
+    }
+  ]
+}
