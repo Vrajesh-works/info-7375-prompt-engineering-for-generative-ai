@@ -1,0 +1,124 @@
+{
+  "mode": "CONSTRUCTED toy; offline; seeded; no model or Claude output",
+  "course_function_source": "lessons/01-randomness-and-first-prompts/code/main.py",
+  "question": "What is the capital of Australia?",
+  "replies": [
+    "I think it's Canberra, though Sydney is the biggest city.",
+    "The capital of Australia is Sydney."
+  ],
+  "answer_key_used_only_for_labels": 0,
+  "nudge_arguments": [
+    "scores",
+    "picked",
+    "learning_rate"
+  ],
+  "settings": {
+    "votes": 1000,
+    "learning_rate": 0.02,
+    "seed": 7
+  },
+  "start_chances": [
+    0.5,
+    0.5
+  ],
+  "headline_share_who_can_check": 0.3,
+  "headline_votes_for": [
+    336,
+    664
+  ],
+  "headline_trajectory_chance_correct": {
+    "0": 0.5,
+    "10": 0.4904,
+    "50": 0.4495,
+    "100": 0.3866,
+    "200": 0.3739,
+    "500": 0.3319,
+    "1000": 0.3259
+  },
+  "headline_tallies_at_checkpoints": {
+    "0": [
+      0,
+      0
+    ],
+    "10": [
+      4,
+      6
+    ],
+    "50": [
+      19,
+      31
+    ],
+    "100": [
+      33,
+      67
+    ],
+    "200": [
+      71,
+      129
+    ],
+    "500": [
+      168,
+      332
+    ],
+    "1000": [
+      336,
+      664
+    ]
+  },
+  "headline_final_scores": [
+    -0.3633,
+    0.3633
+  ],
+  "headline_final_chances": [
+    0.3259,
+    0.6741
+  ],
+  "headline_asked_1000_times": {
+    "correct (Canberra)": 360,
+    "wrong (Sydney)": 640
+  },
+  "sweep": [
+    {
+      "share_who_can_check": 0.2,
+      "votes_for_correct": 216,
+      "final_chance_correct": 0.2249,
+      "favourite": "wrong (Sydney)"
+    },
+    {
+      "share_who_can_check": 0.3,
+      "votes_for_correct": 336,
+      "final_chance_correct": 0.3259,
+      "favourite": "wrong (Sydney)"
+    },
+    {
+      "share_who_can_check": 0.4,
+      "votes_for_correct": 440,
+      "final_chance_correct": 0.4243,
+      "favourite": "wrong (Sydney)"
+    },
+    {
+      "share_who_can_check": 0.5,
+      "votes_for_correct": 537,
+      "final_chance_correct": 0.5574,
+      "favourite": "correct (Canberra)"
+    },
+    {
+      "share_who_can_check": 0.6,
+      "votes_for_correct": 633,
+      "final_chance_correct": 0.6632,
+      "favourite": "correct (Canberra)"
+    },
+    {
+      "share_who_can_check": 0.7,
+      "votes_for_correct": 716,
+      "final_chance_correct": 0.7398,
+      "favourite": "correct (Canberra)"
+    },
+    {
+      "share_who_can_check": 0.8,
+      "votes_for_correct": 797,
+      "final_chance_correct": 0.8166,
+      "favourite": "correct (Canberra)"
+    }
+  ]
+}

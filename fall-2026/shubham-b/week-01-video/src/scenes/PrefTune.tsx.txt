@@ -1,0 +1,559 @@
+/**
+ * PrefTune — INFO 7375 Week 1 explainer scenes (Shubham Bagwe).
+ * Concept: why preference tuning can prefer a confident wrong answer.
+ *
+ * Every number and code line on screen is READ from ../data/prefTuneToy.json,
+ * which scripts/set_props.py copies from the reel's evidence/preference_toy_output.json
+ * (plus inspect.getsource of nudge / rater_pick). Nothing is retyped here.
+ * Cue times (props.cues, seconds) come from word timestamps of each beat's
+ * own narration mp3, so reveals land on the spoken word.
+ *
+ * Claude palette (cream / warm ink / ONE terracotta accent per beat).
+ */
+import React from 'react';
+import {AbsoluteFill, Easing, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
+import {CLAUDE} from '../tokens/claude';
+import {SAFE} from '../tokens/layout';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore — JSON is bundled by Remotion's webpack
+import DATA from '../data/prefTuneToy.json';
+
+type Cues = Record<string, number>;
+export type PtProps = {durationSeconds?: number; cues?: Cues};
+
+const D: any = DATA;
+const SERIF = '"EB Garamond", Georgia, serif';
+const SANS = '-apple-system, "SF Pro Text", "Helvetica Neue", sans-serif';
+const MONO = 'Menlo, "SF Mono", ui-monospace, monospace';
+const INK = CLAUDE.INK;
+const SOFT = CLAUDE.INK_SOFT;
+const ACC = CLAUDE.SPARK;           // fills, bars, rules, borders
+const ACC_T = '#A44A32';            // accent TEXT: 5.5:1 on cream (WCAG AA); SPARK text is only 2.96:1
+const PAGE = CLAUDE.PAGE;
+
+// ── timing helpers ──────────────────────────────────────────────────────────
+const useT = () => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  return f / fps;
+};
+const ease = Easing.bezier(0.2, 0.7, 0.2, 1);
+/** 0→1 over `dur` seconds starting at `at`. */
+const ramp = (t: number, at: number, dur = 0.5) =>
+  interpolate(t, [at, at + dur], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: ease});
+const cue = (c: Cues | undefined, k: string, fallback: number) => (c && c[k] !== undefined ? c[k] : fallback);
+const pct = (x: number) => `${(x * 100).toFixed(1)}%`;
+
+// ── shared chrome ───────────────────────────────────────────────────────────
+const Stage: React.FC<{children: React.ReactNode; label?: string; constructed?: boolean}> = ({children, label, constructed}) => (
+  <AbsoluteFill style={{background: PAGE, fontFamily: SANS, color: INK}}>
+    <div style={{position: 'absolute', left: SAFE.x, top: SAFE.y, fontSize: 28, letterSpacing: 2, color: SOFT, fontWeight: 600}}>
+      {label ?? 'INFO 7375 · WEEK 1 · CHAPTER 1'}
+    </div>
+    {constructed && (
+      <div style={{position: 'absolute', right: SAFE.x, top: SAFE.y, fontSize: 28, fontWeight: 700, letterSpacing: 2,
+        color: INK, border: `3px solid ${INK}`, borderRadius: 10, padding: '6px 16px', background: CLAUDE.CARD}}>
+        CONSTRUCTED EXAMPLE
+      </div>
+    )}
+    {children}
+    {/* corner bug (LOGO LAW): wordmark, low opacity, inside SAFE */}
+    <div style={{position: 'absolute', right: SAFE.x, bottom: SAFE.y, fontFamily: SERIF, fontSize: 28, color: SOFT, opacity: 0.55}}>
+      Shubham B · INFO 7375
+    </div>
+  </AbsoluteFill>
+);
+
+const Fade: React.FC<{t: number; at: number; dy?: number; dur?: number; style?: React.CSSProperties; children: React.ReactNode}> =
+  ({t, at, dy = 24, dur = 0.5, style, children}) => {
+    const k = ramp(t, at, dur);
+    return <div style={{opacity: k, transform: `translateY(${(1 - k) * dy}px)`, ...style}}>{children}</div>;
+  };
+
+const Card: React.FC<{style?: React.CSSProperties; children: React.ReactNode}> = ({style, children}) => (
+  <div style={{background: CLAUDE.CARD, border: `3px solid ${CLAUDE.BORDER}`, borderRadius: 22, padding: '30px 38px', ...style}}>
+    {children}
+  </div>
+);
+
+// ── INTRO · PtIntro ─────────────────────────────────────────────────────────
+// Added 2026-09-27 at Shubham's request after watching the final: a spoken
+// "today we'll be discussing…" opening before the cold open.
+export const PtIntro: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const today = cue(cues, 'today', 3.8), topic = cue(cues, 'topic', 4.5), why = cue(cues, 'why', 7);
+  const hello = ramp(t, 0.2, 0.5) * (1 - ramp(t, today - 0.3, 0.4));
+  return (
+    <Stage label="INFO 7375 · WEEK 1 · CHAPTER 1, PART 1">
+      <div style={{position: 'absolute', left: SAFE.x, top: 430, width: SAFE.w, textAlign: 'center', opacity: hello,
+        fontFamily: SERIF, fontSize: 84}}>
+        Hi, I’m Liam<span style={{color: ACC}}>.</span>
+        <div style={{fontFamily: SANS, fontSize: 40, color: SOFT, marginTop: 18}}>A synthetic voice, narrating for Shubham Bagwe</div>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 250, width: SAFE.w, textAlign: 'center'}}>
+        <Fade t={t} at={today}>
+          <div style={{fontSize: 44, color: SOFT, letterSpacing: 1}}>Today’s one idea, from Chapter 1</div>
+        </Fade>
+        <Fade t={t} at={topic - 0.2}>
+          <div style={{fontFamily: SERIF, fontSize: 132, marginTop: 24}}>Preference Tuning<span style={{color: ACC}}>.</span></div>
+        </Fade>
+        <Fade t={t} at={why - 0.2}>
+          <div style={{fontFamily: SERIF, fontSize: 64, marginTop: 28, color: INK}}>
+            Why it can prefer a <span style={{color: ACC_T}}>confident wrong answer</span>
+          </div>
+        </Fade>
+      </div>
+      <Fade t={t} at={0.6} style={{position: 'absolute', left: SAFE.x, bottom: SAFE.y + 50, width: SAFE.w, textAlign: 'center'}}>
+        <div style={{fontSize: 32, color: SOFT}}>Shubham Bagwe · narration: synthetic Kokoro voice (am_onyx), not Shubham’s voice</div>
+      </Fade>
+    </Stage>
+  );
+};
+
+// ── B00 · PtHook ────────────────────────────────────────────────────────────
+export const PtHook: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const final = D.headline_final_chances as number[];
+  const barK = ramp(t, cue(cues, 'prefer', 9), 1.6);
+  const aShare = interpolate(barK, [0, 1], [0.5, final[0]]);
+  return (
+    <Stage constructed>
+      <div style={{position: 'absolute', left: SAFE.x, top: 150, width: SAFE.w, textAlign: 'center'}}>
+        <Fade t={t} at={0.1}>
+          <div style={{fontFamily: SERIF, fontSize: 76}}>“{D.question}”</div>
+        </Fade>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 310, width: SAFE.w, display: 'flex', gap: 48}}>
+        {[0, 1].map((i) => (
+          <Fade key={i} t={t} at={0.6 + i * 0.4} style={{flex: 1}}>
+            <Card style={{height: 330, position: 'relative', borderColor: i === 1 && t > cue(cues, 'confident', 5) ? ACC : CLAUDE.BORDER}}>
+              <div style={{fontSize: 30, fontWeight: 700, color: SOFT, letterSpacing: 1}}>REPLY {i === 0 ? 'A' : 'B'}</div>
+              <div style={{fontFamily: SERIF, fontSize: 50, lineHeight: 1.2, marginTop: 14}}>{D.replies[i]}</div>
+              <div style={{position: 'absolute', left: 38, bottom: 26, display: 'flex', gap: 16, fontSize: 30, fontWeight: 700}}>
+                <span style={{opacity: ramp(t, cue(cues, i === 0 ? 'unsure' : 'confident', 3), 0.4)}}>
+                  {i === 0 ? '✓ correct' : '✗ wrong'}
+                </span>
+                <span style={{opacity: ramp(t, cue(cues, i === 0 ? 'unsure' : 'confident', 3) + 0.3, 0.4),
+                  color: i === 1 ? ACC_T : SOFT}}>
+                  {i === 0 ? '· sounds unsure' : '· sounds sure'}
+                </span>
+              </div>
+            </Card>
+          </Fade>
+        ))}
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 700, width: SAFE.w, opacity: ramp(t, cue(cues, 'prefer', 9) - 0.3, 0.4)}}>
+        <div style={{fontSize: 30, color: SOFT, marginBottom: 14}}>Learned preference after tuning (toy result, seed 7)</div>
+        <div style={{display: 'flex', height: 86, borderRadius: 14, overflow: 'hidden', border: `3px solid ${INK}`}}>
+          <div style={{width: `${aShare * 100}%`, background: CLAUDE.PILL, display: 'flex', alignItems: 'center', paddingLeft: 24, fontSize: 36, fontWeight: 700}}>
+            <span style={{opacity: barK >= 0.999 ? 1 : 0}}>A {pct(final[0])}</span>
+          </div>
+          <div style={{flex: 1, background: ACC, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: 24, fontSize: 36, fontWeight: 700}}>
+            <span style={{opacity: barK >= 0.999 ? 1 : 0}}>B {pct(final[1])}</span>
+          </div>
+        </div>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, bottom: SAFE.y, fontSize: 28, color: SOFT, opacity: ramp(t, 0.3, 0.5)}}>
+        Narration: synthetic Kokoro voice (am_onyx) — not Shubham’s voice
+      </div>
+    </Stage>
+  );
+};
+
+// ── B02 · PtStages ──────────────────────────────────────────────────────────
+export const PtStages: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const s1 = cue(cues, 'stage1', 2.7), s2 = cue(cues, 'stage2', 7.6), key = cue(cues, 'key', 14), ap = cue(cues, 'approval', 18);
+  const keyK = ramp(t, key - 0.4, 0.9);
+  const Stage1 = (i: number, title: string, target: string, note: string, at: number) => (
+    <Fade t={t} at={at} style={{flex: 1}}>
+      <Card style={{height: 400, borderColor: t > at ? INK : CLAUDE.BORDER}}>
+        <div style={{fontSize: 30, fontWeight: 700, color: SOFT, letterSpacing: 1}}>STAGE {i}</div>
+        <div style={{fontFamily: SERIF, fontSize: 70, marginTop: 6}}>{title}</div>
+        <div style={{fontSize: 34, color: SOFT, marginTop: 26}}>Target</div>
+        <div style={{fontFamily: SERIF, fontSize: 50, lineHeight: 1.2, marginTop: 4}}>
+          {target}
+        </div>
+        <div style={{fontSize: 28, color: SOFT, marginTop: 14}}>{note}</div>
+      </Card>
+    </Fade>
+  );
+  return (
+    <Stage>
+      <div style={{position: 'absolute', left: SAFE.x, top: 130, width: SAFE.w, display: 'flex', gap: 60, alignItems: 'center'}}>
+        {Stage1(1, 'Pre-training', 'the token that actually came next', 'in the training text', s1)}
+        <div style={{fontSize: 80, color: SOFT, opacity: ramp(t, s2 - 0.3)}}>→</div>
+        {Stage1(2, 'Preference tuning', 'the reply a human reviewer picked', '(the chapter calls them “raters”)', s2)}
+      </div>
+      {/* approval underline, stage 2 */}
+      <div style={{position: 'absolute', left: 1020, top: 560, width: 700 * ramp(t, ap, 0.6), height: 8, background: ACC, borderRadius: 4}} />
+      <div style={{position: 'absolute', right: SAFE.x, top: 590, fontSize: 36, fontWeight: 700, color: ACC_T, opacity: ramp(t, ap + 0.2)}}>
+        = approval, not correctness
+      </div>
+      {/* the answer key that never gets in */}
+      <div style={{position: 'absolute', left: 0, width: 1920, top: interpolate(keyK, [0, 1], [1100, 700]), display: 'flex', justifyContent: 'center', opacity: keyK}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 36}}>
+          <Card style={{padding: '24px 40px', borderStyle: 'dashed', borderColor: INK}}>
+            <div style={{fontFamily: MONO, fontSize: 44, fontWeight: 700}}>ANSWER KEY</div>
+            <div style={{fontSize: 28, color: SOFT}}>“the capital is Canberra”</div>
+          </Card>
+          <div style={{fontSize: 46, fontWeight: 800, color: INK, border: `5px solid ${INK}`, borderRadius: 12, padding: '10px 22px',
+            transform: `rotate(-4deg) scale(${interpolate(ramp(t, key + 0.6, 0.3), [0, 1], [1.4, 1])})`, opacity: ramp(t, key + 0.6, 0.3)}}>
+            NOT AN INPUT TO EITHER STAGE
+          </div>
+        </div>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, bottom: SAFE.y, fontSize: 28, color: SOFT}}>
+        Source: Chapter 1, “Where the numbers come from” and Figure 1.3
+      </div>
+    </Stage>
+  );
+};
+
+// ── B03 · PtCode ────────────────────────────────────────────────────────────
+export const PtCode: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const src: string = D.nudge_source;
+  // Trim the docstring for legibility (the full function is in the evidence file).
+  const lines = src.replace(/\n    """[\s\S]*?"""\n/, '\n    # (docstring trimmed — full text in evidence/preference_toy.py)\n').replace(/\n$/, '').split('\n');
+  const prob = cue(cues, 'prob', 6), raise = cue(cues, 'raise', 9.6), inputs = cue(cues, 'inputs', 13.2), strike = cue(cues, 'strike', 17);
+  const hl = (l: string) => {
+    if (t >= inputs) return l.startsWith('def ');
+    if (t >= raise) return /new\[(picked|1 - picked)\]/.test(l) || l.includes('step = ');
+    if (t >= prob) return l.includes('probabilities(');
+    return false;
+  };
+  const args: string[] = D.nudge_arguments;
+  const box = (i: number) => ramp(t, inputs + 0.9 + i * 0.75, 0.3);
+  return (
+    <Stage>
+      <Fade t={t} at={0.1} style={{position: 'absolute', left: SAFE.x, top: 110}}>
+        <div style={{fontSize: 30, color: SOFT}}>
+          Real code · <span style={{fontFamily: MONO}}>evidence/preference_toy.py</span> · function <span style={{fontFamily: MONO}}>nudge()</span>
+        </div>
+      </Fade>
+      <Fade t={t} at={0.3} style={{position: 'absolute', left: SAFE.x, top: 170, width: SAFE.w}}>
+        <div style={{background: '#FFFFFF', border: `3px solid ${CLAUDE.BORDER}`, borderRadius: 22, padding: '34px 40px'}}>
+          {lines.map((l, i) => (
+            <div key={i} style={{fontFamily: MONO, fontSize: 40, lineHeight: 1.5, whiteSpace: 'pre', color: l.trim().startsWith('#') ? CLAUDE.GHOST : INK,
+              background: hl(l) ? 'rgba(217,119,87,0.16)' : 'transparent', borderLeft: hl(l) ? `8px solid ${ACC}` : '8px solid transparent', paddingLeft: 18,
+              opacity: t < prob || hl(l) || l.trim() === '' ? 1 : 0.62}}>
+              {l.startsWith('def ') && t >= inputs ? (
+                <span>
+                  def nudge(
+                  {args.map((a, j) => (
+                    <span key={a}>
+                      <span style={{outline: box(j) > 0 ? `4px solid rgba(61,57,41,${box(j)})` : 'none', outlineOffset: 4, borderRadius: 4}}>{a}</span>
+                      {j < args.length - 1 ? ', ' : ''}
+                    </span>
+                  ))}
+                  ):
+                </span>
+              ) : (l || ' ')}
+            </div>
+          ))}
+        </div>
+      </Fade>
+      <div style={{position: 'absolute', left: SAFE.x, top: 790, width: SAFE.w, fontSize: 38, lineHeight: 1.35, opacity: t >= raise && t < inputs ? ramp(t, raise, 0.4) : 0}}>
+        One vote: the picked reply’s score goes <b>up</b> by <span style={{fontFamily: MONO}}>step</span>, the other goes <b>down</b> by the same amount.<br />
+        <span style={{color: SOFT, fontSize: 32}}><span style={{fontFamily: MONO}}>step</span> is bigger when the pick was a surprise (its chance was low).</span>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 790, width: SAFE.w, fontSize: 34, lineHeight: 1.45, color: SOFT, opacity: t >= prob && t < raise ? 1 : 0}}>
+        <span style={{fontFamily: MONO}}>probabilities()</span> is the chapter’s own function, imported unchanged from <span style={{fontFamily: MONO}}>lessons/01-…/code/main.py</span>.<br />
+        Run there on the chapter’s scores [1, 2, 3] it prints <span style={{fontFamily: MONO, color: INK}}>{(D.course_main_probabilities as number[]).map((x) => x.toFixed(3)).join(', ')}</span>. Equal scores give 50/50.
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 790, width: SAFE.w, display: 'flex', alignItems: 'center', gap: 40, opacity: ramp(t, strike, 0.4)}}>
+        <div style={{fontFamily: MONO, fontSize: 44, color: ACC_T, textDecoration: 'line-through', textDecorationThickness: 5,
+          border: `4px dashed ${ACC}`, borderRadius: 14, padding: '12px 26px'}}>answer_key</div>
+        <div style={{fontSize: 40, fontWeight: 700, lineHeight: 1.25}}>
+          Inputs: the scores · the reviewer’s pick · a step size.<br /><span style={{color: ACC_T}}>No answer key is passed in.</span>
+        </div>
+      </div>
+    </Stage>
+  );
+};
+
+// ── B04 · PtRaters ──────────────────────────────────────────────────────────
+const Person: React.FC<{tick: boolean; k: number; hot: boolean}> = ({tick, k, hot}) => (
+  <div style={{width: 118, display: 'flex', flexDirection: 'column', alignItems: 'center', opacity: 0.45 + 0.55 * k}}>
+    <div style={{width: 58, height: 58, borderRadius: 29, background: hot ? ACC : INK}} />
+    <div style={{width: 96, height: 92, borderRadius: '44px 44px 12px 12px', background: hot ? ACC : INK, marginTop: 8}} />
+    <div style={{height: 56, marginTop: 8, color: INK, textAlign: 'center', fontWeight: 800, fontSize: 48}}>{tick ? '✓' : ''}</div>
+  </div>
+);
+export const PtRaters: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const three = cue(cues, 'three', 3.4), seven = cue(cues, 'seven', 7), assume = cue(cues, 'assume', 11.6);
+  const src: string = D.rater_pick_source;
+  const ret = src.split('\n').find((l) => l.trim().startsWith('return')) ?? '';
+  return (
+    <Stage>
+      <div style={{position: 'absolute', left: SAFE.x, top: 110, width: SAFE.w, textAlign: 'center'}}>
+        <div style={{display: 'inline-block', fontSize: 40, fontWeight: 800, letterSpacing: 1, border: `4px solid ${INK}`, borderRadius: 12, padding: '10px 26px', background: CLAUDE.CARD}}>
+          CONSTRUCTED ASSUMPTION — not a measurement of real reviewers
+        </div>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 240, width: SAFE.w, display: 'flex', justifyContent: 'center', gap: 36}}>
+        {Array.from({length: 10}).map((_, i) => {
+          const checker = i < 3;
+          const k = checker ? ramp(t, three + i * 0.15) : ramp(t, seven + (i - 3) * 0.1);
+          return <Person key={i} tick={checker && t > three} k={k} hot={!checker && t > seven} />;
+        })}
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 500, width: SAFE.w, textAlign: 'center', fontSize: 40, fontWeight: 700, opacity: ramp(t, three)}}>
+        ✓ = this reviewer can check the answer
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 580, width: SAFE.w, display: 'flex', gap: 60}}>
+        <Fade t={t} at={three + 0.5} style={{flex: 3}}>
+          <Card style={{height: 230}}>
+            <div style={{fontSize: 34, fontWeight: 800}}>3 in 10 can check  →  pick A</div>
+            <div style={{fontFamily: SERIF, fontSize: 44, marginTop: 10}}>{D.replies[0]}</div>
+          </Card>
+        </Fade>
+        <Fade t={t} at={seven + 0.5} style={{flex: 3}}>
+          <Card style={{borderColor: ACC, height: 230}}>
+            <div style={{fontSize: 34, fontWeight: 800, color: ACC_T}}>7 in 10 can’t check  →  pick the surer one, B</div>
+            <div style={{fontFamily: SERIF, fontSize: 44, marginTop: 10}}>{D.replies[1]}</div>
+          </Card>
+        </Fade>
+      </div>
+      <Fade t={t} at={assume} style={{position: 'absolute', left: SAFE.x, top: 850, width: SAFE.w}}>
+        <div style={{fontSize: 32, color: SOFT, lineHeight: 1.5}}>
+          The whole rule, from <span style={{fontFamily: MONO}}>rater_pick()</span>: <span style={{fontFamily: MONO, color: INK, fontSize: 36}}>{ret.trim()}</span>  (0 = A, 1 = B)<br />
+          Each vote comes from a reviewer who can check with chance 0.3.
+        </div>
+      </Fade>
+    </Stage>
+  );
+};
+
+// ── B05 · PtTraining ────────────────────────────────────────────────────────
+export const PtTraining: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const start = cue(cues, 'start', 3.5), tally = cue(cues, 'tally', 4.8), final = cue(cues, 'final', 9.5), nothing = cue(cues, 'nothing', 15.6);
+  const traj: Record<string, number> = D.headline_trajectory_chance_correct;
+  const tallies: Record<string, number[]> = D.headline_tallies_at_checkpoints;
+  const cps = Object.keys(traj).map(Number).sort((a, b) => a - b);
+  // Step through the RECORDED checkpoints only; hold each one briefly.
+  // Reach the final recorded tally (336 / 664) as those numbers are spoken.
+  const idx = Math.floor(interpolate(t, [start + 0.8, tally + 1.4], [0, cps.length - 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}));
+  const cp = cps[idx];
+  const pA = traj[String(cp)];
+  const [va, vb] = tallies[String(cp)];
+  const done = t >= final;  // accent lands on "after the last nudge"
+  const Bar = (label: string, sub: string, p: number, votes: number, hot: boolean) => (
+    <div style={{marginBottom: 46}}>
+      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline'}}>
+        <div style={{fontFamily: SERIF, fontSize: 56}}>{label} <span style={{fontFamily: SANS, fontSize: 30, color: SOFT}}>{sub}</span></div>
+        <div style={{fontSize: 34, color: SOFT}}>votes: <b style={{color: INK}}>{votes}</b></div>
+      </div>
+      <div style={{height: 104, background: CLAUDE.PILL, borderRadius: 16, marginTop: 12, position: 'relative', overflow: 'hidden'}}>
+        <div style={{width: `${p * 100}%`, height: '100%', background: hot ? ACC_T : INK, borderRadius: 16}} />
+        <div style={{position: 'absolute', left: 28, top: 18, fontSize: 56, fontWeight: 800, color: '#fff', mixBlendMode: 'normal'}}>{pct(p)}</div>
+      </div>
+    </div>
+  );
+  return (
+    <Stage constructed>
+      <Fade t={t} at={0.1} style={{position: 'absolute', left: SAFE.x, top: 110}}>
+        <div style={{fontSize: 34, color: SOFT}}>
+          <span style={{fontFamily: MONO, color: INK}}>train(0.3)</span> · 1,000 votes · seed 7 · step 0.02 — chance each reply is chosen
+        </div>
+      </Fade>
+      <div style={{position: 'absolute', left: SAFE.x, top: 200, width: SAFE.w, opacity: ramp(t, start - 0.4)}}>
+        {Bar('Canberra', 'reply A · correct', pA, va, false)}
+        {Bar('Sydney', 'reply B · wrong, sounds sure', 1 - pA, vb, done)}
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 740, fontSize: 44, fontWeight: 800, opacity: ramp(t, tally - 0.3)}}>
+        after <span style={{fontFamily: MONO}}>{cp.toLocaleString('en-US')}</span> votes
+        <span style={{fontSize: 28, fontWeight: 500, color: SOFT}}>   (recorded checkpoints: {cps.join(' · ')})</span>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 800, width: SAFE.w, fontSize: 34, lineHeight: 1.4, color: SOFT}}>
+        <div style={{opacity: t < tally + 1.4 ? ramp(t, start - 0.4) : 0, position: 'absolute'}}>Both start at 50/50: the toy leaves out pre-training on purpose.</div>
+        <div style={{opacity: t >= tally + 1.4 && t < nothing ? ramp(t, tally + 1.4) : 0, position: 'absolute'}}>
+          Votes are random draws (chance 0.3), so Canberra got 336, not exactly 300.<br />Seed 7 means the same random draws every time the script runs.
+        </div>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 830, fontSize: 40, fontWeight: 700, opacity: ramp(t, nothing)}}>
+        Nothing broke. The code did its job: <span style={{color: ACC_T}}>follow the votes.</span>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, bottom: SAFE.y, fontSize: 28, color: SOFT}}>
+        Output of <span style={{fontFamily: MONO}}>python3 evidence/preference_toy.py</span> → preference_toy_output.json
+      </div>
+    </Stage>
+  );
+};
+
+// ── B06 · PtSweep ───────────────────────────────────────────────────────────
+export const PtSweep: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const sweep: {share_who_can_check: number; votes_for_correct: number; final_chance_correct: number}[] = D.sweep;
+  const spoken: Record<number, string> = {0.2: 'p20', 0.4: 'p40', 0.6: 'p60', 0.8: 'p80'};
+  const every = cue(cues, 'every', 10.7), share = cue(cues, 'share', 15);
+  const X0 = 250, X1 = 1760, Y0 = 880, Y1 = 250; // plot box
+  const x = (s: number) => X0 + ((s - 0.1) / 0.8) * (X1 - X0);
+  const y = (p: number) => Y0 - p * (Y0 - Y1);
+  return (
+    <Stage constructed>
+      <Fade t={t} at={0.1} style={{position: 'absolute', left: SAFE.x, top: 105}}>
+        <div style={{fontSize: 34, color: SOFT}}>One knob: the share of reviewers who can check. Everything else fixed (seed 7, 1,000 votes).</div>
+      </Fade>
+      <div style={{position: 'absolute', left: 300, top: 262, opacity: ramp(t, every - 0.2)}}>
+        <span style={{fontSize: 34, fontWeight: 800, border: `4px solid ${INK}`, borderRadius: 999, padding: '8px 30px', background: CLAUDE.CARD}}>
+          Canberra is the correct answer in every run
+        </span>
+      </div>
+      <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0}}>
+        <line x1={X0} y1={Y0} x2={X1} y2={Y0} stroke={INK} strokeWidth={4} />
+        <line x1={X0} y1={Y0} x2={X0} y2={Y1} stroke={INK} strokeWidth={4} />
+        <line x1={X0} y1={y(0.5)} x2={X1} y2={y(0.5)} stroke={SOFT} strokeWidth={3} strokeDasharray="14 12" />
+        <text x={X0 + 16} y={y(0.5) - 14} fontSize={28} fill={SOFT} fontFamily={SANS}>50% line · above it Canberra is favoured, below it Sydney</text>
+        {[0, 0.25, 0.5, 0.75, 1].map((p) => (
+          <text key={p} x={X0 - 18} y={y(p) + 10} textAnchor="end" fontSize={28} fill={SOFT} fontFamily={SANS}>{p * 100}%</text>
+        ))}
+        {sweep.map((r) => (
+          <text key={r.share_who_can_check} x={x(r.share_who_can_check)} y={Y0 + 44} textAnchor="middle" fontSize={30} fill={INK} fontFamily={SANS}>
+            {Math.round(r.share_who_can_check * 100)}%
+          </text>
+        ))}
+        <text x={(X0 + X1) / 2} y={Y0 + 88} textAnchor="middle" fontSize={30} fill={SOFT} fontFamily={SANS}>share of reviewers who can check the answer</text>
+        <text x={X0 - 150} y={Y1 - 36} fontSize={30} fill={SOFT} fontFamily={SANS}>learned chance of the correct reply (Canberra)</text>
+        {sweep.map((r) => {
+          const key = spoken[r.share_who_can_check];
+          const at = key ? cue(cues, key, 3) : cue(cues, 'p80', 8.6) + 0.8;
+          const k = ramp(t, at, 0.35);
+          const vs = r.votes_for_correct / 1000;
+          const below = r.final_chance_correct < 0.5;
+          return (
+            <g key={r.share_who_can_check} opacity={k}>
+              <circle cx={x(r.share_who_can_check)} cy={y(vs)} r={16} fill="none" stroke={SOFT} strokeWidth={4} opacity={ramp(t, share, 0.5)} />
+              <circle cx={x(r.share_who_can_check)} cy={y(r.final_chance_correct)} r={key ? 17 : 12} fill={below ? ACC : INK} />
+              {key && (
+                <text x={x(r.share_who_can_check)} y={below ? y(r.final_chance_correct) + 70 : y(r.final_chance_correct) - 34} textAnchor="middle" fontSize={40} fontWeight={800} fill={below ? ACC_T : INK} fontFamily={SANS}>
+                  {pct(r.final_chance_correct)}
+                </text>
+              )}
+            </g>
+          );
+        })}
+      </svg>
+      <div style={{position: 'absolute', left: 1120, top: 790, fontSize: 30, color: SOFT, opacity: ramp(t, share, 0.5)}}>
+        ● learned chance   ○ Canberra’s share of the votes
+      </div>
+      <div style={{position: 'absolute', left: 300, top: 330, fontSize: 32, fontWeight: 700, opacity: ramp(t, share + 1.2, 0.5)}}>
+        Not just seed 7: at 30%, the wrong reply was favoured in {Math.round((D.seed_spread_03_wrong_favoured as number) * 500)} of 500 seeds.
+      </div>
+    </Stage>
+  );
+};
+
+// ── B07 · PtBoundary ────────────────────────────────────────────────────────
+export const PtBoundary: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const can = cue(cues, 'can', 4), often = cue(cues, 'often', 5.7), claude = cue(cues, 'claude', 9), pipe = cue(cues, 'pipeline', 12.4);
+  return (
+    <Stage>
+      <Fade t={t} at={0.1} style={{position: 'absolute', left: SAFE.x, top: 110}}>
+        <div style={{fontFamily: SERIF, fontSize: 84}}>What this does <span style={{color: ACC_T}}>not</span> establish</div>
+      </Fade>
+      <div style={{position: 'absolute', left: SAFE.x, top: 290, width: SAFE.w, display: 'flex', gap: 56}}>
+        <Fade t={t} at={can} style={{flex: 1}}>
+          <Card style={{height: 560}}>
+            <div style={{fontSize: 34, fontWeight: 800, color: SOFT, letterSpacing: 1}}>THE TOY SHOWS</div>
+            <div style={{fontFamily: SERIF, fontSize: 66, marginTop: 20, lineHeight: 1.15}}>✓ A confident wrong answer <i>can</i> win</div>
+            <div style={{fontSize: 32, color: SOFT, marginTop: 24}}>…given reviewers we constructed, who can’t all check.</div>
+          </Card>
+        </Fade>
+        <Fade t={t} at={often} style={{flex: 1}}>
+          <Card style={{height: 560, borderColor: ACC}}>
+            <div style={{fontSize: 34, fontWeight: 800, color: ACC_T, letterSpacing: 1}}>IT DOES NOT SHOW</div>
+            <div style={{fontFamily: SERIF, fontSize: 66, marginTop: 20, lineHeight: 1.15}}>How <i>often</i> this happens in real training</div>
+            <div style={{fontSize: 34, marginTop: 26, opacity: ramp(t, claude)}}>✗ anything about how Claude was trained</div>
+            <div style={{fontSize: 32, marginTop: 16, lineHeight: 1.3, opacity: ramp(t, pipe)}}>✗ a typical real pipeline, e.g. InstructGPT <span style={{color: SOFT, fontSize: 28}}>(Ouyang et al., 2022)</span>:
+              <div style={{fontSize: 30, color: SOFT, marginTop: 6}}>a <b style={{color: INK}}>reward model</b> (a separate scorer trained on the votes), then <b style={{color: INK}}>reinforcement learning</b> (tuning the chatbot to score well)</div>
+            </div>
+          </Card>
+        </Fade>
+      </div>
+    </Stage>
+  );
+};
+
+// ── B08 · PtEvidence ────────────────────────────────────────────────────────
+// Both quotes are verbatim substrings of the arXiv abstract (evidence/source_abstracts_2026-09-27.txt).
+const Q1 = 'We find that the assertiveness of an output skews the perceived rate of factuality errors, indicating that human annotations are not a fully reliable evaluation metric or training objective.';
+const Q2 = '…we offer preliminary evidence that using human feedback as a training objective disproportionately increases the assertiveness of model outputs.';
+const typed = (t: number, at: number, dur: number, q: string) =>
+  q.slice(0, Math.round(interpolate(t, [at, at + dur], [0, q.length], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})));
+export const PtEvidence: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const q = cue(cues, 'quote', 3), pre = cue(cues, 'neg', 10);  // 'neg' = the spoken word 'preliminary'
+  const s1 = typed(t, q, 4.5, Q1), s2 = typed(t, pre, 3.5, Q2);
+  const qStyle: React.CSSProperties = {fontFamily: SERIF, fontStyle: 'italic', fontSize: 58, lineHeight: 1.3};
+  return (
+    <Stage label="REAL-WORLD EVIDENCE · NOT FROM THE TOY">
+      <Fade t={t} at={0.2} style={{position: 'absolute', left: SAFE.x, top: 110, width: SAFE.w}}>
+        <Card style={{padding: '24px 38px'}}>
+          <div style={{fontFamily: SERIF, fontSize: 50}}>Hosking, Blunsom &amp; Bartolo (2023), <i>Human Feedback is not Gold Standard</i></div>
+          <div style={{fontSize: 30, color: SOFT, marginTop: 8}}>arXiv:2309.16349 · verbatim from the abstract, checked 2026-09-27</div>
+        </Card>
+      </Fade>
+      <div style={{position: 'absolute', left: SAFE.x + 30, top: 340, width: SAFE.w - 60}}>
+        <div style={{...qStyle, minHeight: 230}}>
+          {s1 ? '“' : ''}{s1}{s1.length === Q1.length ? '”' : ''}
+        </div>
+        <div style={{...qStyle, marginTop: 34, minHeight: 140, textDecoration: t > pre + 3.6 ? 'underline' : 'none',
+          textDecorationColor: ACC, textDecorationThickness: 5, textUnderlineOffset: 10}}>
+          {s2 ? '“' : ''}{s2}{s2.length === Q2.length ? '”' : ''}
+        </div>
+      </div>
+      <div style={{position: 'absolute', left: SAFE.x, top: 880, width: SAFE.w, fontSize: 32, lineHeight: 1.35, color: SOFT, opacity: ramp(t, pre + 1)}}>
+        Related: Sharma et al. (2023, Anthropic), arXiv:2310.13548: people and preference models sometimes prefer a convincing, agreeable answer over a correct one.
+      </div>
+    </Stage>
+  );
+};
+
+// ── B09 · PtVerdict ─────────────────────────────────────────────────────────
+export const PtVerdict: React.FC<PtProps> = ({cues}) => {
+  const t = useT();
+  const L = [
+    ['Preference tuning follows the votes.', cue(cues, 'l1', 1)],
+    ['Votes usually track the truth.', cue(cues, 'l2', 2.7)],
+    ['When reviewers can’t check,\nconfident-and-wrong can win.', cue(cues, 'l3', 4.4)],
+  ] as const;
+  return (
+    <Stage>
+      <div style={{position: 'absolute', left: SAFE.x + 40, top: 200, width: SAFE.w - 80}}>
+        {L.map(([s, at], i) => (
+          <Fade key={i} t={t} at={at as number}>
+            <div style={{fontFamily: SERIF, fontSize: 92, lineHeight: 1.18, marginBottom: 40, whiteSpace: 'pre-line', color: i === 2 ? ACC_T : INK}}>{s}</div>
+          </Fade>
+        ))}
+      </div>
+    </Stage>
+  );
+};
+
+// ── B11 · PtOutro ───────────────────────────────────────────────────────────
+export const PtOutro: React.FC<PtProps> = () => {
+  const t = useT();
+  return (
+    <Stage label=" ">
+      <div style={{position: 'absolute', left: SAFE.x, top: 300, width: SAFE.w, textAlign: 'center'}}>
+        <Fade t={t} at={0.1}>
+          <div style={{fontFamily: SERIF, fontSize: 120}}>Preference Tuning Follows the Votes<span style={{color: ACC_T}}>.</span></div>
+        </Fade>
+        <Fade t={t} at={0.6}>
+          <div style={{fontSize: 44, marginTop: 40}}>Shubham Bagwe · INFO 7375 · Week 1</div>
+        </Fade>
+        <Fade t={t} at={1.0}>
+          <div style={{fontSize: 28, color: SOFT, marginTop: 60, lineHeight: 1.6}}>
+            Narration: synthetic Kokoro voice (am_onyx) · Toy numbers: evidence/preference_toy.py, seed 7<br />
+            Concept: Chapter 1, Part 1 · Built with brutalist.art (free local pipeline)
+          </div>
+        </Fade>
+      </div>
+    </Stage>
+  );
+};

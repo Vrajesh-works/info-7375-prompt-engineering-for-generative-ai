@@ -1,0 +1,22 @@
+test_course_copy_matches_repo_when_present (test_preference_toy.PreferenceToyTests.test_course_copy_matches_repo_when_present) ... ok
+test_learned_chance_tracks_vote_share_not_truth (test_preference_toy.PreferenceToyTests.test_learned_chance_tracks_vote_share_not_truth) ... FAIL
+test_nudge_never_receives_an_answer_key (test_preference_toy.PreferenceToyTests.test_nudge_never_receives_an_answer_key) ... ok
+test_nudge_raises_the_picked_reply (test_preference_toy.PreferenceToyTests.test_nudge_raises_the_picked_reply) ... ok
+test_recorded_output_matches_a_fresh_run (test_preference_toy.PreferenceToyTests.test_recorded_output_matches_a_fresh_run) ... ok
+test_same_seed_repeats_exactly (test_preference_toy.PreferenceToyTests.test_same_seed_repeats_exactly) ... ok
+test_starts_even (test_preference_toy.PreferenceToyTests.test_starts_even) ... ok
+test_wrong_reply_wins_when_most_raters_cannot_check (test_preference_toy.PreferenceToyTests.test_wrong_reply_wins_when_most_raters_cannot_check) ... ok
+
+======================================================================
+FAIL: test_learned_chance_tracks_vote_share_not_truth (test_preference_toy.PreferenceToyTests.test_learned_chance_tracks_vote_share_not_truth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<course-repo>/fall-2026/shubham-b/week-01-video/evidence/test_preference_toy.py", line 48, in test_learned_chance_tracks_vote_share_not_truth
+    self.assertAlmostEqual(learned, vote_share, delta=0.03)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0.6631596009392379 != 0.633 within 0.03 delta (0.030159600939237863 difference)
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.015s
+
+FAILED (failures=1)

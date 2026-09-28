@@ -1,0 +1,746 @@
+{
+  "metadata": {
+    "title": "Preference Tuning Follows the Votes",
+    "slug": "preference-tuning-follows-the-votes",
+    "topic": "INFO 7375 · WEEK 1 · CHAPTER 1",
+    "segment": "Preference Tuning Follows the Votes",
+    "concept": "Why preference tuning can prefer a confident wrong answer (Chapter 1, Part 1, 'Where the numbers come from')",
+    "author": "Shubham Bagwe",
+    "audience": "College students with little or no machine-learning background",
+    "register": "Plain",
+    "brand": "claude-liam",
+    "engine": "kokoro",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "ground": "#FAF9F5",
+    "folderLabel": "INFO 7375 · Week 1",
+    "narrator_disclosure": "Synthetic narration: local Kokoro voice am_onyx ('Liam'). Not Shubham's voice, not Professor Bear's, and not an endorsement.",
+    "evidence": "evidence/preference_toy.py -> evidence/preference_toy_output.json (seed 7, offline, CONSTRUCTED toy reusing lessons/01-randomness-and-first-prompts/code/main.py probabilities())",
+    "deviations_from_toolkit": [
+      "No ClaudeComposerAsk cold open with output lines: on screen those read as a Claude response, and the assignment forbids any Claude response that was not actually received. The cold open is a custom scene instead.",
+      "No locked @NikBearBrown ClaudeTitleOutro: the course prerequisite says a student video must not imply the instructor's endorsement. A neutral custom outro restates the title."
+    ],
+    "build": {
+      "at": "2026-09-27T22:53:35",
+      "cut": "master",
+      "filled": 13,
+      "of": 13,
+      "slates": [],
+      "skin_warnings": [
+        "INTRO: palette=claude but the cold open is 'PtIntro' — COLD OPEN LAW wants ClaudeComposerAsk",
+        "B11: palette=claude but the outro is 'PtOutro' — OUTRO LAW wants ClaudeTitleOutro"
+      ]
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "INTRO",
+      "act": "INTRO (added at Shubham's request)",
+      "narration_text": "Hi, I'm Liam, a synthetic voice narrating for Shubham. Today we'll be discussing one idea from Chapter one: preference tuning, and why it can end up preferring a confident wrong answer.",
+      "shot": {
+        "type": "CARD",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Label 'Today’s one idea'; footer: 'Shubham Bagwe · narration: synthetic Kokoro voice (am_onyx), not Shubham’s voice'"
+          },
+          {
+            "at": "preference tuning",
+            "event": "Title lands: 'Preference Tuning.'"
+          },
+          {
+            "at": "why it can",
+            "event": "Subtitle lands: 'Why it can prefer a confident wrong answer'"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtIntro",
+          "props": {
+            "durationSeconds": 11.82,
+            "cues": {
+              "today": 3.94,
+              "topic": 7.14,
+              "why": 8.3
+            }
+          },
+          "rendered": {
+            "out": "media/INTRO.mp4",
+            "at": "2026-09-28T02:48:53.080796+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 10,
+      "actual_duration_s": 11.82,
+      "audio_file": "mp3/beat-INTRO.mp3",
+      "render_duration_s": 11.833333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/INTRO.mp4",
+        "filled_by": "remotion:PtIntro",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B00",
+      "act": "COLD OPEN",
+      "narration_text": "Two answers to one question. The first is right, but unsure. The second is wrong, but confident. Let's see how the training that makes a chatbot helpful can end up preferring the second one.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "Two answers",
+            "event": "Question card 'What is the capital of Australia?' types in; two reply cards slide up beneath it"
+          },
+          {
+            "at": "right, but unsure",
+            "event": "Reply A (hedged, Canberra) gets a small ink tick: 'correct'"
+          },
+          {
+            "at": "wrong, but confident",
+            "event": "Reply B (confident, Sydney) gets a terracotta 'sounds sure' tag"
+          },
+          {
+            "at": "preferring the second one",
+            "event": "A preference bar under the cards slides toward B; its labels appear only at the recorded final values, A 32.6% / B 67.4%"
+          },
+          {
+            "at": 0.0,
+            "event": "Footer: 'CONSTRUCTED EXAMPLE · narration: synthetic Kokoro voice (am_onyx) — not Shubham’s voice'"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtHook",
+          "props": {
+            "durationSeconds": 11.2,
+            "cues": {
+              "unsure": 2.94,
+              "confident": 5.16,
+              "prefer": 9.24
+            }
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-09-28T02:49:25.746296+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 16,
+      "actual_duration_s": 11.2,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 11.208333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "remotion:PtHook",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "OVERVIEW (BLUF)",
+      "lead_silence_s": 0.8,
+      "narration_text": "After a chatbot learns language, people vote between pairs of replies, and the model is nudged toward the winners. So preference tuning rewards the preferred answer. Usually that's also the right one. Not always.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Writer types 'Preference tuning rewards / the correct answer.'"
+          },
+          {
+            "at": "rewards the preferred",
+            "event": "'correct' is typed, reconsidered, deleted, and replaced with 'preferred'"
+          },
+          {
+            "at": "Usually",
+            "event": "Lines 'Usually that's also the right one. / Not always.' type in"
+          },
+          {
+            "at": 0.0,
+            "event": "Three glossary cards sit under the text: Preference tuning · Reviewer · Nudge"
+          }
+        ],
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Preference tuning rewards\nthe correct answer.\nUsually that's also the right one.\nNot always.",
+            "triggerWords": "correct",
+            "replacementWords": "preferred",
+            "seed": "shubham-b-week01",
+            "fontSize": 96,
+            "durationSeconds": 13.56,
+            "charMs": 34,
+            "mistakeRate": 4,
+            "hesitateBetween": 8,
+            "hesitateWithin": 1,
+            "lineSpacing": 1.2,
+            "yOffset": -150,
+            "contextItems": [
+              {
+                "label": "Preference tuning",
+                "detail": "After pre-training, people pick the better of two replies."
+              },
+              {
+                "label": "Reviewer",
+                "detail": "The person picking. Chapter 1 says “rater”."
+              },
+              {
+                "label": "Nudge",
+                "detail": "A small change to scores, toward the picked reply."
+              }
+            ]
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-09-28T00:32:09.690309+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 12,
+      "actual_duration_s": 12.76,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 12.791666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "FRAMEWORK",
+      "narration_text": "Chapter one describes two training stages. Pre-training nudges the model toward the token, the piece of text, that actually came next. Preference tuning shows people two replies and nudges the model toward the one they picked. Now look at what neither stage is given: an answer key. Reviewers usually prefer accurate answers. But the target is their approval, not the truth.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "Pre-training",
+            "event": "Stage 1 card: 'Pre-training — Target: the token that actually came next (in the training text)'"
+          },
+          {
+            "at": "Preference tuning",
+            "event": "Stage 2 card: 'Preference tuning — Target: the reply a human reviewer picked (the chapter calls them \"raters\")'"
+          },
+          {
+            "at": "an answer key",
+            "event": "An ANSWER KEY card ('the capital is Canberra') rises and stops outside both stages; stamp 'NOT AN INPUT TO EITHER STAGE'"
+          },
+          {
+            "at": "their approval",
+            "event": "Terracotta rule under stage 2 and '= approval, not correctness'"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtStages",
+          "props": {
+            "durationSeconds": 20.16,
+            "cues": {
+              "stage1": 2.76,
+              "stage2": 7.6,
+              "key": 14.08,
+              "approval": 18.24
+            }
+          },
+          "rendered": {
+            "out": "media/B02.mp4",
+            "at": "2026-09-28T00:43:55.690227+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 24,
+      "actual_duration_s": 20.16,
+      "audio_file": "mp3/beat-B02.mp3",
+      "render_duration_s": 20.166666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "remotion:PtStages",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "MECHANISM (REAL CODE)",
+      "narration_text": "Here is that nudge as real code, from a small toy built for this video. Each reply has a score. The chapter's own probabilities function turns scores into chances. Each vote raises the picked reply's score and lowers the other. Now read the inputs: the scores, which reply the reviewer picked, and a step size. The correct answer isn't one of them.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Actual nudge() source from evidence/preference_toy.py appears, file path caption"
+          },
+          {
+            "at": "probabilities function",
+            "event": "Line 'chances = probabilities(scores)' highlights; caption: the chapter's own function from lessons/01-…/main.py, which prints 0.090, 0.245, 0.665 for the chapter's scores [1, 2, 3]; equal scores give 50/50"
+          },
+          {
+            "at": "raises the picked",
+            "event": "Lines 'new[picked] += step' / 'new[1 - picked] -= step' highlight"
+          },
+          {
+            "at": "raises the picked",
+            "event": "Caption: 'One vote: the picked reply’s score goes up by step, the other goes down by the same amount. step is bigger when the pick was a surprise.'"
+          },
+          {
+            "at": "read the inputs",
+            "event": "Signature 'def nudge(scores, picked, learning_rate):' highlights, each argument boxed in turn"
+          },
+          {
+            "at": "isn't one of them",
+            "event": "A struck-through 'answer_key' callout appears BELOW the code (never inside it): 'Inputs: the scores · the reviewer’s pick · a step size. No answer key is passed in.'"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtCode",
+          "props": {
+            "durationSeconds": 19.29,
+            "cues": {
+              "prob": 6.24,
+              "raise": 9.62,
+              "inputs": 13.26,
+              "strike": 17.18
+            }
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-09-28T01:40:55.048720+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 24,
+      "actual_duration_s": 19.29,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 19.291666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B03.mp4",
+        "filled_by": "remotion:PtCode",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "CONSTRUCTED ASSUMPTION",
+      "narration_text": "Now the reviewers. This part is constructed, on purpose. Three in ten reviewers can check the answer, so they pick Canberra. The other seven can't check, so they pick the reply that sounds more sure of itself. That's an assumption chosen to make the mechanism visible. It isn't data about real people.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Banner: 'CONSTRUCTED ASSUMPTION — not a measurement of real reviewers'"
+          },
+          {
+            "at": "Three in ten",
+            "event": "Ten reviewer figures; three get a ✓; legend '✓ = this reviewer can check the answer'; card '3 in 10 can check → pick A'"
+          },
+          {
+            "at": "The other seven",
+            "event": "Seven figures turn terracotta; card '7 in 10 can’t check → pick the surer one, B'"
+          },
+          {
+            "at": "assumption",
+            "event": "The one-line rule from rater_pick(): 'return 0 if can_check else 1' and 'Each vote comes from a reviewer who can check with chance 0.3.'"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtRaters",
+          "props": {
+            "durationSeconds": 16.64,
+            "cues": {
+              "three": 3.46,
+              "seven": 7.1,
+              "assume": 11.64
+            }
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": "2026-09-28T01:04:33.720108+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 20,
+      "actual_duration_s": 16.64,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 16.666666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B04.mp4",
+        "filled_by": "remotion:PtRaters",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "WORKED EXAMPLE (REAL OUTPUT)",
+      "narration_text": "Let's run it: one thousand votes, seed seven. Both replies start at fifty-fifty. Canberra collects three hundred thirty-six votes. Sydney collects six hundred sixty-four. After the last nudge, the correct reply has about a thirty-three percent chance, and the confident wrong reply about sixty-seven. Nothing broke. The code did exactly what it was built to do: follow the votes.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "fifty-fifty",
+            "event": "Two bars at 50.0% / 50.0%; vote counter at 0"
+          },
+          {
+            "at": "fifty-fifty",
+            "event": "Note: 'Both start at 50/50: the toy leaves out pre-training on purpose.'"
+          },
+          {
+            "at": "three hundred thirty-six",
+            "event": "Bars step through the recorded checkpoints (10, 50, 100, 200, 500, 1000 votes) with the recorded tallies, reaching 336 / 664 as the numbers are spoken"
+          },
+          {
+            "at": "after the counter stops",
+            "event": "Note: 'Votes are random draws (chance 0.3), so Canberra got 336, not exactly 300. Seed 7 means the same random draws every time the script runs.'"
+          },
+          {
+            "at": "thirty-three percent",
+            "event": "On 'after the last nudge' the Sydney bar turns accent colour: 32.6% (Canberra, correct) vs 67.4% (Sydney, wrong)"
+          },
+          {
+            "at": "follow the votes",
+            "event": "Caption: 'Output of preference_toy.py · seed 7 · python3 preference_toy.py'"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtTraining",
+          "props": {
+            "durationSeconds": 20.42,
+            "cues": {
+              "start": 3.58,
+              "tally": 4.8,
+              "final": 9.52,
+              "nothing": 15.6
+            }
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-09-28T01:41:49.490158+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 24,
+      "actual_duration_s": 20.42,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 20.458333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B05.mp4",
+        "filled_by": "remotion:PtTraining",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "ONE-KNOB EXPERIMENT",
+      "narration_text": "Now change just one thing: how many reviewers can check. At twenty percent, Canberra ends near twenty-two percent. At forty, forty-two. At sixty, sixty-six. At eighty, eighty-two. Canberra is correct in every run. Only the votes changed. The learned chance lands near Canberra's share of the votes. The truth never enters the calculation.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Chart: x = share of reviewers who can check (20–80%), y = learned chance of the correct reply (Canberra); dashed 50% line"
+          },
+          {
+            "at": "twenty percent",
+            "event": "Points drop in one by one on the spoken values (20→22.5, 40→42.4, 60→66.3, 80→81.7); 30/50/70 fill in quietly"
+          },
+          {
+            "at": "correct in every run",
+            "event": "A 'correct in every run' ribbon spans the whole x-axis above the chart"
+          },
+          {
+            "at": "share of the votes",
+            "event": "Hollow markers for each run's vote share (21.6%…79.7%) appear beside the points"
+          },
+          {
+            "at": "after 'share of the votes'",
+            "event": "Line: 'Not just seed 7: at 30%, the wrong reply was favoured in 500 of 500 seeds.' (evidence/seed_spread_output.json)"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtSweep",
+          "props": {
+            "durationSeconds": 18.73,
+            "cues": {
+              "p20": 3.24,
+              "p40": 6.04,
+              "p60": 7.24,
+              "p80": 8.64,
+              "every": 10.7,
+              "share": 15.02
+            }
+          },
+          "rendered": {
+            "out": "media/B06.mp4",
+            "at": "2026-09-28T01:42:40.037033+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 24,
+      "actual_duration_s": 18.73,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 18.75,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B06.mp4",
+        "filled_by": "remotion:PtSweep",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "WHAT THIS DOES NOT ESTABLISH",
+      "narration_text": "Here's what this does not establish. The toy shows that a confident wrong answer can win. It does not show how often that happens in real training, and it says nothing about how Claude was trained. Many real systems, like InstructGPT, also train a separate reward model and then use reinforcement learning. This toy skips both.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Headline: 'What this does not establish'"
+          },
+          {
+            "at": "can win",
+            "event": "Left card: 'THE TOY SHOWS — ✓ A confident wrong answer can win …given reviewers we constructed, who can’t all check.'"
+          },
+          {
+            "at": "how often",
+            "event": "Right card (accent): 'IT DOES NOT SHOW — How often this happens in real training'"
+          },
+          {
+            "at": "Claude",
+            "event": "'✗ anything about how Claude was trained'"
+          },
+          {
+            "at": "reward model",
+            "event": "'✗ a typical real pipeline, e.g. InstructGPT (Ouyang et al. 2022): a reward model (a separate scorer trained on the votes), then reinforcement learning (tuning the chatbot to score well)'"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtBoundary",
+          "props": {
+            "durationSeconds": 19.05,
+            "cues": {
+              "can": 4.06,
+              "often": 5.74,
+              "claude": 9.0,
+              "pipeline": 14.14
+            }
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-09-28T01:43:30.655466+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 20,
+      "actual_duration_s": 19.05,
+      "audio_file": "mp3/beat-B07.mp3",
+      "render_duration_s": 19.083333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "remotion:PtBoundary",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "REAL-WORLD EVIDENCE",
+      "narration_text": "For real evidence, you need real studies. A 2023 study found that how assertive an answer sounds skews how many factual errors people perceive in it. It also offers preliminary evidence that training on human feedback makes model outputs more assertive.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Citation card: Hosking, Blunsom & Bartolo (2023), 'Human Feedback is not Gold Standard', arXiv:2309.16349 · abstract checked 2026-09-27"
+          },
+          {
+            "at": "found",
+            "event": "Verbatim abstract sentence types in: 'We find that the assertiveness of an output skews the perceived rate of factuality errors, indicating that human annotations are not a fully reliable evaluation metric or training objective.'"
+          },
+          {
+            "at": "preliminary",
+            "event": "Second verbatim line: '…we offer preliminary evidence that using human feedback as a training objective disproportionately increases the assertiveness of model outputs.' Footer: related finding, Sharma et al. 2023 (sycophancy)"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtEvidence",
+          "props": {
+            "durationSeconds": 16.0,
+            "cues": {
+              "quote": 4.14,
+              "neg": 10.46
+            }
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-09-28T01:44:14.995013+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 16,
+      "actual_duration_s": 16.0,
+      "audio_file": "mp3/beat-B08.mp3",
+      "render_duration_s": 16.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "remotion:PtEvidence",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "VERDICT",
+      "narration_text": "So: preference tuning follows the votes. Votes usually track the truth. When reviewers can't check, a confident wrong answer can win, and the update rule has no way to notice.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "illustrate",
+        "show": [
+          {
+            "at": "follows the votes",
+            "event": "Line 1 lands: 'Preference tuning follows the votes.'"
+          },
+          {
+            "at": "usually track",
+            "event": "Line 2 lands: 'Votes usually track the truth.'"
+          },
+          {
+            "at": "can't check",
+            "event": "Line 3 lands in accent colour: 'When reviewers can’t check, confident-and-wrong can win.'"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtVerdict",
+          "props": {
+            "durationSeconds": 10.67,
+            "cues": {
+              "l1": 1.06,
+              "l2": 2.78,
+              "l3": 4.46
+            }
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": "2026-09-28T01:44:42.835815+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 12,
+      "actual_duration_s": 10.67,
+      "audio_file": "mp3/beat-B09.mp3",
+      "render_duration_s": 10.708333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B09.mp4",
+        "filled_by": "remotion:PtVerdict",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "YOUR TURN",
+      "narration_text": "Your turn. Paste this into Claude: Give me one question where a confident wrong answer is common. Write a hedged correct reply and a confident wrong reply. Then tell me what a reviewer would need to check to pick the right one. Then check its answer against a real source yourself. A fluent reply is not a checked one.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Reconstructed Claude composer; greeting 'Your turn.'; the suggested prompt types in; no response is shown"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "SUGGESTED PROMPT · reconstructed interface · no response shown",
+            "segment": "Preference Tuning Follows the Votes",
+            "command": "Give me one question where a confident wrong answer is common. Write a hedged correct reply and a confident wrong reply. Then tell me what a reviewer would need to check to pick the right one.",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "INFO 7375 · Week 1",
+            "output": [],
+            "durationSeconds": 17.32,
+            "modelLabel": "suggested prompt",
+            "effortLabel": "",
+            "placeholder": "",
+            "largeText": true
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": "2026-09-28T01:45:29.857759+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 26,
+      "actual_duration_s": 17.32,
+      "audio_file": "mp3/beat-B10.mp3",
+      "render_duration_s": 17.333333333333332,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B10.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-09-27T22:53:35"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "OUTRO",
+      "narration_text": "Preference tuning follows the votes. Liam, narrating for Shubham.",
+      "shot": {
+        "type": "CARD",
+        "source": "remotion",
+        "motion": "hold",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "Title restate in serif with terracotta period; beneath: 'Shubham Bagwe · INFO 7375 · Week 1'; small: 'Narration: synthetic Kokoro voice (am_onyx). Toy numbers: evidence/preference_toy.py, seed 7.'"
+          }
+        ],
+        "remotion": {
+          "pattern": "PtOutro",
+          "props": {
+            "durationSeconds": 4.67
+          },
+          "rendered": {
+            "out": "media/B11.mp4",
+            "at": "2026-09-28T00:49:42.297390+00:00"
+          }
+        }
+      },
+      "estimated_duration_s": 6,
+      "actual_duration_s": 4.67,
+      "audio_file": "mp3/beat-B11.mp3",
+      "render_duration_s": 4.708333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B11.mp4",
+        "filled_by": "remotion:PtOutro",
+        "at": "2026-09-27T22:53:35"
+      }
+    }
+  ]
+}

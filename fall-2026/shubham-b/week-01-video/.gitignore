@@ -1,0 +1,18 @@
+# Regenerable build caches (rebuild with BUILD-PROMPT.md). The video,
+# Bagwe_Shubham_INFO7375_Week01_Video.mp4, is submitted on Canvas only; the repo's
+# root .gitignore keeps *.mp4 out of Git, and this folder does not force-add it.
+media/
+clips/
+mp3/
+mp4/
+images/
+manim/
+pantry/
+final/*.mp4
+_qc/stills/
+*-slate.mp4
+build-state.json
+todo.json
+ToDo.md
+STATUS.md
+__pycache__/

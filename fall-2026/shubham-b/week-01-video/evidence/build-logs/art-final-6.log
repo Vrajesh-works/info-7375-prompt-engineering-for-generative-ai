@@ -1,0 +1,20 @@
+[typecheck] wrote <course-repo>/fall-2026/shubham-b/week-01-video/TYPECHECK.md
+[typecheck] GATE T: PASS
+[art] compiled B00  VIDEO    14.5s  ← B00.mp4
+[art] compiled B01  VIDEO    12.8s  ← B01.mp4
+[art] compiled B02  VIDEO    20.2s  ← B02.mp4
+[art] compiled B03  VIDEO    19.3s  ← B03.mp4
+[art] compiled B04  VIDEO    16.7s  ← B04.mp4
+[art] compiled B05  VIDEO    20.5s  ← B05.mp4
+[art] compiled B06  VIDEO    18.8s  ← B06.mp4
+[art] compiled B07  VIDEO    19.1s  ← B07.mp4
+[art] compiled B08  VIDEO    16.0s  ← B08.mp4
+[art] compiled B09  VIDEO    10.7s  ← B09.mp4
+[art] compiled B10  VIDEO    17.3s  ← B10.mp4
+[art] compiled B11  VIDEO     4.7s  ← B11.mp4
+[art] motion histogram: illustrate:9  type-on:2  hold:1
+[art] SKIN LINT: B00: palette=claude but the cold open is 'PtHook' — COLD OPEN LAW wants ClaudeComposerAsk
+[art] SKIN LINT: B11: palette=claude but the outro is 'PtOutro' — OUTRO LAW wants ClaudeTitleOutro
+[art] build stamp → beat_sheet.json (12/12 filled)
+[art] wrote <course-repo>/fall-2026/shubham-b/week-01-video/final/preference-tuning-follows-the-votes.mp4  (190.5s, audio: per-beat timeline (source audio preserved), drawtext: no — PIL overlays)
+[art] slots: 12/12 filled — B00:VIDEO B01:VIDEO B02:VIDEO B03:VIDEO B04:VIDEO B05:VIDEO B06:VIDEO B07:VIDEO B08:VIDEO B09:VIDEO B10:VIDEO B11:VIDEO

@@ -1,0 +1,35 @@
+diff --git a/runtime/remotion/src/Root.tsx b/runtime/remotion/src/Root.tsx
+index b8b80af..4318ed4 100644
+--- a/runtime/remotion/src/Root.tsx
++++ b/runtime/remotion/src/Root.tsx
+@@ -738,6 +738,9 @@ import {GitHubCallChain,   gitHubCallChainSchema}   from './scenes/GitHubCallCha
+ import {GitHubChurn,       gitHubChurnSchema}       from './scenes/GitHubChurn';
+ import {BadgeReveal}                               from './scenes/BadgeReveal';
+ 
++import {PtIntro, PtHook, PtStages, PtCode, PtRaters, PtTraining, PtSweep, PtBoundary, PtEvidence, PtVerdict, PtOutro} from './scenes/PrefTune';
++const ptMetadata = ({props}: {props: any}) => ({durationInFrames: Math.max(30, Math.ceil(((props as any).durationSeconds ?? 10) * 30))});
++
+ export const RemotionRoot: React.FC = () => {
+   return (
+     <>
+@@ -4363,6 +4366,20 @@ export const RemotionRoot: React.FC = () => {
+           badgeScale: 0.5,
+         }}
+       />
++      {/* INFO 7375 Week 1 — Shubham Bagwe: preference tuning follows the votes */}
++      <Folder name="INFO7375-PrefTune">
++        <Composition id="PtIntro" component={PtIntro} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtHook" component={PtHook} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtStages" component={PtStages} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtCode" component={PtCode} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtRaters" component={PtRaters} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtTraining" component={PtTraining} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtSweep" component={PtSweep} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtBoundary" component={PtBoundary} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtEvidence" component={PtEvidence} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtVerdict" component={PtVerdict} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++        <Composition id="PtOutro" component={PtOutro} durationInFrames={300} fps={30} width={1920} height={1080} calculateMetadata={ptMetadata} defaultProps={{durationSeconds: 10, cues: {}}} />
++      </Folder>
+     </>
+   );
+ };

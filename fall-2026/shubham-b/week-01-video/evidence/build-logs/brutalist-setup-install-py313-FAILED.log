@@ -1,0 +1,40 @@
+ERROR: Ignored the following yanked versions: 0.1.0, 0.1.1
+ERROR: Ignored the following versions that require a different python version: 0.15.0 Requires-Python >=3.7,<3.11; 0.15.1 Requires-Python >=3.7,<3.11; 0.15.2 Requires-Python >=3.7,<3.11; 0.16.0 Requires-Python >=3.7,<3.11; 0.16.0.post0 Requires-Python >=3.7,<3.11; 0.17.0 Requires-Python >=3.8,<3.12; 0.17.1 Requires-Python >=3.8,<3.12; 0.17.2 Requires-Python >=3.8,<3.12; 0.17.3 Requires-Python >=3.8,<3.12; 0.18.0 Requires-Python >=3.8,<3.13; 0.18.0.post0 Requires-Python >=3.8,<3.13; 0.18.1 Requires-Python >=3.9,<3.13; 0.2.4 Requires-Python >=3.9,<3.11; 0.2.5 Requires-Python >=3.9,<3.13; 0.2.6 Requires-Python >=3.9,<3.13; 0.2.7 Requires-Python >=3.9,<3.13; 0.2.8 Requires-Python >=3.9,<3.13; 0.2.9 Requires-Python >=3.9,<3.13; 0.3.0 Requires-Python >=3.9,<3.13; 0.3.1 Requires-Python >=3.9,<3.13; 0.3.2 Requires-Python >=3.9,<3.13; 0.3.3 Requires-Python >=3.9,<3.13; 0.3.4 Requires-Python >=3.9,<3.13; 0.3.5 Requires-Python >=3.9,<3.13; 0.3.6 Requires-Python >=3.9,<3.13; 0.3.7 Requires-Python >=3.9,<3.13; 0.3.8 Requires-Python >=3.9,<3.13; 0.3.9 Requires-Python >=3.9,<3.13; 0.4.0 Requires-Python >=3.9,<3.13; 0.4.1 Requires-Python >=3.9,<3.13; 0.4.2 Requires-Python >=3.9,<3.13; 0.4.3 Requires-Python >=3.9,<3.13; 1.21.2 Requires-Python >=3.7,<3.11; 1.21.3 Requires-Python >=3.7,<3.11; 1.21.4 Requires-Python >=3.7,<3.11; 1.21.5 Requires-Python >=3.7,<3.11; 1.21.6 Requires-Python >=3.7,<3.11; 1.26.0 Requires-Python >=3.9,<3.13; 1.26.1 Requires-Python >=3.9,<3.13
+ERROR: Could not find a version that satisfies the requirement manim<0.19,>=0.18 (from versions: 0.2.0, 0.3.0, 0.4.0, 0.5.0, 0.6.0, 0.7.0, 0.8.0, 0.9.0, 0.10.0, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.21.0)
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+ERROR: No matching distribution found for manim<0.19,>=0.18
+Python dependency install FAILED — see pip output above.
+
+Installing Remotion node deps…
+npm warn deprecated source-map@0.8.0-beta.0: The work that was done in this beta branch won't be included in future versions
+
+added 189 packages, and audited 190 packages in 3s
+
+29 packages are looking for funding
+  run `npm fund` for details
+
+5 vulnerabilities (1 moderate, 4 high)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+
+Installing fonts (bundled families + Oswald) into ~/Library/Fonts…
+
+Downloading the Kokoro voice model (~340MB, one-time, free — not in the git repo)…
+
+ElevenLabs reference found — this toolkit is Kokoro-only for narration.
+  Files with hits:
+    ./youtube/brutalist/claude-liam-brutalist-command-setup/SCRIPT.md
+    ./youtube/brutalist/claude-liam-brutalist-command-setup/beat_sheet.json
+    ./youtube/brutalist/claude-liam-brutalist-command-setup/PROMPTS.md
+    ./youtube/brutalist/claude-liam-brutalist-command-setup/vertical/beat_sheet.json
+    ./youtube/brutalist/claude-liam-brutalist-command-setup/vertical/PROMPTS.md
+    ./youtube/brutalist/claude-liam-brutalist-runtime-brand-variant/demo/canonical/beat_sheet.json
+    ./youtube/brutalist/claude-liam-brutalist-runtime-brand-variant/demo/book-example/lectures/chap01-lecture/beat_sheet.json
+    ./youtube/brutalist/shorts/claude-liam-brutalist-command-setup-short/PROMPTS.md
+    ./youtube/brutalist/claude-liam-brutalist-skill-your-turn/demo/fixture-beat_sheet.applied.json
+    ./youtube/brutalist/claude-liam-brutalist-skill-your-turn/demo/fixture-beat_sheet.json
