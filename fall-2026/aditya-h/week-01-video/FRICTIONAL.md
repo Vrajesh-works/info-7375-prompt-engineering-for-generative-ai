@@ -300,3 +300,18 @@ was listed but not used in this video. All Python files were checked to parse
 on Python 3.11 (the oldest version the repo's CI tests), and no Markdown file
 has a relative link that CI would flag as broken.
 
+**HUMAN · Learning and uncertainty** *(retrospective, written by me on 2026-09-28; wording tidied by Claude Code)*
+
+- **AI is far more capable than I expected.** Claude Code read the toolkit's
+  documentation, wrote the sampler, the Manim scenes and the audio scripts, and
+  found and fixed its own bugs across several render-and-check rounds.
+- **But it still needs direction to do the right thing by itself.** The choices
+  that shaped the video came from my prompts and review points: the brief and its
+  constraints, approving the beat sheet, choosing silent holds, keeping the
+  Sydney example, and noticing the opening was too abrupt and asking for an intro.
+- **Using Claude Code was eye-opening,** and I learned that understanding the
+  mechanisms working in the background is crucial to getting the best out of AI.
+  In this project that meant knowing what a seed actually controls (the run, not
+  the answer) and what the toolkit's quality gates were checking when they blocked
+  a render.
+
