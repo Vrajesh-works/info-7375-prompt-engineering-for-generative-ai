@@ -45,9 +45,10 @@ footer date on each body beat is the date that run happened.
   `evidence.py`, the Manim scenes, the beat sheet and narration draft, and the drafts of README, BUILD-PROMPT,
   SOURCES and FRICTIONAL; did the Windows install/debugging and the frame-level QC fixes listed in
   FRICTIONAL.md.
-- **What Siddi did:** chose the concept, name and course repo; directed the session; reviewed the
-  narration and the rendered cut; is responsible for every claim. _(Siddi: edit this line to reflect
-  exactly what you reviewed or changed.)_
+- **What Siddi did:** chose the concept, submission name and course repo; directed the session; made
+  the build decisions recorded in FRICTIONAL.md (final built despite the kerning false positive, MP4 on
+  Canvas per the repo's rule); reviewed the opening shot and asked for the greeting change to
+  "Namaste"; is responsible for every claim in the video.
 
 ## Local toolkit changes (not upstream)
 

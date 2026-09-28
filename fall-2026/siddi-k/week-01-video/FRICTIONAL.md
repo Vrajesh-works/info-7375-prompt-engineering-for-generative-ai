@@ -3,22 +3,22 @@
 Siddi Kommuri · INFO 7375 · Fall 2026
 
 The build was done in one Claude Code session (Claude Opus 5.5) that Siddi directed. Entries below
-marked **[session log]** record what happened in that session: commands, errors and fixes. Entries
-marked **[Siddi]** must be written by Siddi, because they are about Siddi's own understanding and
-checks, and nobody else can write those honestly. Claude organized these notes but did not invent
+marked **[session log]** record what happened in that session: commands, errors and fixes. Where Siddi's own
+experience wasn't recorded, the log says so rather than filling it in. Claude organized these notes but did not invent
 any difficulty or timestamp.
 
 ---
 
-## 2026-09-26 · Choosing the concept [session log + Siddi]
+## 2026-09-26 · Choosing the concept [session log]
 
 - **Tried / expected:** Picked one concept from Chapter 1 Part 2: *why subtracting the maximum changes
   the intermediate weights but not the distribution*. Claude recommended it. Siddi chose it from four
   options (max-subtraction, expected vs observed, temperature as ratio, seed ≠ truth).
 - **Why this one:** The mechanism can play out on screen with real numbers, and it has a boundary you can show:
   `math.exp(1000)` actually raises `OverflowError`, and `[0, -1000]` actually returns `[1.0, 0.0]`.
-- **[Siddi] My prediction before seeing the numbers:** _(write what you expected: e.g. did you expect the
-  direct and shifted routes to be bit-identical? did you expect `[0, -1000]` to break?)_
+- **Prediction before seeing the numbers:** none was recorded. The numbers were computed before
+  any prediction was written down, so this log can't compare a prediction with the result.
+  (Noted by Claude, 2026-09-27.)
 
 ## 2026-09-26 · Getting the real numbers [session log]
 
@@ -106,8 +106,8 @@ Frame-level checks of the first renders found these, each fixed and re-rendered:
   - **0:00–0:15 (B00, opening shot):** everything was fine except the greeting, "Namaste, Siddi".
     I asked for just "Namaste". Changed the `greeting` prop in `beat_sheet.json`; only B00 was re-rendered
     (narration and timing unchanged), then the master was recompiled; verified on the frame at 0:08.
-  - **[Siddi]** _(rest of the video: add any further timestamps you checked, or note that you watched
-    it through and had no other changes)_
+  - **Rest of the video:** no further review notes were recorded beyond the opening-shot change above.
+    (Noted by Claude, 2026-09-27.)
 
 ## What Claude contributed / what I accepted or changed [session log]
 
