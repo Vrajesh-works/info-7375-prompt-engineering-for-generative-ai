@@ -332,6 +332,24 @@ Where to check each claim in this log. Commits in this repository are listed in 
 
 ---
 
+### 2026-09-28 — A show-tell film of Chapter 2, "Prompt contracts and evaluation"
+
+- **Date and what I was working on:** Short course films, one per chapter idea, in the show-tell style already used for the Computational Skepticism films.
+
+- **I tried / expected:** I dictated, as transcribed: "This team is Show tell Liam persona on chapter two of computational skepticism. , 'Prompt Contracts and Evaluation,' argues that an AI response can satisfy every programmed output requirement and still be factually wrong," pasted two AI summaries of the chapter, and the dictation trailed off into noise ("But you watch them yesterday, Rousseau's having a good year off the edge."). I expected a film on that chapter.
+
+- **What happened:** Claude Code searched for the chapter and found it in this repo, not in Computational Skepticism, whose Chapter 2 is about probability. I then said: "My mistake. That's prompt engineering and generative AI. Not computational skepticism. My mistake."
+
+- **What I did:** Confirmed the course. The film is built as an INFO 7375 Prompt Engineering course film, with the course credit spoken and on screen, from the chapter itself (the two pasted summaries are only a guide to emphasis). Brief: `youtube/SHOW-TELL-PROMPT-CONTRACTS.md`; reel `youtube/show-tell-a-valid-shape-can-still-be-wrong/`; working title "A Valid Shape Can Still Be Wrong," the chapter's own subtitle.
+
+- **What Claude or another person contributed:** Claude Code wrote the brief and runs the builder; the chapter's fixture, validator and one-third rate are checked against `research/worked-examples.json`. Nothing staged or published.
+
+- **What I understand now / still do not understand:** A dictated course name is a claim like any other; the search caught it before the film did. Still open: whether the older `claude-liam-show-tell-*` films here, which never speak the course credit, should be re-cut to match.
+
+- **Evidence and next step:** the brief; once built, the reel folder's BUILD-LOG and FACTCHECK. Next: watch the master, then decide on publishing.
+
+---
+
 ## GitHub pushes
 
 One line per push to GitHub: the date and the commit note. The commit ID for each push is in `git log`; a commit can't contain its own ID.
@@ -401,3 +419,4 @@ One line per push to GitHub: the date and the commit note. The commit ID for eac
 | 2026-09-28 | docs(fall-2026): log the sign-off on Figma films 16 to 25 |
   - **Done the same day:** all ten are up, unlisted, native 4K, one caption track each, in both playlists: 16 _-h7rkUej70, 17 YjoIfoOJgsk, 18 hQXXcFHSR04, 19 DnXiQWK8jc4, 20 j_yLifLc38k, 21 tYH92Pqw-MM, 22 zCHGiWw4L1s, 23 z5VC4u2K3gs, 24 urIYFefBWfM, 25 vos_5jXGQUs (youtu.be/…). Twenty-six films in the Figma playlist.
 | 2026-09-28 | docs(fall-2026): log films 16 to 25 going up unlisted |
+| 2026-09-28 | docs(fall-2026): log the Chapter 2 show-tell film and the course mix-up |
